@@ -18,6 +18,7 @@ namespace Scripts.UI
             _buttons = GetComponentsInChildren<Button>();
 
             _canvasGroup.alpha = _openIndex;
+            _canvasGroup.blocksRaycasts = true;
 
             if (_buttons != null)
             {
@@ -34,6 +35,7 @@ namespace Scripts.UI
             _buttons = GetComponentsInChildren<Button>();
 
             _canvasGroup.alpha = _closeIndex;
+            _canvasGroup.blocksRaycasts = false;
 
             if (_buttons != null)
             {

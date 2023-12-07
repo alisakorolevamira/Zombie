@@ -29,12 +29,6 @@ namespace Scripts.Characters
             _spawner = AllServices.Container.Single<ISpawnerService>().CurrentSitizenSpawner;
             _health = AllServices.Container.Single<IZombieHealthService>();
 
-            if (_health != null)
-            {
-               // _health.DamageApplied += OnDamageApplied;
-               // _health.Died += OnDied;
-            }
-
             _health.DamageApplied += OnDamageApplied;
             _health.Died += OnDied;
 

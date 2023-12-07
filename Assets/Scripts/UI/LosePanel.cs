@@ -17,12 +17,14 @@ namespace Scripts.UI
         private SitizenSpawner _sitizenSpawner;
         private LevelPanel _levelPanel;
         private WinPanel _winPanel;
+        private Image _image;
 
         private void OnEnable()
         {
             _spawnerService = AllServices.Container.Single<ISpawnerService>();
             _sitizenSpawner = _spawnerService.CurrentSitizenSpawner;
             _levelPanel = GetComponentInParent<LevelPanel>();
+            _image = GetComponent<Image>();
 
             _sitizenSpawner.AllSitizensDied += Open;
             _levelButton.onClick.AddListener(OnNextLevelButtonClick);
@@ -42,11 +44,20 @@ namespace Scripts.UI
         {
             base.Open();
 
+            _image.raycastTarget = true;
+
             if (_spawnerService != null)
             {
                 _winPanel = _spawnerService.CurrentPanelSpawner.GetPanel<WinPanel>();
                 _winPanel.Close();
             }
+        }
+
+        public override void Close()
+        {
+            base.Close();
+
+            _image.raycastTarget = false;
         }
 
         private void OnNextLevelButtonClick()

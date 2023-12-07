@@ -116,8 +116,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ce1ff52c451d204da8536e488f63dbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sitizen: {fileID: 8114648546541341768}
-  _text: {fileID: 732090877700652155}
 --- !u!1 &4026097841159418766
 GameObject:
   m_ObjectHideFlags: 0
@@ -4926,7 +4924,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 8dbccd4aa9f352c408cfc4eeda6c52c5, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 

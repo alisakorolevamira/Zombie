@@ -21,12 +21,14 @@ namespace Scripts.UI
         private IZombieHealthService _zombieHealthService;
         private LevelPanel _levelPanel;
         private LosePanel _losePanel;
+        private Image _image;
 
         private void OnEnable()
         {
             _zombieHealthService = AllServices.Container.Single<IZombieHealthService>();
             _spawnerService = AllServices.Container.Single<ISpawnerService>();
             _levelPanel = GetComponentInParent<LevelPanel>();
+            _image = GetComponent<Image>();
 
             if (_zombieHealthService != null)
             {
@@ -54,11 +56,20 @@ namespace Scripts.UI
         {
             base.Open();
 
+            _image.raycastTarget = true;
+
             if (_spawnerService != null)
             {
                 _losePanel = _spawnerService.CurrentPanelSpawner.GetPanel<LosePanel>();
                 _losePanel.Close();
             }
+        }
+
+        public override void Close()
+        {
+            base.Close();
+
+            _image.raycastTarget = false;
         }
 
         private void OnNextLevelButtonClick()
