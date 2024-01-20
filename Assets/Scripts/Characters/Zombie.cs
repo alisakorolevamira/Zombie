@@ -72,6 +72,7 @@ namespace Scripts.Characters
         private void OnDied()
         {
             IsDead = true;
+            _deathEffect.transform.parent = null;
             _deathEffect.Play();
 
             if (_health != null)

@@ -10,7 +10,7 @@ namespace Scripts.Spawner
         [SerializeField] private LevelPanel _levelPanel;
         [SerializeField] private LoadingPanel _loadingPanel;
 
-        private const string Menu = "Menu";
+        private readonly int _menuIndex = 1;
 
         public GameStateMachine StateMachine;
 
@@ -26,9 +26,9 @@ namespace Scripts.Spawner
             return panel;
         }
 
-        public void CreateCanvas(string sceneName)
+        public void CreateCanvas(int sceneIndex)
         {
-            if (sceneName == Menu)
+            if (sceneIndex == _menuIndex)
             {
                 _menuPanel.gameObject.SetActive(true);
                 _levelPanel.gameObject.SetActive(false);

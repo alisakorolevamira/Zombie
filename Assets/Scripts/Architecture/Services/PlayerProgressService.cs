@@ -7,8 +7,9 @@ namespace Scripts.Architecture.Services
     {
         private const string Money = "Money";
         private const string Level = "Level";
-        private readonly string Menu = "Menu";
+        private readonly int _menuIndex = 1;
         private readonly int _defaultValue = 0;
+
         private readonly ISaveLoadService _saveLoadService;
 
         public PlayerProgress Progress { get; private set; }
@@ -21,7 +22,7 @@ namespace Scripts.Architecture.Services
         public void LoadProgress()
         {
             int money = _saveLoadService.LoadProgress(Money, _defaultValue);
-            string level = _saveLoadService.LoadProgress(Level, Menu);
+            int level = _saveLoadService.LoadProgress(Level, _menuIndex);
 
             Progress = new PlayerProgress(money, level);
         }
@@ -42,7 +43,7 @@ namespace Scripts.Architecture.Services
 
         private void UpdateProgress()
         {
-            Progress.Level = SceneManager.GetActiveScene().name;
+            Progress.Level = SceneManager.GetActiveScene().buildIndex;
         }
     }
 }

@@ -4944,8 +4944,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa5f9d9e141897949ba72e370c034786, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 100
-  _damage: 15
+  _health: 120
+  _damage: 20
   SpawnPoint: {fileID: 0}
   TypeId: 1
 --- !u!1 &6794085934616464309

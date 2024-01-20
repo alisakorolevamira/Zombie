@@ -2,23 +2,26 @@
 
 namespace Scripts.Architecture.States
 {
-    public class LoadProgressState : IPayLoadedState<string>
+    public class LoadProgressState : IPayLoadedState<int>
     {
         private readonly GameStateMachine _gameStateMachine;
         private readonly IPlayerProgressService _playerProgressService;
         private readonly IZombieProgressService _zombieProgressService;
+        private readonly ICardsPricesProgressService _cardsPricesProgressService;
 
-        public LoadProgressState(GameStateMachine gameStateMachine, IPlayerProgressService playerProgressService, IZombieProgressService zombieProgressService)
+        public LoadProgressState(GameStateMachine gameStateMachine, IPlayerProgressService playerProgressService,
+            IZombieProgressService zombieProgressService, ICardsPricesProgressService cardsPricesProgressService)
         {
             _gameStateMachine = gameStateMachine;
             _playerProgressService = playerProgressService;
             _zombieProgressService = zombieProgressService;
+            _cardsPricesProgressService = cardsPricesProgressService;
         }
 
-        public void Enter(string sceneName)
+        public void Enter(int sceneIndex)
         {
             LoadProgress();
-            _gameStateMachine.Enter<LoadLevelState, string>(sceneName);
+            _gameStateMachine.Enter<LoadLevelState, int>(sceneIndex);
         }
 
         public void Exit() { }
@@ -27,6 +30,7 @@ namespace Scripts.Architecture.States
         {
             _playerProgressService.LoadProgress();
             _zombieProgressService.LoadProgress();
+            _cardsPricesProgressService.LoadProgress();
         }
     }
 }

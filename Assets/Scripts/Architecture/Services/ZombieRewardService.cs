@@ -4,23 +4,24 @@ namespace Scripts.Architecture.Services
     {
         private readonly int _coefficientOfChangingReward = 2;
         private readonly IPlayerMoneyService _playerMoneyService;
-        private int _reward = 10;
+        private readonly IZombieProgressService _zombieProgressService;
 
-        public ZombieRewardService(IPlayerMoneyService playerMoneyService)
+        public int Reward { get { return _zombieProgressService.Progress.Reward; } }
+
+        public ZombieRewardService(IPlayerMoneyService playerMoneyService, IZombieProgressService zombieProgressService)
         {
             _playerMoneyService = playerMoneyService;
+            _zombieProgressService = zombieProgressService;
         }
-
-        public int Reward { get { return _reward; } }
 
         public void DoubleReward()
         {
-            _reward *= _coefficientOfChangingReward;
+            _zombieProgressService.Progress.Reward *= _coefficientOfChangingReward;
         }
 
         public void GiveRewardToPlayer()
         {
-            _playerMoneyService.AddMoney(_reward);
+            _playerMoneyService.AddMoney(_zombieProgressService.Progress.Reward);
         }
     }
 }

@@ -3,9 +3,9 @@ namespace Scripts.Progress
     public class PlayerProgress
     {
         public int Money;
-        public string Level;
+        public int Level;
 
-        public PlayerProgress(int money, string level)
+        public PlayerProgress(int money, int level)
         {
             Level = level;
             Money = money;

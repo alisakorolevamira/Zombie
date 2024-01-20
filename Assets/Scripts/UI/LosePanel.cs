@@ -11,13 +11,15 @@ namespace Scripts.UI
         [SerializeField] private Button _levelButton;
         [SerializeField] private Button _menuButton;
 
-        private const string Menu = "Menu";
+        private readonly int _menuIndex = 1;
 
+        private bool _isOpened;
         private ISpawnerService _spawnerService;
         private SitizenSpawner _sitizenSpawner;
         private LevelPanel _levelPanel;
         private WinPanel _winPanel;
         private Image _image;
+        private AudioSource _audioSource;
 
         private void OnEnable()
         {
@@ -25,6 +27,7 @@ namespace Scripts.UI
             _sitizenSpawner = _spawnerService.CurrentSitizenSpawner;
             _levelPanel = GetComponentInParent<LevelPanel>();
             _image = GetComponent<Image>();
+            _audioSource = GetComponent<AudioSource>();
 
             _sitizenSpawner.AllSitizensDied += Open;
             _levelButton.onClick.AddListener(OnNextLevelButtonClick);
@@ -42,14 +45,20 @@ namespace Scripts.UI
 
         public override void Open()
         {
-            base.Open();
-
-            _image.raycastTarget = true;
-
-            if (_spawnerService != null)
+            if (!_isOpened)
             {
-                _winPanel = _spawnerService.CurrentPanelSpawner.GetPanel<WinPanel>();
-                _winPanel.Close();
+                base.Open();
+
+                _image.raycastTarget = true;
+                _audioSource.PlayOneShot(_audioSource.clip);
+
+                if (_spawnerService != null)
+                {
+                    _winPanel = _spawnerService.CurrentPanelSpawner.GetPanel<WinPanel>();
+                    _winPanel.Close();
+                }
+
+                _isOpened = true;
             }
         }
 
@@ -58,16 +67,17 @@ namespace Scripts.UI
             base.Close();
 
             _image.raycastTarget = false;
+            _isOpened = false;
         }
 
         private void OnNextLevelButtonClick()
         {
-            _levelPanel.OpenSceneWithResetingProgress(SceneManager.GetActiveScene().name);
+            _levelPanel.OpenSceneWithResetingProgress(SceneManager.GetActiveScene().buildIndex);
         }
 
         private void OnMenuButtonClick()
         {
-            _levelPanel.OpenNextScene(Menu);
+            _levelPanel.OpenNextScene(_menuIndex);
         }
     }
 }

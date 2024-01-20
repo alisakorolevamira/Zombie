@@ -7,8 +7,9 @@ namespace Scripts.Architecture.States
 {
     public class BootstrapState : IState
     {
-        private const string Initial = "Initial";
-        private const string Menu = "Menu";
+        private readonly int _initialIndex = 0;
+        private readonly int _menuIndex = 1;
+
         private readonly GameStateMachine _gameStateMachine;
         private readonly SceneLoader _sceneLoader;
         private readonly AllServices _services;
@@ -26,7 +27,7 @@ namespace Scripts.Architecture.States
 
         public void Enter()
         {
-            _sceneLoader.Load(Initial, EnterLoadLevel);
+            _sceneLoader.Load(_initialIndex, EnterLoadLevel);
         }
 
 
@@ -38,8 +39,10 @@ namespace Scripts.Architecture.States
             _services.RegisterSingle<ISaveLoadService>(new SaveLoadService());
             _services.RegisterSingle<IPlayerProgressService>(new PlayerProgressService(_services.Single<ISaveLoadService>()));
             _services.RegisterSingle<IPlayerMoneyService>(new PlayerMoneyService(_services.Single<IPlayerProgressService>()));
-            _services.RegisterSingle<IZombieRewardService>(new ZombieRewardService(_services.Single<IPlayerMoneyService>()));
             _services.RegisterSingle<IZombieProgressService>(new ZombieProgressService(_services.Single<ISaveLoadService>()));
+            _services.RegisterSingle<ICardsPricesProgressService>(new CardsPricesProgressService(_services.Single<ISaveLoadService>()));
+            _services.RegisterSingle<IZombieRewardService>(new ZombieRewardService(_services.Single<IPlayerMoneyService>(),
+                _services.Single<IZombieProgressService>()));
             _services.RegisterSingle<IZombieHealthService>(new ZombieHealthService(_services.Single<IZombieProgressService>(),
                 _services.Single<IZombieRewardService>()));
             _services.RegisterSingle<ISpawnerService>(new SpawnerService(_spawner.GetComponent<PanelSpawner>(),
@@ -48,7 +51,7 @@ namespace Scripts.Architecture.States
 
         private void EnterLoadLevel()
         {
-            _gameStateMachine.Enter<LoadProgressState, string>(Menu);
+            _gameStateMachine.Enter<LoadProgressState, int>(_menuIndex);
         }
     }
 }

@@ -1,5 +1,7 @@
+using DG.Tweening;
 using Scripts.Architecture.Services;
 using Scripts.Spawner;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace Scripts.UI.Cards
@@ -17,21 +19,37 @@ namespace Scripts.UI.Cards
 
             _spawnerService = AllServices.Container.Single<ISpawnerService>();
             _sitizenSpawner = _spawnerService.CurrentSitizenSpawner;
+            _priceText.text = _progressService.Progress.AddSpeedCardPrice.ToString();
         }
 
         private protected override void OnButtonClicked()
         {
-
-            if (_playerMoneyService.Money() >= _currentPrice && _sitizenSpawner.Sitizens != null)
+            if (_playerMoneyService.Money() >= _progressService.Progress.AddSpeedCardPrice && _sitizenSpawner.Sitizens != null)
             {
-                CardBought?.Invoke(_currentPrice);
+                CardBought?.Invoke(_progressService.Progress.AddSpeedCardPrice);
 
                 foreach (var sitizen in _sitizenSpawner.Sitizens)
                 {
                     sitizen.AddSpeed();
                 }
 
+                _progressService.Progress.AddSpeedCardPrice *= _coefficientOfInceasing;
+                _priceText.text = _progressService.Progress.AddSpeedCardPrice.ToString();
+
                 base.OnButtonClicked();
+            }
+        }
+
+        private protected override void ChangeColor()
+        {
+            if (_playerMoneyService.Money() >= _progressService.Progress.AddSpeedCardPrice)
+            {
+                _image.DOColor(Color.green, _timeOfChangingColor);
+            }
+
+            else
+            {
+                base.ChangeColor();
             }
         }
     }

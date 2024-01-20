@@ -5,10 +5,11 @@ using UnityEngine;
 
 namespace Scripts.Architecture.States
 {
-    public class LoadLevelState : IPayLoadedState<string>
+    public class LoadLevelState : IPayLoadedState<int>
     {
-        private const string Menu = "Menu";
-        private const string Initial = "Initial";
+        private readonly int _menuIndex = 1;
+        private readonly int _initialIndex = 0;
+
         private readonly GameStateMachine _gameStateMachine;
         private readonly SceneLoader _sceneLoader;
         private readonly GameObject _spawner;
@@ -21,13 +22,13 @@ namespace Scripts.Architecture.States
             _spawner = spawner;
         }
 
-        public void Enter(string sceneName)
+        public void Enter(int sceneIndex)
         {
-            LoadCanvas(sceneName);
+            LoadCanvas(sceneIndex);
 
             _sceneLoaded += OnLoaded;
 
-            _sceneLoader.Load(sceneName, _sceneLoaded);
+            _sceneLoader.Load(sceneIndex, _sceneLoaded);
         }
 
         public void Exit()
@@ -50,16 +51,16 @@ namespace Scripts.Architecture.States
             _sceneLoaded -= SpawnersOnLoaded;
         }
 
-        private void LoadCanvas(string sceneName)
+        private void LoadCanvas(int sceneIndex)
         {
             _spawner.GetComponentInChildren<PanelSpawner>().DisableAllPanels();
 
             LoadingPanel loadingPanel = _spawner.GetComponentInChildren<LoadingPanel>();
             loadingPanel.Open();
 
-            _spawner.GetComponent<PanelSpawner>().CreateCanvas(sceneName);
+            _spawner.GetComponent<PanelSpawner>().CreateCanvas(sceneIndex);
 
-            if (sceneName != Menu && sceneName != Initial)
+            if (sceneIndex != _menuIndex && sceneIndex != _initialIndex)
             {
                 _sceneLoaded += SpawnersOnLoaded;
             }

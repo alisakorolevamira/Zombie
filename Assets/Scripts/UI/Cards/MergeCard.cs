@@ -23,6 +23,7 @@ namespace Scripts.UI.Cards
 
             _spawnerService = AllServices.Container.Single<ISpawnerService>();
             _sitizenSpawner = _spawnerService.CurrentSitizenSpawner;
+            _priceText.text = _progressService.Progress.MergeCardPrice.ToString();
 
             _sitizenSpawner.NumberOfSitizensChanged += ChangeColor;
         }
@@ -36,10 +37,13 @@ namespace Scripts.UI.Cards
 
         private protected override void OnButtonClicked()
         {
-            if (_playerMoneyService.Money() >= _currentPrice && _sitizenSpawner.Sitizens.Count >= _requiredNumberOfSitizens)
+            if (_playerMoneyService.Money() >= _progressService.Progress.MergeCardPrice && _sitizenSpawner.Sitizens.Count >= _requiredNumberOfSitizens)
             {
                 OnClicked?.Invoke();
-                CardBought?.Invoke(_currentPrice);
+                CardBought?.Invoke(_progressService.Progress.MergeCardPrice);
+
+                _progressService.Progress.MergeCardPrice *= _coefficientOfInceasing;
+                _priceText.text = _progressService.Progress.MergeCardPrice.ToString();
 
                 base.OnButtonClicked();
             }
@@ -49,14 +53,14 @@ namespace Scripts.UI.Cards
         {
             List<Sitizen> firstLevelSitizens = _sitizenSpawner.Sitizens.FindAll(p => p.GetComponent<Sitizen>().TypeId == SitizenTypeId.FirstSitizen);
 
-            if (_playerMoneyService.Money() >= _currentPrice && firstLevelSitizens.Count >= _requiredNumberOfSitizens)
+            if (_playerMoneyService.Money() >= _progressService.Progress.MergeCardPrice && firstLevelSitizens.Count >= _requiredNumberOfSitizens)
             {
                 _image.DOColor(Color.green, _timeOfChangingColor);
             }
 
             else
             {
-                _image.DOColor(Color.white, _timeOfChangingColor);
+                base.ChangeColor();
             }
         }
     }

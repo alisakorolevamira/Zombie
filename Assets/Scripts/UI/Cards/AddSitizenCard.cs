@@ -20,6 +20,7 @@ namespace Scripts.UI.Cards
 
             _spawnerService = AllServices.Container.Single<ISpawnerService>();
             _sitizenSpawner = _spawnerService.CurrentSitizenSpawner;
+            _priceText.text = _progressService.Progress.AddSitizenCardPrice.ToString();
 
             _sitizenSpawner.NumberOfSitizensChanged += ChangeColor;
         }
@@ -33,10 +34,13 @@ namespace Scripts.UI.Cards
 
         private protected override void OnButtonClicked()
         {
-            if (_playerMoneyService.Money() >= _currentPrice && _sitizenSpawner.CheckAmountOfSitizens())
+            if (_playerMoneyService.Money() >= _progressService.Progress.AddSitizenCardPrice && _sitizenSpawner.CheckAmountOfSitizens())
             {
                 OnClicked?.Invoke();
-                CardBought?.Invoke(_currentPrice);
+                CardBought?.Invoke(_progressService.Progress.AddSitizenCardPrice);
+
+                _progressService.Progress.AddSitizenCardPrice *= _coefficientOfInceasing;
+                _priceText.text = _progressService.Progress.AddSitizenCardPrice.ToString();
 
                 base.OnButtonClicked();
             }
@@ -45,14 +49,14 @@ namespace Scripts.UI.Cards
         private protected override void ChangeColor()
         {
 
-            if (_playerMoneyService.Money() >= _currentPrice && _sitizenSpawner.CheckAmountOfSitizens())
+            if (_playerMoneyService.Money() >= _progressService.Progress.AddSitizenCardPrice && _sitizenSpawner.CheckAmountOfSitizens())
             {
                 _image.DOColor(Color.green, _timeOfChangingColor);
             }
 
             else
             {
-                _image.DOColor(Color.white, _timeOfChangingColor);
+                base.ChangeColor();
             }
         }
     }

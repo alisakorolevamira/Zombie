@@ -10,18 +10,17 @@ namespace Scripts.UI
         [SerializeField] private Button _levelButton;
         [SerializeField] private Button _menuButton;
 
-        private const string Menu = "Menu";
-        private const string FirstLevel = "FirstLevel";
-        private const string SecondLevel = "SecondLevel";
-        private const string ThirdLevel = "ThirdLevel";
-        private const string FourthLevel = "FourthLevel";
-        private const string FifthLevel = "FifthLevel";
+        private readonly int _menuIndex = 1;
+        private readonly int _levelCoefficient = 1;
 
+        private int _lastLevelIndex;
+        private bool _isOpened;
         private ISpawnerService _spawnerService;
         private IZombieHealthService _zombieHealthService;
         private LevelPanel _levelPanel;
         private LosePanel _losePanel;
         private Image _image;
+        private AudioSource _audioSource;
 
         private void OnEnable()
         {
@@ -29,6 +28,8 @@ namespace Scripts.UI
             _spawnerService = AllServices.Container.Single<ISpawnerService>();
             _levelPanel = GetComponentInParent<LevelPanel>();
             _image = GetComponent<Image>();
+            _audioSource = GetComponent<AudioSource>();
+            _lastLevelIndex = SceneManager.sceneCountInBuildSettings - _levelCoefficient;
 
             if (_zombieHealthService != null)
             {
@@ -54,14 +55,20 @@ namespace Scripts.UI
 
         public override void Open()
         {
-            base.Open();
-
-            _image.raycastTarget = true;
-
-            if (_spawnerService != null)
+            if (!_isOpened)
             {
-                _losePanel = _spawnerService.CurrentPanelSpawner.GetPanel<LosePanel>();
-                _losePanel.Close();
+                base.Open();
+
+                _image.raycastTarget = true;
+                _audioSource.PlayOneShot(_audioSource.clip);
+
+                if (_spawnerService != null)
+                {
+                    _losePanel = _spawnerService.CurrentPanelSpawner.GetPanel<LosePanel>();
+                    _losePanel.Close();
+                }
+
+                _isOpened = true;
             }
         }
 
@@ -70,37 +77,27 @@ namespace Scripts.UI
             base.Close();
 
             _image.raycastTarget = false;
+            _isOpened = false;
         }
 
         private void OnNextLevelButtonClick()
         {
-            string activeScene = SceneManager.GetActiveScene().name;
+            int activeScene = SceneManager.GetActiveScene().buildIndex;
 
-            switch (activeScene)
+            if (activeScene != _lastLevelIndex)
             {
-                case FirstLevel:
-                    _levelPanel.OpenSceneWithResetingProgress(SecondLevel);
-                    break;
-                case SecondLevel:
-                    _levelPanel.OpenSceneWithResetingProgress(ThirdLevel);
-                    break;
-                case ThirdLevel:
-                    _levelPanel.OpenSceneWithResetingProgress(FourthLevel);
-                    break;
-                case FourthLevel:
-                    _levelPanel.OpenSceneWithResetingProgress(FifthLevel);
-                    break;
-                case FifthLevel:
-                    _levelPanel.OpenSceneWithResetingProgress(Menu);
-                    break;
-                default:
-                    break;
+                _levelPanel.OpenSceneWithResetingProgress(activeScene + _levelCoefficient);
+            }
+
+            else
+            {
+                _levelPanel.OpenSceneWithResetingProgress(_menuIndex);
             }
         }
 
         private void OnMenuButtonClick()
         {
-            _levelPanel.OpenNextScene(Menu);
+            _levelPanel.OpenNextScene(1);
         }
     }
 }

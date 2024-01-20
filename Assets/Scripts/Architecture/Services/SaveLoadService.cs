@@ -4,6 +4,7 @@ namespace Scripts.Architecture.Services
 {
     public class SaveLoadService : ISaveLoadService
     {
+        
         public int LoadProgress(string key, int value)
         {
             return PlayerPrefs.GetInt(key, value);

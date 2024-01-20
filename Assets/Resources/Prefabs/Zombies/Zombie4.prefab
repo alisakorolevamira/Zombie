@@ -1831,7 +1831,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb8771d36df9765459780e6b504315c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 30
+  _damage: 17
   _deathEffect: {fileID: 4918264917159714492}
   _bloodEffect: {fileID: 1851888714316234454}
   IsDead: 0
@@ -5922,19 +5922,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 473066, guid: 0f75f6db4a318f54382e0c98b2226db8, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.66551083
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 473066, guid: 0f75f6db4a318f54382e0c98b2226db8, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.23894629
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 473066, guid: 0f75f6db4a318f54382e0c98b2226db8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.23894626
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 473066, guid: 0f75f6db4a318f54382e0c98b2226db8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.66551083
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 473066, guid: 0f75f6db4a318f54382e0c98b2226db8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5946,7 +5946,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 473066, guid: 0f75f6db4a318f54382e0c98b2226db8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

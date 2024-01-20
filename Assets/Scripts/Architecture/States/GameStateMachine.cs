@@ -1,4 +1,3 @@
-using Scripts.Architecture.Factory;
 using Scripts.Architecture.Services;
 using System;
 using System.Collections.Generic;
@@ -18,7 +17,7 @@ namespace Scripts.Architecture.States
                 [typeof(BootstrapState)] = new BootstrapState(this, sceneLoader, services, spawner),
                 [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader, spawner),
                 [typeof(LoadProgressState)] = new LoadProgressState(this, services.Single<IPlayerProgressService>(), 
-                services.Single<IZombieProgressService>()),
+                services.Single<IZombieProgressService>(), services.Single<ICardsPricesProgressService>()),
                 [typeof(GameLoopState)] = new GameLoopState()
             };
         }
