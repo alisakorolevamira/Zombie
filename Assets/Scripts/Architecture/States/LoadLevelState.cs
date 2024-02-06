@@ -1,5 +1,5 @@
 ﻿using Scripts.Spawner;
-using Scripts.UI;
+using Scripts.UI.Panels;
 using System;
 using UnityEngine;
 
@@ -7,8 +7,8 @@ namespace Scripts.Architecture.States
 {
     public class LoadLevelState : IPayLoadedState<int>
     {
-        private readonly int _menuIndex = 1;
-        private readonly int _initialIndex = 0;
+        private readonly int _menuIndex = 2;
+        private readonly int _initialIndex = 1;
 
         private readonly GameStateMachine _gameStateMachine;
         private readonly SceneLoader _sceneLoader;

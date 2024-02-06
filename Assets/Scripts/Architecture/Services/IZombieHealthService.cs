@@ -1,14 +1,15 @@
-﻿using UnityEngine.Events;
+﻿using System;
 
 namespace Scripts.Architecture.Services
 {
     public interface IZombieHealthService : IService
     {
-        event UnityAction DamageApplied;
-        event UnityAction Died;
-        event UnityAction<int, int> HealthChanged;
+        event Action DamageApplied;
+        event Action Died;
+        event Action<int, int> HealthChanged;
+
+        int Health { get; }
 
         void ChangeHealth(int damage);
-        int Health();
     }
 }

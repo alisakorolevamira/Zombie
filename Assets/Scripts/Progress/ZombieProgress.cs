@@ -3,12 +3,14 @@ namespace Scripts.Progress
     public class ZombieProgress
     {
         public int Health;
-        public int Reward;
+        public int MoneyReward;
+        public int ScoreReward;
 
-        public ZombieProgress(int health, int reward)
+        public ZombieProgress(int health, int moneyReward, int scoreReward)
         {
             Health = health;
-            Reward = reward;
+            MoneyReward = moneyReward;
+            ScoreReward = scoreReward;
         }
     }
 }

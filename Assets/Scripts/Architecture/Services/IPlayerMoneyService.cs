@@ -1,14 +1,16 @@
-﻿using UnityEngine.Events;
+﻿using System;
 
 namespace Scripts.Architecture.Services
 {
     public interface IPlayerMoneyService : IService
     {
-        event UnityAction MoneyChanged;
+        event Action MoneyChanged;
 
-        void AddMoney(int value);
+        int Money { get; }
+        int AddReward { get; }
+
         bool IsEnoughMoney(int value);
-        int Money();
+        void AddMoney(int value);
         void SpendMoney(int value);
     }
 }

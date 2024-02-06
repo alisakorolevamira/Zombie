@@ -30,9 +30,7 @@ namespace Scripts.Architecture
             AsyncOperation waitNextScene = SceneManager.LoadSceneAsync(nextSceneIndex);
 
             while (!waitNextScene.isDone)
-            {
                 yield return null;
-            }
 
             onLoaded?.Invoke();
         }

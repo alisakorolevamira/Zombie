@@ -1,46 +1,42 @@
-using UnityEngine.Events;
+using System;
 
 namespace Scripts.Architecture.Services
 {
     public class ZombieHealthService : IZombieHealthService
     {
-        private readonly IZombieProgressService _progressService;
+        private readonly int _maximumHealth = 500;
         private readonly IZombieRewardService _rewardService;
+        private readonly ISaveLoadService _saveLoadService;
 
-        public event UnityAction<int, int> HealthChanged;
-        public event UnityAction DamageApplied;
-        public event UnityAction Died;
-
-        public ZombieHealthService(IZombieProgressService progressService, IZombieRewardService rewardService)
+        public ZombieHealthService(IZombieRewardService rewardService, ISaveLoadService saveLoadService)
         {
-            _progressService = progressService;
             _rewardService = rewardService;
+            _saveLoadService = saveLoadService;
         }
 
-        public int Health()
-        {
-            return _progressService.Progress.Health;
-        }
+        public event Action<int, int> HealthChanged;
+        public event Action DamageApplied;
+        public event Action Died;
+
+        public int Health => _saveLoadService.ZombieProgress.Health;
 
         public void ChangeHealth(int damage)
         {
-            _progressService.Progress.Health -= damage;
+            _saveLoadService.ZombieProgress.Health -= damage;
 
             _rewardService.GiveRewardToPlayer();
 
-            HealthChanged?.Invoke(_progressService.Progress.Health, _progressService.MaximumHealth);
+            HealthChanged?.Invoke(_saveLoadService.ZombieProgress.Health, _maximumHealth);
             DamageApplied?.Invoke();
 
             CheckDeath();
-            _progressService.SaveProgress();
+            _saveLoadService.SaveProgress();
         }
 
         private void CheckDeath()
         {
-            if (Health() <= 0)
-            {
+            if (Health <= 0)
                 Died?.Invoke();
-            }
         }
     }
 }

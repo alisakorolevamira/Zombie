@@ -16,8 +16,7 @@ namespace Scripts.Architecture.States
             {
                 [typeof(BootstrapState)] = new BootstrapState(this, sceneLoader, services, spawner),
                 [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader, spawner),
-                [typeof(LoadProgressState)] = new LoadProgressState(this, services.Single<IPlayerProgressService>(), 
-                services.Single<IZombieProgressService>(), services.Single<ICardsPricesProgressService>()),
+                [typeof(LoadProgressState)] = new LoadProgressState(this, services.Single<ISaveLoadService>()),
                 [typeof(GameLoopState)] = new GameLoopState()
             };
         }

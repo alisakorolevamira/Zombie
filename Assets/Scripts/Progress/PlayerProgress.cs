@@ -4,11 +4,13 @@ namespace Scripts.Progress
     {
         public int Money;
         public int Level;
+        public int Score;
 
-        public PlayerProgress(int money, int level)
+        public PlayerProgress(int level, int money, int score)
         {
             Level = level;
             Money = money;
+            Score = score;
         }
     }
 }

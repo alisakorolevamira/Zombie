@@ -1,28 +1,29 @@
 using Scripts.Architecture.Services;
+using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Scripts.Characters.Sitizens
 {
     [RequireComponent(typeof(Animator))]
     public class Sitizen : MonoBehaviour
     {
+        private const string Hit = "Hit";
+        private readonly int _coefficientOfChangingSpeed = 2;
+
         [SerializeField] private int _health;
         [SerializeField] private int _damage;
 
         public SpawnPoint SpawnPoint;
         public SitizenTypeId TypeId;
 
-        private const string Hit = "Hit";
         private float _speed = 3;
-        private readonly int _coefficientOfChangingSpeed = 2;
         private bool _isDead = false;
         private Animator _animator;
         private IZombieHealthService _zombieHealthService;
 
-        public event UnityAction<int> HealthChanged;
-        public event UnityAction<Sitizen> Died;
+        public event Action<int> HealthChanged;
+        public event Action<Sitizen> Died;
 
         private void Start()
         {
@@ -54,7 +55,7 @@ namespace Scripts.Characters.Sitizens
 
         private IEnumerator ApplyDamage()
         {
-            while (!_isDead && _zombieHealthService.Health() >= 0)
+            while (!_isDead && _zombieHealthService.Health >= 0)
             {
                 _animator.SetTrigger(Hit);
                 _zombieHealthService.ChangeHealth(_damage);

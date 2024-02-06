@@ -7,8 +7,8 @@ namespace Scripts.Architecture.States
 {
     public class BootstrapState : IState
     {
-        private readonly int _initialIndex = 0;
-        private readonly int _menuIndex = 1;
+        private readonly int _initialIndex = 1;
+        private readonly int _menuIndex = 2;
 
         private readonly GameStateMachine _gameStateMachine;
         private readonly SceneLoader _sceneLoader;
@@ -37,14 +37,12 @@ namespace Scripts.Architecture.States
         {
             _services.RegisterSingle<IGameFactory>(new GameFactory());
             _services.RegisterSingle<ISaveLoadService>(new SaveLoadService());
-            _services.RegisterSingle<IPlayerProgressService>(new PlayerProgressService(_services.Single<ISaveLoadService>()));
-            _services.RegisterSingle<IPlayerMoneyService>(new PlayerMoneyService(_services.Single<IPlayerProgressService>()));
-            _services.RegisterSingle<IZombieProgressService>(new ZombieProgressService(_services.Single<ISaveLoadService>()));
-            _services.RegisterSingle<ICardsPricesProgressService>(new CardsPricesProgressService(_services.Single<ISaveLoadService>()));
+            _services.RegisterSingle<IPlayerMoneyService>(new PlayerMoneyService(_services.Single<ISaveLoadService>()));
+            _services.RegisterSingle<IPlayerScoreService>(new PlayerScoreService(_services.Single<ISaveLoadService>()));
             _services.RegisterSingle<IZombieRewardService>(new ZombieRewardService(_services.Single<IPlayerMoneyService>(),
-                _services.Single<IZombieProgressService>()));
-            _services.RegisterSingle<IZombieHealthService>(new ZombieHealthService(_services.Single<IZombieProgressService>(),
-                _services.Single<IZombieRewardService>()));
+                _services.Single<IPlayerScoreService>(), _services.Single<ISaveLoadService>()));
+            _services.RegisterSingle<IZombieHealthService>(new ZombieHealthService(_services.Single<IZombieRewardService>(),
+                _services.Single<ISaveLoadService>()));
             _services.RegisterSingle<ISpawnerService>(new SpawnerService(_spawner.GetComponent<PanelSpawner>(),
                 _spawner.GetComponent<SitizenSpawner>(), _spawner.GetComponent<ZombieSpawner>()));
         }

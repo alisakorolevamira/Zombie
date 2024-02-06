@@ -1,16 +1,16 @@
 using Scripts.Architecture.States;
-using Scripts.UI;
+using Scripts.UI.Panels;
 using UnityEngine;
 
 namespace Scripts.Spawner
 {
     public class PanelSpawner : MonoBehaviour
     {
+        private readonly int _menuIndex = 2;
+
         [SerializeField] private MenuPanel _menuPanel;
         [SerializeField] private LevelPanel _levelPanel;
         [SerializeField] private LoadingPanel _loadingPanel;
-
-        private readonly int _menuIndex = 1;
 
         public GameStateMachine StateMachine;
 

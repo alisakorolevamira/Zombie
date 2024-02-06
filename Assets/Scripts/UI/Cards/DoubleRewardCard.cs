@@ -1,7 +1,7 @@
 using DG.Tweening;
 using Scripts.Architecture.Services;
+using System;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Scripts.UI.Cards
 {
@@ -9,25 +9,25 @@ namespace Scripts.UI.Cards
     {
         private IZombieRewardService _zombieRewardService;
 
-        public override event UnityAction<int> CardBought;
+        public override event Action<int> CardBought;
 
         private protected override void OnEnable()
         {
             base.OnEnable();
 
-            _priceText.text = _progressService.Progress.DoubleRewardCardPrice.ToString();
+            _priceText.text = _saveLoadService.CardsPricesProgress.DoubleRewardCardPrice.ToString();
+            _zombieRewardService = AllServices.Container.Single<IZombieRewardService>();
         }
 
         private protected override void OnButtonClicked()
         {
-            if (_playerMoneyService.Money() >= _progressService.Progress.DoubleRewardCardPrice)
+            if (_playerMoneyService.Money >= _saveLoadService.CardsPricesProgress.DoubleRewardCardPrice)
             {
-                CardBought?.Invoke(_progressService.Progress.DoubleRewardCardPrice);
+                CardBought?.Invoke(_saveLoadService.CardsPricesProgress.DoubleRewardCardPrice);
 
-                _zombieRewardService = AllServices.Container.Single<IZombieRewardService>();
                 _zombieRewardService.DoubleReward();
-                _progressService.Progress.DoubleRewardCardPrice *= _coefficientOfInceasing;
-                _priceText.text = _progressService.Progress.DoubleRewardCardPrice.ToString();
+                _saveLoadService.CardsPricesProgress.DoubleRewardCardPrice *= _coefficientOfInceasing;
+                _priceText.text = _saveLoadService.CardsPricesProgress.DoubleRewardCardPrice.ToString();
 
                 base.OnButtonClicked();
             }
@@ -35,15 +35,11 @@ namespace Scripts.UI.Cards
 
         private protected override void ChangeColor()
         {
-            if (_playerMoneyService.Money() >= _progressService.Progress.DoubleRewardCardPrice)
-            {
+            if (_playerMoneyService.Money >= _saveLoadService.CardsPricesProgress.DoubleRewardCardPrice)
                 _image.DOColor(Color.green, _timeOfChangingColor);
-            }
 
             else
-            {
                 base.ChangeColor();
-            }
         }
     }
 }

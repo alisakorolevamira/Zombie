@@ -8,20 +8,18 @@ namespace Scripts.Characters
     [RequireComponent(typeof(Animator))]
     public class Zombie : MonoBehaviour
     {
+        private const string Hit = "Hit";
+        private readonly int _waitingTime = 4;
+
         [SerializeField] private int _damage;
         [SerializeField] private ParticleSystem _deathEffect;
         [SerializeField] private ParticleSystem _bloodEffect;
 
-        private const string Hit = "Hit";
-        private readonly int _waitingTime = 4;
+        public bool IsDead = false;
+
         private SitizenSpawner _spawner;
         private IZombieHealthService _health;
         private Animator _animator;
-
-        public int Damage
-        { get { return _damage; } }
-
-        public bool IsDead = false;
 
         private void Start()
         {

@@ -1,3 +1,4 @@
+using Agava.YandexGames;
 using Scripts.Architecture.States;
 using UnityEngine;
 
@@ -10,6 +11,8 @@ namespace Scripts.Architecture
 
         private void Awake()
         {
+            YandexGamesSdk.GameReady();
+
             _game = new Game(this, _spawner);
             _game.StateMachine.Enter<BootstrapState>();
 

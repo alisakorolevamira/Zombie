@@ -9,7 +9,7 @@ namespace Scripts.Spawner
     public class ZombieSpawner : MonoBehaviour
     {
         private const string ZombiePath = "Prefabs/Zombies/Zombie";
-        private readonly int _sceneIndexCoefficient = 1;
+        private readonly int _sceneIndexCoefficient = 2;
 
         private IGameFactory _factory;
         private string _path;

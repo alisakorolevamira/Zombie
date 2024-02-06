@@ -1,8 +1,8 @@
 using DG.Tweening;
 using Scripts.Architecture.Services;
 using Scripts.Spawner;
+using System;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Scripts.UI.Cards
 {
@@ -11,8 +11,8 @@ namespace Scripts.UI.Cards
         private ISpawnerService _spawnerService;
         private SitizenSpawner _sitizenSpawner;
 
-        public event UnityAction OnClicked;
-        public override event UnityAction<int> CardBought;
+        public event Action OnClicked;
+        public override event Action<int> CardBought;
 
         private protected override void OnEnable()
         {
@@ -20,7 +20,7 @@ namespace Scripts.UI.Cards
 
             _spawnerService = AllServices.Container.Single<ISpawnerService>();
             _sitizenSpawner = _spawnerService.CurrentSitizenSpawner;
-            _priceText.text = _progressService.Progress.AddSitizenCardPrice.ToString();
+            _priceText.text = _saveLoadService.CardsPricesProgress.AddSitizenCardPrice.ToString();
 
             _sitizenSpawner.NumberOfSitizensChanged += ChangeColor;
         }
@@ -34,13 +34,13 @@ namespace Scripts.UI.Cards
 
         private protected override void OnButtonClicked()
         {
-            if (_playerMoneyService.Money() >= _progressService.Progress.AddSitizenCardPrice && _sitizenSpawner.CheckAmountOfSitizens())
+            if (_playerMoneyService.Money >= _saveLoadService.CardsPricesProgress.AddSitizenCardPrice && _sitizenSpawner.CheckAmountOfSitizens())
             {
                 OnClicked?.Invoke();
-                CardBought?.Invoke(_progressService.Progress.AddSitizenCardPrice);
+                CardBought?.Invoke(_saveLoadService.CardsPricesProgress.AddSitizenCardPrice);
 
-                _progressService.Progress.AddSitizenCardPrice *= _coefficientOfInceasing;
-                _priceText.text = _progressService.Progress.AddSitizenCardPrice.ToString();
+                _saveLoadService.CardsPricesProgress.AddSitizenCardPrice *= _coefficientOfInceasing;
+                _priceText.text = _saveLoadService.CardsPricesProgress.AddSitizenCardPrice.ToString();
 
                 base.OnButtonClicked();
             }
@@ -49,15 +49,11 @@ namespace Scripts.UI.Cards
         private protected override void ChangeColor()
         {
 
-            if (_playerMoneyService.Money() >= _progressService.Progress.AddSitizenCardPrice && _sitizenSpawner.CheckAmountOfSitizens())
-            {
+            if (_playerMoneyService.Money >= _saveLoadService.CardsPricesProgress.AddSitizenCardPrice && _sitizenSpawner.CheckAmountOfSitizens())
                 _image.DOColor(Color.green, _timeOfChangingColor);
-            }
 
             else
-            {
                 base.ChangeColor();
-            }
         }
     }
 }

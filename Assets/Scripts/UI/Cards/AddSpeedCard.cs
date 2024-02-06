@@ -1,8 +1,8 @@
 using DG.Tweening;
 using Scripts.Architecture.Services;
 using Scripts.Spawner;
+using System;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Scripts.UI.Cards
 {
@@ -11,7 +11,7 @@ namespace Scripts.UI.Cards
         private ISpawnerService _spawnerService;
         private SitizenSpawner _sitizenSpawner;
 
-        public override event UnityAction<int> CardBought;
+        public override event Action<int> CardBought;
 
         private protected override void OnEnable()
         {
@@ -19,22 +19,20 @@ namespace Scripts.UI.Cards
 
             _spawnerService = AllServices.Container.Single<ISpawnerService>();
             _sitizenSpawner = _spawnerService.CurrentSitizenSpawner;
-            _priceText.text = _progressService.Progress.AddSpeedCardPrice.ToString();
+            _priceText.text = _saveLoadService.CardsPricesProgress.AddSpeedCardPrice.ToString();
         }
 
         private protected override void OnButtonClicked()
         {
-            if (_playerMoneyService.Money() >= _progressService.Progress.AddSpeedCardPrice && _sitizenSpawner.Sitizens != null)
+            if (_playerMoneyService.Money >= _saveLoadService.CardsPricesProgress.AddSpeedCardPrice && _sitizenSpawner.Sitizens != null)
             {
-                CardBought?.Invoke(_progressService.Progress.AddSpeedCardPrice);
+                CardBought?.Invoke(_saveLoadService.CardsPricesProgress.AddSpeedCardPrice);
 
                 foreach (var sitizen in _sitizenSpawner.Sitizens)
-                {
                     sitizen.AddSpeed();
-                }
 
-                _progressService.Progress.AddSpeedCardPrice *= _coefficientOfInceasing;
-                _priceText.text = _progressService.Progress.AddSpeedCardPrice.ToString();
+                _saveLoadService.CardsPricesProgress.AddSpeedCardPrice *= _coefficientOfInceasing;
+                _priceText.text = _saveLoadService.CardsPricesProgress.AddSpeedCardPrice.ToString();
 
                 base.OnButtonClicked();
             }
@@ -42,15 +40,11 @@ namespace Scripts.UI.Cards
 
         private protected override void ChangeColor()
         {
-            if (_playerMoneyService.Money() >= _progressService.Progress.AddSpeedCardPrice)
-            {
+            if (_playerMoneyService.Money >= _saveLoadService.CardsPricesProgress.AddSpeedCardPrice)
                 _image.DOColor(Color.green, _timeOfChangingColor);
-            }
 
             else
-            {
                 base.ChangeColor();
-            }
         }
     }
 }

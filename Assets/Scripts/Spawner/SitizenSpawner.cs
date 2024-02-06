@@ -2,10 +2,10 @@ using Scripts.Architecture.Factory;
 using Scripts.Architecture.Services;
 using Scripts.Characters.Sitizens;
 using Scripts.UI.Cards;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Scripts.Spawner
 {
@@ -16,13 +16,20 @@ namespace Scripts.Spawner
         private const string FirstLevelSitizenPath = "Prefabs/Sitizens/FirstLevelSitizen";
         private const string SecondLevelSitizenPath = "Prefabs/Sitizens/SecondLevelSitizen";
         private readonly int _maximumNumberOfSitizens = 5;
+
         private IGameFactory _factory;
         private SpawnPoint[] _spawnPoints;
         private AddSitizenCard _addSitizenCard;
         private MergeCard _mergeCard;
+        private IPlayerScoreService _playerScoreService;
 
-        public event UnityAction NumberOfSitizensChanged;
-        public event UnityAction AllSitizensDied;
+        public event Action NumberOfSitizensChanged;
+        public event Action AllSitizensDied;
+
+        private void OnEnable()
+        {
+            _playerScoreService = AllServices.Container.Single<IPlayerScoreService>();
+        }
 
         private void OnDisable()
         {
@@ -70,6 +77,7 @@ namespace Scripts.Spawner
         public void AllSitizensDie()
         {
             AllSitizensDied?.Invoke();
+            _playerScoreService.RemoveScore();
         }
 
         private void AddFirstLevelSitizen()
@@ -77,9 +85,7 @@ namespace Scripts.Spawner
             SpawnPoint freeSpawnPoint = _spawnPoints.FirstOrDefault(p => p.IsAvailable == true);
 
             if (CheckAmountOfSitizens() && freeSpawnPoint != null)
-            {
                 InstantiateSitizen(freeSpawnPoint, FirstLevelSitizenPath);
-            }
         }
 
         private void RemoveDeadSitizen(Sitizen deadSitizen)
@@ -123,9 +129,7 @@ namespace Scripts.Spawner
             _spawnPoints = GetComponentsInChildren<SpawnPoint>();
 
             foreach (SpawnPoint spawnPoint in _spawnPoints)
-            {
                 spawnPoint.ChangeAvailability(true);
-            }
         }
     }
 }

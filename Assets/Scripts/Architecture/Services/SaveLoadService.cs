@@ -1,33 +1,61 @@
-﻿using UnityEngine;
+﻿using Agava.YandexGames;
+using Scripts.Progress;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Scripts.Architecture.Services
 {
     public class SaveLoadService : ISaveLoadService
     {
-        
-        public int LoadProgress(string key, int value)
+        private ProgressData _data;
+        private string _file;
+
+        public PlayerProgress PlayerProgress { get; private set; }
+        public ZombieProgress ZombieProgress { get; private set; }
+        public CardsPricesProgress CardsPricesProgress { get; private set; }
+
+        public void LoadProgress()
         {
-            return PlayerPrefs.GetInt(key, value);
+            PlayerAccount.GetCloudSaveData((data) => _file = data);
+
+            _data = JsonUtility.FromJson<ProgressData>(_file);
+
+            if (_data == null)
+                _data = new();
+
+            UpdateProgress();
         }
 
-        public string LoadProgress(string key, string value)
+        public void SaveProgress()
         {
-            return PlayerPrefs.GetString(key, value);
+            UpdateData();
+
+            _file = JsonUtility.ToJson(_data);
+
+            PlayerAccount.SetCloudSaveData(_file);
         }
 
-        public void SaveProgress(string key, int value)
+        public void ResetProgress()
         {
-            PlayerPrefs.SetInt(key, value);
+            _data = new();
+            _data.PlayerScore = PlayerProgress.Score;
+
+            UpdateProgress();
         }
 
-        public void SaveProgress(string key, string value)
+        private void UpdateData()
         {
-            PlayerPrefs.SetString(key, value);
+            PlayerProgress.Level = SceneManager.GetActiveScene().buildIndex;
+
+            _data.Update(PlayerProgress, ZombieProgress, CardsPricesProgress);
         }
 
-        public void ResetProgress(string key)
+        private void UpdateProgress()
         {
-            PlayerPrefs.DeleteKey(key);
+            PlayerProgress = new(_data.PlayerLevel, _data.PlayerMoney, _data.PlayerScore);
+            ZombieProgress = new(_data.ZombieHealth, _data.ZombieMoneyReward, _data.ZombieScoreReward);
+            CardsPricesProgress = new(_data.AddSitizenCardPrice, _data.MergeCardPrice, _data.AddSpeedCardPrice, _data.DoubleRewardCardPrice);
         }
     }
 }

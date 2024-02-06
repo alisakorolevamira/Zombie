@@ -1,9 +1,10 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 using Scripts.Architecture.Services;
 using DG.Tweening;
+using Scripts.UI.Panels;
+using System;
 
 namespace Scripts.UI.Cards
 {
@@ -12,27 +13,26 @@ namespace Scripts.UI.Cards
 
     public abstract class Card : Panel
     {
-        [SerializeField] private protected TMP_Text _priceText;
-
         private protected const int _timeOfChangingColor = 1;
         private protected const int _coefficientOfInceasing = 2;
 
+        [SerializeField] private protected TMP_Text _priceText;
+
         private protected IPlayerMoneyService _playerMoneyService;
-        private protected ICardsPricesProgressService _progressService;
-        private protected Image _image;
+        private protected ISaveLoadService _saveLoadService;
         private protected Button _button;
         private protected AudioSource _audioSource;
 
-        public abstract event UnityAction<int> CardBought;
+        public abstract event Action<int> CardBought;
 
         private protected virtual void OnEnable()
         {
-            _image = GetComponent<Image>();
             _button = GetComponent<Button>();
             _audioSource = GetComponentInParent<AudioSource>();
+            _image = GetComponent<Image>();
 
             _playerMoneyService = AllServices.Container.Single<IPlayerMoneyService>();
-            _progressService = AllServices.Container.Single<ICardsPricesProgressService>();
+            _saveLoadService = AllServices.Container.Single<ISaveLoadService>();
 
             _playerMoneyService.MoneyChanged += ChangeColor;
             _button.onClick.AddListener(OnButtonClicked);
@@ -44,15 +44,10 @@ namespace Scripts.UI.Cards
             _playerMoneyService.MoneyChanged -= ChangeColor;
         }
 
-        private protected virtual void Start()
-        {
-            Open();
-        }
-
         private protected virtual void OnButtonClicked()
         {
             _audioSource.PlayOneShot(_audioSource.clip);
-            _progressService.SaveProgress();
+            _saveLoadService.SaveProgress();
         }
 
         private protected virtual void ChangeColor()
