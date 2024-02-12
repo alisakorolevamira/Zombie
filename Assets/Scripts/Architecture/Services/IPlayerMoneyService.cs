@@ -7,7 +7,6 @@ namespace Scripts.Architecture.Services
         event Action MoneyChanged;
 
         int Money { get; }
-        int AddReward { get; }
 
         bool IsEnoughMoney(int value);
         void AddMoney(int value);

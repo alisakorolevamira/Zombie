@@ -1,39 +1,41 @@
-﻿using Scripts.Spawner;
-using Scripts.UI.Panels;
+﻿using Scripts.Architecture.Services;
+using Scripts.Spawner;
 using System;
-using UnityEngine;
 
 namespace Scripts.Architecture.States
 {
-    public class LoadLevelState : IPayLoadedState<int>
+    public class LoadLevelState : IPayLoadedState<string>
     {
-        private readonly int _menuIndex = 2;
-        private readonly int _initialIndex = 1;
-
         private readonly GameStateMachine _gameStateMachine;
         private readonly SceneLoader _sceneLoader;
-        private readonly GameObject _spawner;
+        private readonly IUIPanelService _panelService;
+        private readonly SitizenSpawner _sitizenSpawner;
+        private readonly ZombieSpawner _zombieSpawner;
         private Action _sceneLoaded;
+        
 
-        public LoadLevelState(GameStateMachine gameStateMachine, SceneLoader sceneLoader, GameObject spawner)
+        public LoadLevelState(GameStateMachine gameStateMachine, SceneLoader sceneLoader, IUIPanelService panelService,
+            SitizenSpawner sitizenSpawner, ZombieSpawner zombieSpawner)
         {
             _gameStateMachine = gameStateMachine;
             _sceneLoader = sceneLoader;
-            _spawner = spawner;
+            _panelService = panelService;
+            _sitizenSpawner = sitizenSpawner;
+            _zombieSpawner = zombieSpawner;
         }
 
-        public void Enter(int sceneIndex)
+        public void Enter(string sceneName)
         {
-            LoadCanvas(sceneIndex);
+            LoadCanvas(sceneName);
 
             _sceneLoaded += OnLoaded;
 
-            _sceneLoader.Load(sceneIndex, _sceneLoaded);
+            _sceneLoader.Load(sceneName, _sceneLoaded);
         }
 
         public void Exit()
         {
-            _spawner.GetComponentInChildren<LoadingPanel>().Close();
+            _panelService.LoadingPanel.Close();
         }
 
         private void OnLoaded()
@@ -45,25 +47,20 @@ namespace Scripts.Architecture.States
 
         private void SpawnersOnLoaded()
         {
-            _spawner.GetComponentInChildren<SitizenSpawner>().AddComponentsOnLevel();
-            _spawner.GetComponent<ZombieSpawner>().CreateZombie();
+            _sitizenSpawner.AddComponentsOnLevel();
+            _zombieSpawner.GetComponent<ZombieSpawner>().CreateZombie();
 
             _sceneLoaded -= SpawnersOnLoaded;
         }
 
-        private void LoadCanvas(int sceneIndex)
+        private void LoadCanvas(string sceneName)
         {
-            _spawner.GetComponentInChildren<PanelSpawner>().DisableAllPanels();
+            _panelService.LoadingPanel.Open();
+            _panelService.CreateCanvas(sceneName);
 
-            LoadingPanel loadingPanel = _spawner.GetComponentInChildren<LoadingPanel>();
-            loadingPanel.Open();
 
-            _spawner.GetComponent<PanelSpawner>().CreateCanvas(sceneIndex);
-
-            if (sceneIndex != _menuIndex && sceneIndex != _initialIndex)
-            {
+            if (sceneName != Constants.Menu && sceneName != Constants.Initial)
                 _sceneLoaded += SpawnersOnLoaded;
-            }
         }
     }
 }

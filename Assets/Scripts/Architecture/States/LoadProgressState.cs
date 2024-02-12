@@ -2,7 +2,7 @@
 
 namespace Scripts.Architecture.States
 {
-    public class LoadProgressState : IPayLoadedState<int>
+    public class LoadProgressState : IPayLoadedState<string>
     {
         private readonly GameStateMachine _gameStateMachine;
         private readonly ISaveLoadService _saveLoadService;
@@ -13,10 +13,11 @@ namespace Scripts.Architecture.States
             _saveLoadService = saveLoadService;
         }
 
-        public void Enter(int sceneIndex)
+        public async void Enter(string sceneName)
         {
-            _saveLoadService.LoadProgress();
-            _gameStateMachine.Enter<LoadLevelState, int>(sceneIndex);
+            await _saveLoadService.LoadProgress();
+
+            _gameStateMachine.Enter<LoadLevelState, string>(sceneName);
         }
 
         public void Exit() { }

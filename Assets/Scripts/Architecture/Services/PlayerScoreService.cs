@@ -4,7 +4,6 @@ namespace Scripts.Architecture.Services
 {
     public class PlayerScoreService : IPlayerScoreService
     {
-        private const int _loseValue = 1000;
         private readonly ISaveLoadService _saveLoadService;
 
         public PlayerScoreService(ISaveLoadService saveLoadService)
@@ -26,8 +25,8 @@ namespace Scripts.Architecture.Services
 
         public void RemoveScore()
         {
-            if (_saveLoadService.PlayerProgress.Score >= _loseValue)
-                _saveLoadService.PlayerProgress.Score -= _loseValue;
+            if (_saveLoadService.PlayerProgress.Score >= Constants.LoseScoreFine)
+                _saveLoadService.PlayerProgress.Score -= Constants.LoseScoreFine;
 
             else
                 _saveLoadService.PlayerProgress.Score = 0;

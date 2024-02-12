@@ -7,20 +7,23 @@ namespace Scripts.UI
 {
     public class RewardAddButton : MonoBehaviour
     {
-        private Button _rewardButton;
+        [SerializeField] private Button _rewardButton;
+
         private IPlayerMoneyService _playerMoneyService;
 
         private void OnEnable()
         {
-            _playerMoneyService = AllServices.Container.Single<IPlayerMoneyService>();
-            _rewardButton = GetComponent<Button>();
-
             _rewardButton.onClick.AddListener(OnRewardButtonClick);
         }
 
         private void OnDisable()
         {
             _rewardButton.onClick.RemoveListener(OnRewardButtonClick);
+        }
+
+        private void Start()
+        {
+            _playerMoneyService = AllServices.Container.Single<IPlayerMoneyService>();
         }
 
         private void OnRewardButtonClick()
@@ -42,7 +45,7 @@ namespace Scripts.UI
 
         private void OnRewardCallBack()
         {
-            _playerMoneyService.AddMoney(_playerMoneyService.AddReward);
+            _playerMoneyService.AddMoney(Constants.AddMoneyReward);
         }
     }
 }

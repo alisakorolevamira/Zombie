@@ -11,9 +11,9 @@ namespace Scripts.UI.Cards
 
         public override event Action<int> CardBought;
 
-        private protected override void OnEnable()
+        public override void Open()
         {
-            base.OnEnable();
+            base.Open();
 
             _priceText.text = _saveLoadService.CardsPricesProgress.DoubleRewardCardPrice.ToString();
             _zombieRewardService = AllServices.Container.Single<IZombieRewardService>();

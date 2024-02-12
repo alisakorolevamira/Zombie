@@ -1,19 +1,18 @@
 using Agava.WebUtility;
 using UnityEngine;
 
-namespace Scripts
+namespace Scripts.Architecture.Services
 {
-    public class TestFocus : MonoBehaviour
+    public class TestFocusService : ITestFocusService
     {
-        [SerializeField] private AudioSource[] _audioSourses;
-
-        private void OnEnable()
+        public TestFocusService()
         {
             Application.focusChanged += OnInBackgroundChangeApp;
             WebApplication.InBackgroundChangeEvent += OnInBackgroundChangeWeb;
+
         }
 
-        private void OnDisable()
+        public void Dispose()
         {
             Application.focusChanged -= OnInBackgroundChangeApp;
             WebApplication.InBackgroundChangeEvent -= OnInBackgroundChangeWeb;
@@ -33,8 +32,7 @@ namespace Scripts
 
         private void MuteAudio(bool value)
         {
-            foreach (var audioSourse in _audioSourses)
-                audioSourse.volume = value ? 0 : 1;
+            AudioListener.volume = value ? 0 : 1;
         }
 
         private void PauseGame(bool value)

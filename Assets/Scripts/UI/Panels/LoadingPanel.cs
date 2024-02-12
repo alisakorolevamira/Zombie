@@ -10,6 +10,11 @@ namespace Scripts.UI.Panels
         private const int _openCanvasSortingOrder = 3;
         private const int _closeCanvasSortingOrder = 0;
 
+        private void Awake()
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+
         public override void Open()
         {
             base.Open();

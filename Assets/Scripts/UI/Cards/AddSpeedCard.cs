@@ -13,9 +13,9 @@ namespace Scripts.UI.Cards
 
         public override event Action<int> CardBought;
 
-        private protected override void OnEnable()
+        public override void Open()
         {
-            base.OnEnable();
+            base.Open();
 
             _spawnerService = AllServices.Container.Single<ISpawnerService>();
             _sitizenSpawner = _spawnerService.CurrentSitizenSpawner;

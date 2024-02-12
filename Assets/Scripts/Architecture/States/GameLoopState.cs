@@ -1,11 +1,13 @@
-﻿using Scripts.Architecture.Factory;
-using Scripts.Architecture.Services;
+﻿using Agava.YandexGames;
 
 namespace Scripts.Architecture.States
 {
     public class GameLoopState : IState
     {
-        public void Enter() { }
+        public void Enter() 
+        {
+            YandexGamesSdk.GameReady();
+        }
 
         public void Exit() { }
     }

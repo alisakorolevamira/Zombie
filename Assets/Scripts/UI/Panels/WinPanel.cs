@@ -8,29 +8,18 @@ namespace Scripts.UI.Panels
 {
     public class WinPanel : Panel
     {
-        private readonly int _menuIndex = 1;
-        private readonly int _levelCoefficient = 1;
-
         [SerializeField] private Button _levelButton;
         [SerializeField] private Button _menuButton;
+        [SerializeField] private LevelPanel _levelPanel;
+        [SerializeField] private AudioSource _audioSource;
+        [SerializeField] private LosePanel _losePanel;
 
-        private int _lastLevelIndex;
         private bool _isOpened;
-        private ISpawnerService _spawnerService;
         private IZombieHealthService _zombieHealthService;
-        private LevelPanel _levelPanel;
-        private LosePanel _losePanel;
-        private AudioSource _audioSource;
 
-        private void OnEnable()
+        private void Start()
         {
             _zombieHealthService = AllServices.Container.Single<IZombieHealthService>();
-            _spawnerService = AllServices.Container.Single<ISpawnerService>();
-
-            _levelPanel = GetComponentInParent<LevelPanel>();
-            _audioSource = GetComponent<AudioSource>();
-
-            _lastLevelIndex = SceneManager.sceneCountInBuildSettings - _levelCoefficient;
 
             _zombieHealthService.Died += Open;
             _levelButton.onClick.AddListener(OnNextLevelButtonClick);
@@ -53,12 +42,7 @@ namespace Scripts.UI.Panels
                 base.Open();
 
                 _audioSource.PlayOneShot(_audioSource.clip);
-
-                if (_spawnerService != null)
-                {
-                    _losePanel = _spawnerService.CurrentPanelSpawner.GetPanel<LosePanel>();
-                    _losePanel.Close();
-                }
+                _losePanel.Close();
 
                 _isOpened = true;
             }
@@ -73,20 +57,58 @@ namespace Scripts.UI.Panels
 
         private void OnNextLevelButtonClick()
         {
-            int activeScene = SceneManager.GetActiveScene().buildIndex;
-            InterstitialAd.Show(OnOpenCallBack, OnCloseCallBack);
+            Close();
 
-            if (activeScene != _lastLevelIndex)
-                _levelPanel.OpenSceneWithResetingProgress(activeScene + _levelCoefficient);
+            string activeScene = SceneManager.GetActiveScene().name;
+            //InterstitialAd.Show(OnOpenCallBack, OnCloseCallBack);
 
-            else
-                _levelPanel.OpenSceneWithResetingProgress(_menuIndex);
+            switch (activeScene)
+            {
+                case Constants.FirstLevel:
+                    _levelPanel.OpenSceneWithResetingProgress(Constants.SecondLevel);
+                    break;
+                case Constants.SecondLevel:
+                    _levelPanel.OpenSceneWithResetingProgress(Constants.ThirdLevel);
+                    break;
+                case Constants.ThirdLevel:
+                    _levelPanel.OpenSceneWithResetingProgress(Constants.FourthLevel);
+                    break;
+                case Constants.FourthLevel:
+                    _levelPanel.OpenSceneWithResetingProgress(Constants.FifthLevel);
+                    break;
+                case Constants.FifthLevel:
+                    _levelPanel.OpenSceneWithResetingProgress(Constants.SixthLevel);
+                    break;
+                case Constants.SixthLevel:
+                    _levelPanel.OpenSceneWithResetingProgress(Constants.SeventhLevel);
+                    break;
+                case Constants.SeventhLevel:
+                    _levelPanel.OpenSceneWithResetingProgress(Constants.EightLevel);
+                    break;
+                case Constants.EightLevel:
+                    _levelPanel.OpenSceneWithResetingProgress(Constants.NinthLevel);
+                    break;
+                case Constants.NinthLevel:
+                    _levelPanel.OpenSceneWithResetingProgress(Constants.TenthLevel);
+                    break;
+                case Constants.TenthLevel:
+                    _levelPanel.OpenSceneWithResetingProgress(Constants.EleventhLevel);
+                    break;
+                case Constants.EleventhLevel:
+                    _levelPanel.OpenSceneWithResetingProgress(Constants.TwelthLevel);
+                    break;
+                case Constants.TwelthLevel:
+                    _levelPanel.OpenSceneWithResetingProgress(Constants.Menu);
+                    break;
+            }
         }
 
         private void OnMenuButtonClick()
         {
-            InterstitialAd.Show(OnOpenCallBack, OnCloseCallBack);
-            _levelPanel.OpenNextScene(1);
+            Close();
+
+            //InterstitialAd.Show(OnOpenCallBack, OnCloseCallBack);
+            _levelPanel.OpenNextScene(Constants.Menu);
         }
 
         private void OnOpenCallBack()

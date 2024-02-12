@@ -8,7 +8,6 @@ namespace Scripts.Characters
     [RequireComponent(typeof(Animator))]
     public class Zombie : MonoBehaviour
     {
-        private const string Hit = "Hit";
         private readonly int _waitingTime = 4;
 
         [SerializeField] private int _damage;
@@ -44,7 +43,7 @@ namespace Scripts.Characters
                     foreach (var sitizen in _spawner.Sitizens.ToArray())
                     {
                         sitizen.TakeDamage(_damage);
-                        _animator.SetTrigger(Hit);
+                        _animator.SetTrigger(Constants.Hit);
                     }
 
                     yield return new WaitForSeconds(_waitingTime);

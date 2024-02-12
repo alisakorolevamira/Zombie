@@ -1,6 +1,6 @@
 ﻿using Agava.YandexGames;
+using Cysharp.Threading.Tasks;
 using Scripts.Progress;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,11 +15,23 @@ namespace Scripts.Architecture.Services
         public ZombieProgress ZombieProgress { get; private set; }
         public CardsPricesProgress CardsPricesProgress { get; private set; }
 
-        public void LoadProgress()
+        public async UniTask LoadProgress()
         {
-            PlayerAccount.GetCloudSaveData((data) => _file = data);
+            var task = new UniTaskCompletionSource<string>();
+            
+            PlayerAccount.GetCloudSaveData((data) =>
+            {
+                task.TrySetResult(data);
+            }, 
+            (error) => 
+            { 
+                task.TrySetException(null); 
+            });
+            
+            _file = await task.Task;
 
-            _data = JsonUtility.FromJson<ProgressData>(_file);
+            if (_file != null)
+                _data = JsonUtility.FromJson<ProgressData>(_file);
 
             if (_data == null)
                 _data = new();
@@ -27,13 +39,17 @@ namespace Scripts.Architecture.Services
             UpdateProgress();
         }
 
-        public void SaveProgress()
+        public async UniTask SaveProgress()
         {
             UpdateData();
 
             _file = JsonUtility.ToJson(_data);
 
-            PlayerAccount.SetCloudSaveData(_file);
+            await UniTask.RunOnThreadPool(() =>
+            {
+                PlayerAccount.SetCloudSaveData(_file);
+            });
+
         }
 
         public void ResetProgress()
@@ -46,7 +62,7 @@ namespace Scripts.Architecture.Services
 
         private void UpdateData()
         {
-            PlayerProgress.Level = SceneManager.GetActiveScene().buildIndex;
+            PlayerProgress.Level = SceneManager.GetActiveScene().name;
 
             _data.Update(PlayerProgress, ZombieProgress, CardsPricesProgress);
         }

@@ -4,7 +4,6 @@ namespace Scripts.Architecture.Services
 {
     public class ZombieHealthService : IZombieHealthService
     {
-        private readonly int _maximumHealth = 500;
         private readonly IZombieRewardService _rewardService;
         private readonly ISaveLoadService _saveLoadService;
 
@@ -26,7 +25,7 @@ namespace Scripts.Architecture.Services
 
             _rewardService.GiveRewardToPlayer();
 
-            HealthChanged?.Invoke(_saveLoadService.ZombieProgress.Health, _maximumHealth);
+            HealthChanged?.Invoke(_saveLoadService.ZombieProgress.Health, Constants.ZombieMaximumHealth);
             DamageApplied?.Invoke();
 
             CheckDeath();

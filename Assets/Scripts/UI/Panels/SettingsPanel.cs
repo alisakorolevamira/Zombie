@@ -7,7 +7,6 @@ namespace Scripts.UI.Panels
 {
     public class SettingsPanel : Panel
     {
-        private const string Menu = "Menu";
         private readonly int _stopGameIndex = 0;
         private readonly int _startGameIndex = 1;
 
@@ -30,6 +29,8 @@ namespace Scripts.UI.Panels
 
         private void Start()
         {
+            _saveLoadService = AllServices.Container.Single<ISaveLoadService>();
+
             Close();
         }
 
@@ -49,12 +50,11 @@ namespace Scripts.UI.Panels
 
         private void OnMenuButtonClick()
         {
-            SceneManager.LoadScene(Menu);
+            SceneManager.LoadScene(Constants.Menu);
         }
 
         private void OnSaveButtonClick()
         {
-            _saveLoadService = AllServices.Container.Single<ISaveLoadService>();
             _saveLoadService.SaveProgress();
         }
     }

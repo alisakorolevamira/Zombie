@@ -8,8 +8,7 @@ namespace Scripts.Spawner
 {
     public class ZombieSpawner : MonoBehaviour
     {
-        private const string ZombiePath = "Prefabs/Zombies/Zombie";
-        private readonly int _sceneIndexCoefficient = 2;
+        private readonly int _sceneIndexCoefficient = 1;
 
         private IGameFactory _factory;
         private string _path;
@@ -25,7 +24,7 @@ namespace Scripts.Spawner
         {
             int sceneIndex = SceneManager.GetActiveScene().buildIndex;
 
-            _path = $"{ZombiePath}{sceneIndex - _sceneIndexCoefficient}";
+            _path = $"{Constants.ZombiePath}{sceneIndex - _sceneIndexCoefficient}";
         }
     }
 }

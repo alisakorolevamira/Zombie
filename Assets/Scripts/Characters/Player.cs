@@ -9,24 +9,7 @@ namespace Scripts.Characters
     {
         private List<Card> _cards;
         private IPlayerMoneyService _moneyService;
-        private ISpawnerService _spawnerService;
-
-        private void OnEnable()
-        {
-            _spawnerService = AllServices.Container.Single<ISpawnerService>();
-            _cards = new List<Card>
-            {
-                _spawnerService.CurrentPanelSpawner.GetPanel<AddSitizenCard>(),
-                _spawnerService.CurrentPanelSpawner.GetPanel<AddSpeedCard>(),
-                _spawnerService.CurrentPanelSpawner.GetPanel<MergeCard>(),
-                _spawnerService.CurrentPanelSpawner.GetPanel<DoubleRewardCard>()
-            };
-
-            foreach (Card card in _cards)
-            {
-                card.CardBought += OnCardBought;
-            }
-        }
+        private IUIPanelService _panelService;
 
         private void OnDisable()
         {
@@ -36,9 +19,27 @@ namespace Scripts.Characters
             }
         }
 
+        private void Start()
+        {
+            _panelService = AllServices.Container.Single<IUIPanelService>();
+            _moneyService = AllServices.Container.Single<IPlayerMoneyService>();
+
+            _cards = new List<Card>
+            {
+                _panelService.GetPanel<AddSitizenCard>(),
+                _panelService.GetPanel<AddSpeedCard>(),
+                _panelService.GetPanel<MergeCard>(),
+                _panelService.GetPanel<DoubleRewardCard>()
+            };
+
+            foreach (Card card in _cards)
+            {
+                card.CardBought += OnCardBought;
+            }
+        }
+
         private void OnCardBought(int price)
         {
-            _moneyService = AllServices.Container.Single<IPlayerMoneyService>();
             _moneyService.SpendMoney(price);
         }
     }

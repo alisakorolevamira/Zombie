@@ -122,15 +122,27 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 379596545852155578}
-        m_TargetAssemblyTypeName: Scripts.UI.MenuPanel, Assembly-CSharp
+        m_TargetAssemblyTypeName: Scripts.UI.Panels.MenuPanel, Assembly-CSharp
         m_MethodName: OpenAnyLevel
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: FirstLevel
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3776248910931816718}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &103807350892693221
@@ -774,6 +786,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7036334b7214f1499eeed8bd61f4018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _image: {fileID: 7035052516199248656}
+  _canvasGroup: {fileID: 6732761564878515048}
+  _buttons: []
   _openButtons:
   - {fileID: 8043837994309196781}
   _closeButtons:
@@ -844,8 +859,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\rAdd a sitizen:\r\nClick on the card with the picture of a sitizen and
-    place it in the village. Each new sitizen helps you in the fight against zombies."
+  m_text: "\r\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0436\u0438\u0442\u0435\u043B\u044F:\r\n\u041D\u0430\u0436\u043C\u0438\u0442\u0435
+    \u043D\u0430 \u043A\u0430\u0440\u0442\u043E\u0447\u043A\u0443 \u0441 \u0438\u0437\u043E\u0431\u0440\u0430\u0436\u0435\u043D\u0438\u0435\u043C
+    \u0436\u0438\u0442\u0435\u043B\u044F \u0438 \u0440\u0430\u0437\u043C\u0435\u0441\u0442\u0438\u0442\u0435
+    \u0435\u0433\u043E \u0432 \u0434\u0435\u0440\u0435\u0432\u043D\u0435. \u041A\u0430\u0436\u0434\u044B\u0439
+    \u043D\u043E\u0432\u044B\u0439 \u0436\u0438\u0442\u0435\u043B\u044C \u043F\u043E\u043C\u043E\u0433\u0430\u0435\u0442
+    \u0432\u0430\u043C \u0432 \u0431\u043E\u0440\u044C\u0431\u0435 \u0441 \u0437\u043E\u043C\u0431\u0438."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7a3056a6d76b7ca4e9aecd6eb3416eb6, type: 2}
   m_sharedMaterial: {fileID: 8099190487727745581, guid: 7a3056a6d76b7ca4e9aecd6eb3416eb6, type: 2}
@@ -999,7 +1018,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: REMOVE ADD
+  m_text: "\u0423\u0411\u0420\u0410\u0422\u042C \u0420\u0415\u041A\u041B\u0410\u041C\u0423"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7a3056a6d76b7ca4e9aecd6eb3416eb6, type: 2}
   m_sharedMaterial: {fileID: 8099190487727745581, guid: 7a3056a6d76b7ca4e9aecd6eb3416eb6, type: 2}
@@ -1026,7 +1045,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 97.1
+  m_fontSize: 69.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1144,7 +1163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.43529415, g: 0.43529415, b: 0.43529415, a: 1}
+  m_Color: {r: 0.3882353, g: 0.3882353, b: 0.3882353, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1185,6 +1204,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4882635fec139241bb5861af2d587e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _image: {fileID: 610360769523333127}
+  _canvasGroup: {fileID: 5690104645881652931}
+  _buttons:
+  - {fileID: 8660087794788422209}
   _closeButton: {fileID: 8660087794788422209}
 --- !u!1 &893121268047773953
 GameObject:
@@ -1233,7 +1256,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.000015298361, y: -0.000055179557}
-  m_SizeDelta: {x: 0, y: 2880}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &8866726729097284354
 MonoBehaviour:
@@ -1442,7 +1465,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.046489358, y: 0.23436944}
   m_AnchorMax: {x: 0.93231916, y: 0.41159236}
-  m_AnchoredPosition: {x: -0.12501526, y: 0}
+  m_AnchoredPosition: {x: -0.125, y: 0}
   m_SizeDelta: {x: -0.41000366, y: -0.043598175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7622394883179809644
@@ -1473,7 +1496,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ADD SPEED
+  m_text: "\u0423\u0412\u0415\u041B\u0418\u0427\u0418\u0422\u042C \u0421\u041A\u041E\u0420\u041E\u0421\u0422\u042C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7a3056a6d76b7ca4e9aecd6eb3416eb6, type: 2}
   m_sharedMaterial: {fileID: 8099190487727745581, guid: 7a3056a6d76b7ca4e9aecd6eb3416eb6, type: 2}
@@ -1500,7 +1523,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 53.7
+  m_fontSize: 41.85
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1829,6 +1852,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  _button: {fileID: 5237459853564723353}
 --- !u!1 &1213750436590389691
 GameObject:
   m_ObjectHideFlags: 0
@@ -1864,7 +1888,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.75900006, y: 0.036000002}
   m_AnchorMax: {x: 0.9072591, y: 0.119}
-  m_AnchoredPosition: {x: -0.5, y: -0.82003784}
+  m_AnchoredPosition: {x: -0.5, y: -0.82006836}
   m_SizeDelta: {x: 1, y: -2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9164677488132516946
@@ -2255,10 +2279,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Double reward cars:
-
-    The card will increase the amount of resources
-    received for each damage dealt to zombies.'
+  m_text: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0442\u044C \u043D\u0430\u0433\u0440\u0430\u0434\u0443
+    \u0437\u0430 \u0443\u0431\u0438\u0439\u0441\u0442\u0432\u043E \u0437\u043E\u043C\u0431\u0438:\r\n\u041A\u0430\u0440\u0442\u043E\u0447\u043A\u0430
+    \u0443\u0432\u0435\u043B\u0438\u0447\u0438\u0442 \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E
+    \u0440\u0435\u0441\u0443\u0440\u0441\u043E\u0432, \u043F\u043E\u043B\u0443\u0447\u0430\u0435\u043C\u044B\u0445
+    \u0437\u0430 \u043A\u0430\u0436\u0434\u044B\u0439 \u043D\u0430\u043D\u0435\u0441\u0451\u043D\u043D\u044B\u0439
+    \u0443\u0440\u043E\u043D \u0437\u043E\u043C\u0431\u0438.\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7a3056a6d76b7ca4e9aecd6eb3416eb6, type: 2}
   m_sharedMaterial: {fileID: 8099190487727745581, guid: 7a3056a6d76b7ca4e9aecd6eb3416eb6, type: 2}
@@ -2285,7 +2311,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 79.9
+  m_fontSize: 73.5
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2543,15 +2569,27 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 379596545852155578}
-        m_TargetAssemblyTypeName: Scripts.UI.MenuPanel, Assembly-CSharp
+        m_TargetAssemblyTypeName: Scripts.UI.Panels.MenuPanel, Assembly-CSharp
         m_MethodName: OpenAnyLevel
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 5
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: ThirdLevel
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3776248910931816718}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &1796399619549601098
@@ -3026,15 +3064,27 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 379596545852155578}
-        m_TargetAssemblyTypeName: Scripts.UI.MenuPanel, Assembly-CSharp
+        m_TargetAssemblyTypeName: Scripts.UI.Panels.MenuPanel, Assembly-CSharp
         m_MethodName: OpenAnyLevel
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 9
           m_FloatArgument: 0
-          m_StringArgument: FifthLevel
+          m_StringArgument: SeventhLevel
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3776248910931816718}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &2061607176732950256
@@ -3224,7 +3274,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: CHANGE LANGUAGE
+  m_text: "\u0418\u0417\u041C\u0415\u041D\u0418\u0422\u042C \u042F\u0417\u042B\u041A"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7a3056a6d76b7ca4e9aecd6eb3416eb6, type: 2}
   m_sharedMaterial: {fileID: 8099190487727745581, guid: 7a3056a6d76b7ca4e9aecd6eb3416eb6, type: 2}
@@ -3251,7 +3301,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 67.55
+  m_fontSize: 73.9
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3373,8 +3423,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\rAdd a sitizen:\r\nClick on the card with the picture of a sitizen and
-    place it in the village. Each new sitizen helps you in the fight against zombies."
+  m_text: "\r\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0436\u0438\u0442\u0435\u043B\u044F:\r\n\u041D\u0430\u0436\u043C\u0438\u0442\u0435
+    \u043D\u0430 \u043A\u0430\u0440\u0442\u043E\u0447\u043A\u0443 \u0441 \u0438\u0437\u043E\u0431\u0440\u0430\u0436\u0435\u043D\u0438\u0435\u043C
+    \u0436\u0438\u0442\u0435\u043B\u044F \u0438 \u0440\u0430\u0437\u043C\u0435\u0441\u0442\u0438\u0442\u0435
+    \u0435\u0433\u043E \u0432 \u0434\u0435\u0440\u0435\u0432\u043D\u0435. \u041A\u0430\u0436\u0434\u044B\u0439
+    \u043D\u043E\u0432\u044B\u0439 \u0436\u0438\u0442\u0435\u043B\u044C \u043F\u043E\u043C\u043E\u0433\u0430\u0435\u0442
+    \u0432\u0430\u043C \u0432 \u0431\u043E\u0440\u044C\u0431\u0435 \u0441 \u0437\u043E\u043C\u0431\u0438."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7a3056a6d76b7ca4e9aecd6eb3416eb6, type: 2}
   m_sharedMaterial: {fileID: 8099190487727745581, guid: 7a3056a6d76b7ca4e9aecd6eb3416eb6, type: 2}
@@ -3716,15 +3770,27 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 379596545852155578}
-        m_TargetAssemblyTypeName: Scripts.UI.MenuPanel, Assembly-CSharp
+        m_TargetAssemblyTypeName: Scripts.UI.Panels.MenuPanel, Assembly-CSharp
         m_MethodName: OpenAnyLevel
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 14
           m_FloatArgument: 0
-          m_StringArgument: FifthLevel
+          m_StringArgument: TwelthLevel
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3776248910931816718}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &2659340831444267611
@@ -3849,15 +3915,27 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 379596545852155578}
-        m_TargetAssemblyTypeName: Scripts.UI.MenuPanel, Assembly-CSharp
+        m_TargetAssemblyTypeName: Scripts.UI.Panels.MenuPanel, Assembly-CSharp
         m_MethodName: OpenAnyLevel
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 6
           m_FloatArgument: 0
           m_StringArgument: FourthLevel
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3776248910931816718}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &2663489684828815643
@@ -4018,7 +4096,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: BACK TO MENU
+  m_text: "\u0412\u0415\u0420\u041D\u0423\u0422\u042C\u0421\u042F \u0412 \u041C\u0415\u041D\u042E"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7a3056a6d76b7ca4e9aecd6eb3416eb6, type: 2}
   m_sharedMaterial: {fileID: 8099190487727745581, guid: 7a3056a6d76b7ca4e9aecd6eb3416eb6, type: 2}
@@ -4045,7 +4123,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80.5
+  m_fontSize: 64.75
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4692,6 +4770,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7036334b7214f1499eeed8bd61f4018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _image: {fileID: 0}
+  _canvasGroup: {fileID: 0}
+  _buttons: []
   _openButtons:
   - {fileID: 3104489433425706554}
   _closeButtons:
@@ -4866,6 +4947,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7036334b7214f1499eeed8bd61f4018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _image: {fileID: 0}
+  _canvasGroup: {fileID: 0}
+  _buttons: []
   _openButtons:
   - {fileID: 7759171484445262259}
   _closeButtons:
@@ -4936,7 +5020,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: CHOOSE LEVEL
+  m_text: "\u0412\u042B\u0411\u0415\u0420\u0418\u0422\u0415 \u0423\u0420\u041E\u0412\u0415\u041D\u042C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7a3056a6d76b7ca4e9aecd6eb3416eb6, type: 2}
   m_sharedMaterial: {fileID: 8099190487727745581, guid: 7a3056a6d76b7ca4e9aecd6eb3416eb6, type: 2}
@@ -4963,7 +5047,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80.05
+  m_fontSize: 68.3
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5264,6 +5348,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7036334b7214f1499eeed8bd61f4018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _image: {fileID: 0}
+  _canvasGroup: {fileID: 0}
+  _buttons: []
   _openButtons:
   - {fileID: 8043837994309196781}
   - {fileID: 2835977530386938495}
@@ -5335,7 +5422,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: TURN ON/OFF SOUND
+  m_text: "\u0412\u041A\u041B\u042E\u0427\u0418\u0422\u042C/\u0412\u042B\u041A\u041B\u042E\u0427\u0418\u0422\u042C
+    \u0417\u0412\u0423\u041A"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7a3056a6d76b7ca4e9aecd6eb3416eb6, type: 2}
   m_sharedMaterial: {fileID: 8099190487727745581, guid: 7a3056a6d76b7ca4e9aecd6eb3416eb6, type: 2}
@@ -5362,7 +5450,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 68.95
+  m_fontSize: 54.65
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5934,7 +6022,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: LEADER BOARD
+  m_text: "\u0422\u0410\u0411\u041B\u0418\u0426\u0410 \u0418\u0413\u0420\u041E\u041A\u041E\u0412"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7a3056a6d76b7ca4e9aecd6eb3416eb6, type: 2}
   m_sharedMaterial: {fileID: 8099190487727745581, guid: 7a3056a6d76b7ca4e9aecd6eb3416eb6, type: 2}
@@ -5961,7 +6049,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 81.55
+  m_fontSize: 65.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -6257,6 +6345,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7036334b7214f1499eeed8bd61f4018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _image: {fileID: 4049465191998926090}
+  _canvasGroup: {fileID: 1153437021085730797}
+  _buttons:
+  - {fileID: 3181293300358253223}
+  - {fileID: 6887226356909387283}
+  - {fileID: 5237459853564723353}
+  - {fileID: 4921103505054231767}
+  - {fileID: 1450711845548850056}
   _openButtons:
   - {fileID: 5762859951336528856}
   _closeButtons:
@@ -6651,15 +6747,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 379596545852155578}
-        m_TargetAssemblyTypeName: Scripts.UI.MenuPanel, Assembly-CSharp
+        m_TargetAssemblyTypeName: Scripts.UI.Panels.MenuPanel, Assembly-CSharp
         m_MethodName: OpenAnyLevel
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 11
           m_FloatArgument: 0
-          m_StringArgument: FifthLevel
+          m_StringArgument: NinthLevel
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &4214992027071866157
@@ -6862,7 +6958,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: DOUBLE REWARD
+  m_text: "\u0423\u0414\u0412\u041E\u0418\u0422\u042C \u041D\u0410\u0413\u0420\u0410\u0414\u0423"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7a3056a6d76b7ca4e9aecd6eb3416eb6, type: 2}
   m_sharedMaterial: {fileID: 8099190487727745581, guid: 7a3056a6d76b7ca4e9aecd6eb3416eb6, type: 2}
@@ -7011,7 +7107,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: START GAME
+  m_text: "\u0421\u0422\u0410\u0420\u0422"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7a3056a6d76b7ca4e9aecd6eb3416eb6, type: 2}
   m_sharedMaterial: {fileID: 8099190487727745581, guid: 7a3056a6d76b7ca4e9aecd6eb3416eb6, type: 2}
@@ -7038,7 +7134,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 94.95
+  m_fontSize: 119.45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -7129,7 +7225,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.758, y: 0.036000002}
   m_AnchorMax: {x: 0.9072591, y: 0.11800001}
-  m_AnchoredPosition: {x: 0.00012207031, y: 0.19998169}
+  m_AnchoredPosition: {x: 0, y: 0.19995117}
   m_SizeDelta: {x: -0.000099897385, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &314556441649162545
@@ -7250,7 +7346,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.23400001, y: 0.17400001}
   m_AnchorMax: {x: 0.767, y: 0.257}
-  m_AnchoredPosition: {x: -0.9998779, y: 0.5}
+  m_AnchoredPosition: {x: -1, y: 0.5}
   m_SizeDelta: {x: 1.7751465, y: -0.3263855}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8379499838184603241
@@ -7681,15 +7777,27 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 379596545852155578}
-        m_TargetAssemblyTypeName: Scripts.UI.MenuPanel, Assembly-CSharp
+        m_TargetAssemblyTypeName: Scripts.UI.Panels.MenuPanel, Assembly-CSharp
         m_MethodName: OpenAnyLevel
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 8
           m_FloatArgument: 0
-          m_StringArgument: FifthLevel
+          m_StringArgument: SixthLevel
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3776248910931816718}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &4834063267233810235
@@ -7814,15 +7922,27 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 379596545852155578}
-        m_TargetAssemblyTypeName: Scripts.UI.MenuPanel, Assembly-CSharp
+        m_TargetAssemblyTypeName: Scripts.UI.Panels.MenuPanel, Assembly-CSharp
         m_MethodName: OpenAnyLevel
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 10
           m_FloatArgument: 0
-          m_StringArgument: FifthLevel
+          m_StringArgument: EightLevel
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3776248910931816718}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &4860182521079308347
@@ -7947,15 +8067,27 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 379596545852155578}
-        m_TargetAssemblyTypeName: Scripts.UI.MenuPanel, Assembly-CSharp
+        m_TargetAssemblyTypeName: Scripts.UI.Panels.MenuPanel, Assembly-CSharp
         m_MethodName: OpenAnyLevel
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: FirstLevel
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3776248910931816718}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &4862530434231432810
@@ -8665,10 +8797,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Increase game speed:
-
-    Use the card to speed up your sitizens and increase
-    the efficiency of your actions.'
+  m_text: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0442\u044C \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u044C
+    \u0438\u0433\u0440\u044B:\r\n\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0439\u0442\u0435
+    \u043A\u0430\u0440\u0442\u043E\u0447\u043A\u0443, \u0447\u0442\u043E\u0431\u044B
+    \u0443\u0441\u043A\u043E\u0440\u0438\u0442\u044C \u0442\u0435\u0447\u0435\u043D\u0438\u0435
+    \u0432\u0440\u0435\u043C\u0435\u043D\u0438 \u0438 \u043F\u043E\u0432\u044B\u0441\u0438\u0442\u044C
+    \u044D\u0444\u0444\u0435\u043A\u0442\u0438\u0432\u043D\u043E\u0441\u0442\u044C
+    \u0441\u0432\u043E\u0438\u0445 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0439.\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7a3056a6d76b7ca4e9aecd6eb3416eb6, type: 2}
   m_sharedMaterial: {fileID: 8099190487727745581, guid: 7a3056a6d76b7ca4e9aecd6eb3416eb6, type: 2}
@@ -8695,7 +8830,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 84.55
+  m_fontSize: 76.7
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -8994,6 +9129,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7036334b7214f1499eeed8bd61f4018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _image: {fileID: 1275008363467289798}
+  _canvasGroup: {fileID: 8213043643884737731}
+  _buttons:
+  - {fileID: 326324076546867758}
   _openButtons:
   - {fileID: 1676030834417279940}
   _closeButtons:
@@ -9026,7 +9165,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8918377655514086591
 Transform:
   m_ObjectHideFlags: 0
@@ -9521,7 +9660,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: MERGE
+  m_text: "\u041E\u0411\u042A\u0415\u0414\u0418\u041D\u0418\u0422\u042C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7a3056a6d76b7ca4e9aecd6eb3416eb6, type: 2}
   m_sharedMaterial: {fileID: 8099190487727745581, guid: 7a3056a6d76b7ca4e9aecd6eb3416eb6, type: 2}
@@ -9548,7 +9687,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 48.45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -9859,15 +9998,13 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 7637936402277367029}
-  - {fileID: 7875529126293272396}
+  m_Children: []
   m_Father: {fileID: 3885164730725304900}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.000018982639, y: -0.000055179557}
-  m_SizeDelta: {x: -2.7200928, y: 340}
+  m_SizeDelta: {x: -2.7200928, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &3078946566286869746
 MonoBehaviour:
@@ -10029,15 +10166,27 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 379596545852155578}
-        m_TargetAssemblyTypeName: Scripts.UI.MenuPanel, Assembly-CSharp
+        m_TargetAssemblyTypeName: Scripts.UI.Panels.MenuPanel, Assembly-CSharp
         m_MethodName: OpenAnyLevel
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 4
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: SecondLevel
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3776248910931816718}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &6598560179272689452
@@ -10213,6 +10362,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7036334b7214f1499eeed8bd61f4018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _image: {fileID: 0}
+  _canvasGroup: {fileID: 0}
+  _buttons: []
   _openButtons:
   - {fileID: 6660307836270453894}
   - {fileID: 9055422038764281112}
@@ -10433,15 +10585,27 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 379596545852155578}
-        m_TargetAssemblyTypeName: Scripts.UI.MenuPanel, Assembly-CSharp
+        m_TargetAssemblyTypeName: Scripts.UI.Panels.MenuPanel, Assembly-CSharp
         m_MethodName: OpenAnyLevel
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 7
           m_FloatArgument: 0
           m_StringArgument: FifthLevel
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3776248910931816718}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &6750071697554900750
@@ -10566,15 +10730,27 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 379596545852155578}
-        m_TargetAssemblyTypeName: Scripts.UI.MenuPanel, Assembly-CSharp
+        m_TargetAssemblyTypeName: Scripts.UI.Panels.MenuPanel, Assembly-CSharp
         m_MethodName: OpenAnyLevel
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 12
           m_FloatArgument: 0
-          m_StringArgument: FifthLevel
+          m_StringArgument: TenthLevel
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3776248910931816718}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &6781859694421654761
@@ -10764,7 +10940,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ADD SITIZEN
+  m_text: "\u0414\u041E\u0411\u0410\u0412\u0418\u0422\u042C \u0420\u0410\u0411\u041E\u0427\u0415\u0413\u041E"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7a3056a6d76b7ca4e9aecd6eb3416eb6, type: 2}
   m_sharedMaterial: {fileID: 8099190487727745581, guid: 7a3056a6d76b7ca4e9aecd6eb3416eb6, type: 2}
@@ -10791,7 +10967,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 43.35
+  m_fontSize: 41.2
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -10938,7 +11114,7 @@ CanvasGroup:
   m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 0
-  m_IgnoreParentGroups: 0
+  m_IgnoreParentGroups: 1
 --- !u!114 &9088314396722249193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10951,11 +11127,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 335af2faa2c44c646bc1cbf057bf6860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _image: {fileID: 4078662560138320931}
+  _canvasGroup: {fileID: 7483500632630854405}
+  _buttons:
+  - {fileID: 5836370613845461987}
   _leaderBoardElementPrefab: {fileID: 6641041939649756529, guid: 87bec56a4a43c104a8a3674d1f476aab, type: 3}
   _container: {fileID: 42613865971031371}
   _leaderBoardButton: {fileID: 1051724155951839529}
   _closeButton: {fileID: 5836370613845461987}
   _unsuccessfulAuthorizationPanel: {fileID: 7196500745387184816}
+  _leaderBoard: {fileID: 412999547297773823}
 --- !u!114 &412999547297773823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11072,6 +11253,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7036334b7214f1499eeed8bd61f4018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _image: {fileID: 4357108447099845214}
+  _canvasGroup: {fileID: 7204079657487794018}
+  _buttons:
+  - {fileID: 5193707597315714376}
+  - {fileID: 7873525219151025274}
+  - {fileID: 6950287565562513166}
   _openButtons:
   - {fileID: 6887226356909387283}
   _closeButtons:
@@ -11219,7 +11406,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: LOG INN
+  m_text: "\u0410\u0412\u0422\u041E\u0420\u0418\u0417\u041E\u0412\u0410\u0422\u042C\u0421\u042F"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7a3056a6d76b7ca4e9aecd6eb3416eb6, type: 2}
   m_sharedMaterial: {fileID: 8099190487727745581, guid: 7a3056a6d76b7ca4e9aecd6eb3416eb6, type: 2}
@@ -11246,7 +11433,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 129.6
+  m_fontSize: 69.35
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -11488,7 +11675,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: LOAD GAME
+  m_text: "\u0417\u0410\u0413\u0420\u0423\u0417\u0418\u0422\u042C \u0418\u0413\u0420\u0423"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7a3056a6d76b7ca4e9aecd6eb3416eb6, type: 2}
   m_sharedMaterial: {fileID: 8099190487727745581, guid: 7a3056a6d76b7ca4e9aecd6eb3416eb6, type: 2}
@@ -11515,7 +11702,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 105.65
+  m_fontSize: 67.6
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -11606,7 +11793,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.11100001, y: 0.036000002}
   m_AnchorMax: {x: 0.25948152, y: 0.119}
-  m_AnchoredPosition: {x: -0.25, y: 0.25003052}
+  m_AnchoredPosition: {x: -0.25, y: 0.25}
   m_SizeDelta: {x: -0.5, y: -0.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6016519877169206996
@@ -11903,15 +12090,27 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 379596545852155578}
-        m_TargetAssemblyTypeName: Scripts.UI.MenuPanel, Assembly-CSharp
+        m_TargetAssemblyTypeName: Scripts.UI.Panels.MenuPanel, Assembly-CSharp
         m_MethodName: OpenAnyLevel
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 13
           m_FloatArgument: 0
-          m_StringArgument: FifthLevel
+          m_StringArgument: EleventhLevel
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3776248910931816718}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &7935376129487456498
@@ -12101,10 +12300,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Merge sitizens:
-
-    If you have two of the same sitizens, you can click
-    on the merge card to create a stronger sitizen.'
+  m_text: "\u041E\u0431\u044A\u0435\u0434\u0438\u043D\u0438\u0442\u044C \u0436\u0438\u0442\u0435\u043B\u0435\u0439:\r\n\u0415\u0441\u043B\u0438
+    \u0443 \u0432\u0430\u0441 \u0435\u0441\u0442\u044C \u0434\u0432\u0430 \u043E\u0434\u0438\u043D\u0430\u043A\u043E\u0432\u044B\u0445
+    \u0436\u0438\u0442\u0435\u043B\u044F, \u0432\u044B \u043C\u043E\u0436\u0435\u0442\u0435
+    \u043D\u0430\u0436\u0430\u0442\u044C \u043D\u0430 \u043A\u0430\u0440\u0442\u043E\u0447\u043A\u0443
+    \u0441 \u043E\u0431\u044A\u0435\u0434\u0438\u043D\u0435\u043D\u0438\u0435\u043C,
+    \u0447\u0442\u043E\u0431\u044B \u0441\u043E\u0437\u0434\u0430\u0442\u044C \u0431\u043E\u043B\u0435\u0435
+    \u0441\u0438\u043B\u044C\u043D\u043E\u0433\u043E \u0436\u0438\u0442\u0435\u043B\u044F.\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7a3056a6d76b7ca4e9aecd6eb3416eb6, type: 2}
   m_sharedMaterial: {fileID: 8099190487727745581, guid: 7a3056a6d76b7ca4e9aecd6eb3416eb6, type: 2}
@@ -12259,8 +12461,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Your goal is to survive each level, improving your villagers and killing
-    all the zombies, using tactics for maximum efficiency.
+  m_text: "\u0412\u0430\u0448\u0430 \u0446\u0435\u043B\u044C - \u043F\u0440\u043E\u0434\u0435\u0440\u0436\u0430\u0442\u044C\u0441\u044F
+    \u043D\u0430 \u043A\u0430\u0436\u0434\u043E\u043C \u0443\u0440\u043E\u0432\u043D\u0435,
+    \u0443\u043B\u0443\u0447\u0448\u0430\u044F \u0441\u0432\u043E\u0438\u0445 \u0436\u0438\u0442\u0435\u043B\u0435\u0439
+    \u0438 \u0443\u0431\u0438\u0442\u044C \u0432\u0441\u0435\u0445 \u0437\u043E\u043C\u0431\u0438,
+    \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u044F \u0442\u0430\u043A\u0442\u0438\u043A\u0443
+    \u0434\u043B\u044F \u043C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0439
+    \u044D\u0444\u0444\u0435\u043A\u0442\u0438\u0432\u043D\u043E\u0441\u0442\u0438."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7a3056a6d76b7ca4e9aecd6eb3416eb6, type: 2}
   m_sharedMaterial: {fileID: 8099190487727745581, guid: 7a3056a6d76b7ca4e9aecd6eb3416eb6, type: 2}
@@ -12833,7 +13040,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8728749310434166413
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12931,7 +13138,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8610410972454103178}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -12947,6 +13154,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5280831fbbf0c443aeba63973888f70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _image: {fileID: 0}
+  _canvasGroup: {fileID: 1440739012087123391}
+  _buttons: []
 --- !u!1 &8678254906041211240
 GameObject:
   m_ObjectHideFlags: 0
@@ -13746,7 +13956,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: HOW TO PLAY
+  m_text: "\u041A\u0410\u041A \u0418\u0413\u0420\u0410\u0422\u042C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7a3056a6d76b7ca4e9aecd6eb3416eb6, type: 2}
   m_sharedMaterial: {fileID: 8099190487727745581, guid: 7a3056a6d76b7ca4e9aecd6eb3416eb6, type: 2}
@@ -13773,7 +13983,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 87.4
+  m_fontSize: 96.25
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -13829,207 +14039,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   translationName: How To Play
   FallbackText: HOW TO PLAY
---- !u!1001 &2574926163801684060
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 42613865971031371}
-    m_Modifications:
-    - target: {fileID: 1323822281185414041, guid: 87bec56a4a43c104a8a3674d1f476aab, type: 3}
-      propertyPath: m_Name
-      value: LeaderBoardElement
-      objectReference: {fileID: 0}
-    - target: {fileID: 5688180158447603472, guid: 87bec56a4a43c104a8a3674d1f476aab, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5688180158447603472, guid: 87bec56a4a43c104a8a3674d1f476aab, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5688180158447603472, guid: 87bec56a4a43c104a8a3674d1f476aab, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5688180158447603472, guid: 87bec56a4a43c104a8a3674d1f476aab, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5688180158447603472, guid: 87bec56a4a43c104a8a3674d1f476aab, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5688180158447603472, guid: 87bec56a4a43c104a8a3674d1f476aab, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5688180158447603472, guid: 87bec56a4a43c104a8a3674d1f476aab, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 905
-      objectReference: {fileID: 0}
-    - target: {fileID: 5688180158447603472, guid: 87bec56a4a43c104a8a3674d1f476aab, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 5688180158447603472, guid: 87bec56a4a43c104a8a3674d1f476aab, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5688180158447603472, guid: 87bec56a4a43c104a8a3674d1f476aab, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5688180158447603472, guid: 87bec56a4a43c104a8a3674d1f476aab, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5688180158447603472, guid: 87bec56a4a43c104a8a3674d1f476aab, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5688180158447603472, guid: 87bec56a4a43c104a8a3674d1f476aab, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5688180158447603472, guid: 87bec56a4a43c104a8a3674d1f476aab, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5688180158447603472, guid: 87bec56a4a43c104a8a3674d1f476aab, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5688180158447603472, guid: 87bec56a4a43c104a8a3674d1f476aab, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 477.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5688180158447603472, guid: 87bec56a4a43c104a8a3674d1f476aab, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -255
-      objectReference: {fileID: 0}
-    - target: {fileID: 5688180158447603472, guid: 87bec56a4a43c104a8a3674d1f476aab, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5688180158447603472, guid: 87bec56a4a43c104a8a3674d1f476aab, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5688180158447603472, guid: 87bec56a4a43c104a8a3674d1f476aab, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 87bec56a4a43c104a8a3674d1f476aab, type: 3}
---- !u!224 &7875529126293272396 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 5688180158447603472, guid: 87bec56a4a43c104a8a3674d1f476aab, type: 3}
-  m_PrefabInstance: {fileID: 2574926163801684060}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &2814502408002319333
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 42613865971031371}
-    m_Modifications:
-    - target: {fileID: 1323822281185414041, guid: 87bec56a4a43c104a8a3674d1f476aab, type: 3}
-      propertyPath: m_Name
-      value: LeaderBoardElement (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5688180158447603472, guid: 87bec56a4a43c104a8a3674d1f476aab, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5688180158447603472, guid: 87bec56a4a43c104a8a3674d1f476aab, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5688180158447603472, guid: 87bec56a4a43c104a8a3674d1f476aab, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5688180158447603472, guid: 87bec56a4a43c104a8a3674d1f476aab, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5688180158447603472, guid: 87bec56a4a43c104a8a3674d1f476aab, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5688180158447603472, guid: 87bec56a4a43c104a8a3674d1f476aab, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5688180158447603472, guid: 87bec56a4a43c104a8a3674d1f476aab, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 905
-      objectReference: {fileID: 0}
-    - target: {fileID: 5688180158447603472, guid: 87bec56a4a43c104a8a3674d1f476aab, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 5688180158447603472, guid: 87bec56a4a43c104a8a3674d1f476aab, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5688180158447603472, guid: 87bec56a4a43c104a8a3674d1f476aab, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5688180158447603472, guid: 87bec56a4a43c104a8a3674d1f476aab, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5688180158447603472, guid: 87bec56a4a43c104a8a3674d1f476aab, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5688180158447603472, guid: 87bec56a4a43c104a8a3674d1f476aab, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5688180158447603472, guid: 87bec56a4a43c104a8a3674d1f476aab, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5688180158447603472, guid: 87bec56a4a43c104a8a3674d1f476aab, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5688180158447603472, guid: 87bec56a4a43c104a8a3674d1f476aab, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 477.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5688180158447603472, guid: 87bec56a4a43c104a8a3674d1f476aab, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -85
-      objectReference: {fileID: 0}
-    - target: {fileID: 5688180158447603472, guid: 87bec56a4a43c104a8a3674d1f476aab, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5688180158447603472, guid: 87bec56a4a43c104a8a3674d1f476aab, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5688180158447603472, guid: 87bec56a4a43c104a8a3674d1f476aab, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 87bec56a4a43c104a8a3674d1f476aab, type: 3}
---- !u!224 &7637936402277367029 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 5688180158447603472, guid: 87bec56a4a43c104a8a3674d1f476aab, type: 3}
-  m_PrefabInstance: {fileID: 2814502408002319333}
-  m_PrefabAsset: {fileID: 0}

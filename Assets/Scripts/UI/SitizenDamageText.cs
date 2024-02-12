@@ -7,14 +7,12 @@ namespace Scripts.UI
     public class SitizenDamageText : MonoBehaviour
     {
         private readonly float _textFadeDuration = 3f;
-        private Sitizen _sitizen;
-        private TMP_Text _text;
+
+        [SerializeField] private Sitizen _sitizen;
+        [SerializeField] private TMP_Text _text;
 
         private void OnEnable()
         {
-            _sitizen = GetComponentInParent<Sitizen>();
-            _text = GetComponentInChildren<TMP_Text>();
-
             _sitizen.HealthChanged += ChangeText;
         }
 

@@ -14,22 +14,24 @@ namespace Scripts.UI.Cards
         public event Action OnClicked;
         public override event Action<int> CardBought;
 
-        private protected override void OnEnable()
+        public override void Close()
         {
-            base.OnEnable();
+            base.Close();
 
             _spawnerService = AllServices.Container.Single<ISpawnerService>();
             _sitizenSpawner = _spawnerService.CurrentSitizenSpawner;
+
+            _sitizenSpawner.NumberOfSitizensChanged -= ChangeColor;
+        }
+
+        public override void Open()
+        {
+            base.Open();
+
             _priceText.text = _saveLoadService.CardsPricesProgress.AddSitizenCardPrice.ToString();
 
             _sitizenSpawner.NumberOfSitizensChanged += ChangeColor;
-        }
 
-        private protected override void OnDisable()
-        {
-            base.OnDisable();
-
-            _sitizenSpawner.NumberOfSitizensChanged -= ChangeColor;
         }
 
         private protected override void OnButtonClicked()

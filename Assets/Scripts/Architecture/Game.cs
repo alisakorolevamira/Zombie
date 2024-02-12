@@ -1,19 +1,19 @@
-using Scripts.Spawner;
 using Scripts.Architecture.Services;
 using Scripts.Architecture.States;
-using UnityEngine;
+using Scripts.UI.Panels;
+using Scripts.Spawner;
 
 namespace Scripts.Architecture
 {
     public class Game
     {
-        public GameStateMachine StateMachine;
-
-        public Game(ICoroutineRunner coroutineRunner, GameObject spawner)
+        public Game(ICoroutineRunner coroutineRunner, SitizenSpawner sitizenSpawner, ZombieSpawner zombieSpawner, 
+            LevelPanel levelPanel, LoadingPanel loadingPanel)
         {
-            StateMachine = new GameStateMachine(new SceneLoader(coroutineRunner), AllServices.Container, spawner);
-
-            spawner.GetComponent<PanelSpawner>().StateMachine = StateMachine;
+            StateMachine = new GameStateMachine(new SceneLoader(coroutineRunner), AllServices.Container, sitizenSpawner,
+                zombieSpawner, levelPanel, loadingPanel);
         }
+
+        public GameStateMachine StateMachine { get; private set; }
     }
 }

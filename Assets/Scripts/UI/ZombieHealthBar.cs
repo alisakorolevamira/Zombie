@@ -9,14 +9,10 @@ namespace Scripts.UI
     public class ZombieHealthBar : MonoBehaviour
     {
         private readonly int _maximumSliderValue = 1;
-        private IZombieHealthService _zombieHealthService;
-        private Slider _slider;
 
-        private void OnEnable()
-        {
-            _zombieHealthService = AllServices.Container.Single<IZombieHealthService>();
-            _zombieHealthService.HealthChanged += OnHealthChanged;
-        }
+        [SerializeField] private Slider _slider;
+
+        private IZombieHealthService _zombieHealthService;
 
         private void OnDisable()
         {
@@ -25,8 +21,10 @@ namespace Scripts.UI
 
         private void Start()
         {
-            _slider = GetComponent<Slider>();
+            _zombieHealthService = AllServices.Container.Single<IZombieHealthService>();
             _slider.value = _maximumSliderValue;
+
+            _zombieHealthService.HealthChanged += OnHealthChanged;
         }
 
         private void OnHealthChanged(int value, int maximumValue)

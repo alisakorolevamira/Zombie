@@ -13,14 +13,11 @@ namespace Scripts.Spawner
     {
         public readonly List<Sitizen> Sitizens = new();
 
-        private const string FirstLevelSitizenPath = "Prefabs/Sitizens/FirstLevelSitizen";
-        private const string SecondLevelSitizenPath = "Prefabs/Sitizens/SecondLevelSitizen";
-        private readonly int _maximumNumberOfSitizens = 5;
+        [SerializeField] private SpawnPoint[] _spawnPoints;
+        [SerializeField] private AddSitizenCard _addSitizenCard;
+        [SerializeField] private MergeCard _mergeCard;
 
         private IGameFactory _factory;
-        private SpawnPoint[] _spawnPoints;
-        private AddSitizenCard _addSitizenCard;
-        private MergeCard _mergeCard;
         private IPlayerScoreService _playerScoreService;
 
         public event Action NumberOfSitizensChanged;
@@ -29,6 +26,7 @@ namespace Scripts.Spawner
         private void OnEnable()
         {
             _playerScoreService = AllServices.Container.Single<IPlayerScoreService>();
+            DontDestroyOnLoad(gameObject); //изменить потом
         }
 
         private void OnDisable()
@@ -57,9 +55,6 @@ namespace Scripts.Spawner
         {
             _factory = AllServices.Container.Single<IGameFactory>();
 
-            _addSitizenCard = GetComponentInChildren<AddSitizenCard>();
-            _mergeCard = GetComponentInChildren<MergeCard>();
-
             _addSitizenCard.OnClicked += AddFirstLevelSitizen;
             _mergeCard.OnClicked += MergeSitizens;
 
@@ -71,7 +66,7 @@ namespace Scripts.Spawner
 
         public bool CheckAmountOfSitizens()
         {
-            return Sitizens.Count < _maximumNumberOfSitizens;
+            return Sitizens.Count < Constants.MaximumNumberOfSitizens;
         }
 
         public void AllSitizensDie()
@@ -85,7 +80,7 @@ namespace Scripts.Spawner
             SpawnPoint freeSpawnPoint = _spawnPoints.FirstOrDefault(p => p.IsAvailable == true);
 
             if (CheckAmountOfSitizens() && freeSpawnPoint != null)
-                InstantiateSitizen(freeSpawnPoint, FirstLevelSitizenPath);
+                InstantiateSitizen(freeSpawnPoint, Constants.FirstLevelSitizenPath);
         }
 
         private void RemoveDeadSitizen(Sitizen deadSitizen)
@@ -105,7 +100,7 @@ namespace Scripts.Spawner
             Sitizen secondSitizen = Sitizens.FirstOrDefault(p => p.TypeId == SitizenTypeId.FirstSitizen);
             RemoveDeadSitizen(secondSitizen);
 
-            InstantiateSitizen(firstSitizen.SpawnPoint, SecondLevelSitizenPath);
+            InstantiateSitizen(firstSitizen.SpawnPoint, Constants.SecondLevelSitizenPath);
 
             firstSitizen.Die();
             secondSitizen.Die();
@@ -126,8 +121,6 @@ namespace Scripts.Spawner
 
         private void GetSpawnPoints()
         {
-            _spawnPoints = GetComponentsInChildren<SpawnPoint>();
-
             foreach (SpawnPoint spawnPoint in _spawnPoints)
                 spawnPoint.ChangeAvailability(true);
         }

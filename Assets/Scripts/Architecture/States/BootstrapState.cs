@@ -1,33 +1,40 @@
 using Scripts.Architecture.Services;
-using UnityEngine;
 using Scripts.Architecture.Factory;
 using Scripts.Spawner;
+using Scripts.UI.Panels;
 
 namespace Scripts.Architecture.States
 {
     public class BootstrapState : IState
     {
-        private readonly int _initialIndex = 1;
-        private readonly int _menuIndex = 2;
-
         private readonly GameStateMachine _gameStateMachine;
         private readonly SceneLoader _sceneLoader;
         private readonly AllServices _services;
-        private readonly GameObject _spawner;
+        private readonly SitizenSpawner _sitizenSpawner;
+        private readonly ZombieSpawner _zombieSpawner;
+        private readonly LevelPanel _levelPanel;
+        private readonly LoadingPanel _loadingPanel;
 
-        public BootstrapState(GameStateMachine gameStateMachine, SceneLoader sceneLoader, AllServices services, GameObject spawner)
+        public BootstrapState(GameStateMachine gameStateMachine, SceneLoader sceneLoader, AllServices services, 
+            SitizenSpawner sitizenSpawner, ZombieSpawner zombieSpawner, LevelPanel levelPanel, LoadingPanel loadingPanel)
         {
             _gameStateMachine = gameStateMachine;
             _sceneLoader = sceneLoader;
             _services = services;
-            _spawner = spawner;
+            _sitizenSpawner = sitizenSpawner;
+            _zombieSpawner = zombieSpawner;
+            _levelPanel = levelPanel;
+            _loadingPanel = loadingPanel;
 
             RegisterService();
         }
 
-        public void Enter()
+        public async void Enter()
         {
-            _sceneLoader.Load(_initialIndex, EnterLoadLevel);
+            var initializer = _services.Single<ISDKInitializer>();
+            await initializer.RunCoroutineAsTask();
+
+            _sceneLoader.Load(Constants.Initial, EnterLoadLevel);
         }
 
 
@@ -35,6 +42,9 @@ namespace Scripts.Architecture.States
 
         private void RegisterService()
         {
+            _services.RegisterSingle<ITestFocusService>(new TestFocusService());
+            _services.RegisterSingle<ISDKInitializer>(new SDKInitializer());
+            _services.RegisterSingle<IUIPanelService>(new UIPanelService(_gameStateMachine, _levelPanel, _loadingPanel));
             _services.RegisterSingle<IGameFactory>(new GameFactory());
             _services.RegisterSingle<ISaveLoadService>(new SaveLoadService());
             _services.RegisterSingle<IPlayerMoneyService>(new PlayerMoneyService(_services.Single<ISaveLoadService>()));
@@ -43,13 +53,12 @@ namespace Scripts.Architecture.States
                 _services.Single<IPlayerScoreService>(), _services.Single<ISaveLoadService>()));
             _services.RegisterSingle<IZombieHealthService>(new ZombieHealthService(_services.Single<IZombieRewardService>(),
                 _services.Single<ISaveLoadService>()));
-            _services.RegisterSingle<ISpawnerService>(new SpawnerService(_spawner.GetComponent<PanelSpawner>(),
-                _spawner.GetComponent<SitizenSpawner>(), _spawner.GetComponent<ZombieSpawner>()));
+            _services.RegisterSingle<ISpawnerService>(new SpawnerService(_sitizenSpawner, _zombieSpawner));
         }
 
         private void EnterLoadLevel()
         {
-            _gameStateMachine.Enter<LoadProgressState, int>(_menuIndex);
+            _gameStateMachine.Enter<LoadProgressState, string>(Constants.Menu);
         }
     }
 }

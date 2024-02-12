@@ -9,39 +9,33 @@ namespace Scripts.UI.Panels
 {
     public class LosePanel : Panel
     {
-        private readonly int _menuIndex = 1;
-
         [SerializeField] private Button _levelButton;
         [SerializeField] private Button _menuButton;
+        [SerializeField] private AudioSource _audioSource;
+        [SerializeField] private LevelPanel _levelPanel;
+        [SerializeField] private WinPanel _winPanel;
 
         private bool _isOpened;
         private ISpawnerService _spawnerService;
         private SitizenSpawner _sitizenSpawner;
-        private LevelPanel _levelPanel;
-        private WinPanel _winPanel;
-        private AudioSource _audioSource;
-
-        private void OnEnable()
-        {
-            _spawnerService = AllServices.Container.Single<ISpawnerService>();
-            _sitizenSpawner = _spawnerService.CurrentSitizenSpawner;
-
-            _levelPanel = GetComponentInParent<LevelPanel>();
-            _image = GetComponent<Image>();
-            _audioSource = GetComponent<AudioSource>();
-
-            _sitizenSpawner.AllSitizensDied += Open;
-            _levelButton.onClick.AddListener(OnNextLevelButtonClick);
-            _menuButton.onClick.AddListener(OnMenuButtonClick);
-
-            Close();
-        }
 
         private void OnDisable()
         {
             _sitizenSpawner.AllSitizensDied -= Open;
             _levelButton.onClick.RemoveListener(OnNextLevelButtonClick);
             _menuButton.onClick.RemoveListener(OnMenuButtonClick);
+        }
+
+        private void Start()
+        {
+            _spawnerService = AllServices.Container.Single<ISpawnerService>();
+            _sitizenSpawner = _spawnerService.CurrentSitizenSpawner;
+
+            _sitizenSpawner.AllSitizensDied += Open;
+            _levelButton.onClick.AddListener(OnNextLevelButtonClick);
+            _menuButton.onClick.AddListener(OnMenuButtonClick);
+
+            Close();
         }
 
         public override void Open()
@@ -51,12 +45,7 @@ namespace Scripts.UI.Panels
                 base.Open();
 
                 _audioSource.PlayOneShot(_audioSource.clip);
-
-                if (_spawnerService != null)
-                {
-                    _winPanel = _spawnerService.CurrentPanelSpawner.GetPanel<WinPanel>();
-                    _winPanel.Close();
-                }
+                _winPanel.Close();
 
                 _isOpened = true;
             }
@@ -71,14 +60,18 @@ namespace Scripts.UI.Panels
 
         private void OnNextLevelButtonClick()
         {
-            InterstitialAd.Show(OnOpenCallBack, OnCloseCallBack);
-            _levelPanel.OpenSceneWithResetingProgress(SceneManager.GetActiveScene().buildIndex);
+            Close();
+
+            //InterstitialAd.Show(OnOpenCallBack, OnCloseCallBack);
+            _levelPanel.OpenSceneWithResetingProgress(SceneManager.GetActiveScene().name);
         }
 
         private void OnMenuButtonClick()
         {
-            InterstitialAd.Show(OnOpenCallBack, OnCloseCallBack);
-            _levelPanel.OpenNextScene(_menuIndex);
+            Close();
+
+            //InterstitialAd.Show(OnOpenCallBack, OnCloseCallBack);
+            _levelPanel.OpenNextScene(Constants.Menu);
         }
 
         private void OnOpenCallBack()

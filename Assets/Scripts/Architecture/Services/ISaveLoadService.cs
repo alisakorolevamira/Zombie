@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using Scripts.Progress;
 
 namespace Scripts.Architecture.Services
@@ -8,8 +9,8 @@ namespace Scripts.Architecture.Services
         ZombieProgress ZombieProgress { get; }
         CardsPricesProgress CardsPricesProgress { get; }
 
-        void LoadProgress();
-        void SaveProgress();
+        UniTask LoadProgress();
+        UniTask SaveProgress();
         void ResetProgress();
     }
 }

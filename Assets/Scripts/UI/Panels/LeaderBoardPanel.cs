@@ -1,4 +1,5 @@
 using Agava.YandexGames;
+using Cysharp.Threading.Tasks;
 using Scripts.Architecture;
 using Scripts.Architecture.Services;
 using Scripts.Characters;
@@ -19,16 +20,16 @@ namespace Scripts.UI.Panels
         [SerializeField] private Transform _container;
         [SerializeField] private Button _leaderBoardButton;
         [SerializeField] private Button _closeButton;
-        [SerializeField] private UnsuccessfulAuthorizationPanel _unsuccessfulAuthorizationPanel;
+        [SerializeField] private Panel _unsuccessfulAuthorizationPanel;
+        [SerializeField] private LeaderBoard _leaderBoard;
+        [SerializeField] private Panel _errorPanel;
 
-        private LeaderBoard _leaderBoard;
         private ISaveLoadService _saveLoadService;
+
+        public Panel ErrorPanel => _errorPanel;
 
         private void OnEnable()
         {
-            _leaderBoard = GetComponent<LeaderBoard>();
-            _saveLoadService = AllServices.Container.Single<ISaveLoadService>();
-
             _leaderBoardButton.onClick.AddListener(Open);
             _closeButton.onClick.AddListener(Close);
         }
@@ -37,6 +38,11 @@ namespace Scripts.UI.Panels
         {
             _leaderBoardButton.onClick.RemoveListener(Open);
             _closeButton.onClick.RemoveListener(Close);
+        }
+
+        private void Start()
+        {
+            _saveLoadService = AllServices.Container.Single<ISaveLoadService>();
         }
 
         public void ConstractLeaderBoard(List<LeaderBoardPlayer> leaderBoardPlayers)
@@ -56,24 +62,28 @@ namespace Scripts.UI.Panels
             }
         }
 
-        public override void Open()
+        public async override void Open()
         {
             PlayerAccount.Authorize();
 
             base.Open();
 
+            await CheckPersonalData();
+        }
+
+        private async UniTask CheckPersonalData()
+        {
             if (PlayerAccount.IsAuthorized)
             {
                 PlayerAccount.RequestPersonalProfileDataPermission();
-                _leaderBoard.SetPlayer(_saveLoadService.PlayerProgress.Score);
+                await _leaderBoard.SetPlayer(_saveLoadService.PlayerProgress.Score);
             }
-
+            
             else
             {
                 _unsuccessfulAuthorizationPanel.Open();
                 Close();
             }
-
         }
 
         private void Clear()

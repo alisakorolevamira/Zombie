@@ -17,29 +17,25 @@ namespace Scripts.UI.Cards
         private protected const int _coefficientOfInceasing = 2;
 
         [SerializeField] private protected TMP_Text _priceText;
+        [SerializeField] private protected Button _button;
+        [SerializeField] private protected AudioSource _audioSource;
 
         private protected IPlayerMoneyService _playerMoneyService;
         private protected ISaveLoadService _saveLoadService;
-        private protected Button _button;
-        private protected AudioSource _audioSource;
 
         public abstract event Action<int> CardBought;
 
-        private protected virtual void OnEnable()
+        public override void Open()
         {
-            _button = GetComponent<Button>();
-            _audioSource = GetComponentInParent<AudioSource>();
-            _image = GetComponent<Image>();
-
-            _playerMoneyService = AllServices.Container.Single<IPlayerMoneyService>();
-            _saveLoadService = AllServices.Container.Single<ISaveLoadService>();
-
             _playerMoneyService.MoneyChanged += ChangeColor;
             _button.onClick.AddListener(OnButtonClicked);
         }
 
-        private protected virtual void OnDisable()
+        public override void Close()
         {
+            _playerMoneyService = AllServices.Container.Single<IPlayerMoneyService>();
+            _saveLoadService = AllServices.Container.Single<ISaveLoadService>();
+
             _button.onClick.RemoveListener(OnButtonClicked);
             _playerMoneyService.MoneyChanged -= ChangeColor;
         }

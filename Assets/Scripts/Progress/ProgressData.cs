@@ -3,7 +3,7 @@ namespace Scripts.Progress
     public class ProgressData
     {
         public int PlayerMoney = 0;
-        public int PlayerLevel = 2;
+        public string PlayerLevel = Constants.Menu;
         public int PlayerScore = 0;
         public int ZombieHealth = 500;
         public int ZombieMoneyReward = 10;

@@ -1,4 +1,5 @@
 using Agava.YandexGames;
+using Cysharp.Threading.Tasks;
 using Scripts.Characters;
 using Scripts.UI.Panels;
 using System.Collections.Generic;
@@ -8,41 +9,48 @@ namespace Scripts.Architecture
 {
     public class LeaderBoard : MonoBehaviour
     {
-        private const string AnonymousName = "Anonymous";
-        private const string LeaderBoardName = "LeaderBoard";
         private readonly List<LeaderBoardPlayer> _leaderBoardPlayers = new();
 
-        private LeaderBoardPanel _leaderBoardPanel;
+        [SerializeField] private LeaderBoardPanel _leaderBoardPanel;
 
-        private void Start()
-        {
-            _leaderBoardPanel = GetComponent<LeaderBoardPanel>();
-        }
-
-        public void SetPlayer(int score)
+        public async UniTask SetPlayer(int score)
         {
             if (PlayerAccount.IsAuthorized == false)
                 return;
-          
-            Leaderboard.GetPlayerEntry(LeaderBoardName, (result) =>
+
+            var task = new UniTaskCompletionSource();
+
+            Leaderboard.GetPlayerEntry(Constants.LeaderBoardName, (result) =>
+            {
+                if (result.score < score)
                 {
-                    if(result.score < score)
-                        Leaderboard.SetScore(LeaderBoardName, score);
-                });
+                    Leaderboard.SetScore(Constants.LeaderBoardName, score);
+                }
 
+                task.TrySetResult();
+            }, 
+            (error) =>
+            {
+                _leaderBoardPanel.ErrorPanel.Open();
+                _leaderBoardPanel.Close();
+                return;
+            });
 
+            await task.Task;
 
-            Fill();
+            await Fill();
         }
 
-        private void Fill()
+        private async UniTask Fill()
         {
             _leaderBoardPlayers.Clear();
 
             if (PlayerAccount.IsAuthorized == false)
                 return;
 
-            Leaderboard.GetEntries(LeaderBoardName, (result) =>
+            var task = new UniTaskCompletionSource();
+
+            Leaderboard.GetEntries(Constants.LeaderBoardName, (result) =>
             {
                 foreach (var entry in result.entries)
                 {
@@ -51,12 +59,22 @@ namespace Scripts.Architecture
                     var name = entry.player.publicName;
             
                     if (string.IsNullOrEmpty(name))
-                        name = AnonymousName;
+                        name = Constants.AnonymousName;
             
                     _leaderBoardPlayers.Add(new LeaderBoardPlayer(rank, name, score));
                 }
+
+                task.TrySetResult();
             
+            },
+            (error) =>
+            {
+                _leaderBoardPanel.ErrorPanel.Open();
+                _leaderBoardPanel.Close();
+                return;
             });
+
+            await task.Task;
 
             _leaderBoardPanel.ConstractLeaderBoard(_leaderBoardPlayers);
         }

@@ -14,20 +14,20 @@ namespace Scripts.Architecture
             _coroutineRunner = coroutineRunner;
         }
 
-        public void Load(int sceneIndex, Action onLoaded = null)
+        public void Load(string sceneName, Action onLoaded = null)
         {
-            _coroutineRunner.StartCoroutine(LoadScene(sceneIndex, onLoaded));
+            _coroutineRunner.StartCoroutine(LoadScene(sceneName, onLoaded));
         }
 
-        private IEnumerator LoadScene(int nextSceneIndex, Action onLoaded = null)
+        private IEnumerator LoadScene(string nextSceneName, Action onLoaded = null)
         {
-            if (SceneManager.GetActiveScene().buildIndex == nextSceneIndex)
+            if (SceneManager.GetActiveScene().name == nextSceneName)
             {
                 onLoaded?.Invoke();
                 yield break;
             }
 
-            AsyncOperation waitNextScene = SceneManager.LoadSceneAsync(nextSceneIndex);
+            AsyncOperation waitNextScene = SceneManager.LoadSceneAsync(nextSceneName);
 
             while (!waitNextScene.isDone)
                 yield return null;

@@ -7,16 +7,10 @@ namespace Scripts.UI
 
     public class ChangeSoundButton : MonoBehaviour
     {
-        private readonly int _minimumVolume = 0;
-        private readonly int _maximumVolume = 1;
-
-        [SerializeField] private AudioSource [] _audioSources;
-        private Button _button;
-
+        [SerializeField] private Button _button;
 
         private void OnEnable()
         {
-            _button = GetComponent<Button>();
             _button.onClick.AddListener(ChangeVolume);
         }
 
@@ -27,14 +21,11 @@ namespace Scripts.UI
 
         private void ChangeVolume()
         {
-            foreach (var audioSource in _audioSources)
-            {
-                if (audioSource.volume == _maximumVolume)
-                    audioSource.volume = _minimumVolume;
+            if (AudioListener.volume == Constants.MaximumVolumeValue)
+                AudioListener.volume = Constants.MinimumVolumeValue;
 
-                else
-                    audioSource.volume = _maximumVolume;
-            }
+            else
+                AudioListener.volume = Constants.MaximumVolumeValue;
         }
     }
 }

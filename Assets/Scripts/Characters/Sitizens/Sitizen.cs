@@ -8,7 +8,6 @@ namespace Scripts.Characters.Sitizens
     [RequireComponent(typeof(Animator))]
     public class Sitizen : MonoBehaviour
     {
-        private const string Hit = "Hit";
         private readonly int _coefficientOfChangingSpeed = 2;
 
         [SerializeField] private int _health;
@@ -57,7 +56,7 @@ namespace Scripts.Characters.Sitizens
         {
             while (!_isDead && _zombieHealthService.Health >= 0)
             {
-                _animator.SetTrigger(Hit);
+                _animator.SetTrigger(Constants.Hit);
                 _zombieHealthService.ChangeHealth(_damage);
 
                 yield return new WaitForSeconds(_speed);

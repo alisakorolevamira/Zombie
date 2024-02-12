@@ -4,7 +4,6 @@ namespace Scripts.Architecture.Services
 {
     public class PlayerMoneyService : IPlayerMoneyService
     {
-        private readonly int _addReward = 100;
         private readonly ISaveLoadService _saveLoadService;
 
         public PlayerMoneyService(ISaveLoadService saveLoadService)
@@ -15,7 +14,6 @@ namespace Scripts.Architecture.Services
         public event Action MoneyChanged;
 
         public int Money => _saveLoadService.PlayerProgress.Money;
-        public int AddReward => _addReward;
 
         public bool IsEnoughMoney(int value)
         {
