@@ -29,12 +29,11 @@ namespace Scripts.Architecture.Services
             DamageApplied?.Invoke();
 
             CheckDeath();
-            _saveLoadService.SaveProgress();
         }
 
         private void CheckDeath()
         {
-            if (Health <= 0)
+            if (Health <= Constants.ZombieMinimumHealth)
                 Died?.Invoke();
         }
     }

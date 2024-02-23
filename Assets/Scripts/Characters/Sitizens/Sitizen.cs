@@ -9,6 +9,7 @@ namespace Scripts.Characters.Sitizens
     public class Sitizen : MonoBehaviour
     {
         private readonly int _coefficientOfChangingSpeed = 2;
+        private readonly int _minimumHealth = 0;
 
         [SerializeField] private int _health;
         [SerializeField] private int _damage;
@@ -54,7 +55,7 @@ namespace Scripts.Characters.Sitizens
 
         private IEnumerator ApplyDamage()
         {
-            while (!_isDead && _zombieHealthService.Health >= 0)
+            while (!_isDead && _zombieHealthService.Health >= Constants.ZombieMinimumHealth)
             {
                 _animator.SetTrigger(Constants.Hit);
                 _zombieHealthService.ChangeHealth(_damage);
@@ -65,7 +66,7 @@ namespace Scripts.Characters.Sitizens
 
         private void CheckDeath()
         {
-            if (_health <= 0)
+            if (_health <= _minimumHealth)
             {
                 Died?.Invoke(this);
 

@@ -7,9 +7,6 @@ namespace Scripts.UI.Panels
 {
     public class SettingsPanel : Panel
     {
-        private readonly int _stopGameIndex = 0;
-        private readonly int _startGameIndex = 1;
-
         [SerializeField] private Button _menuButton;
         [SerializeField] private Button _saveButton;
 
@@ -38,14 +35,14 @@ namespace Scripts.UI.Panels
         {
             base.Open();
 
-            Time.timeScale = _stopGameIndex;
+            Time.timeScale = Constants.StopGameIndex;
         }
 
         public override void Close()
         {
             base.Close();
 
-            Time.timeScale = _startGameIndex;
+            Time.timeScale = Constants.StartGameIndex;
         }
 
         private void OnMenuButtonClick()

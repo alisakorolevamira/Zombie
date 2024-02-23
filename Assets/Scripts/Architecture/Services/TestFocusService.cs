@@ -5,11 +5,14 @@ namespace Scripts.Architecture.Services
 {
     public class TestFocusService : ITestFocusService
     {
-        public TestFocusService()
+        private readonly IAudioService _audioService;
+
+        public TestFocusService(IAudioService audioService)
         {
+            _audioService = audioService;
+
             Application.focusChanged += OnInBackgroundChangeApp;
             WebApplication.InBackgroundChangeEvent += OnInBackgroundChangeWeb;
-
         }
 
         public void Dispose()
@@ -20,24 +23,19 @@ namespace Scripts.Architecture.Services
 
         private void OnInBackgroundChangeApp(bool inApp)
         {
-            MuteAudio(!inApp);
+            _audioService.ChangeVolume(!inApp);
             PauseGame(!inApp);
         }
 
         private void OnInBackgroundChangeWeb(bool isBackground)
         {
-            MuteAudio(isBackground);
+            _audioService.ChangeVolume(isBackground);
             PauseGame(isBackground);
-        }
-
-        private void MuteAudio(bool value)
-        {
-            AudioListener.volume = value ? 0 : 1;
         }
 
         private void PauseGame(bool value)
         {
-            Time.timeScale = value ? 1 : 0;
+            Time.timeScale = value ? Constants.StartGameIndex : Constants.StopGameIndex;
         }
     }
 }

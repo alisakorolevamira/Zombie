@@ -13,16 +13,14 @@ namespace Scripts
         private const string Russian = "ru";
         private const string Turkish = "tr";
 
-        private LeanLocalization _leanLanguage;
+        [SerializeField] private LeanLocalization _leanLanguage;
 
         private void Awake()
         {
-            _leanLanguage = GetComponent<LeanLocalization>();
-            //ChangeLanguage();
             DontDestroyOnLoad(gameObject);
         }
 
-        private void ChangeLanguage()
+        public void ChangeLanguage()
         {
             string languageCode = YandexGamesSdk.Environment.i18n.lang;
 

@@ -20,7 +20,6 @@ namespace Scripts.Architecture.Services
             _saveLoadService.PlayerProgress.Score += value;
 
             ScoreChanged?.Invoke();
-            _saveLoadService.SaveProgress();
         }
 
         public void RemoveScore()
@@ -29,10 +28,9 @@ namespace Scripts.Architecture.Services
                 _saveLoadService.PlayerProgress.Score -= Constants.LoseScoreFine;
 
             else
-                _saveLoadService.PlayerProgress.Score = 0;
+                _saveLoadService.PlayerProgress.Score = Constants.MinimumScore;
 
             ScoreChanged?.Invoke();
-            _saveLoadService.SaveProgress();
         }
     }
 }

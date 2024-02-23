@@ -8,6 +8,8 @@ namespace Scripts.UI.Panels
 {
     public class WinPanel : Panel
     {
+        private readonly bool _isSoundOn = true;
+
         [SerializeField] private Button _levelButton;
         [SerializeField] private Button _menuButton;
         [SerializeField] private LevelPanel _levelPanel;
@@ -16,10 +18,12 @@ namespace Scripts.UI.Panels
 
         private bool _isOpened;
         private IZombieHealthService _zombieHealthService;
+        private IAudioService _audioService;
 
         private void Start()
         {
             _zombieHealthService = AllServices.Container.Single<IZombieHealthService>();
+            _audioService = AllServices.Container.Single<IAudioService>();
 
             _zombieHealthService.Died += Open;
             _levelButton.onClick.AddListener(OnNextLevelButtonClick);
@@ -60,7 +64,7 @@ namespace Scripts.UI.Panels
             Close();
 
             string activeScene = SceneManager.GetActiveScene().name;
-            //InterstitialAd.Show(OnOpenCallBack, OnCloseCallBack);
+            InterstitialAd.Show(OnOpenCallBack, OnCloseCallBack);
 
             switch (activeScene)
             {
@@ -107,22 +111,22 @@ namespace Scripts.UI.Panels
         {
             Close();
 
-            //InterstitialAd.Show(OnOpenCallBack, OnCloseCallBack);
+            InterstitialAd.Show(OnOpenCallBack, OnCloseCallBack);
             _levelPanel.OpenNextScene(Constants.Menu);
         }
 
         private void OnOpenCallBack()
         {
-            Time.timeScale = 0;
-            AudioListener.volume = 0f;
+            Time.timeScale = Constants.StopGameIndex;
+            _audioService.ChangeVolume(!_isSoundOn);
         }
 
         private void OnCloseCallBack(bool closed)
         {
             if (closed)
             {
-                Time.timeScale = 1;
-                AudioListener.volume = 1f;
+                Time.timeScale = Constants.StartGameIndex;
+                _audioService.ChangeVolume(_isSoundOn);
             }
         }
     }

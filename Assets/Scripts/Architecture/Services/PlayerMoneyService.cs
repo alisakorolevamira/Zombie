@@ -25,7 +25,6 @@ namespace Scripts.Architecture.Services
             _saveLoadService.PlayerProgress.Money += value;
 
             MoneyChanged?.Invoke();
-            _saveLoadService.SaveProgress();
         }
 
         public void SpendMoney(int value)
@@ -35,7 +34,6 @@ namespace Scripts.Architecture.Services
                 _saveLoadService.PlayerProgress.Money -= value;
 
                 MoneyChanged?.Invoke();
-                _saveLoadService.SaveProgress();
             }
         }
     }

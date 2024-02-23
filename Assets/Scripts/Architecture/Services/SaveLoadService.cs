@@ -45,11 +45,7 @@ namespace Scripts.Architecture.Services
 
             _file = JsonUtility.ToJson(_data);
 
-            await UniTask.RunOnThreadPool(() =>
-            {
-                PlayerAccount.SetCloudSaveData(_file);
-            });
-
+            await SetCloudSaveDataAsync(_file);
         }
 
         public void ResetProgress()
@@ -72,6 +68,15 @@ namespace Scripts.Architecture.Services
             PlayerProgress = new(_data.PlayerLevel, _data.PlayerMoney, _data.PlayerScore);
             ZombieProgress = new(_data.ZombieHealth, _data.ZombieMoneyReward, _data.ZombieScoreReward);
             CardsPricesProgress = new(_data.AddSitizenCardPrice, _data.MergeCardPrice, _data.AddSpeedCardPrice, _data.DoubleRewardCardPrice);
+        }
+
+        private async UniTask SetCloudSaveDataAsync(string file)
+        {
+            var task = new UniTaskCompletionSource();
+            
+            PlayerAccount.SetCloudSaveData(file, () => { task.TrySetResult(); });
+            
+            await task.Task;
         }
     }
 }

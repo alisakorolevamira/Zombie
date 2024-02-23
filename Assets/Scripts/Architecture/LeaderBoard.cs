@@ -71,6 +71,7 @@ namespace Scripts.Architecture
             {
                 _leaderBoardPanel.ErrorPanel.Open();
                 _leaderBoardPanel.Close();
+
                 return;
             });
 

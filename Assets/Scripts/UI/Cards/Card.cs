@@ -43,7 +43,6 @@ namespace Scripts.UI.Cards
         private protected virtual void OnButtonClicked()
         {
             _audioSource.PlayOneShot(_audioSource.clip);
-            _saveLoadService.SaveProgress();
         }
 
         private protected virtual void ChangeColor()

@@ -18,7 +18,7 @@ namespace Scripts.UI.Cards
             base.Open();
 
             _spawnerService = AllServices.Container.Single<ISpawnerService>();
-            _sitizenSpawner = _spawnerService.CurrentSitizenSpawner;
+            _sitizenSpawner = _spawnerService.SitizenSpawner;
             _priceText.text = _saveLoadService.CardsPricesProgress.AddSpeedCardPrice.ToString();
         }
 

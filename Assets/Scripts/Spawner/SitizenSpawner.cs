@@ -25,8 +25,8 @@ namespace Scripts.Spawner
 
         private void OnEnable()
         {
+            DontDestroyOnLoad(gameObject);
             _playerScoreService = AllServices.Container.Single<IPlayerScoreService>();
-            DontDestroyOnLoad(gameObject); //изменить потом
         }
 
         private void OnDisable()
@@ -34,27 +34,11 @@ namespace Scripts.Spawner
             ClearSubscriptions();
         }
 
-        public void ClearSubscriptions()
-        {
-            if (Sitizens.Count != 0)
-            {
-                foreach (var sitizen in Sitizens)
-                {
-                    sitizen.Died -= RemoveDeadSitizen;
-                }
-            }
-
-            if (_addSitizenCard != null && _mergeCard != null)
-            {
-                _addSitizenCard.OnClicked -= AddFirstLevelSitizen;
-                _mergeCard.OnClicked -= MergeSitizens;
-            }
-        }
-
         public void AddComponentsOnLevel()
         {
             _factory = AllServices.Container.Single<IGameFactory>();
 
+            ClearSubscriptions();
             _addSitizenCard.OnClicked += AddFirstLevelSitizen;
             _mergeCard.OnClicked += MergeSitizens;
 
@@ -73,6 +57,23 @@ namespace Scripts.Spawner
         {
             AllSitizensDied?.Invoke();
             _playerScoreService.RemoveScore();
+        }
+
+        private void ClearSubscriptions()
+        {
+            if (Sitizens.Count != 0)
+            {
+                foreach (var sitizen in Sitizens)
+                {
+                    sitizen.Died -= RemoveDeadSitizen;
+                }
+            }
+
+            if (_addSitizenCard != null && _mergeCard != null)
+            {
+                _addSitizenCard.OnClicked -= AddFirstLevelSitizen;
+                _mergeCard.OnClicked -= MergeSitizens;
+            }
         }
 
         private void AddFirstLevelSitizen()

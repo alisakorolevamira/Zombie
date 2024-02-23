@@ -11,7 +11,6 @@ namespace Scripts.UI.Panels
 
         private GameStateMachine _gameStateMachine;
         private ISaveLoadService _saveLoadService;
-        private ISpawnerService _spawnerService;
         private IUIPanelService _panelService;
 
         private void Awake()
@@ -22,7 +21,6 @@ namespace Scripts.UI.Panels
         private void Start()
         {
             _saveLoadService = AllServices.Container.Single<ISaveLoadService>();
-            _spawnerService = AllServices.Container.Single<ISpawnerService>();
             _panelService = AllServices.Container.Single<IUIPanelService>();
         }
 
@@ -44,7 +42,8 @@ namespace Scripts.UI.Panels
 
         public void OpenNextScene(string sceneName)
         {
-            _spawnerService.CurrentSitizenSpawner.ClearSubscriptions();
+            Close();
+
             _gameStateMachine = _panelService.StateMachine;
             _gameStateMachine.Enter<LoadProgressState, string>(sceneName);
         }

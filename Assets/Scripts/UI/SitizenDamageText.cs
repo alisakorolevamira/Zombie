@@ -7,6 +7,8 @@ namespace Scripts.UI
     public class SitizenDamageText : MonoBehaviour
     {
         private readonly float _textFadeDuration = 3f;
+        private readonly int _visibleAlfaIndex = 1;
+        private readonly int _invisibleAlfaIndex = 0;
 
         [SerializeField] private Sitizen _sitizen;
         [SerializeField] private TMP_Text _text;
@@ -23,9 +25,9 @@ namespace Scripts.UI
 
         private void ChangeText(int damage)
         {
-            _text.canvasRenderer.SetAlpha(1);
+            _text.canvasRenderer.SetAlpha(_visibleAlfaIndex);
             _text.text = damage.ToString();
-            _text.CrossFadeAlpha(0, _textFadeDuration, false);
+            _text.CrossFadeAlpha(_invisibleAlfaIndex, _textFadeDuration, false);
         }
     }
 }

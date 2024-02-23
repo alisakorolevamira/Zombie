@@ -171,6 +171,7 @@ MonoBehaviour:
   _zombieSpawner: {fileID: 115833622}
   _levelPanel: {fileID: 1051631893}
   _loadingPanel: {fileID: 1024756314}
+  _localization: {fileID: 1571494403}
 --- !u!1 &78825006
 GameObject:
   m_ObjectHideFlags: 0
@@ -1801,6 +1802,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1853749683499175434, guid: 59db1f509e27ea94cba97531b9bc478f, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4422945826068334414, guid: 59db1f509e27ea94cba97531b9bc478f, type: 3}
       propertyPath: m_Name
       value: LevelCanvas
@@ -2394,6 +2399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94fd624ecbe869d4ebe23dbc00be05f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _leanLanguage: {fileID: 1571494401}
 --- !u!1 &1690481556
 GameObject:
   m_ObjectHideFlags: 0

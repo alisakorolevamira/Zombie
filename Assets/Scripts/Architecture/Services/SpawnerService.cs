@@ -6,11 +6,11 @@ namespace Scripts.Architecture.Services
     {
         public SpawnerService(SitizenSpawner sitizenSpawner, ZombieSpawner zombieSpawner)
         {
-            CurrentSitizenSpawner = sitizenSpawner;
-            CurrentZombieSpawner = zombieSpawner;
+            SitizenSpawner = sitizenSpawner;
+            ZombieSpawner = zombieSpawner;
         }
 
-        public SitizenSpawner CurrentSitizenSpawner { get; }
-        public ZombieSpawner CurrentZombieSpawner { get; }
+        public SitizenSpawner SitizenSpawner { get; }
+        public ZombieSpawner ZombieSpawner { get; }
     }
 }

@@ -23,7 +23,7 @@ namespace Scripts.Characters
         private void Start()
         {
             _animator = GetComponent<Animator>();
-            _spawner = AllServices.Container.Single<ISpawnerService>().CurrentSitizenSpawner;
+            _spawner = AllServices.Container.Single<ISpawnerService>().SitizenSpawner;
             _health = AllServices.Container.Single<IZombieHealthService>();
 
             _health.DamageApplied += OnDamageApplied;
@@ -38,7 +38,7 @@ namespace Scripts.Characters
 
             while (!IsDead)
             {
-                if (_spawner.Sitizens.Count != 0)
+                if (_spawner.Sitizens.Count != Constants.MinimumNumberOfSitizens)
                 {
                     foreach (var sitizen in _spawner.Sitizens.ToArray())
                     {

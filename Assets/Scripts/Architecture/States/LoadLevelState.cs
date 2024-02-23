@@ -1,5 +1,4 @@
 ﻿using Scripts.Architecture.Services;
-using Scripts.Spawner;
 using System;
 
 namespace Scripts.Architecture.States
@@ -9,19 +8,17 @@ namespace Scripts.Architecture.States
         private readonly GameStateMachine _gameStateMachine;
         private readonly SceneLoader _sceneLoader;
         private readonly IUIPanelService _panelService;
-        private readonly SitizenSpawner _sitizenSpawner;
-        private readonly ZombieSpawner _zombieSpawner;
+        private readonly ISpawnerService _spawnerService;
         private Action _sceneLoaded;
         
 
         public LoadLevelState(GameStateMachine gameStateMachine, SceneLoader sceneLoader, IUIPanelService panelService,
-            SitizenSpawner sitizenSpawner, ZombieSpawner zombieSpawner)
+            ISpawnerService spawnerService)
         {
             _gameStateMachine = gameStateMachine;
             _sceneLoader = sceneLoader;
             _panelService = panelService;
-            _sitizenSpawner = sitizenSpawner;
-            _zombieSpawner = zombieSpawner;
+            _spawnerService = spawnerService;
         }
 
         public void Enter(string sceneName)
@@ -47,8 +44,8 @@ namespace Scripts.Architecture.States
 
         private void SpawnersOnLoaded()
         {
-            _sitizenSpawner.AddComponentsOnLevel();
-            _zombieSpawner.GetComponent<ZombieSpawner>().CreateZombie();
+            _spawnerService.SitizenSpawner.AddComponentsOnLevel();
+            _spawnerService.ZombieSpawner.CreateZombie();
 
             _sceneLoaded -= SpawnersOnLoaded;
         }

@@ -1,6 +1,5 @@
 using Agava.YandexGames;
 using Scripts.Architecture.Services;
-using Scripts.Spawner;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -9,6 +8,8 @@ namespace Scripts.UI.Panels
 {
     public class LosePanel : Panel
     {
+        private readonly bool _isSoundOn = true;
+
         [SerializeField] private Button _levelButton;
         [SerializeField] private Button _menuButton;
         [SerializeField] private AudioSource _audioSource;
@@ -17,11 +18,11 @@ namespace Scripts.UI.Panels
 
         private bool _isOpened;
         private ISpawnerService _spawnerService;
-        private SitizenSpawner _sitizenSpawner;
+        private IAudioService _audioService;
 
         private void OnDisable()
         {
-            _sitizenSpawner.AllSitizensDied -= Open;
+            _spawnerService.SitizenSpawner.AllSitizensDied -= Open;
             _levelButton.onClick.RemoveListener(OnNextLevelButtonClick);
             _menuButton.onClick.RemoveListener(OnMenuButtonClick);
         }
@@ -29,9 +30,9 @@ namespace Scripts.UI.Panels
         private void Start()
         {
             _spawnerService = AllServices.Container.Single<ISpawnerService>();
-            _sitizenSpawner = _spawnerService.CurrentSitizenSpawner;
+            _audioService = AllServices.Container.Single<IAudioService>();
 
-            _sitizenSpawner.AllSitizensDied += Open;
+            _spawnerService.SitizenSpawner.AllSitizensDied += Open;
             _levelButton.onClick.AddListener(OnNextLevelButtonClick);
             _menuButton.onClick.AddListener(OnMenuButtonClick);
 
@@ -62,7 +63,7 @@ namespace Scripts.UI.Panels
         {
             Close();
 
-            //InterstitialAd.Show(OnOpenCallBack, OnCloseCallBack);
+            InterstitialAd.Show(OnOpenCallBack, OnCloseCallBack);
             _levelPanel.OpenSceneWithResetingProgress(SceneManager.GetActiveScene().name);
         }
 
@@ -70,22 +71,22 @@ namespace Scripts.UI.Panels
         {
             Close();
 
-            //InterstitialAd.Show(OnOpenCallBack, OnCloseCallBack);
+            InterstitialAd.Show(OnOpenCallBack, OnCloseCallBack);
             _levelPanel.OpenNextScene(Constants.Menu);
         }
 
         private void OnOpenCallBack()
         {
-            Time.timeScale = 0;
-            AudioListener.volume = 0f;
+            Time.timeScale = Constants.StopGameIndex;
+            _audioService.ChangeVolume(!_isSoundOn);
         }
 
         private void OnCloseCallBack(bool closed)
         {
             if (closed)
             {
-                Time.timeScale = 1;
-                AudioListener.volume = 1f;
+                Time.timeScale = Constants.StartGameIndex;
+                _audioService.ChangeVolume(_isSoundOn);
             }
         }
     }

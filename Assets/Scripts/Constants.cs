@@ -23,10 +23,15 @@ namespace Scripts
         public const string SecondLevelSitizenPath = "Prefabs/Sitizens/SecondLevelSitizen";
         public const string ZombiePath = "Prefabs/Zombies/Zombie";
         public const int MaximumNumberOfSitizens = 5;
+        public const int MinimumNumberOfSitizens = 0;
         public const int MinimumVolumeValue = 0;
         public const int MaximumVolumeValue = 1;
         public const int AddMoneyReward = 100;
         public const int LoseScoreFine = 1000;
         public const int ZombieMaximumHealth = 500;
+        public const int ZombieMinimumHealth = 0;
+        public const int MinimumScore = 0;
+        public const int StopGameIndex = 0;
+        public const int StartGameIndex = 1;
     }
 }
