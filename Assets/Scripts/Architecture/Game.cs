@@ -8,10 +8,10 @@ namespace Scripts.Architecture
     public class Game
     {
         public Game(ICoroutineRunner coroutineRunner, SitizenSpawner sitizenSpawner, ZombieSpawner zombieSpawner, 
-            LevelPanel levelPanel, LoadingPanel loadingPanel, Localization localization)
+            LevelPanel levelPanel, LoadingPanel loadingPanel)
         {
             StateMachine = new GameStateMachine(new SceneLoader(coroutineRunner), AllServices.Container, sitizenSpawner,
-                zombieSpawner, levelPanel, loadingPanel, localization);
+                zombieSpawner, levelPanel, loadingPanel);
         }
 
         public GameStateMachine StateMachine { get; private set; }

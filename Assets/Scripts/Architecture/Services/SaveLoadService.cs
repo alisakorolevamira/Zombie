@@ -29,7 +29,7 @@ namespace Scripts.Architecture.Services
             });
             
             _file = await task.Task;
-
+            
             if (_file != null)
                 _data = JsonUtility.FromJson<ProgressData>(_file);
 
@@ -42,9 +42,9 @@ namespace Scripts.Architecture.Services
         public async UniTask SaveProgress()
         {
             UpdateData();
-
+           
             _file = JsonUtility.ToJson(_data);
-
+            
             await SetCloudSaveDataAsync(_file);
         }
 

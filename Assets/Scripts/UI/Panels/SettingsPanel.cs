@@ -1,16 +1,19 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using Scripts.Architecture.Services;
 
 namespace Scripts.UI.Panels
 {
     public class SettingsPanel : Panel
     {
+        private readonly bool _isGameStopped = false;
+
         [SerializeField] private Button _menuButton;
         [SerializeField] private Button _saveButton;
+        [SerializeField] private LevelPanel _levelPanel;
 
         private ISaveLoadService _saveLoadService;
+        private IFocusService _focusService;
 
         private void OnEnable()
         {
@@ -27,6 +30,7 @@ namespace Scripts.UI.Panels
         private void Start()
         {
             _saveLoadService = AllServices.Container.Single<ISaveLoadService>();
+            _focusService = AllServices.Container.Single<IFocusService>();
 
             Close();
         }
@@ -35,19 +39,21 @@ namespace Scripts.UI.Panels
         {
             base.Open();
 
-            Time.timeScale = Constants.StopGameIndex;
+            _focusService.IsGameStopped = true;
+            _focusService.PauseGame(_isGameStopped);
         }
 
         public override void Close()
         {
             base.Close();
 
-            Time.timeScale = Constants.StartGameIndex;
+            _focusService.IsGameStopped = false;
+            _focusService.PauseGame(!_isGameStopped);
         }
 
         private void OnMenuButtonClick()
         {
-            SceneManager.LoadScene(Constants.Menu);
+            _levelPanel.OpenNextScene(Constants.Menu);
         }
 
         private void OnSaveButtonClick()

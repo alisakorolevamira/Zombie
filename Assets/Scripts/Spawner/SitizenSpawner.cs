@@ -26,6 +26,7 @@ namespace Scripts.Spawner
         private void OnEnable()
         {
             DontDestroyOnLoad(gameObject);
+
             _playerScoreService = AllServices.Container.Single<IPlayerScoreService>();
         }
 
@@ -39,11 +40,11 @@ namespace Scripts.Spawner
             _factory = AllServices.Container.Single<IGameFactory>();
 
             ClearSubscriptions();
+
             _addSitizenCard.OnClicked += AddFirstLevelSitizen;
             _mergeCard.OnClicked += MergeSitizens;
 
             Sitizens.Clear();
-
             GetSpawnPoints();
             AddFirstLevelSitizen();
         }
@@ -88,6 +89,7 @@ namespace Scripts.Spawner
         {
             deadSitizen.SpawnPoint.ChangeAvailability(true);
             Sitizens.Remove(deadSitizen);
+
             deadSitizen.Died -= RemoveDeadSitizen;
 
             NumberOfSitizensChanged?.Invoke();
@@ -115,6 +117,7 @@ namespace Scripts.Spawner
             newSitizen.SpawnPoint.ChangeAvailability(false);
 
             Sitizens.Add(newSitizen);
+
             newSitizen.Died += RemoveDeadSitizen;
 
             NumberOfSitizensChanged?.Invoke();

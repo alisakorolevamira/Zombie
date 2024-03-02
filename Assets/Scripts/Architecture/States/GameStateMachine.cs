@@ -12,12 +12,12 @@ namespace Scripts.Architecture.States
         private IExitableState _activeState;
 
         public GameStateMachine(SceneLoader sceneLoader, AllServices services, SitizenSpawner sitizenSpawner, ZombieSpawner zombieSpawner,
-            LevelPanel levelPanel, LoadingPanel loadingPanel, Localization localization)
+            LevelPanel levelPanel, LoadingPanel loadingPanel)
         {
             _states = new Dictionary<Type, IExitableState>
             {
                 [typeof(BootstrapState)] = new BootstrapState(this, sceneLoader, services, sitizenSpawner, zombieSpawner,
-                levelPanel, loadingPanel, localization),
+                levelPanel, loadingPanel),
                 [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader, services.Single<IUIPanelService>(), 
                 services.Single<ISpawnerService>()),
                 [typeof(LoadProgressState)] = new LoadProgressState(this, services.Single<ISaveLoadService>()),

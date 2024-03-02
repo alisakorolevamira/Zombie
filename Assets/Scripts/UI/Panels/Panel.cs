@@ -11,7 +11,7 @@ namespace Scripts.UI.Panels
         private readonly int _closeIndex = 0;
 
         [SerializeField] private protected Image _image;
-        [SerializeField] private CanvasGroup _canvasGroup;
+        [SerializeField] private protected CanvasGroup _canvasGroup;
         [SerializeField] private Button[] _buttons;
 
         public virtual void Open()

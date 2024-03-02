@@ -8,7 +8,7 @@ namespace Scripts.UI.Panels
 {
     public class LosePanel : Panel
     {
-        private readonly bool _isSoundOn = true;
+        private readonly bool _isGameStopped = false;
 
         [SerializeField] private Button _levelButton;
         [SerializeField] private Button _menuButton;
@@ -18,6 +18,7 @@ namespace Scripts.UI.Panels
 
         private bool _isOpened;
         private ISpawnerService _spawnerService;
+        private IFocusService _focusService;
         private IAudioService _audioService;
 
         private void OnDisable()
@@ -30,6 +31,7 @@ namespace Scripts.UI.Panels
         private void Start()
         {
             _spawnerService = AllServices.Container.Single<ISpawnerService>();
+            _focusService = AllServices.Container.Single<IFocusService>();
             _audioService = AllServices.Container.Single<IAudioService>();
 
             _spawnerService.SitizenSpawner.AllSitizensDied += Open;
@@ -77,16 +79,18 @@ namespace Scripts.UI.Panels
 
         private void OnOpenCallBack()
         {
-            Time.timeScale = Constants.StopGameIndex;
-            _audioService.ChangeVolume(!_isSoundOn);
+            _focusService.IsGameStopped = true;
+            _focusService.PauseGame(_isGameStopped);
+            _audioService.ChangeVolume(_isGameStopped);
         }
 
         private void OnCloseCallBack(bool closed)
         {
             if (closed)
             {
-                Time.timeScale = Constants.StartGameIndex;
-                _audioService.ChangeVolume(_isSoundOn);
+                _focusService.IsGameStopped = false;
+                _focusService.PauseGame(!_isGameStopped);
+                _audioService.ChangeVolume(!_isGameStopped);
             }
         }
     }

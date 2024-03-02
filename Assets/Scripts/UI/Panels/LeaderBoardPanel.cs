@@ -64,8 +64,6 @@ namespace Scripts.UI.Panels
 
         public async override void Open()
         {
-            PlayerAccount.Authorize();
-
             base.Open();
 
             await CheckPersonalData();

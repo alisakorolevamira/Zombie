@@ -8,7 +8,7 @@ namespace Scripts.Spawner
 {
     public class ZombieSpawner : MonoBehaviour
     {
-        private readonly int _sceneIndexCoefficient = 1;
+        private readonly int _sceneIndexCoefficient = 2;
 
         private IGameFactory _factory;
         private string _path;
@@ -16,8 +16,9 @@ namespace Scripts.Spawner
         public void CreateZombie()
         {
             _factory = AllServices.Container.Single<IGameFactory>();
+
             GetPath();
-            _factory.SpawnZombie(_path).GetComponent<Zombie>();
+            _factory.SpawnZombie(_path);
         }
 
         private void GetPath()

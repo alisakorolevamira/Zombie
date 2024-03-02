@@ -2,6 +2,7 @@ using Agava.YandexGames;
 using Cysharp.Threading.Tasks;
 using Scripts.Characters;
 using Scripts.UI.Panels;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,9 +16,6 @@ namespace Scripts.Architecture
 
         public async UniTask SetPlayer(int score)
         {
-            if (PlayerAccount.IsAuthorized == false)
-                return;
-
             var task = new UniTaskCompletionSource();
 
             Leaderboard.GetPlayerEntry(Constants.LeaderBoardName, (result) =>
@@ -33,12 +31,19 @@ namespace Scripts.Architecture
             {
                 _leaderBoardPanel.ErrorPanel.Open();
                 _leaderBoardPanel.Close();
-                return;
+
+                task.TrySetException(new System.Exception(error));
             });
 
-            await task.Task;
-
-            await Fill();
+            try
+            {
+                await task.Task;
+                await Fill();
+            }
+            catch(OperationCanceledException exception)
+            {
+                Debug.LogWarning($"{nameof(exception)}");
+            }
         }
 
         private async UniTask Fill()

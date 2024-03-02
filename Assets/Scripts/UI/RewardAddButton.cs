@@ -7,11 +7,12 @@ namespace Scripts.UI
 {
     public class RewardAddButton : MonoBehaviour
     {
-        private readonly bool _isSoundOn = true;
+        private readonly bool _isGameStopped = false;
 
         [SerializeField] private Button _rewardButton;
 
         private IPlayerMoneyService _playerMoneyService;
+        private IFocusService _focusService;
         private IAudioService _audioService;
 
         private void OnEnable()
@@ -27,6 +28,7 @@ namespace Scripts.UI
         private void Start()
         {
             _playerMoneyService = AllServices.Container.Single<IPlayerMoneyService>();
+            _focusService = AllServices.Container.Single<IFocusService>();
             _audioService = AllServices.Container.Single<IAudioService>();
         }
 
@@ -37,14 +39,18 @@ namespace Scripts.UI
 
         private void OnOpenCallBack()
         {
-            Time.timeScale = Constants.StopGameIndex;
-            _audioService.ChangeVolume(!_isSoundOn);
+            _focusService.IsGameStopped = true;
+
+            _focusService.PauseGame(_isGameStopped);
+            _audioService.ChangeVolume(_isGameStopped);
         }
 
         private void OnCloseCallBack()
         {
-            Time.timeScale = Constants.StartGameIndex;
-            _audioService.ChangeVolume(_isSoundOn);
+            _focusService.IsGameStopped = false;
+
+            _focusService.PauseGame(!_isGameStopped);
+            _audioService.ChangeVolume(!_isGameStopped);
         }
 
         private void OnRewardCallBack()

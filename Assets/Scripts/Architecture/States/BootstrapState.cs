@@ -14,10 +14,9 @@ namespace Scripts.Architecture.States
         private readonly ZombieSpawner _zombieSpawner;
         private readonly LevelPanel _levelPanel;
         private readonly LoadingPanel _loadingPanel;
-        private readonly Localization _localization;
 
         public BootstrapState(GameStateMachine gameStateMachine, SceneLoader sceneLoader, AllServices services, 
-            SitizenSpawner sitizenSpawner, ZombieSpawner zombieSpawner, LevelPanel levelPanel, LoadingPanel loadingPanel, Localization localization)
+            SitizenSpawner sitizenSpawner, ZombieSpawner zombieSpawner, LevelPanel levelPanel, LoadingPanel loadingPanel)
         {
             _gameStateMachine = gameStateMachine;
             _sceneLoader = sceneLoader;
@@ -26,7 +25,6 @@ namespace Scripts.Architecture.States
             _zombieSpawner = zombieSpawner;
             _levelPanel = levelPanel;
             _loadingPanel = loadingPanel;
-            _localization = localization;
 
             RegisterService();
         }
@@ -41,12 +39,8 @@ namespace Scripts.Architecture.States
 
         private void RegisterService()
         {
-            //_services.RegisterSingle<ISDKInitializer>(new SDKInitializer());
-            //var initializer = _services.Single<ISDKInitializer>();
-            //await initializer.RunCoroutineAsTask();
-
             _services.RegisterSingle<IAudioService>(new AudioService());
-            _services.RegisterSingle<ITestFocusService>(new TestFocusService(_services.Single<IAudioService>()));
+            _services.RegisterSingle<IFocusService>(new FocusService(_services.Single<IAudioService>()));
             _services.RegisterSingle<IUIPanelService>(new UIPanelService(_gameStateMachine, _levelPanel, _loadingPanel));
             _services.RegisterSingle<IGameFactory>(new GameFactory());
             _services.RegisterSingle<ISaveLoadService>(new SaveLoadService());
@@ -57,8 +51,6 @@ namespace Scripts.Architecture.States
             _services.RegisterSingle<IZombieHealthService>(new ZombieHealthService(_services.Single<IZombieRewardService>(),
                 _services.Single<ISaveLoadService>()));
             _services.RegisterSingle<ISpawnerService>(new SpawnerService(_sitizenSpawner, _zombieSpawner));
-
-            _localization.ChangeLanguage();
         }
 
         private void EnterLoadLevel()

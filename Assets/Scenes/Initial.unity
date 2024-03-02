@@ -171,8 +171,8 @@ MonoBehaviour:
   _zombieSpawner: {fileID: 115833622}
   _levelPanel: {fileID: 1051631893}
   _loadingPanel: {fileID: 1024756314}
-  _localization: {fileID: 1571494403}
---- !u!1 &78825006
+  _localization: {fileID: 0}
+--- !u!1 &101787081
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -180,37 +180,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 78825007}
-  - component: {fileID: 78825008}
+  - component: {fileID: 101787082}
+  - component: {fileID: 101787083}
   m_Layer: 0
-  m_Name: You Win
+  m_Name: Anonymous
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &78825007
+--- !u!4 &101787082
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 78825006}
+  m_GameObject: {fileID: 101787081}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1571494402}
+  m_Father: {fileID: 1597031839}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &78825008
+--- !u!114 &101787083
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 78825006}
+  m_GameObject: {fileID: 101787081}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
@@ -219,13 +219,68 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: English
-    Text: You WIN!
+    Text: Anonymous
     Object: {fileID: 0}
   - Language: Russian
-    Text: "\u041F\u041E\u0411\u0415\u0414\u0410!"
+    Text: "\u0410\u043D\u043E\u043D\u0438\u043C"
     Object: {fileID: 0}
   - Language: Turkish
-    Text: ZAFER!
+    Text: Isimsiz
+    Object: {fileID: 0}
+--- !u!1 &111471702
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 111471703}
+  - component: {fileID: 111471704}
+  m_Layer: 0
+  m_Name: Leader Board
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &111471703
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111471702}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1597031839}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &111471704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111471702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: LEADER BOARD
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0422\u0410\u0411\u041B\u0418\u0426\u0410 \u0418\u0413\u0420\u041E\u041A\u041E\u0412"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "L\u0130DERLER SIRALAMASI"
     Object: {fileID: 0}
 --- !u!1 &115833617
 GameObject:
@@ -293,7 +348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37040cc44195d8e47b4797ea06f27a90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &167192800
+--- !u!1 &160691262
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -301,37 +356,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 167192801}
-  - component: {fileID: 167192802}
+  - component: {fileID: 160691263}
+  - component: {fileID: 160691264}
   m_Layer: 0
-  m_Name: Log Inn
+  m_Name: Welcome to Game
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &167192801
+--- !u!4 &160691263
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 167192800}
+  m_GameObject: {fileID: 160691262}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1571494402}
+  m_Father: {fileID: 1597031839}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &167192802
+--- !u!114 &160691264
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 167192800}
+  m_GameObject: {fileID: 160691262}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
@@ -339,16 +394,45 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: 0
   entries:
-  - Language: English
-    Text: LOG INN
-    Object: {fileID: 0}
   - Language: Russian
-    Text: "\u0410\u0412\u0422\u041E\u0420\u0418\u0417\u041E\u0412\u0410\u0422\u042C\u0421\u042F"
+    Text: "\u0414\u043E\u0431\u0440\u043E \u043F\u043E\u0436\u0430\u043B\u043E\u0432\u0430\u0442\u044C
+      \u0432 \"\u0417\u043E\u043C\u0431\u0438\"!\r\n\u041F\u0435\u0440\u0435\u0434
+      \u0432\u0430\u043C\u0438 \u0434\u0435\u0440\u0435\u0432\u043D\u044F, \u0430
+      \u043D\u0430 \u0435\u0451 \u043E\u043A\u0440\u0430\u0438\u043D\u0435 \u043F\u043E\u044F\u0432\u043B\u044F\u044E\u0442\u0441\u044F
+      \u0437\u043B\u043E\u0432\u0435\u0449\u0438\u0435 \u0437\u043E\u043C\u0431\u0438.
+      \u0412\u0430\u0448\u0430 \u0437\u0430\u0434\u0430\u0447\u0430 - \u0437\u0430\u0449\u0438\u0442\u0438\u0442\u044C
+      \u0434\u0435\u0440\u0435\u0432\u043D\u044E, \u0434\u043E\u0431\u0430\u0432\u043B\u044F\u044F
+      \u0436\u0438\u0442\u0435\u043B\u0435\u0439 \u0438 \u0441\u043E\u0432\u0435\u0440\u0448\u0435\u043D\u0441\u0442\u0432\u0443\u044F
+      \u0438\u0445 \u043D\u0430\u0432\u044B\u043A\u0438.\n\n\u0412\u043D\u0438\u0437\u0443
+      \u0432\u0430\u0448\u0435\u0433\u043E \u044D\u043A\u0440\u0430\u043D\u0430 \u043D\u0430\u0445\u043E\u0434\u044F\u0442\u0441\u044F
+      \u0447\u0435\u0442\u044B\u0440\u0435 \u043A\u0430\u0440\u0442\u043E\u0447\u043A\u0438.
+      \u041A\u0430\u0436\u0434\u0430\u044F \u043A\u0430\u0440\u0442\u043E\u0447\u043A\u0430
+      \u043F\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u043B\u044F\u0435\u0442 \u0441\u043E\u0431\u043E\u0439
+      \u0440\u0430\u0437\u043B\u0438\u0447\u043D\u044B\u0435 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u044F
+      \u0434\u043B\u044F \u0443\u043B\u0443\u0447\u0448\u0435\u043D\u0438\u044F \u0438
+      \u0437\u0430\u0449\u0438\u0442\u044B \u0434\u0435\u0440\u0435\u0432\u043D\u0438.\r"
+    Object: {fileID: 0}
+  - Language: English
+    Text: 'Welcome to Zombie!
+
+      In front of you is a village, and ominous zombies
+      appear on its outskirts. Your task is to protect the village by adding residents
+      and improving their skills.
+
+
+
+      At the bottom of your screen there are
+      four cards. Each card represents a different action to improve and protect
+      the village.'
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "YETK\u0130 VERMEK\r"
+    Text: "Zombie'ye ho\u015F geldiniz!\r\n\xD6n\xFCn\xFCzde bir k\xF6y var ve onun
+      eteklerinde u\u011Fursuz zombiler beliriyor. G\xF6reviniz sakinleri ekleyerek
+      ve becerilerini geli\u015Ftirerek k\xF6y\xFC korumakt\u0131r.\r\n\r\nEkran\u0131n\u0131z\u0131n
+      alt k\u0131sm\u0131nda d\xF6rt kart bulunur. Her kart, k\xF6y\xFC geli\u015Ftirmek
+      ve korumak i\xE7in farkl\u0131 bir eylemi temsil eder."
     Object: {fileID: 0}
---- !u!1 &222807184
+--- !u!1 &201189677
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -356,92 +440,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 222807185}
-  - component: {fileID: 222807186}
+  - component: {fileID: 201189678}
+  - component: {fileID: 201189679}
   m_Layer: 0
-  m_Name: Change Language
+  m_Name: You Win
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &222807185
+--- !u!4 &201189678
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 222807184}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1571494402}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &222807186
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 222807184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: 0
-  entries:
-  - Language: English
-    Text: CHANGE LANGUAGE
-    Object: {fileID: 0}
-  - Language: Russian
-    Text: "\u0418\u0417\u041C\u0415\u041D\u0418\u0422\u042C \u042F\u0417\u042B\u041A"
-    Object: {fileID: 0}
-  - Language: Turkish
-    Text: "\rD\u0130L\u0130 DE\u011E\u0130\u015ET\u0130R"
-    Object: {fileID: 0}
---- !u!1 &280390537
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 280390538}
-  - component: {fileID: 280390539}
-  m_Layer: 0
-  m_Name: Back To Menu
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &280390538
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 280390537}
+  m_GameObject: {fileID: 201189677}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1571494402}
+  m_Father: {fileID: 1597031839}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &280390539
+--- !u!114 &201189679
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 280390537}
+  m_GameObject: {fileID: 201189677}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
@@ -450,15 +479,15 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: English
-    Text: BACK TO MENU
+    Text: You WIN!
     Object: {fileID: 0}
   - Language: Russian
-    Text: "\u0412\u0415\u0420\u041D\u0423\u0422\u042C\u0421\u042F \u0412 \u041C\u0415\u041D\u042E"
+    Text: "\u041F\u041E\u0411\u0415\u0414\u0410!"
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "\rMEN\xDCYE D\xD6N"
+    Text: ZAFER!
     Object: {fileID: 0}
---- !u!1 &287657864
+--- !u!1 &234364755
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -466,8 +495,173 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 287657865}
-  - component: {fileID: 287657866}
+  - component: {fileID: 234364756}
+  - component: {fileID: 234364757}
+  m_Layer: 0
+  m_Name: Merge
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &234364756
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234364755}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1597031839}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &234364757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234364755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: MERGE
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u041E\u0411\u042A\u0415\u0414\u0418\u041D\u0418\u0422\u042C"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "B\u0130RLE\u015ET\u0130RMEK"
+    Object: {fileID: 0}
+--- !u!1 &247246865
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 247246866}
+  - component: {fileID: 247246867}
+  m_Layer: 0
+  m_Name: Restart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &247246866
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 247246865}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1597031839}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &247246867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 247246865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: RESTART
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u041F\u041E\u0412\u0422\u041E\u0420\u0418\u0422\u042C"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "\rTEKRAR BA\u015ELAT"
+    Object: {fileID: 0}
+--- !u!1 &280021208
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 280021209}
+  - component: {fileID: 280021210}
+  m_Layer: 0
+  m_Name: You are already logged in
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &280021209
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 280021208}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1597031839}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &280021210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 280021208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: You are already logged in
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0412\u044B \u0443\u0436\u0435 \u0430\u0432\u0442\u043E\u0440\u0438\u0437\u043E\u0432\u0430\u043D\u044B"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Zaten giri\u015F yapt\u0131n\u0131z"
+    Object: {fileID: 0}
+--- !u!1 &284281819
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 284281820}
+  - component: {fileID: 284281821}
   m_Layer: 0
   m_Name: Save Game
   m_TagString: Untagged
@@ -475,28 +669,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &287657865
+--- !u!4 &284281820
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 287657864}
+  m_GameObject: {fileID: 284281819}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1571494402}
+  m_Father: {fileID: 1597031839}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &287657866
+--- !u!114 &284281821
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 287657864}
+  m_GameObject: {fileID: 284281819}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
@@ -513,7 +707,7 @@ MonoBehaviour:
   - Language: Turkish
     Text: OYUNU KAYDET
     Object: {fileID: 0}
---- !u!1 &305875308
+--- !u!1 &329522576
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -521,37 +715,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 305875309}
-  - component: {fileID: 305875310}
+  - component: {fileID: 329522577}
+  - component: {fileID: 329522578}
   m_Layer: 0
-  m_Name: Settings
+  m_Name: How To Play
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &305875309
+--- !u!4 &329522577
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 305875308}
+  m_GameObject: {fileID: 329522576}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1571494402}
+  m_Father: {fileID: 1597031839}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &305875310
+--- !u!114 &329522578
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 305875308}
+  m_GameObject: {fileID: 329522576}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
@@ -560,68 +754,13 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: English
-    Text: SETTINGS
+    Text: HOW TO PLAY
     Object: {fileID: 0}
   - Language: Russian
-    Text: "\u041D\u0410\u0421\u0422\u0420\u041E\u0419\u041A\u0418"
+    Text: "\u041A\u0410\u041A \u0418\u0413\u0420\u0410\u0422\u042C"
     Object: {fileID: 0}
   - Language: Turkish
-    Text: AYARLAR
-    Object: {fileID: 0}
---- !u!1 &315824894
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 315824895}
-  - component: {fileID: 315824896}
-  m_Layer: 0
-  m_Name: Next Level
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &315824895
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 315824894}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1571494402}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &315824896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 315824894}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: 0
-  entries:
-  - Language: English
-    Text: NEXT LEVEL
-    Object: {fileID: 0}
-  - Language: Russian
-    Text: "\u0421\u041B\u0415\u0414\u0423\u042E\u0429\u0418\u0419 \u0423\u0420\u041E\u0412\u0415\u041D\u042C"
-    Object: {fileID: 0}
-  - Language: Turkish
-    Text: "\rSONRAK\u0130 SEV\u0130YE"
+    Text: "\rNASIL OYNANIR"
     Object: {fileID: 0}
 --- !u!1 &336698956
 GameObject:
@@ -667,7 +806,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 763d4c70ab2ea5243b5bf9d94a588120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &356841377
+--- !u!1 &400609611
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -675,92 +814,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 356841378}
-  - component: {fileID: 356841379}
+  - component: {fileID: 400609612}
+  - component: {fileID: 400609613}
   m_Layer: 0
-  m_Name: Merge
+  m_Name: MergeSitizensDescription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &356841378
+--- !u!4 &400609612
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 356841377}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1571494402}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &356841379
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 356841377}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: 0
-  entries:
-  - Language: English
-    Text: MERGE
-    Object: {fileID: 0}
-  - Language: Russian
-    Text: "\u041E\u0411\u042A\u0415\u0414\u0418\u041D\u0418\u0422\u042C"
-    Object: {fileID: 0}
-  - Language: Turkish
-    Text: "B\u0130RLE\u015ET\u0130RMEK"
-    Object: {fileID: 0}
---- !u!1 &360488468
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 360488469}
-  - component: {fileID: 360488470}
-  m_Layer: 0
-  m_Name: Load Game
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &360488469
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 360488468}
+  m_GameObject: {fileID: 400609611}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1571494402}
+  m_Father: {fileID: 1597031839}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &360488470
+--- !u!114 &400609613
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 360488468}
+  m_GameObject: {fileID: 400609611}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
@@ -768,16 +852,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: 0
   entries:
-  - Language: English
-    Text: LOAD GAME
-    Object: {fileID: 0}
   - Language: Russian
-    Text: "\u0417\u0410\u0413\u0420\u0423\u0417\u0418\u0422\u042C \u0418\u0413\u0420\u0423"
+    Text: "\u041E\u0431\u044A\u0435\u0434\u0438\u043D\u0438\u0442\u044C \u0436\u0438\u0442\u0435\u043B\u0435\u0439:\r\n\u0415\u0441\u043B\u0438
+      \u0443 \u0432\u0430\u0441 \u0435\u0441\u0442\u044C \u0434\u0432\u0430 \u043E\u0434\u0438\u043D\u0430\u043A\u043E\u0432\u044B\u0445
+      \u0436\u0438\u0442\u0435\u043B\u044F, \u0432\u044B \u043C\u043E\u0436\u0435\u0442\u0435
+      \u043D\u0430\u0436\u0430\u0442\u044C \u043D\u0430 \u043A\u0430\u0440\u0442\u043E\u0447\u043A\u0443
+      \u0441 \u043E\u0431\u044A\u0435\u0434\u0438\u043D\u0435\u043D\u0438\u0435\u043C,
+      \u0447\u0442\u043E\u0431\u044B \u0441\u043E\u0437\u0434\u0430\u0442\u044C \u0431\u043E\u043B\u0435\u0435
+      \u0441\u0438\u043B\u044C\u043D\u043E\u0433\u043E \u0436\u0438\u0442\u0435\u043B\u044F.\r"
+    Object: {fileID: 0}
+  - Language: English
+    Text: 'Merge sitizens:
+
+      If you have two of the same sitizens, you can click
+      on the merge card to create a stronger sitizen.'
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "OYUNU Y\xDCKLE"
+    Text: "Sakinleri birle\u015Ftirin:\r\nE\u011Fer ayn\u0131 k\xF6yl\xFCden iki
+      tane varsa, daha g\xFC\xE7l\xFC bir k\xF6yl\xFC olu\u015Fturmak i\xE7in birle\u015Ftirme
+      kart\u0131na t\u0131klayabilirsiniz."
     Object: {fileID: 0}
---- !u!1 &401516972
+--- !u!1 &411093614
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -785,8 +880,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 401516973}
-  - component: {fileID: 401516974}
+  - component: {fileID: 411093615}
+  - component: {fileID: 411093616}
   m_Layer: 0
   m_Name: Authorization required!
   m_TagString: Untagged
@@ -794,28 +889,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &401516973
+--- !u!4 &411093615
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 401516972}
+  m_GameObject: {fileID: 411093614}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1571494402}
+  m_Father: {fileID: 1597031839}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &401516974
+--- !u!114 &411093616
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 401516972}
+  m_GameObject: {fileID: 411093614}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
@@ -832,7 +927,7 @@ MonoBehaviour:
   - Language: Turkish
     Text: "\u0130zin gerekmekte!"
     Object: {fileID: 0}
---- !u!1 &506355423
+--- !u!1 &458690173
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -840,92 +935,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 506355424}
-  - component: {fileID: 506355425}
+  - component: {fileID: 458690174}
+  - component: {fileID: 458690175}
   m_Layer: 0
-  m_Name: Add Sitizen
+  m_Name: Choose Level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &506355424
+--- !u!4 &458690174
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 506355423}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1571494402}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &506355425
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 506355423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: 0
-  entries:
-  - Language: English
-    Text: ADD SITIZEN
-    Object: {fileID: 0}
-  - Language: Russian
-    Text: "\u0414\u041E\u0411\u0410\u0412\u0418\u0422\u042C \u0420\u0410\u0411\u041E\u0427\u0415\u0413\u041E"
-    Object: {fileID: 0}
-  - Language: Turkish
-    Text: "S\u0130T\u0130ZEN EKLE"
-    Object: {fileID: 0}
---- !u!1 &525673050
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 525673051}
-  - component: {fileID: 525673052}
-  m_Layer: 0
-  m_Name: Leader Board
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &525673051
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 525673050}
+  m_GameObject: {fileID: 458690173}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1571494402}
+  m_Father: {fileID: 1597031839}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &525673052
+--- !u!114 &458690175
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 525673050}
+  m_GameObject: {fileID: 458690173}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
@@ -934,77 +974,13 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: English
-    Text: LEADER BOARD
+    Text: CHOOSE LEVEL
     Object: {fileID: 0}
   - Language: Russian
-    Text: "\u0422\u0410\u0411\u041B\u0418\u0426\u0410 \u0418\u0413\u0420\u041E\u041A\u041E\u0412"
+    Text: "\u0412\u042B\u0411\u0415\u0420\u0418\u0422\u0415 \u0423\u0420\u041E\u0412\u0415\u041D\u042C"
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "L\u0130DERLER SIRALAMASI"
-    Object: {fileID: 0}
---- !u!1 &529642909
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 529642910}
-  - component: {fileID: 529642911}
-  m_Layer: 0
-  m_Name: GoalOfGame
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &529642910
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 529642909}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1571494402}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &529642911
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 529642909}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: 0
-  entries:
-  - Language: English
-    Text: Your goal is to survive each level, improving your villagers and killing
-      all the zombies, using tactics for maximum efficiency.
-    Object: {fileID: 0}
-  - Language: Russian
-    Text: "\u0412\u0430\u0448\u0430 \u0446\u0435\u043B\u044C - \u043F\u0440\u043E\u0434\u0435\u0440\u0436\u0430\u0442\u044C\u0441\u044F
-      \u043D\u0430 \u043A\u0430\u0436\u0434\u043E\u043C \u0443\u0440\u043E\u0432\u043D\u0435,
-      \u0443\u043B\u0443\u0447\u0448\u0430\u044F \u0441\u0432\u043E\u0438\u0445 \u0436\u0438\u0442\u0435\u043B\u0435\u0439
-      \u0438 \u0443\u0431\u0438\u0442\u044C \u0432\u0441\u0435\u0445 \u0437\u043E\u043C\u0431\u0438,
-      \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u044F \u0442\u0430\u043A\u0442\u0438\u043A\u0443
-      \u0434\u043B\u044F \u043C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0439
-      \u044D\u0444\u0444\u0435\u043A\u0442\u0438\u0432\u043D\u043E\u0441\u0442\u0438."
-    Object: {fileID: 0}
-  - Language: Turkish
-    Text: "Amac\u0131n\u0131z maksimum verimlilik i\xE7in taktikler kullanarak her
-      seviyede hayatta kalmak, k\xF6yl\xFClerinizi geli\u015Ftirmek ve t\xFCm zombileri
-      \xF6ld\xFCrmektir."
+    Text: "\rSEV\u0130YE SE\xC7"
     Object: {fileID: 0}
 --- !u!1 &530432870
 GameObject:
@@ -1074,7 +1050,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &626948539
+--- !u!1 &571175311
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1082,37 +1058,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 626948540}
-  - component: {fileID: 626948541}
+  - component: {fileID: 571175312}
+  - component: {fileID: 571175313}
   m_Layer: 0
-  m_Name: DoubleRewardDescription
+  m_Name: Log Inn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &626948540
+--- !u!4 &571175312
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 626948539}
+  m_GameObject: {fileID: 571175311}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1571494402}
+  m_Father: {fileID: 1597031839}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &626948541
+--- !u!114 &571175313
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 626948539}
+  m_GameObject: {fileID: 571175311}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
@@ -1120,25 +1096,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: 0
   entries:
-  - Language: Russian
-    Text: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0442\u044C \u043D\u0430\u0433\u0440\u0430\u0434\u0443
-      \u0437\u0430 \u0443\u0431\u0438\u0439\u0441\u0442\u0432\u043E \u0437\u043E\u043C\u0431\u0438:\r\n\u041A\u0430\u0440\u0442\u043E\u0447\u043A\u0430
-      \u0443\u0432\u0435\u043B\u0438\u0447\u0438\u0442 \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E
-      \u0440\u0435\u0441\u0443\u0440\u0441\u043E\u0432, \u043F\u043E\u043B\u0443\u0447\u0430\u0435\u043C\u044B\u0445
-      \u0437\u0430 \u043A\u0430\u0436\u0434\u044B\u0439 \u043D\u0430\u043D\u0435\u0441\u0451\u043D\u043D\u044B\u0439
-      \u0443\u0440\u043E\u043D \u0437\u043E\u043C\u0431\u0438.\r"
-    Object: {fileID: 0}
   - Language: English
-    Text: 'Double reward cars:
-
-      The card will increase the amount of resources
-      received for each damage dealt to zombies.'
+    Text: LOG INN
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0410\u0412\u0422\u041E\u0420\u0418\u0417\u041E\u0412\u0410\u0422\u042C\u0421\u042F"
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "\r\xC7ift \xF6d\xFCll\xFC arabalar:\r\nKart, zombilere verilen her hasar
-      i\xE7in al\u0131nan kaynak miktar\u0131n\u0131 art\u0131racakt\u0131r."
+    Text: "YETK\u0130 VERMEK\r"
     Object: {fileID: 0}
---- !u!1 &691095903
+--- !u!1 &609076574
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1146,37 +1113,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 691095904}
-  - component: {fileID: 691095905}
+  - component: {fileID: 609076575}
+  - component: {fileID: 609076576}
   m_Layer: 0
-  m_Name: Menu
+  m_Name: Start Game
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &691095904
+--- !u!4 &609076575
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 691095903}
+  m_GameObject: {fileID: 609076574}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1571494402}
+  m_Father: {fileID: 1597031839}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &691095905
+--- !u!114 &609076576
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 691095903}
+  m_GameObject: {fileID: 609076574}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
@@ -1185,13 +1152,68 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: English
-    Text: MENU
+    Text: START GAME
     Object: {fileID: 0}
   - Language: Russian
-    Text: "\u041C\u0415\u041D\u042E"
+    Text: "\u0421\u0422\u0410\u0420\u0422"
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "MEN\xDC"
+    Text: "BA\u015ELANGI\xC7"
+    Object: {fileID: 0}
+--- !u!1 &740266202
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 740266203}
+  - component: {fileID: 740266204}
+  m_Layer: 0
+  m_Name: Add Speed
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &740266203
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740266202}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1597031839}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &740266204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740266202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: ADD SPEED
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0423\u0412\u0415\u041B\u0418\u0427\u0418\u0422\u042C \u0421\u041A\u041E\u0420\u041E\u0421\u0422\u042C"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "\rHIZ EKLE"
     Object: {fileID: 0}
 --- !u!1 &773618333
 GameObject:
@@ -1323,7 +1345,7 @@ Transform:
   - {fileID: 1363495176}
   m_Father: {fileID: 115833620}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &832546359
+--- !u!1 &833693546
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1331,37 +1353,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 832546360}
-  - component: {fileID: 832546361}
+  - component: {fileID: 833693547}
+  - component: {fileID: 833693548}
   m_Layer: 0
-  m_Name: You Lose
+  m_Name: Back To Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &832546360
+--- !u!4 &833693547
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 832546359}
+  m_GameObject: {fileID: 833693546}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1571494402}
+  m_Father: {fileID: 1597031839}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &832546361
+--- !u!114 &833693548
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 832546359}
+  m_GameObject: {fileID: 833693546}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
@@ -1370,13 +1392,187 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: English
-    Text: You LOSE
+    Text: BACK TO MENU
     Object: {fileID: 0}
   - Language: Russian
-    Text: "\u041F\u0420\u041E\u0418\u0413\u0420\u042B\u0428"
+    Text: "\u0412\u0415\u0420\u041D\u0423\u0422\u042C\u0421\u042F \u0412 \u041C\u0415\u041D\u042E"
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "\rKAYBETME"
+    Text: "\rMEN\xDCYE D\xD6N"
+    Object: {fileID: 0}
+--- !u!1 &841228723
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 841228724}
+  - component: {fileID: 841228725}
+  m_Layer: 0
+  m_Name: Settings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &841228724
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841228723}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1597031839}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &841228725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841228723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: SETTINGS
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u041D\u0410\u0421\u0422\u0420\u041E\u0419\u041A\u0418"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: AYARLAR
+    Object: {fileID: 0}
+--- !u!1 &902493169
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 902493170}
+  - component: {fileID: 902493171}
+  m_Layer: 0
+  m_Name: Add Sitizen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &902493170
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 902493169}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1597031839}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &902493171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 902493169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: ADD SITIZEN
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0414\u041E\u0411\u0410\u0412\u0418\u0422\u042C \u0420\u0410\u0411\u041E\u0427\u0415\u0413\u041E"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "S\u0130T\u0130ZEN EKLE"
+    Object: {fileID: 0}
+--- !u!1 &949515196
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 949515197}
+  - component: {fileID: 949515198}
+  m_Layer: 0
+  m_Name: DoubleRewardDescription
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &949515197
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 949515196}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1597031839}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &949515198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 949515196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0442\u044C \u043D\u0430\u0433\u0440\u0430\u0434\u0443
+      \u0437\u0430 \u0443\u0431\u0438\u0439\u0441\u0442\u0432\u043E \u0437\u043E\u043C\u0431\u0438:\r\n\u041A\u0430\u0440\u0442\u043E\u0447\u043A\u0430
+      \u0443\u0432\u0435\u043B\u0438\u0447\u0438\u0442 \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E
+      \u0440\u0435\u0441\u0443\u0440\u0441\u043E\u0432, \u043F\u043E\u043B\u0443\u0447\u0430\u0435\u043C\u044B\u0445
+      \u0437\u0430 \u043A\u0430\u0436\u0434\u044B\u0439 \u043D\u0430\u043D\u0435\u0441\u0451\u043D\u043D\u044B\u0439
+      \u0443\u0440\u043E\u043D \u0437\u043E\u043C\u0431\u0438.\r"
+    Object: {fileID: 0}
+  - Language: English
+    Text: 'Double reward cars:
+
+      The card will increase the amount of resources
+      received for each damage dealt to zombies.'
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "\r\xC7ift \xF6d\xFCll\xFC arabalar:\r\nKart, zombilere verilen her hasar
+      i\xE7in al\u0131nan kaynak miktar\u0131n\u0131 art\u0131racakt\u0131r."
     Object: {fileID: 0}
 --- !u!1 &958637888
 GameObject:
@@ -1553,7 +1749,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!114 &1024756319
 MonoBehaviour:
@@ -1593,127 +1789,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1024756312}
   m_CullTransparentMesh: 1
---- !u!1 &1028286526
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1028286527}
-  - component: {fileID: 1028286528}
-  m_Layer: 0
-  m_Name: AddSpeedDescription
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1028286527
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1028286526}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1571494402}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1028286528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1028286526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: 0
-  entries:
-  - Language: Russian
-    Text: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0442\u044C \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u044C
-      \u0438\u0433\u0440\u044B:\r\n\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0439\u0442\u0435
-      \u043A\u0430\u0440\u0442\u043E\u0447\u043A\u0443, \u0447\u0442\u043E\u0431\u044B
-      \u0443\u0441\u043A\u043E\u0440\u0438\u0442\u044C \u0442\u0435\u0447\u0435\u043D\u0438\u0435
-      \u0432\u0440\u0435\u043C\u0435\u043D\u0438 \u0438 \u043F\u043E\u0432\u044B\u0441\u0438\u0442\u044C
-      \u044D\u0444\u0444\u0435\u043A\u0442\u0438\u0432\u043D\u043E\u0441\u0442\u044C
-      \u0441\u0432\u043E\u0438\u0445 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0439.\r"
-    Object: {fileID: 0}
-  - Language: English
-    Text: 'Increase game speed:
-
-      Use the card to speed up your sitizens and
-      increase the efficiency of your actions.'
-    Object: {fileID: 0}
-  - Language: Turkish
-    Text: "\rOyun h\u0131z\u0131n\u0131 art\u0131r\u0131n:\r\nZaman\u0131n ge\xE7i\u015Fini
-      h\u0131zland\u0131rmak ve eylemlerinizin verimlili\u011Fini art\u0131rmak i\xE7in
-      kart\u0131 kullan\u0131n."
-    Object: {fileID: 0}
---- !u!1 &1038346999
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1038347000}
-  - component: {fileID: 1038347001}
-  m_Layer: 0
-  m_Name: Add Speed
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1038347000
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1038346999}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1571494402}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1038347001
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1038346999}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: 0
-  entries:
-  - Language: English
-    Text: ADD SPEED
-    Object: {fileID: 0}
-  - Language: Russian
-    Text: "\u0423\u0412\u0415\u041B\u0418\u0427\u0418\u0422\u042C \u0421\u041A\u041E\u0420\u041E\u0421\u0422\u042C"
-    Object: {fileID: 0}
-  - Language: Turkish
-    Text: "\rHIZ EKLE"
-    Object: {fileID: 0}
 --- !u!1001 &1051631891
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1722,6 +1797,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 85978432442276762, guid: 59db1f509e27ea94cba97531b9bc478f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1051631892}
+    - target: {fileID: 85978432442276762, guid: 59db1f509e27ea94cba97531b9bc478f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Open
+      objectReference: {fileID: 0}
+    - target: {fileID: 85978432442276762, guid: 59db1f509e27ea94cba97531b9bc478f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Scripts.UI.Panels.SettingsPanel, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 1502883499903394193, guid: 59db1f509e27ea94cba97531b9bc478f, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1802,10 +1889,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1853749683499175434, guid: 59db1f509e27ea94cba97531b9bc478f, type: 3}
-      propertyPath: m_Volume
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 4422945826068334414, guid: 59db1f509e27ea94cba97531b9bc478f, type: 3}
       propertyPath: m_Name
       value: LevelCanvas
@@ -1814,27 +1897,82 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6821224066814754064, guid: 59db1f509e27ea94cba97531b9bc478f, type: 3}
-      propertyPath: _audioSources.Array.size
-      value: 3
+    - target: {fileID: 6835206192241380241, guid: 59db1f509e27ea94cba97531b9bc478f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6821224066814754064, guid: 59db1f509e27ea94cba97531b9bc478f, type: 3}
-      propertyPath: _audioSources.Array.data[0]
+    - target: {fileID: 6835206192241380241, guid: 59db1f509e27ea94cba97531b9bc478f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835206192241380241, guid: 59db1f509e27ea94cba97531b9bc478f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1051631895}
-    - target: {fileID: 6821224066814754064, guid: 59db1f509e27ea94cba97531b9bc478f, type: 3}
-      propertyPath: _audioSources.Array.data[1]
+      objectReference: {fileID: 1051631892}
+    - target: {fileID: 6835206192241380241, guid: 59db1f509e27ea94cba97531b9bc478f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835206192241380241, guid: 59db1f509e27ea94cba97531b9bc478f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Close
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835206192241380241, guid: 59db1f509e27ea94cba97531b9bc478f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Scripts.UI.Panels.SettingsPanel, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835206192241380241, guid: 59db1f509e27ea94cba97531b9bc478f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7757568105286675987, guid: 59db1f509e27ea94cba97531b9bc478f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7757568105286675987, guid: 59db1f509e27ea94cba97531b9bc478f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7757568105286675987, guid: 59db1f509e27ea94cba97531b9bc478f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1051631894}
-    - target: {fileID: 6821224066814754064, guid: 59db1f509e27ea94cba97531b9bc478f, type: 3}
-      propertyPath: _audioSources.Array.data[2]
+      objectReference: {fileID: 1051631892}
+    - target: {fileID: 7757568105286675987, guid: 59db1f509e27ea94cba97531b9bc478f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7757568105286675987, guid: 59db1f509e27ea94cba97531b9bc478f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Close
+      objectReference: {fileID: 0}
+    - target: {fileID: 7757568105286675987, guid: 59db1f509e27ea94cba97531b9bc478f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Scripts.UI.Panels.SettingsPanel, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7757568105286675987, guid: 59db1f509e27ea94cba97531b9bc478f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8668499847606185690, guid: 59db1f509e27ea94cba97531b9bc478f, type: 3}
+      propertyPath: _levelPanel
       value: 
-      objectReference: {fileID: 1396808049}
+      objectReference: {fileID: 1051631893}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59db1f509e27ea94cba97531b9bc478f, type: 3}
+--- !u!114 &1051631892 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8668499847606185690, guid: 59db1f509e27ea94cba97531b9bc478f, type: 3}
+  m_PrefabInstance: {fileID: 1051631891}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ede9f6357c8ae1748ac44c9b377a69ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1051631893 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 883990328776946705, guid: 59db1f509e27ea94cba97531b9bc478f, type: 3}
@@ -1846,71 +1984,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc4ba2d90ff53a045970eb249ce44098, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!82 &1051631894 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 2190599847060975283, guid: 59db1f509e27ea94cba97531b9bc478f, type: 3}
-  m_PrefabInstance: {fileID: 1051631891}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &1051631895 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 3818305911314716213, guid: 59db1f509e27ea94cba97531b9bc478f, type: 3}
-  m_PrefabInstance: {fileID: 1051631891}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1057306399
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1057306400}
-  - component: {fileID: 1057306401}
-  m_Layer: 0
-  m_Name: Double Reward
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1057306400
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1057306399}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1571494402}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1057306401
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1057306399}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: 0
-  entries:
-  - Language: English
-    Text: DOUBLE REWARD
-    Object: {fileID: 0}
-  - Language: Russian
-    Text: "\u0423\u0414\u0412\u041E\u0418\u0422\u042C \u041D\u0410\u0413\u0420\u0410\u0414\u0423"
-    Object: {fileID: 0}
-  - Language: Turkish
-    Text: "\xC7\u0130FT \xD6D\xDCL"
-    Object: {fileID: 0}
 --- !u!114 &1063625758 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3733787373099761965, guid: 59db1f509e27ea94cba97531b9bc478f, type: 3}
@@ -1922,7 +1995,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bf37a18e4b1f5941a1661e3a96706d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1068928852
+--- !u!1 &1124434014
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1930,100 +2003,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1068928853}
-  - component: {fileID: 1068928854}
+  - component: {fileID: 1124434015}
+  - component: {fileID: 1124434016}
   m_Layer: 0
-  m_Name: AddSitizenDescription
+  m_Name: Load Game
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1068928853
+--- !u!4 &1124434015
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1068928852}
+  m_GameObject: {fileID: 1124434014}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1571494402}
+  m_Father: {fileID: 1597031839}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1068928854
+--- !u!114 &1124434016
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1068928852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: 0
-  entries:
-  - Language: Russian
-    Text: "\r\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0436\u0438\u0442\u0435\u043B\u044F:\r\n\u041D\u0430\u0436\u043C\u0438\u0442\u0435
-      \u043D\u0430 \u043A\u0430\u0440\u0442\u043E\u0447\u043A\u0443 \u0441 \u0438\u0437\u043E\u0431\u0440\u0430\u0436\u0435\u043D\u0438\u0435\u043C
-      \u0436\u0438\u0442\u0435\u043B\u044F \u0438 \u0440\u0430\u0437\u043C\u0435\u0441\u0442\u0438\u0442\u0435
-      \u0435\u0433\u043E \u0432 \u0434\u0435\u0440\u0435\u0432\u043D\u0435. \u041A\u0430\u0436\u0434\u044B\u0439
-      \u043D\u043E\u0432\u044B\u0439 \u0436\u0438\u0442\u0435\u043B\u044C \u043F\u043E\u043C\u043E\u0433\u0430\u0435\u0442
-      \u0432\u0430\u043C \u0432 \u0431\u043E\u0440\u044C\u0431\u0435 \u0441 \u0437\u043E\u043C\u0431\u0438."
-    Object: {fileID: 0}
-  - Language: Turkish
-    Text: "Bir sakin ekleyin:\r\nBir k\xF6yl\xFCn\xFCn resminin bulundu\u011Fu karta
-      t\u0131klay\u0131n ve onu k\xF6ye yerle\u015Ftirin. Her yeni sakin, zombilere
-      kar\u015F\u0131 m\xFCcadelede size yard\u0131mc\u0131 olur."
-    Object: {fileID: 0}
-  - Language: English
-    Text: "\rAdd a sitizen:\r\nClick on the card with the picture of a sitizen and
-      place it in the village. Each new sitizen helps you in the fight against zombies."
-    Object: {fileID: 0}
---- !u!1 &1268701259
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1268701260}
-  - component: {fileID: 1268701261}
-  m_Layer: 0
-  m_Name: How To Play
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1268701260
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1268701259}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1571494402}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1268701261
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1268701259}
+  m_GameObject: {fileID: 1124434014}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
@@ -2032,15 +2042,15 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: English
-    Text: HOW TO PLAY
+    Text: LOAD GAME
     Object: {fileID: 0}
   - Language: Russian
-    Text: "\u041A\u0410\u041A \u0418\u0413\u0420\u0410\u0422\u042C"
+    Text: "\u0417\u0410\u0413\u0420\u0423\u0417\u0418\u0422\u042C \u0418\u0413\u0420\u0423"
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "\rNASIL OYNANIR"
+    Text: "OYUNU Y\xDCKLE"
     Object: {fileID: 0}
---- !u!1 &1322919723
+--- !u!1 &1265136243
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2048,44 +2058,54 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1322919724}
-  - component: {fileID: 1322919725}
+  - component: {fileID: 1265136244}
+  - component: {fileID: 1265136245}
   m_Layer: 0
-  m_Name: Turkish
+  m_Name: Turn on, off sound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1322919724
+--- !u!4 &1265136244
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1322919723}
+  m_GameObject: {fileID: 1265136243}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1571494402}
+  m_Father: {fileID: 1597031839}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1322919725
+--- !u!114 &1265136245
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1322919723}
+  m_GameObject: {fileID: 1265136243}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 225ec97158446a94d9cb40a9f742a8b1, type: 3}
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  translationCode: tu
-  cultures: []
+  data: 0
+  entries:
+  - Language: English
+    Text: TURN ON/OFF SOUND
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0412\u041A\u041B\u042E\u0427\u0418\u0422\u042C/\u0412\u042B\u041A\u041B\u042E\u0427\u0418\u0422\u042C
+      \u0417\u0412\u0423\u041A"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "\rSES\u0130 A\xC7/KAPAT"
+    Object: {fileID: 0}
 --- !u!1 &1357060271
 GameObject:
   m_ObjectHideFlags: 0
@@ -2174,12 +2194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 763d4c70ab2ea5243b5bf9d94a588120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!82 &1396808049 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 1853749683499175434, guid: 59db1f509e27ea94cba97531b9bc478f, type: 3}
-  m_PrefabInstance: {fileID: 1051631891}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1443467798
+--- !u!1 &1384020988
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2187,65 +2202,45 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1443467799}
-  - component: {fileID: 1443467800}
+  - component: {fileID: 1384020989}
+  - component: {fileID: 1384020990}
   m_Layer: 0
-  m_Name: MergeSitizensDescription
+  m_Name: Turkish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1443467799
+--- !u!4 &1384020989
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1443467798}
+  m_GameObject: {fileID: 1384020988}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1571494402}
+  m_Father: {fileID: 1597031839}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1443467800
+--- !u!114 &1384020990
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1443467798}
+  m_GameObject: {fileID: 1384020988}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Script: {fileID: 11500000, guid: 225ec97158446a94d9cb40a9f742a8b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: 0
-  entries:
-  - Language: Russian
-    Text: "\u041E\u0431\u044A\u0435\u0434\u0438\u043D\u0438\u0442\u044C \u0436\u0438\u0442\u0435\u043B\u0435\u0439:\r\n\u0415\u0441\u043B\u0438
-      \u0443 \u0432\u0430\u0441 \u0435\u0441\u0442\u044C \u0434\u0432\u0430 \u043E\u0434\u0438\u043D\u0430\u043A\u043E\u0432\u044B\u0445
-      \u0436\u0438\u0442\u0435\u043B\u044F, \u0432\u044B \u043C\u043E\u0436\u0435\u0442\u0435
-      \u043D\u0430\u0436\u0430\u0442\u044C \u043D\u0430 \u043A\u0430\u0440\u0442\u043E\u0447\u043A\u0443
-      \u0441 \u043E\u0431\u044A\u0435\u0434\u0438\u043D\u0435\u043D\u0438\u0435\u043C,
-      \u0447\u0442\u043E\u0431\u044B \u0441\u043E\u0437\u0434\u0430\u0442\u044C \u0431\u043E\u043B\u0435\u0435
-      \u0441\u0438\u043B\u044C\u043D\u043E\u0433\u043E \u0436\u0438\u0442\u0435\u043B\u044F.\r"
-    Object: {fileID: 0}
-  - Language: English
-    Text: 'Merge sitizens:
-
-      If you have two of the same sitizens, you can click
-      on the merge card to create a stronger sitizen.'
-    Object: {fileID: 0}
-  - Language: Turkish
-    Text: "Sakinleri birle\u015Ftirin:\r\nE\u011Fer ayn\u0131 k\xF6yl\xFCden iki
-      tane varsa, daha g\xFC\xE7l\xFC bir k\xF6yl\xFC olu\u015Fturmak i\xE7in birle\u015Ftirme
-      kart\u0131na t\u0131klayabilirsiniz."
-    Object: {fileID: 0}
---- !u!1 &1460832472
+  translationCode: tu
+  cultures: []
+--- !u!1 &1432425712
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2253,37 +2248,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1460832473}
-  - component: {fileID: 1460832474}
+  - component: {fileID: 1432425713}
+  - component: {fileID: 1432425714}
   m_Layer: 0
-  m_Name: Start Game
+  m_Name: Double Reward
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1460832473
+--- !u!4 &1432425713
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1460832472}
+  m_GameObject: {fileID: 1432425712}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1571494402}
+  m_Father: {fileID: 1597031839}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1460832474
+--- !u!114 &1432425714
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1460832472}
+  m_GameObject: {fileID: 1432425712}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
@@ -2292,15 +2287,15 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: English
-    Text: START GAME
+    Text: DOUBLE REWARD
     Object: {fileID: 0}
   - Language: Russian
-    Text: "\u0421\u0422\u0410\u0420\u0422"
+    Text: "\u0423\u0414\u0412\u041E\u0418\u0422\u042C \u041D\u0410\u0413\u0420\u0410\u0414\u0423"
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "BA\u015ELANGI\xC7"
+    Text: "\xC7\u0130FT \xD6D\xDCL"
     Object: {fileID: 0}
---- !u!1 &1571494400
+--- !u!1 &1573670180
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2308,9 +2303,64 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1571494402}
-  - component: {fileID: 1571494401}
-  - component: {fileID: 1571494403}
+  - component: {fileID: 1573670181}
+  - component: {fileID: 1573670182}
+  m_Layer: 0
+  m_Name: Change Language
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1573670181
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573670180}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1597031839}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1573670182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573670180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: CHANGE LANGUAGE
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0418\u0417\u041C\u0415\u041D\u0418\u0422\u042C \u042F\u0417\u042B\u041A"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "\rD\u0130L\u0130 DE\u011E\u0130\u015ET\u0130R"
+    Object: {fileID: 0}
+--- !u!1 &1597031836
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1597031839}
+  - component: {fileID: 1597031838}
+  - component: {fileID: 1597031837}
   m_Layer: 0
   m_Name: LeanLocalization
   m_TagString: Untagged
@@ -2318,13 +2368,26 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1571494401
+--- !u!114 &1597031837
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1571494400}
+  m_GameObject: {fileID: 1597031836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94fd624ecbe869d4ebe23dbc00be05f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _leanLanguage: {fileID: 1597031838}
+--- !u!114 &1597031838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1597031836}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 806f0696300aeac44a0e17efee222854, type: 3}
@@ -2341,66 +2404,53 @@ MonoBehaviour:
   - Root: {fileID: 765358623864573794, guid: adef00e2be323654ca5fa825a2cc3c72, type: 3}
     sources:
     - {fileID: -4933353152916006438, guid: adef00e2be323654ca5fa825a2cc3c72, type: 3}
---- !u!4 &1571494402
+--- !u!4 &1597031839
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1571494400}
+  m_GameObject: {fileID: 1597031836}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1460832473}
-  - {fileID: 1690481557}
-  - {fileID: 1268701260}
-  - {fileID: 305875309}
-  - {fileID: 222807185}
-  - {fileID: 2084206910}
-  - {fileID: 1322919724}
-  - {fileID: 360488469}
-  - {fileID: 1942961273}
-  - {fileID: 1068928853}
-  - {fileID: 1443467799}
-  - {fileID: 1028286527}
-  - {fileID: 626948540}
-  - {fileID: 529642910}
-  - {fileID: 506355424}
-  - {fileID: 356841378}
-  - {fileID: 1038347000}
-  - {fileID: 1057306400}
-  - {fileID: 280390538}
-  - {fileID: 525673051}
-  - {fileID: 167192801}
-  - {fileID: 78825007}
-  - {fileID: 315824895}
-  - {fileID: 691095904}
-  - {fileID: 832546360}
-  - {fileID: 1736319284}
-  - {fileID: 287657865}
-  - {fileID: 1794031032}
-  - {fileID: 1804442338}
-  - {fileID: 1994062691}
-  - {fileID: 401516973}
+  - {fileID: 609076575}
+  - {fileID: 458690174}
+  - {fileID: 329522577}
+  - {fileID: 841228724}
+  - {fileID: 1573670181}
+  - {fileID: 1265136244}
+  - {fileID: 1384020989}
+  - {fileID: 1124434015}
+  - {fileID: 160691263}
+  - {fileID: 1919777885}
+  - {fileID: 400609612}
+  - {fileID: 1977086332}
+  - {fileID: 949515197}
+  - {fileID: 1750181677}
+  - {fileID: 902493170}
+  - {fileID: 234364756}
+  - {fileID: 740266203}
+  - {fileID: 1432425713}
+  - {fileID: 833693547}
+  - {fileID: 111471703}
+  - {fileID: 571175312}
+  - {fileID: 201189678}
+  - {fileID: 1613422850}
+  - {fileID: 2124108315}
+  - {fileID: 1907035788}
+  - {fileID: 247246866}
+  - {fileID: 284281820}
+  - {fileID: 101787082}
+  - {fileID: 1599342491}
+  - {fileID: 411093615}
+  - {fileID: 280021209}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1571494403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1571494400}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94fd624ecbe869d4ebe23dbc00be05f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _leanLanguage: {fileID: 1571494401}
---- !u!1 &1690481556
+--- !u!1 &1599342490
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2408,37 +2458,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1690481557}
-  - component: {fileID: 1690481558}
+  - component: {fileID: 1599342491}
+  - component: {fileID: 1599342492}
   m_Layer: 0
-  m_Name: Choose Level
+  m_Name: Error
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1690481557
+--- !u!4 &1599342491
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1690481556}
+  m_GameObject: {fileID: 1599342490}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1571494402}
+  m_Father: {fileID: 1597031839}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1690481558
+--- !u!114 &1599342492
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1690481556}
+  m_GameObject: {fileID: 1599342490}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
@@ -2447,13 +2497,68 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: English
-    Text: CHOOSE LEVEL
+    Text: Error
     Object: {fileID: 0}
   - Language: Russian
-    Text: "\u0412\u042B\u0411\u0415\u0420\u0418\u0422\u0415 \u0423\u0420\u041E\u0412\u0415\u041D\u042C"
+    Text: "\u041E\u0448\u0438\u0431\u043A\u0430"
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "\rSEV\u0130YE SE\xC7"
+    Text: "\rYanl\u0131\u015F"
+    Object: {fileID: 0}
+--- !u!1 &1613422849
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1613422850}
+  - component: {fileID: 1613422851}
+  m_Layer: 0
+  m_Name: Next Level
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1613422850
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613422849}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1597031839}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1613422851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613422849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: NEXT LEVEL
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0421\u041B\u0415\u0414\u0423\u042E\u0429\u0418\u0419 \u0423\u0420\u041E\u0412\u0415\u041D\u042C"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "\rSONRAK\u0130 SEV\u0130YE"
     Object: {fileID: 0}
 --- !u!1 &1698024510
 GameObject:
@@ -2547,7 +2652,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1736319283
+--- !u!1 &1750181676
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2555,92 +2660,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1736319284}
-  - component: {fileID: 1736319285}
+  - component: {fileID: 1750181677}
+  - component: {fileID: 1750181678}
   m_Layer: 0
-  m_Name: Restart
+  m_Name: GoalOfGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1736319284
+--- !u!4 &1750181677
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1736319283}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1571494402}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1736319285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1736319283}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: 0
-  entries:
-  - Language: English
-    Text: RESTART
-    Object: {fileID: 0}
-  - Language: Russian
-    Text: "\u041F\u041E\u0412\u0422\u041E\u0420\u0418\u0422\u042C"
-    Object: {fileID: 0}
-  - Language: Turkish
-    Text: "\rTEKRAR BA\u015ELAT"
-    Object: {fileID: 0}
---- !u!1 &1794031031
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1794031032}
-  - component: {fileID: 1794031033}
-  m_Layer: 0
-  m_Name: Remove Add
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1794031032
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1794031031}
+  m_GameObject: {fileID: 1750181676}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1571494402}
+  m_Father: {fileID: 1597031839}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1794031033
+--- !u!114 &1750181678
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1794031031}
+  m_GameObject: {fileID: 1750181676}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
@@ -2649,68 +2699,22 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: English
-    Text: REMOVE ADD
+    Text: Your goal is to survive each level, improving your villagers and killing
+      all the zombies, using tactics for maximum efficiency.
     Object: {fileID: 0}
   - Language: Russian
-    Text: "\u0423\u0411\u0420\u0410\u0422\u042C \u0420\u0415\u041A\u041B\u0410\u041C\u0423"
+    Text: "\u0412\u0430\u0448\u0430 \u0446\u0435\u043B\u044C - \u043F\u0440\u043E\u0434\u0435\u0440\u0436\u0430\u0442\u044C\u0441\u044F
+      \u043D\u0430 \u043A\u0430\u0436\u0434\u043E\u043C \u0443\u0440\u043E\u0432\u043D\u0435,
+      \u0443\u043B\u0443\u0447\u0448\u0430\u044F \u0441\u0432\u043E\u0438\u0445 \u0436\u0438\u0442\u0435\u043B\u0435\u0439
+      \u0438 \u0443\u0431\u0438\u0442\u044C \u0432\u0441\u0435\u0445 \u0437\u043E\u043C\u0431\u0438,
+      \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u044F \u0442\u0430\u043A\u0442\u0438\u043A\u0443
+      \u0434\u043B\u044F \u043C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0439
+      \u044D\u0444\u0444\u0435\u043A\u0442\u0438\u0432\u043D\u043E\u0441\u0442\u0438."
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "\rKALDIR EKLE"
-    Object: {fileID: 0}
---- !u!1 &1804442337
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1804442338}
-  - component: {fileID: 1804442339}
-  m_Layer: 0
-  m_Name: Anonymous
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1804442338
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1804442337}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1571494402}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1804442339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1804442337}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: 0
-  entries:
-  - Language: English
-    Text: Anonymous
-    Object: {fileID: 0}
-  - Language: Russian
-    Text: "\u0410\u043D\u043E\u043D\u0438\u043C"
-    Object: {fileID: 0}
-  - Language: Turkish
-    Text: Isimsiz
+    Text: "Amac\u0131n\u0131z maksimum verimlilik i\xE7in taktikler kullanarak her
+      seviyede hayatta kalmak, k\xF6yl\xFClerinizi geli\u015Ftirmek ve t\xFCm zombileri
+      \xF6ld\xFCrmektir."
     Object: {fileID: 0}
 --- !u!1 &1877475270
 GameObject:
@@ -2756,6 +2760,124 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 763d4c70ab2ea5243b5bf9d94a588120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1907035787
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1907035788}
+  - component: {fileID: 1907035789}
+  m_Layer: 0
+  m_Name: You Lose
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1907035788
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907035787}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1597031839}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1907035789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907035787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: You LOSE
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u041F\u0420\u041E\u0418\u0413\u0420\u042B\u0428"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "\rKAYBETME"
+    Object: {fileID: 0}
+--- !u!1 &1919777884
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1919777885}
+  - component: {fileID: 1919777886}
+  m_Layer: 0
+  m_Name: AddSitizenDescription
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1919777885
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919777884}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1597031839}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1919777886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919777884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\r\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0436\u0438\u0442\u0435\u043B\u044F:\r\n\u041D\u0430\u0436\u043C\u0438\u0442\u0435
+      \u043D\u0430 \u043A\u0430\u0440\u0442\u043E\u0447\u043A\u0443 \u0441 \u0438\u0437\u043E\u0431\u0440\u0430\u0436\u0435\u043D\u0438\u0435\u043C
+      \u0436\u0438\u0442\u0435\u043B\u044F \u0438 \u0440\u0430\u0437\u043C\u0435\u0441\u0442\u0438\u0442\u0435
+      \u0435\u0433\u043E \u0432 \u0434\u0435\u0440\u0435\u0432\u043D\u0435. \u041A\u0430\u0436\u0434\u044B\u0439
+      \u043D\u043E\u0432\u044B\u0439 \u0436\u0438\u0442\u0435\u043B\u044C \u043F\u043E\u043C\u043E\u0433\u0430\u0435\u0442
+      \u0432\u0430\u043C \u0432 \u0431\u043E\u0440\u044C\u0431\u0435 \u0441 \u0437\u043E\u043C\u0431\u0438."
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Bir sakin ekleyin:\r\nBir k\xF6yl\xFCn\xFCn resminin bulundu\u011Fu karta
+      t\u0131klay\u0131n ve onu k\xF6ye yerle\u015Ftirin. Her yeni sakin, zombilere
+      kar\u015F\u0131 m\xFCcadelede size yard\u0131mc\u0131 olur."
+    Object: {fileID: 0}
+  - Language: English
+    Text: "\rAdd a sitizen:\r\nClick on the card with the picture of a sitizen and
+      place it in the village. Each new sitizen helps you in the fight against zombies."
+    Object: {fileID: 0}
 --- !u!1 &1930301530
 GameObject:
   m_ObjectHideFlags: 0
@@ -2890,7 +3012,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1930301530}
   m_CullTransparentMesh: 1
---- !u!1 &1942961272
+--- !u!1 &1977086331
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2898,37 +3020,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1942961273}
-  - component: {fileID: 1942961274}
+  - component: {fileID: 1977086332}
+  - component: {fileID: 1977086333}
   m_Layer: 0
-  m_Name: Welcome to Game
+  m_Name: AddSpeedDescription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1942961273
+--- !u!4 &1977086332
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1942961272}
+  m_GameObject: {fileID: 1977086331}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1571494402}
+  m_Father: {fileID: 1597031839}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1942961274
+--- !u!114 &1977086333
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1942961272}
+  m_GameObject: {fileID: 1977086331}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
@@ -2937,153 +3059,24 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: Russian
-    Text: "\u0414\u043E\u0431\u0440\u043E \u043F\u043E\u0436\u0430\u043B\u043E\u0432\u0430\u0442\u044C
-      \u0432 \"\u0417\u043E\u043C\u0431\u0438\"!\r\n\u041F\u0435\u0440\u0435\u0434
-      \u0432\u0430\u043C\u0438 \u0434\u0435\u0440\u0435\u0432\u043D\u044F, \u0430
-      \u043D\u0430 \u0435\u0451 \u043E\u043A\u0440\u0430\u0438\u043D\u0435 \u043F\u043E\u044F\u0432\u043B\u044F\u044E\u0442\u0441\u044F
-      \u0437\u043B\u043E\u0432\u0435\u0449\u0438\u0435 \u0437\u043E\u043C\u0431\u0438.
-      \u0412\u0430\u0448\u0430 \u0437\u0430\u0434\u0430\u0447\u0430 - \u0437\u0430\u0449\u0438\u0442\u0438\u0442\u044C
-      \u0434\u0435\u0440\u0435\u0432\u043D\u044E, \u0434\u043E\u0431\u0430\u0432\u043B\u044F\u044F
-      \u0436\u0438\u0442\u0435\u043B\u0435\u0439 \u0438 \u0441\u043E\u0432\u0435\u0440\u0448\u0435\u043D\u0441\u0442\u0432\u0443\u044F
-      \u0438\u0445 \u043D\u0430\u0432\u044B\u043A\u0438.\n\n\u0412\u043D\u0438\u0437\u0443
-      \u0432\u0430\u0448\u0435\u0433\u043E \u044D\u043A\u0440\u0430\u043D\u0430 \u043D\u0430\u0445\u043E\u0434\u044F\u0442\u0441\u044F
-      \u0447\u0435\u0442\u044B\u0440\u0435 \u043A\u0430\u0440\u0442\u043E\u0447\u043A\u0438.
-      \u041A\u0430\u0436\u0434\u0430\u044F \u043A\u0430\u0440\u0442\u043E\u0447\u043A\u0430
-      \u043F\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u043B\u044F\u0435\u0442 \u0441\u043E\u0431\u043E\u0439
-      \u0440\u0430\u0437\u043B\u0438\u0447\u043D\u044B\u0435 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u044F
-      \u0434\u043B\u044F \u0443\u043B\u0443\u0447\u0448\u0435\u043D\u0438\u044F \u0438
-      \u0437\u0430\u0449\u0438\u0442\u044B \u0434\u0435\u0440\u0435\u0432\u043D\u0438.\r"
+    Text: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0442\u044C \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u044C
+      \u0438\u0433\u0440\u044B:\r\n\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0439\u0442\u0435
+      \u043A\u0430\u0440\u0442\u043E\u0447\u043A\u0443, \u0447\u0442\u043E\u0431\u044B
+      \u0443\u0441\u043A\u043E\u0440\u0438\u0442\u044C \u0442\u0435\u0447\u0435\u043D\u0438\u0435
+      \u0432\u0440\u0435\u043C\u0435\u043D\u0438 \u0438 \u043F\u043E\u0432\u044B\u0441\u0438\u0442\u044C
+      \u044D\u0444\u0444\u0435\u043A\u0442\u0438\u0432\u043D\u043E\u0441\u0442\u044C
+      \u0441\u0432\u043E\u0438\u0445 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0439.\r"
     Object: {fileID: 0}
   - Language: English
-    Text: 'Welcome to Zombie!
+    Text: 'Increase game speed:
 
-      In front of you is a village, and ominous zombies
-      appear on its outskirts. Your task is to protect the village by adding residents
-      and improving their skills.
-
-
-
-      At the bottom of your screen there are
-      four cards. Each card represents a different action to improve and protect
-      the village.'
+      Use the card to speed up your sitizens and
+      increase the efficiency of your actions.'
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "Zombie'ye ho\u015F geldiniz!\r\n\xD6n\xFCn\xFCzde bir k\xF6y var ve onun
-      eteklerinde u\u011Fursuz zombiler beliriyor. G\xF6reviniz sakinleri ekleyerek
-      ve becerilerini geli\u015Ftirerek k\xF6y\xFC korumakt\u0131r.\r\n\r\nEkran\u0131n\u0131z\u0131n
-      alt k\u0131sm\u0131nda d\xF6rt kart bulunur. Her kart, k\xF6y\xFC geli\u015Ftirmek
-      ve korumak i\xE7in farkl\u0131 bir eylemi temsil eder."
-    Object: {fileID: 0}
---- !u!1 &1994062690
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1994062691}
-  - component: {fileID: 1994062692}
-  m_Layer: 0
-  m_Name: Error
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1994062691
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1994062690}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1571494402}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1994062692
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1994062690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: 0
-  entries:
-  - Language: English
-    Text: Error
-    Object: {fileID: 0}
-  - Language: Russian
-    Text: "\u041E\u0448\u0438\u0431\u043A\u0430"
-    Object: {fileID: 0}
-  - Language: Turkish
-    Text: "\rYanl\u0131\u015F"
-    Object: {fileID: 0}
---- !u!1 &2084206909
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2084206910}
-  - component: {fileID: 2084206911}
-  m_Layer: 0
-  m_Name: Turn on, off sound
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2084206910
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2084206909}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1571494402}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2084206911
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2084206909}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: 0
-  entries:
-  - Language: English
-    Text: TURN ON/OFF SOUND
-    Object: {fileID: 0}
-  - Language: Russian
-    Text: "\u0412\u041A\u041B\u042E\u0427\u0418\u0422\u042C/\u0412\u042B\u041A\u041B\u042E\u0427\u0418\u0422\u042C
-      \u0417\u0412\u0423\u041A"
-    Object: {fileID: 0}
-  - Language: Turkish
-    Text: "\rSES\u0130 A\xC7/KAPAT"
+    Text: "\rOyun h\u0131z\u0131n\u0131 art\u0131r\u0131n:\r\nZaman\u0131n ge\xE7i\u015Fini
+      h\u0131zland\u0131rmak ve eylemlerinizin verimlili\u011Fini art\u0131rmak i\xE7in
+      kart\u0131 kullan\u0131n."
     Object: {fileID: 0}
 --- !u!114 &2095710835 stripped
 MonoBehaviour:
@@ -3096,6 +3089,61 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 129e46e535d05604ca2f67c5edead179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2124108314
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2124108315}
+  - component: {fileID: 2124108316}
+  m_Layer: 0
+  m_Name: Menu
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2124108315
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124108314}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1597031839}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2124108316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124108314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: MENU
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u041C\u0415\u041D\u042E"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "MEN\xDC"
+    Object: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -3104,7 +3152,7 @@ SceneRoots:
   - {fileID: 773618335}
   - {fileID: 530432873}
   - {fileID: 59421405}
-  - {fileID: 1024756313}
   - {fileID: 1051631891}
+  - {fileID: 1024756313}
   - {fileID: 115833620}
-  - {fileID: 1571494402}
+  - {fileID: 1597031839}

@@ -13,7 +13,7 @@ namespace Scripts
         public const string FifthLevel = "FifthLevel";
         public const string SixthLevel = "SixthLevel";
         public const string SeventhLevel = "SeventhLevel";
-        public const string EightLevel = "EightLevel";
+        public const string EighthLevel = "EighthLevel";
         public const string NinthLevel = "NinthLevel";
         public const string TenthLevel = "TenthLevel";
         public const string EleventhLevel = "EleventhLevel";

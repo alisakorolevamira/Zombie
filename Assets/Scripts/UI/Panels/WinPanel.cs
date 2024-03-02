@@ -8,7 +8,7 @@ namespace Scripts.UI.Panels
 {
     public class WinPanel : Panel
     {
-        private readonly bool _isSoundOn = true;
+        private readonly bool _isGameStopped = false;
 
         [SerializeField] private Button _levelButton;
         [SerializeField] private Button _menuButton;
@@ -18,11 +18,13 @@ namespace Scripts.UI.Panels
 
         private bool _isOpened;
         private IZombieHealthService _zombieHealthService;
+        private IFocusService _focusService;
         private IAudioService _audioService;
 
         private void Start()
         {
             _zombieHealthService = AllServices.Container.Single<IZombieHealthService>();
+            _focusService = AllServices.Container.Single<IFocusService>();
             _audioService = AllServices.Container.Single<IAudioService>();
 
             _zombieHealthService.Died += Open;
@@ -87,9 +89,9 @@ namespace Scripts.UI.Panels
                     _levelPanel.OpenSceneWithResetingProgress(Constants.SeventhLevel);
                     break;
                 case Constants.SeventhLevel:
-                    _levelPanel.OpenSceneWithResetingProgress(Constants.EightLevel);
+                    _levelPanel.OpenSceneWithResetingProgress(Constants.EighthLevel);
                     break;
-                case Constants.EightLevel:
+                case Constants.EighthLevel:
                     _levelPanel.OpenSceneWithResetingProgress(Constants.NinthLevel);
                     break;
                 case Constants.NinthLevel:
@@ -117,16 +119,20 @@ namespace Scripts.UI.Panels
 
         private void OnOpenCallBack()
         {
-            Time.timeScale = Constants.StopGameIndex;
-            _audioService.ChangeVolume(!_isSoundOn);
+            _focusService.IsGameStopped = true;
+
+            _focusService.PauseGame(_isGameStopped);
+            _audioService.ChangeVolume(_isGameStopped);
         }
 
         private void OnCloseCallBack(bool closed)
         {
             if (closed)
             {
-                Time.timeScale = Constants.StartGameIndex;
-                _audioService.ChangeVolume(_isSoundOn);
+                _focusService.IsGameStopped = false;
+
+                _focusService.PauseGame(!_isGameStopped);
+                _audioService.ChangeVolume(!_isGameStopped);
             }
         }
     }
