@@ -1,6 +1,4 @@
 using Scripts.Architecture.Services;
-using Scripts.Spawner;
-using Scripts.UI.Panels;
 using System;
 using System.Collections.Generic;
 
@@ -11,13 +9,11 @@ namespace Scripts.Architecture.States
         private readonly Dictionary<Type, IExitableState> _states;
         private IExitableState _activeState;
 
-        public GameStateMachine(SceneLoader sceneLoader, AllServices services, SitizenSpawner sitizenSpawner, ZombieSpawner zombieSpawner,
-            LevelPanel levelPanel, LoadingPanel loadingPanel)
+        public GameStateMachine(SceneLoader sceneLoader, AllServices services)
         {
             _states = new Dictionary<Type, IExitableState>
             {
-                [typeof(BootstrapState)] = new BootstrapState(this, sceneLoader, services, sitizenSpawner, zombieSpawner,
-                levelPanel, loadingPanel),
+                [typeof(BootstrapState)] = new BootstrapState(this, sceneLoader, services),
                 [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader, services.Single<IUIPanelService>(), 
                 services.Single<ISpawnerService>()),
                 [typeof(LoadProgressState)] = new LoadProgressState(this, services.Single<ISaveLoadService>()),
@@ -50,6 +46,5 @@ namespace Scripts.Architecture.States
         {
             return _states[typeof(TState)] as TState;
         }
-        
     }
 }

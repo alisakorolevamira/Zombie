@@ -14,11 +14,12 @@ namespace Scripts.Spawner
         public readonly List<Sitizen> Sitizens = new();
 
         [SerializeField] private SpawnPoint[] _spawnPoints;
-        [SerializeField] private AddSitizenCard _addSitizenCard;
-        [SerializeField] private MergeCard _mergeCard;
 
+        private AddSitizenCard _addSitizenCard;
+        private MergeCard _mergeCard;
         private IGameFactory _factory;
         private IPlayerScoreService _playerScoreService;
+        private IUIPanelService _panelService;
 
         public event Action NumberOfSitizensChanged;
         public event Action AllSitizensDied;
@@ -26,8 +27,6 @@ namespace Scripts.Spawner
         private void OnEnable()
         {
             DontDestroyOnLoad(gameObject);
-
-            _playerScoreService = AllServices.Container.Single<IPlayerScoreService>();
         }
 
         private void OnDisable()
@@ -35,9 +34,17 @@ namespace Scripts.Spawner
             ClearSubscriptions();
         }
 
+        private void Start()
+        {
+            _playerScoreService = AllServices.Container.Single<IPlayerScoreService>();
+            _panelService = AllServices.Container.Single<IUIPanelService>();
+            _factory = AllServices.Container.Single<IGameFactory>();
+        }
+
         public void AddComponentsOnLevel()
         {
-            _factory = AllServices.Container.Single<IGameFactory>();
+            _addSitizenCard = _panelService.GetPanel<AddSitizenCard>();
+            _mergeCard = _panelService.GetPanel<MergeCard>();
 
             ClearSubscriptions();
 

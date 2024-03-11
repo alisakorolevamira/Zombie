@@ -20,14 +20,10 @@ namespace Scripts
             DontDestroyOnLoad(gameObject);
         }
 
-        private void Start()
+        public void ChangeLanguage(string languageCode = null)
         {
-            ChangeLanguage();
-        }
-
-        private void ChangeLanguage()
-        {
-            string languageCode = YandexGamesSdk.Environment.i18n.lang;
+            if (languageCode == null)
+                languageCode = YandexGamesSdk.Environment.i18n.lang;
 
             switch (languageCode)
             {

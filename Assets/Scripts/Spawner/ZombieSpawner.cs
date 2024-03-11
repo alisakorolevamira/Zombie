@@ -1,6 +1,5 @@
 using Scripts.Architecture.Factory;
 using Scripts.Architecture.Services;
-using Scripts.Characters;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,17 +7,20 @@ namespace Scripts.Spawner
 {
     public class ZombieSpawner : MonoBehaviour
     {
-        private readonly int _sceneIndexCoefficient = 2;
+        private readonly int _sceneIndexCoefficient = 1;
 
         private IGameFactory _factory;
         private string _path;
 
-        public void CreateZombie()
+        private void Start()
         {
             _factory = AllServices.Container.Single<IGameFactory>();
+        }
 
+        public void CreateZombie()
+        {
             GetPath();
-            _factory.SpawnZombie(_path);
+            _factory.SpawnObject(_path);
         }
 
         private void GetPath()

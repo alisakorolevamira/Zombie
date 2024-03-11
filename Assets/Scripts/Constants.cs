@@ -22,6 +22,10 @@ namespace Scripts
         public const string FirstLevelSitizenPath = "Prefabs/Sitizens/FirstLevelSitizen";
         public const string SecondLevelSitizenPath = "Prefabs/Sitizens/SecondLevelSitizen";
         public const string ZombiePath = "Prefabs/Zombies/Zombie";
+        public const string LevelCanvasPath = "Prefabs/UI/LevelCanvas";
+        public const string LoadingPanelPath = "Prefabs/UI/LoadingPanel";
+        public const string SpawnersPath = "Prefabs/Spawner";
+        public const string LocalizationPath = "Prefabs/LeanLocalization";
         public const int MaximumNumberOfSitizens = 5;
         public const int MinimumNumberOfSitizens = 0;
         public const int MinimumVolumeValue = 0;

@@ -5,10 +5,11 @@ namespace Scripts.Architecture.Services
 {
     public interface IUIPanelService : IService
     {
-        LoadingPanel LoadingPanel { get; }
         GameStateMachine StateMachine { get; }
+        LoadingPanel LoadingPanel { get; }
 
         void CreateCanvas(string sceneName);
+        void Initialize();
         T GetPanel<T>() where T : Panel;
     }
 }

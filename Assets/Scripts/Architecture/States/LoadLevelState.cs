@@ -23,6 +23,7 @@ namespace Scripts.Architecture.States
 
         public void Enter(string sceneName)
         {
+            _panelService.LoadingPanel.Open();
             LoadCanvas(sceneName);
 
             _sceneLoaded += OnLoaded;
@@ -52,9 +53,7 @@ namespace Scripts.Architecture.States
 
         private void LoadCanvas(string sceneName)
         {
-            _panelService.LoadingPanel.Open();
             _panelService.CreateCanvas(sceneName);
-
 
             if (sceneName != Constants.Menu && sceneName != Constants.Initial)
                 _sceneLoaded += SpawnersOnLoaded;

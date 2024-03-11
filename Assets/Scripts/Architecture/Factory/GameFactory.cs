@@ -12,11 +12,11 @@ namespace Scripts.Architecture.Factory
             return Object.Instantiate(sitizenPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
         }
 
-        public GameObject SpawnZombie(string path)
+        public GameObject SpawnObject(string path)
         {
-            GameObject zombiePrefab = Resources.Load<GameObject>(path);
+            GameObject objectPrefab = Resources.Load<GameObject>(path);
 
-            return Object.Instantiate(zombiePrefab, zombiePrefab.transform.position, zombiePrefab.transform.rotation);
+            return Object.Instantiate(objectPrefab, objectPrefab.transform.position, objectPrefab.transform.rotation);
         }
     }
 }

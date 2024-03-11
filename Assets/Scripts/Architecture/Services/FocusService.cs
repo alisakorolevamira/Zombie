@@ -10,13 +10,17 @@ namespace Scripts.Architecture.Services
         public FocusService(IAudioService audioService)
         {
             _audioService = audioService;
+        }
+
+        public bool IsGameStopped { get; set; }
+
+        public void Initialize()
+        {
             IsGameStopped = false;
 
             Application.focusChanged += OnInBackgroundChangeApp;
             WebApplication.InBackgroundChangeEvent += OnInBackgroundChangeWeb;
         }
-
-        public bool IsGameStopped { get; set; }
 
         public void Dispose()
         {

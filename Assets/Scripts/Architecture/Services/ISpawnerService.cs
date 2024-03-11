@@ -6,5 +6,7 @@ namespace Scripts.Architecture.Services
     {
         SitizenSpawner SitizenSpawner { get; }
         ZombieSpawner ZombieSpawner { get; }
+
+        void Initialize();
     }
 }

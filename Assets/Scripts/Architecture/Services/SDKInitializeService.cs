@@ -1,21 +1,18 @@
 using Agava.YandexGames;
 using Cysharp.Threading.Tasks;
 using System.Collections;
-using UnityEngine;
-using UnityEngine.SceneManagement;
 
-namespace Scripts.Architecture
+namespace Scripts.Architecture.Services
 {
-    public class SDKInitializer : MonoBehaviour
+    public class SDKInitializeService : ISDKInitializeService
     {
-        private async void Awake()
+        public async UniTask StartCoroutineAsUniTask()
         {
             YandexGamesSdk.CallbackLogging = true;
 
             await Initialize().ToUniTask();
-
-            SceneManager.LoadScene(Constants.Initial);
         }
+
         private IEnumerator Initialize()
         {
             yield return YandexGamesSdk.Initialize();

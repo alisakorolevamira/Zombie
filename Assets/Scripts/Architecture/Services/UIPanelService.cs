@@ -1,3 +1,4 @@
+using Scripts.Architecture.Factory;
 using Scripts.Architecture.States;
 using Scripts.UI.Panels;
 
@@ -5,13 +6,14 @@ namespace Scripts.Architecture.Services
 {
     public class UIPanelService : IUIPanelService
     {
-        private readonly LevelPanel _levelPanel;
+        private readonly IGameFactory _gameFactory;
 
-        public UIPanelService(GameStateMachine stateMachine, LevelPanel levelPanel, LoadingPanel loadingPanel)
+        private LevelPanel _levelPanel;
+
+        public UIPanelService(GameStateMachine stateMachine, IGameFactory gameFactory)
         {
             StateMachine = stateMachine;
-            _levelPanel = levelPanel;
-            LoadingPanel = loadingPanel;
+            _gameFactory = gameFactory;
         }
 
         public GameStateMachine StateMachine { get; private set; }
@@ -31,6 +33,15 @@ namespace Scripts.Architecture.Services
 
             else
                 _levelPanel.Open();
+        }
+
+        public void Initialize()
+        {
+            LoadingPanel = _gameFactory.SpawnObject(Constants.LoadingPanelPath).GetComponent<LoadingPanel>();
+            _levelPanel = _gameFactory.SpawnObject(Constants.LevelCanvasPath).GetComponent<LevelPanel>();
+
+            _levelPanel.Close();
+            LoadingPanel.Open();
         }
     }
 }

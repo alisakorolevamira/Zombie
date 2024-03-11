@@ -4,7 +4,6 @@ using Scripts.Architecture;
 using Scripts.Architecture.Services;
 using Scripts.Characters;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -49,11 +48,7 @@ namespace Scripts.UI.Panels
         {
             Clear();
             
-            var sortedPlayers = from player in leaderBoardPlayers
-                                orderby player.Score
-                                select player;
-
-            foreach (var player in sortedPlayers)
+            foreach (var player in leaderBoardPlayers)
             {
                 LeaderBoardElement leaderBoardElement = Instantiate(_leaderBoardElementPrefab, _container);
                 leaderBoardElement.Initialize(player.Name, player.Rank, player.Score);

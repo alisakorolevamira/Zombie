@@ -1,7 +1,5 @@
 using Scripts.Architecture.Services;
 using Scripts.Architecture.Factory;
-using Scripts.Spawner;
-using Scripts.UI.Panels;
 
 namespace Scripts.Architecture.States
 {
@@ -10,27 +8,31 @@ namespace Scripts.Architecture.States
         private readonly GameStateMachine _gameStateMachine;
         private readonly SceneLoader _sceneLoader;
         private readonly AllServices _services;
-        private readonly SitizenSpawner _sitizenSpawner;
-        private readonly ZombieSpawner _zombieSpawner;
-        private readonly LevelPanel _levelPanel;
-        private readonly LoadingPanel _loadingPanel;
 
-        public BootstrapState(GameStateMachine gameStateMachine, SceneLoader sceneLoader, AllServices services, 
-            SitizenSpawner sitizenSpawner, ZombieSpawner zombieSpawner, LevelPanel levelPanel, LoadingPanel loadingPanel)
+        public BootstrapState(GameStateMachine gameStateMachine, SceneLoader sceneLoader, AllServices services)
         {
             _gameStateMachine = gameStateMachine;
             _sceneLoader = sceneLoader;
             _services = services;
-            _sitizenSpawner = sitizenSpawner;
-            _zombieSpawner = zombieSpawner;
-            _levelPanel = levelPanel;
-            _loadingPanel = loadingPanel;
 
             RegisterService();
         }
 
-        public void Enter()
+        public async void Enter()
         {
+            var sdkInitializeService = _services.Single<ISDKInitializeService>();
+            var panelService = _services.Single<IUIPanelService>();
+            var spawnerService = _services.Single<ISpawnerService>();
+            var localizationService = _services.Single<ILocalizationService>();
+            var  focusService = _services.Single<IFocusService>();
+
+            spawnerService.Initialize();
+            panelService.Initialize();
+            focusService.Initialize();
+
+            await sdkInitializeService.StartCoroutineAsUniTask();
+            localizationService.Initialize();
+
             _sceneLoader.Load(Constants.Initial, EnterLoadLevel);
         }
 
@@ -39,18 +41,20 @@ namespace Scripts.Architecture.States
 
         private void RegisterService()
         {
-            _services.RegisterSingle<IAudioService>(new AudioService());
-            _services.RegisterSingle<IFocusService>(new FocusService(_services.Single<IAudioService>()));
-            _services.RegisterSingle<IUIPanelService>(new UIPanelService(_gameStateMachine, _levelPanel, _loadingPanel));
-            _services.RegisterSingle<IGameFactory>(new GameFactory());
+            _services.RegisterSingle<ISDKInitializeService>(new SDKInitializeService());
             _services.RegisterSingle<ISaveLoadService>(new SaveLoadService());
+            _services.RegisterSingle<IGameFactory>(new GameFactory());
+            _services.RegisterSingle<IAudioService>(new AudioService());
+            _services.RegisterSingle<ILocalizationService>(new LocalizationService(_services.Single<IGameFactory>()));
+            _services.RegisterSingle<IUIPanelService>(new UIPanelService(_gameStateMachine, _services.Single<IGameFactory>()));
+            _services.RegisterSingle<ISpawnerService>(new SpawnerService(_services.Single<IGameFactory>()));
+            _services.RegisterSingle<IFocusService>(new FocusService(_services.Single<IAudioService>()));
             _services.RegisterSingle<IPlayerMoneyService>(new PlayerMoneyService(_services.Single<ISaveLoadService>()));
             _services.RegisterSingle<IPlayerScoreService>(new PlayerScoreService(_services.Single<ISaveLoadService>()));
             _services.RegisterSingle<IZombieRewardService>(new ZombieRewardService(_services.Single<IPlayerMoneyService>(),
                 _services.Single<IPlayerScoreService>(), _services.Single<ISaveLoadService>()));
             _services.RegisterSingle<IZombieHealthService>(new ZombieHealthService(_services.Single<IZombieRewardService>(),
                 _services.Single<ISaveLoadService>()));
-            _services.RegisterSingle<ISpawnerService>(new SpawnerService(_sitizenSpawner, _zombieSpawner));
         }
 
         private void EnterLoadLevel()

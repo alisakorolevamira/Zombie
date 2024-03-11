@@ -7,6 +7,7 @@ namespace Scripts.UI.Panels
     {
         private const float _fadeCoefficient = 0.03f;
         private const float _fadeTime = 0.03f;
+        private readonly int _invisibleAlfaIndex = 0;
 
         private void Awake()
         {
@@ -20,7 +21,7 @@ namespace Scripts.UI.Panels
 
         private IEnumerator FadeIn()
         {
-            while (_canvasGroup.alpha > 0)
+            while (_canvasGroup.alpha > _invisibleAlfaIndex)
             {
                 _canvasGroup.alpha -= _fadeCoefficient;
 

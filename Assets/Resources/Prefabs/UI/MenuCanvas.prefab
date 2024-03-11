@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5846177969792170187}
   - component: {fileID: 8370547766464523846}
   - component: {fileID: 7795455008064049961}
+  - component: {fileID: 23317877967154149}
   m_Layer: 5
   m_Name: EnglishLanguageButton
   m_TagString: Untagged
@@ -119,19 +120,21 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8370547766464523846}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Lean.Localization.LeanLocalization, LeanLocalization
-        m_MethodName: SetCurrentLanguageAll
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: English
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &23317877967154149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49038548017320871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd2b2e2533a19d8449f2845e38cd3480, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 7795455008064049961}
+  _languageCode: en
 --- !u!1 &155032410207662054
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,7 +483,7 @@ GameObject:
   - component: {fileID: 6180375125476386348}
   - component: {fileID: 3351956134792159941}
   - component: {fileID: 2418737969084221446}
-  - component: {fileID: 2765018393017639888}
+  - component: {fileID: 3119017569588702574}
   m_Layer: 5
   m_Name: ChangeLanguagePanel
   m_TagString: Untagged
@@ -560,7 +563,7 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
---- !u!114 &2765018393017639888
+--- !u!114 &3119017569588702574
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1926,6 +1929,7 @@ GameObject:
   - component: {fileID: 5416784960110533005}
   - component: {fileID: 6160645945173275126}
   - component: {fileID: 1462555969745958034}
+  - component: {fileID: 8309991547807445508}
   m_Layer: 5
   m_Name: TurkishLanguageButton
   m_TagString: Untagged
@@ -2033,19 +2037,21 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6160645945173275126}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Lean.Localization.LeanLocalization, LeanLocalization
-        m_MethodName: SetCurrentLanguageAll
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Turkish
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &8309991547807445508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388829689839319859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd2b2e2533a19d8449f2845e38cd3480, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 1462555969745958034}
+  _languageCode: tr
 --- !u!1 &1490694764372990954
 GameObject:
   m_ObjectHideFlags: 0
@@ -2333,11 +2339,11 @@ MonoBehaviour:
   m_Content: {fileID: 8432339940162046973}
   m_Horizontal: 1
   m_Vertical: 1
-  m_MovementType: 1
+  m_MovementType: 2
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 20
   m_Viewport: {fileID: 6230554003853175971}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 0}
@@ -6831,6 +6837,7 @@ GameObject:
   - component: {fileID: 344966204629281711}
   - component: {fileID: 684406542557742651}
   - component: {fileID: 1989810793927673488}
+  - component: {fileID: 7299812093995046838}
   m_Layer: 5
   m_Name: RussianLanguageButton
   m_TagString: Untagged
@@ -6938,19 +6945,21 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 684406542557742651}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Lean.Localization.LeanLocalization, LeanLocalization
-        m_MethodName: SetCurrentLanguageAll
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Russian
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &7299812093995046838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4610301045980094840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd2b2e2533a19d8449f2845e38cd3480, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 1989810793927673488}
+  _languageCode: ru
 --- !u!1 &4873555429767074008
 GameObject:
   m_ObjectHideFlags: 0
