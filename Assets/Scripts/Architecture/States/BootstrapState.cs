@@ -24,11 +24,13 @@ namespace Scripts.Architecture.States
             var panelService = _services.Single<IUIPanelService>();
             var spawnerService = _services.Single<ISpawnerService>();
             var localizationService = _services.Single<ILocalizationService>();
-            var  focusService = _services.Single<IFocusService>();
+            var focusService = _services.Single<IFocusService>();
+            var sceneService = _services.Single<ISceneService>();
 
             spawnerService.Initialize();
             panelService.Initialize();
             focusService.Initialize();
+            sceneService.Initialize();
 
             await sdkInitializeService.StartCoroutineAsUniTask();
             localizationService.Initialize();
@@ -45,12 +47,14 @@ namespace Scripts.Architecture.States
             _services.RegisterSingle<ISaveLoadService>(new SaveLoadService());
             _services.RegisterSingle<IGameFactory>(new GameFactory());
             _services.RegisterSingle<IAudioService>(new AudioService());
+            _services.RegisterSingle<ISceneService>(new SceneService());
             _services.RegisterSingle<ILocalizationService>(new LocalizationService(_services.Single<IGameFactory>()));
             _services.RegisterSingle<IUIPanelService>(new UIPanelService(_gameStateMachine, _services.Single<IGameFactory>()));
             _services.RegisterSingle<ISpawnerService>(new SpawnerService(_services.Single<IGameFactory>()));
             _services.RegisterSingle<IFocusService>(new FocusService(_services.Single<IAudioService>()));
             _services.RegisterSingle<IPlayerMoneyService>(new PlayerMoneyService(_services.Single<ISaveLoadService>()));
             _services.RegisterSingle<IPlayerScoreService>(new PlayerScoreService(_services.Single<ISaveLoadService>()));
+            _services.RegisterSingle<IStarCountService>(new StarCountService(_services.Single<IPlayerScoreService>()));
             _services.RegisterSingle<IZombieRewardService>(new ZombieRewardService(_services.Single<IPlayerMoneyService>(),
                 _services.Single<IPlayerScoreService>(), _services.Single<ISaveLoadService>()));
             _services.RegisterSingle<IZombieHealthService>(new ZombieHealthService(_services.Single<IZombieRewardService>(),

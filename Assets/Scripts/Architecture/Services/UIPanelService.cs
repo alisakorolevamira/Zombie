@@ -19,7 +19,7 @@ namespace Scripts.Architecture.Services
         public GameStateMachine StateMachine { get; private set; }
         public LoadingPanel LoadingPanel { get; private set; }
 
-        public T GetPanel<T>() where T : Panel
+        public T GetCard<T>() where T : Panel
         {
             T panel = _levelPanel.GetComponentInChildren<T>();
 
@@ -40,8 +40,8 @@ namespace Scripts.Architecture.Services
             LoadingPanel = _gameFactory.SpawnObject(Constants.LoadingPanelPath).GetComponent<LoadingPanel>();
             _levelPanel = _gameFactory.SpawnObject(Constants.LevelCanvasPath).GetComponent<LevelPanel>();
 
-            _levelPanel.Close();
             LoadingPanel.Open();
+            _levelPanel.Close();
         }
     }
 }

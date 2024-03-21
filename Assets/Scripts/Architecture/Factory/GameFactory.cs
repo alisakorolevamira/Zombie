@@ -1,15 +1,15 @@
-using Scripts.Characters.Sitizens;
+using Scripts.Characters.Citizens;
 using UnityEngine;
 
 namespace Scripts.Architecture.Factory
 {
     public class GameFactory : IGameFactory
     {
-        public GameObject SpawnSitizen(SpawnPoint spawnPoint, string path)
+        public GameObject SpawnCitizen(SpawnPoint spawnPoint, string path)
         {
-            GameObject sitizenPrefab = Resources.Load<GameObject>(path);
+            GameObject citizenPrefab = Resources.Load<GameObject>(path);
 
-            return Object.Instantiate(sitizenPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
+            return Object.Instantiate(citizenPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
         }
 
         public GameObject SpawnObject(string path)
@@ -17,6 +17,11 @@ namespace Scripts.Architecture.Factory
             GameObject objectPrefab = Resources.Load<GameObject>(path);
 
             return Object.Instantiate(objectPrefab, objectPrefab.transform.position, objectPrefab.transform.rotation);
+        }
+
+        public GameObject SpawnZombie(GameObject prefab)
+        {
+            return Object.Instantiate(prefab, prefab.transform.position, prefab.transform.rotation);
         }
     }
 }

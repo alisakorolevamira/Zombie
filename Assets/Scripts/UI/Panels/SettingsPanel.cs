@@ -53,11 +53,13 @@ namespace Scripts.UI.Panels
 
         private void OnMenuButtonClick()
         {
+            Close();
             _levelPanel.OpenNextScene(Constants.Menu);
         }
 
         private void OnSaveButtonClick()
         {
+            Close();
             _saveLoadService.SaveProgress();
         }
     }

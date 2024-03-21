@@ -9,7 +9,7 @@ namespace Scripts.UI.Cards
     public class AddSpeedCard : Card
     {
         private ISpawnerService _spawnerService;
-        private SitizenSpawner _sitizenSpawner;
+        private CitizenSpawner _citizenSpawner;
 
         public override event Action<int> CardBought;
 
@@ -18,17 +18,17 @@ namespace Scripts.UI.Cards
             base.Open();
 
             _spawnerService = AllServices.Container.Single<ISpawnerService>();
-            _sitizenSpawner = _spawnerService.SitizenSpawner;
+            _citizenSpawner = _spawnerService.CitizenSpawner;
             _priceText.text = _saveLoadService.CardsPricesProgress.AddSpeedCardPrice.ToString();
         }
 
         private protected override void OnButtonClicked()
         {
-            if (_playerMoneyService.Money >= _saveLoadService.CardsPricesProgress.AddSpeedCardPrice && _sitizenSpawner.Sitizens != null)
+            if (_playerMoneyService.Money >= _saveLoadService.CardsPricesProgress.AddSpeedCardPrice && _citizenSpawner.Citizens != null)
             {
                 CardBought?.Invoke(_saveLoadService.CardsPricesProgress.AddSpeedCardPrice);
 
-                foreach (var sitizen in _sitizenSpawner.Sitizens)
+                foreach (var sitizen in _citizenSpawner.Citizens)
                     sitizen.AddSpeed();
 
                 _saveLoadService.CardsPricesProgress.AddSpeedCardPrice *= _coefficientOfInceasing;

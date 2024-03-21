@@ -16,14 +16,14 @@ namespace Scripts.Characters
 
         public bool IsDead = false;
 
-        private SitizenSpawner _spawner;
+        private CitizenSpawner _spawner;
         private IZombieHealthService _health;
         private Animator _animator;
 
         private void Start()
         {
             _animator = GetComponent<Animator>();
-            _spawner = AllServices.Container.Single<ISpawnerService>().SitizenSpawner;
+            _spawner = AllServices.Container.Single<ISpawnerService>().CitizenSpawner;
             _health = AllServices.Container.Single<IZombieHealthService>();
 
             _health.DamageApplied += OnDamageApplied;
@@ -38,9 +38,9 @@ namespace Scripts.Characters
 
             while (!IsDead)
             {
-                if (_spawner.Sitizens.Count != Constants.MinimumNumberOfSitizens)
+                if (_spawner.Citizens.Count != Constants.MinimumNumberOfCitizens)
                 {
-                    foreach (var sitizen in _spawner.Sitizens.ToArray())
+                    foreach (var sitizen in _spawner.Citizens.ToArray())
                     {
                         sitizen.TakeDamage(_damage);
                         _animator.SetTrigger(Constants.Hit);
@@ -51,7 +51,7 @@ namespace Scripts.Characters
 
                 else
                 {
-                    _spawner.AllSitizensDie();
+                    _spawner.AllCitizensDie();
                     OnDied();
                     break;
                 }
@@ -61,16 +61,15 @@ namespace Scripts.Characters
         private void OnDamageApplied()
         {
             if (_bloodEffect != null)
-            {
                 _bloodEffect.Play();
-            }
         }
 
         private void OnDied()
         {
             IsDead = true;
-            _deathEffect.transform.parent = null;
-            _deathEffect.Play();
+
+            if (_deathEffect != null)
+                _deathEffect.Play();
 
             if (_health != null)
             {
@@ -78,7 +77,8 @@ namespace Scripts.Characters
                 _health.Died -= OnDied;
             }
 
-            Destroy(gameObject);
+            gameObject.SetActive(false);
+            //Destroy(gameObject);
         }
     }
 }

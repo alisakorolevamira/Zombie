@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 625e5946acbee5641bf02dd792e691af, type: 3}
+  m_Name: FirstLevel
+  m_EditorClassIdentifier: 
+  _sceneName: FirstLevel
+  _zombie: {fileID: 1401336389086770479, guid: 35e13ea92165cb24dbb28743975c9b06, type: 3}
+  _id: 1
+  _isAvailable: 1
+  _meduimScore: 3000
+  _highScore: 5000

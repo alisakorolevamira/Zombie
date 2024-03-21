@@ -26,10 +26,10 @@ namespace Scripts.Characters
 
             _cards = new List<Card>
             {
-                _panelService.GetPanel<AddSitizenCard>(),
-                _panelService.GetPanel<AddSpeedCard>(),
-                _panelService.GetPanel<MergeCard>(),
-                _panelService.GetPanel<DoubleRewardCard>()
+                _panelService.GetCard<AddCitizenCard>(),
+                _panelService.GetCard<AddSpeedCard>(),
+                _panelService.GetCard<MergeCard>(),
+                _panelService.GetCard<DoubleRewardCard>()
             };
 
             foreach (Card card in _cards)

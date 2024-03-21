@@ -1,33 +1,24 @@
 using Scripts.Architecture.Factory;
 using Scripts.Architecture.Services;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Scripts.Spawner
 {
     public class ZombieSpawner : MonoBehaviour
     {
-        private readonly int _sceneIndexCoefficient = 1;
-
         private IGameFactory _factory;
-        private string _path;
+        private ISceneService _sceneService;
 
         private void Start()
         {
             _factory = AllServices.Container.Single<IGameFactory>();
+            _sceneService = AllServices.Container.Single<ISceneService>();
         }
 
-        public void CreateZombie()
+        public void CreateZombie(string sceneName)
         {
-            GetPath();
-            _factory.SpawnObject(_path);
-        }
-
-        private void GetPath()
-        {
-            int sceneIndex = SceneManager.GetActiveScene().buildIndex;
-
-            _path = $"{Constants.ZombiePath}{sceneIndex - _sceneIndexCoefficient}";
+            var scene = _sceneService.FindSceneByName(sceneName);
+            _factory.SpawnZombie(scene.Zombie);
         }
     }
 }

@@ -26,9 +26,7 @@ namespace Scripts.UI.Panels
             }
 
             if (_image != null)
-            {
                 _image.raycastTarget = true;
-            }
         }
 
         public virtual void Close()
@@ -43,9 +41,7 @@ namespace Scripts.UI.Panels
             }
 
             if (_image != null)
-            {
                 _image.raycastTarget = false;
-            }
         }
     }
 }

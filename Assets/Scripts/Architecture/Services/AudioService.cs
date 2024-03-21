@@ -1,32 +1,33 @@
+using System;
 using UnityEngine;
 
 namespace Scripts.Architecture.Services
 {
     public class AudioService : IAudioService
     {
-        private bool _isMuted = false;
+        public event Action VolumeChanged;
+        public bool IsMuted { get; private set; }
+
+        public AudioService()
+        {
+            IsMuted = false;
+        }
 
         public void ChangeVolume(bool value)
         {
-            if (_isMuted)
-                return;
-
             AudioListener.volume = value ? Constants.MaximumVolumeValue : Constants.MinimumVolumeValue;
+            IsMuted = !value;
+
+            VolumeChanged?.Invoke();
         }
 
-        public void MuteAudio()
+        public void MuteAudio(bool value)
         {
-            if (_isMuted)
-            {
-                _isMuted = false;
-                ChangeVolume(!_isMuted);
-            }
+            if (IsMuted)
+                return;
 
             else
-            {
-                ChangeVolume(_isMuted);
-                _isMuted = true;
-            }
+                AudioListener.volume = value ? Constants.MaximumVolumeValue : Constants.MinimumVolumeValue;
         }
     }
 }

@@ -12,14 +12,14 @@ namespace Scripts.Architecture.Services
             _gameFactory = gameFactory;
         }
 
-        public SitizenSpawner SitizenSpawner { get; private set; }
+        public CitizenSpawner CitizenSpawner { get; private set; }
         public ZombieSpawner ZombieSpawner { get; private set; }
 
         public void Initialize()
         {
             var spawner = _gameFactory.SpawnObject(Constants.SpawnersPath);
 
-            SitizenSpawner = spawner.GetComponent<SitizenSpawner>();
+            CitizenSpawner = spawner.GetComponent<CitizenSpawner>();
             ZombieSpawner = spawner.GetComponent<ZombieSpawner>();
         }
     }

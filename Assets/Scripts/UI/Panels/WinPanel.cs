@@ -1,4 +1,5 @@
 using Agava.YandexGames;
+using Scripts.Architecture;
 using Scripts.Architecture.Services;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -15,17 +16,21 @@ namespace Scripts.UI.Panels
         [SerializeField] private LevelPanel _levelPanel;
         [SerializeField] private AudioSource _audioSource;
         [SerializeField] private LosePanel _losePanel;
+        [SerializeField] private Button[] _otherButtons;
+        [SerializeField] private StarsView _starsView;
 
         private bool _isOpened;
         private IZombieHealthService _zombieHealthService;
         private IFocusService _focusService;
         private IAudioService _audioService;
+        private ISceneService _sceneService;
 
         private void Start()
         {
             _zombieHealthService = AllServices.Container.Single<IZombieHealthService>();
             _focusService = AllServices.Container.Single<IFocusService>();
             _audioService = AllServices.Container.Single<IAudioService>();
+            _sceneService = AllServices.Container.Single<ISceneService>();
 
             _zombieHealthService.Died += Open;
             _levelButton.onClick.AddListener(OnNextLevelButtonClick);
@@ -47,8 +52,18 @@ namespace Scripts.UI.Panels
             {
                 base.Open();
 
+                string activeSceneName = SceneManager.GetActiveScene().name;
+                SceneSO activeScene = _sceneService.FindSceneByName(activeSceneName);
+
+                _sceneService.LevelComplited(activeScene);
+                _starsView.AddStars(activeScene.AmountOfStars);
+
                 _audioSource.PlayOneShot(_audioSource.clip);
                 _losePanel.Close();
+
+
+                foreach (var button in _otherButtons)
+                    button.interactable = false;
 
                 _isOpened = true;
             }
@@ -58,6 +73,11 @@ namespace Scripts.UI.Panels
         {
             base.Close();
 
+            _starsView.RemoveAllStars();
+
+            foreach (var button in _otherButtons)
+                button.interactable = true;
+
             _isOpened = false;
         }
 
@@ -66,47 +86,11 @@ namespace Scripts.UI.Panels
             Close();
 
             string activeScene = SceneManager.GetActiveScene().name;
+            string nextScene = _sceneService.FindNextScene(activeScene);
+
             InterstitialAd.Show(OnOpenCallBack, OnCloseCallBack);
 
-            switch (activeScene)
-            {
-                case Constants.FirstLevel:
-                    _levelPanel.OpenSceneWithResetingProgress(Constants.SecondLevel);
-                    break;
-                case Constants.SecondLevel:
-                    _levelPanel.OpenSceneWithResetingProgress(Constants.ThirdLevel);
-                    break;
-                case Constants.ThirdLevel:
-                    _levelPanel.OpenSceneWithResetingProgress(Constants.FourthLevel);
-                    break;
-                case Constants.FourthLevel:
-                    _levelPanel.OpenSceneWithResetingProgress(Constants.FifthLevel);
-                    break;
-                case Constants.FifthLevel:
-                    _levelPanel.OpenSceneWithResetingProgress(Constants.SixthLevel);
-                    break;
-                case Constants.SixthLevel:
-                    _levelPanel.OpenSceneWithResetingProgress(Constants.SeventhLevel);
-                    break;
-                case Constants.SeventhLevel:
-                    _levelPanel.OpenSceneWithResetingProgress(Constants.EighthLevel);
-                    break;
-                case Constants.EighthLevel:
-                    _levelPanel.OpenSceneWithResetingProgress(Constants.NinthLevel);
-                    break;
-                case Constants.NinthLevel:
-                    _levelPanel.OpenSceneWithResetingProgress(Constants.TenthLevel);
-                    break;
-                case Constants.TenthLevel:
-                    _levelPanel.OpenSceneWithResetingProgress(Constants.EleventhLevel);
-                    break;
-                case Constants.EleventhLevel:
-                    _levelPanel.OpenSceneWithResetingProgress(Constants.TwelthLevel);
-                    break;
-                case Constants.TwelthLevel:
-                    _levelPanel.OpenSceneWithResetingProgress(Constants.Menu);
-                    break;
-            }
+            _levelPanel.OpenNextScene(nextScene);
         }
 
         private void OnMenuButtonClick()
@@ -122,7 +106,7 @@ namespace Scripts.UI.Panels
             _focusService.IsGameStopped = true;
 
             _focusService.PauseGame(_isGameStopped);
-            _audioService.ChangeVolume(_isGameStopped);
+            _audioService.MuteAudio(_isGameStopped);
         }
 
         private void OnCloseCallBack(bool closed)
@@ -132,7 +116,7 @@ namespace Scripts.UI.Panels
                 _focusService.IsGameStopped = false;
 
                 _focusService.PauseGame(!_isGameStopped);
-                _audioService.ChangeVolume(!_isGameStopped);
+                _audioService.MuteAudio(!_isGameStopped);
             }
         }
     }

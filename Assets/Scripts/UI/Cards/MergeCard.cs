@@ -1,6 +1,6 @@
 using DG.Tweening;
 using Scripts.Architecture.Services;
-using Scripts.Characters.Sitizens;
+using Scripts.Characters.Citizens;
 using Scripts.Spawner;
 using System;
 using System.Collections.Generic;
@@ -10,10 +10,10 @@ namespace Scripts.UI.Cards
 {
     public class MergeCard : Card
     {
-        private readonly int _requiredNumberOfSitizens = 2;
+        private readonly int _requiredNumberOfCitizens = 2;
 
         private ISpawnerService _spawnerService;
-        private SitizenSpawner _sitizenSpawner;
+        private CitizenSpawner _citizenSpawner;
 
         public event Action OnClicked;
         public override event Action<int> CardBought;
@@ -23,9 +23,9 @@ namespace Scripts.UI.Cards
             base.Close();
 
             _spawnerService = AllServices.Container.Single<ISpawnerService>();
-            _sitizenSpawner = _spawnerService.SitizenSpawner;
+            _citizenSpawner = _spawnerService.CitizenSpawner;
 
-            _sitizenSpawner.NumberOfSitizensChanged -= ChangeColor;
+            _citizenSpawner.NumberOfCitizensChanged -= ChangeColor;
         }
 
         public override void Open()
@@ -34,12 +34,12 @@ namespace Scripts.UI.Cards
 
             _priceText.text = _saveLoadService.CardsPricesProgress.MergeCardPrice.ToString();
 
-            _sitizenSpawner.NumberOfSitizensChanged += ChangeColor;
+            _citizenSpawner.NumberOfCitizensChanged += ChangeColor;
         }
 
         private protected override void OnButtonClicked()
         {
-            if (_playerMoneyService.Money >= _saveLoadService.CardsPricesProgress.MergeCardPrice && _sitizenSpawner.Sitizens.Count >= _requiredNumberOfSitizens)
+            if (_playerMoneyService.Money >= _saveLoadService.CardsPricesProgress.MergeCardPrice && _citizenSpawner.Citizens.Count >= _requiredNumberOfCitizens)
             {
                 OnClicked?.Invoke();
                 CardBought?.Invoke(_saveLoadService.CardsPricesProgress.MergeCardPrice);
@@ -53,9 +53,9 @@ namespace Scripts.UI.Cards
 
         private protected override void ChangeColor()
         {
-            List<Sitizen> firstLevelSitizens = _sitizenSpawner.Sitizens.FindAll(p => p.GetComponent<Sitizen>().TypeId == SitizenTypeId.FirstSitizen);
+            List<Citizen> firstLevelCitizens = _citizenSpawner.Citizens.FindAll(p => p.GetComponent<Citizen>().TypeId == CitizenTypeId.FirstCitizen);
 
-            if (_playerMoneyService.Money >= _saveLoadService.CardsPricesProgress.MergeCardPrice && firstLevelSitizens.Count >= _requiredNumberOfSitizens)
+            if (_playerMoneyService.Money >= _saveLoadService.CardsPricesProgress.MergeCardPrice && firstLevelCitizens.Count >= _requiredNumberOfCitizens)
                 _image.DOColor(Color.green, _timeOfChangingColor);
 
             else

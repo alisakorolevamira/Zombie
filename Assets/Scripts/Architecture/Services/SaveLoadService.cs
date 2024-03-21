@@ -51,7 +51,6 @@ namespace Scripts.Architecture.Services
         public void ResetProgress()
         {
             _data = new();
-            _data.PlayerScore = PlayerProgress.Score;
 
             UpdateProgress();
         }

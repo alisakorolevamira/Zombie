@@ -15,6 +15,7 @@ namespace Scripts.UI.Panels
         [SerializeField] private AudioSource _audioSource;
         [SerializeField] private LevelPanel _levelPanel;
         [SerializeField] private WinPanel _winPanel;
+        [SerializeField] private Button[] _otherButtons;
 
         private bool _isOpened;
         private ISpawnerService _spawnerService;
@@ -23,7 +24,7 @@ namespace Scripts.UI.Panels
 
         private void OnDisable()
         {
-            _spawnerService.SitizenSpawner.AllSitizensDied -= Open;
+            _spawnerService.CitizenSpawner.AlLCitizensDied -= Open;
             _levelButton.onClick.RemoveListener(OnNextLevelButtonClick);
             _menuButton.onClick.RemoveListener(OnMenuButtonClick);
         }
@@ -34,7 +35,7 @@ namespace Scripts.UI.Panels
             _focusService = AllServices.Container.Single<IFocusService>();
             _audioService = AllServices.Container.Single<IAudioService>();
 
-            _spawnerService.SitizenSpawner.AllSitizensDied += Open;
+            _spawnerService.CitizenSpawner.AlLCitizensDied += Open;
             _levelButton.onClick.AddListener(OnNextLevelButtonClick);
             _menuButton.onClick.AddListener(OnMenuButtonClick);
 
@@ -50,6 +51,9 @@ namespace Scripts.UI.Panels
                 _audioSource.PlayOneShot(_audioSource.clip);
                 _winPanel.Close();
 
+                foreach (var button in _otherButtons)
+                    button.interactable = false;
+
                 _isOpened = true;
             }
         }
@@ -57,6 +61,9 @@ namespace Scripts.UI.Panels
         public override void Close()
         {
             base.Close();
+
+            foreach (var button in _otherButtons)
+                button.interactable = true;
 
             _isOpened = false;
         }
@@ -81,7 +88,7 @@ namespace Scripts.UI.Panels
         {
             _focusService.IsGameStopped = true;
             _focusService.PauseGame(_isGameStopped);
-            _audioService.ChangeVolume(_isGameStopped);
+            _audioService.MuteAudio(_isGameStopped);
         }
 
         private void OnCloseCallBack(bool closed)
@@ -90,7 +97,7 @@ namespace Scripts.UI.Panels
             {
                 _focusService.IsGameStopped = false;
                 _focusService.PauseGame(!_isGameStopped);
-                _audioService.ChangeVolume(!_isGameStopped);
+                _audioService.MuteAudio(!_isGameStopped);
             }
         }
     }

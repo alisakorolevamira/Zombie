@@ -4,7 +4,7 @@ namespace Scripts.Architecture.Services
 {
     public interface ISpawnerService : IService
     {
-        SitizenSpawner SitizenSpawner { get; }
+        CitizenSpawner CitizenSpawner { get; }
         ZombieSpawner ZombieSpawner { get; }
 
         void Initialize();

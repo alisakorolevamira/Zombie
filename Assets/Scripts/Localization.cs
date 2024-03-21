@@ -1,19 +1,20 @@
 using Agava.YandexGames;
 using Lean.Localization;
+using System;
 using UnityEngine;
 
 namespace Scripts
 {
     public class Localization : MonoBehaviour
     {
-        private const string EnglishCode = "English";
-        private const string RussianCode = "Russian";
-        private const string TurkishCode = "Turkish";
         private const string English = "en";
         private const string Russian = "ru";
         private const string Turkish = "tr";
 
         [SerializeField] private LeanLocalization _leanLanguage;
+
+        public event Action LanguageChanged;
+        public string CurrentLanguage => _leanLanguage.CurrentLanguage;
 
         private void Awake()
         {
@@ -28,17 +29,19 @@ namespace Scripts
             switch (languageCode)
             {
                 case English:
-                    _leanLanguage.SetCurrentLanguage(EnglishCode);
+                    _leanLanguage.SetCurrentLanguage(Constants.EnglishCode);
                     break;
 
                 case Russian:
-                    _leanLanguage.SetCurrentLanguage(RussianCode);
+                    _leanLanguage.SetCurrentLanguage(Constants.RussianCode);
                     break;
 
                 case Turkish:
-                    _leanLanguage.SetCurrentLanguage(TurkishCode);
+                    _leanLanguage.SetCurrentLanguage(Constants.TurkishCode);
                     break;
             }
+
+            LanguageChanged?.Invoke();
         }
     }
 }

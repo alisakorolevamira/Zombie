@@ -9,6 +9,9 @@ namespace Scripts.Architecture.States
         private readonly SceneLoader _sceneLoader;
         private readonly IUIPanelService _panelService;
         private readonly ISpawnerService _spawnerService;
+
+        private string _sceneName;
+
         private Action _sceneLoaded;
         
 
@@ -24,9 +27,13 @@ namespace Scripts.Architecture.States
         public void Enter(string sceneName)
         {
             _panelService.LoadingPanel.Open();
-            LoadCanvas(sceneName);
+
+            if (sceneName != Constants.Menu && sceneName != Constants.Initial)
+                _sceneLoaded += SpawnersOnLoaded;
 
             _sceneLoaded += OnLoaded;
+
+            _sceneName = sceneName;
 
             _sceneLoader.Load(sceneName, _sceneLoaded);
         }
@@ -38,6 +45,8 @@ namespace Scripts.Architecture.States
 
         private void OnLoaded()
         {
+            _panelService.CreateCanvas(_sceneName);
+
             _gameStateMachine.Enter<GameLoopState>();
 
             _sceneLoaded -= OnLoaded;
@@ -45,18 +54,10 @@ namespace Scripts.Architecture.States
 
         private void SpawnersOnLoaded()
         {
-            _spawnerService.SitizenSpawner.AddComponentsOnLevel();
-            _spawnerService.ZombieSpawner.CreateZombie();
+            _spawnerService.CitizenSpawner.AddComponentsOnLevel();
+            _spawnerService.ZombieSpawner.CreateZombie(_sceneName);
 
             _sceneLoaded -= SpawnersOnLoaded;
-        }
-
-        private void LoadCanvas(string sceneName)
-        {
-            _panelService.CreateCanvas(sceneName);
-
-            if (sceneName != Constants.Menu && sceneName != Constants.Initial)
-                _sceneLoaded += SpawnersOnLoaded;
         }
     }
 }

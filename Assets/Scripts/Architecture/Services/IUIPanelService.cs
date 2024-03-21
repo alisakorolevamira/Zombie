@@ -1,5 +1,6 @@
 ﻿using Scripts.Architecture.States;
 using Scripts.UI.Panels;
+using UnityEngine.UI;
 
 namespace Scripts.Architecture.Services
 {
@@ -10,6 +11,6 @@ namespace Scripts.Architecture.Services
 
         void CreateCanvas(string sceneName);
         void Initialize();
-        T GetPanel<T>() where T : Panel;
+        T GetCard<T>() where T : Panel;
     }
 }

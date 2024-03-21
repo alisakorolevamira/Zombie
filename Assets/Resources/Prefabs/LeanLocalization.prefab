@@ -166,68 +166,13 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: English
-    Text: You are already logged in
+    Text: You have already logged in
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0412\u044B \u0443\u0436\u0435 \u0430\u0432\u0442\u043E\u0440\u0438\u0437\u043E\u0432\u0430\u043D\u044B"
     Object: {fileID: 0}
   - Language: Turkish
     Text: "Zaten giri\u015F yapt\u0131n\u0131z"
-    Object: {fileID: 0}
---- !u!1 &1132954150870491413
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4184480971764301489}
-  - component: {fileID: 4964328529886228478}
-  m_Layer: 0
-  m_Name: Change Language
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4184480971764301489
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1132954150870491413}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7412323243418912075}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4964328529886228478
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1132954150870491413}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: 0
-  entries:
-  - Language: English
-    Text: CHANGE LANGUAGE
-    Object: {fileID: 0}
-  - Language: Russian
-    Text: "\u0418\u0417\u041C\u0415\u041D\u0418\u0422\u042C \u042F\u0417\u042B\u041A"
-    Object: {fileID: 0}
-  - Language: Turkish
-    Text: "\rD\u0130L\u0130 DE\u011E\u0130\u015ET\u0130R"
     Object: {fileID: 0}
 --- !u!1 &1420775748389781902
 GameObject:
@@ -368,7 +313,7 @@ MonoBehaviour:
   - Language: Turkish
     Text: "B\u0130RLE\u015ET\u0130RMEK"
     Object: {fileID: 0}
---- !u!1 &2367994561921443429
+--- !u!1 &1601059300021673023
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -376,22 +321,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7696354868231668986}
-  - component: {fileID: 333946899573073232}
+  - component: {fileID: 8996567951488653982}
+  - component: {fileID: 296232258225031283}
   m_Layer: 0
-  m_Name: Settings
+  m_Name: Loading
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7696354868231668986
+--- !u!4 &8996567951488653982
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2367994561921443429}
+  m_GameObject: {fileID: 1601059300021673023}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -400,13 +345,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7412323243418912075}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &333946899573073232
+--- !u!114 &296232258225031283
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2367994561921443429}
+  m_GameObject: {fileID: 1601059300021673023}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
@@ -415,13 +360,13 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: English
-    Text: SETTINGS
+    Text: LOADING...
     Object: {fileID: 0}
   - Language: Russian
-    Text: "\u041D\u0410\u0421\u0422\u0420\u041E\u0419\u041A\u0418"
+    Text: "\u0417\u0410\u0413\u0420\u0423\u0417\u041A\u0410..."
     Object: {fileID: 0}
   - Language: Turkish
-    Text: AYARLAR
+    Text: "\rY\xDCKLEN\u0130YOR..."
     Object: {fileID: 0}
 --- !u!1 &3222808412929808673
 GameObject:
@@ -470,7 +415,7 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: English
-    Text: You LOSE
+    Text: YOU LOSE
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u041F\u0420\u041E\u0418\u0413\u0420\u042B\u0428"
@@ -544,7 +489,7 @@ GameObject:
   - component: {fileID: 6421871220723298440}
   - component: {fileID: 456719292583457645}
   m_Layer: 0
-  m_Name: AddSitizenDescription
+  m_Name: "Add\u0421itizenDescription"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -588,13 +533,13 @@ MonoBehaviour:
       \u0432\u0430\u043C \u0432 \u0431\u043E\u0440\u044C\u0431\u0435 \u0441 \u0437\u043E\u043C\u0431\u0438."
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "Bir sakin ekleyin:\r\nBir k\xF6yl\xFCn\xFCn resminin bulundu\u011Fu karta
-      t\u0131klay\u0131n ve onu k\xF6ye yerle\u015Ftirin. Her yeni sakin, zombilere
+    Text: "\rBir sakin ekleyin:\r\nBir k\xF6yl\xFCn\xFCn resminin bulundu\u011Fu
+      karta t\u0131klay\u0131n ve onu k\xF6ye yerle\u015Ftirin. Her yeni sakin, zombilere
       kar\u015F\u0131 m\xFCcadelede size yard\u0131mc\u0131 olur."
     Object: {fileID: 0}
   - Language: English
-    Text: "\rAdd a sitizen:\r\nClick on the card with the picture of a sitizen and
-      place it in the village. Each new sitizen helps you in the fight against zombies."
+    Text: "\rAdd a citizen:\r\nClick on the card with the picture of a citizen and
+      place it in the village. Each new citizen helps you in the fight against zombies."
     Object: {fileID: 0}
 --- !u!1 &3529540456915330624
 GameObject:
@@ -662,7 +607,7 @@ GameObject:
   - component: {fileID: 8846454321330905077}
   - component: {fileID: 4263044963545144312}
   m_Layer: 0
-  m_Name: Add Sitizen
+  m_Name: Add Citizen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -698,13 +643,13 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: English
-    Text: ADD SITIZEN
+    Text: ADD CITIZEN
     Object: {fileID: 0}
   - Language: Russian
-    Text: "\u0414\u041E\u0411\u0410\u0412\u0418\u0422\u042C \u0420\u0410\u0411\u041E\u0427\u0415\u0413\u041E"
+    Text: "\u0414\u041E\u0411\u0410\u0412\u0418\u0422\u042C \u0416\u0418\u0422\u0415\u041B\u042F"
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "S\u0130T\u0130ZEN EKLE"
+    Text: "VATANDA\u015E EKLE"
     Object: {fileID: 0}
 --- !u!1 &3708349551056780977
 GameObject:
@@ -740,9 +685,6 @@ Transform:
   - {fileID: 5647855681571330544}
   - {fileID: 3202322240374373293}
   - {fileID: 6905259941097996123}
-  - {fileID: 7696354868231668986}
-  - {fileID: 4184480971764301489}
-  - {fileID: 473119049460670263}
   - {fileID: 7040647929648810482}
   - {fileID: 6665567306308533311}
   - {fileID: 3871454334664902805}
@@ -757,7 +699,6 @@ Transform:
   - {fileID: 4185619507789866568}
   - {fileID: 8016373768843841269}
   - {fileID: 781645760688161892}
-  - {fileID: 8781593180210656808}
   - {fileID: 7469184212754578171}
   - {fileID: 6157804884154239988}
   - {fileID: 6011973569401588496}
@@ -768,6 +709,7 @@ Transform:
   - {fileID: 1695469704739331147}
   - {fileID: 3649409314756927435}
   - {fileID: 6575482348756823481}
+  - {fileID: 8996567951488653982}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4217992758317117830
@@ -782,7 +724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806f0696300aeac44a0e17efee222854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLanguage: Russian
+  currentLanguage: English
   detectLanguage: 1
   defaultLanguage: Russian
   saveLoad: 1
@@ -963,7 +905,7 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: English
-    Text: Your goal is to survive each level, improving your villagers and killing
+    Text: Your goal is to survive each level, improving your citizens and killing
       all the zombies, using tactics for maximum efficiency.
     Object: {fileID: 0}
   - Language: Russian
@@ -977,8 +919,8 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Turkish
     Text: "Amac\u0131n\u0131z maksimum verimlilik i\xE7in taktikler kullanarak her
-      seviyede hayatta kalmak, k\xF6yl\xFClerinizi geli\u015Ftirmek ve t\xFCm zombileri
-      \xF6ld\xFCrmektir."
+      seviyede hayatta kalmak, vatanda\u015Flar\u0131n\u0131z\u0131 geli\u015Ftirmek
+      ve t\xFCm zombileri \xF6ld\xFCrmektir."
     Object: {fileID: 0}
 --- !u!1 &4403137198091900974
 GameObject:
@@ -1034,62 +976,6 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Turkish
     Text: Isimsiz
-    Object: {fileID: 0}
---- !u!1 &4905767230499042952
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 473119049460670263}
-  - component: {fileID: 3291631227596360674}
-  m_Layer: 0
-  m_Name: Turn on, off sound
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &473119049460670263
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4905767230499042952}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7412323243418912075}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3291631227596360674
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4905767230499042952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: 0
-  entries:
-  - Language: English
-    Text: TURN ON/OFF SOUND
-    Object: {fileID: 0}
-  - Language: Russian
-    Text: "\u0412\u041A\u041B\u042E\u0427\u0418\u0422\u042C/\u0412\u042B\u041A\u041B\u042E\u0427\u0418\u0422\u042C
-      \u0417\u0412\u0423\u041A"
-    Object: {fileID: 0}
-  - Language: Turkish
-    Text: "\rSES\u0130 A\xC7/KAPAT"
     Object: {fileID: 0}
 --- !u!1 &4964617252269957453
 GameObject:
@@ -1311,61 +1197,6 @@ MonoBehaviour:
   - Language: Turkish
     Text: "L\u0130DERLER SIRALAMASI"
     Object: {fileID: 0}
---- !u!1 &6549269135774233480
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8781593180210656808}
-  - component: {fileID: 3691397259590320931}
-  m_Layer: 0
-  m_Name: Log Inn
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8781593180210656808
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6549269135774233480}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7412323243418912075}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3691397259590320931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6549269135774233480}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: 0
-  entries:
-  - Language: English
-    Text: LOG INN
-    Object: {fileID: 0}
-  - Language: Russian
-    Text: "\u0410\u0412\u0422\u041E\u0420\u0418\u0417\u041E\u0412\u0410\u0422\u042C\u0421\u042F"
-    Object: {fileID: 0}
-  - Language: Turkish
-    Text: "YETK\u0130 VERMEK\r"
-    Object: {fileID: 0}
 --- !u!1 &7209382503032596015
 GameObject:
   m_ObjectHideFlags: 0
@@ -1413,7 +1244,7 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: English
-    Text: You WIN!
+    Text: YOU WIN!
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u041F\u041E\u0411\u0415\u0414\u0410!"
@@ -1633,13 +1464,11 @@ MonoBehaviour:
       \u0441\u0432\u043E\u0438\u0445 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0439.\r"
     Object: {fileID: 0}
   - Language: English
-    Text: 'Increase game speed:
-
-      Use the card to speed up your sitizens and
-      increase the efficiency of your actions.'
+    Text: "Increase game speed:\nUse the card to speed up your \u0441itizens and
+      increase the efficiency of your actions."
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "\rOyun h\u0131z\u0131n\u0131 art\u0131r\u0131n:\r\nZaman\u0131n ge\xE7i\u015Fini
+    Text: "Oyun h\u0131z\u0131n\u0131 art\u0131r\u0131n:\r\nVatanda\u015Flar\u0131n\u0131z\u0131
       h\u0131zland\u0131rmak ve eylemlerinizin verimlili\u011Fini art\u0131rmak i\xE7in
       kart\u0131 kullan\u0131n."
     Object: {fileID: 0}
@@ -1764,7 +1593,7 @@ GameObject:
   - component: {fileID: 2774853272367601599}
   - component: {fileID: 363990729442989366}
   m_Layer: 0
-  m_Name: MergeSitizensDescription
+  m_Name: "Merge\u0421itizensDescription"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1809,15 +1638,13 @@ MonoBehaviour:
       \u0441\u0438\u043B\u044C\u043D\u043E\u0433\u043E \u0436\u0438\u0442\u0435\u043B\u044F.\r"
     Object: {fileID: 0}
   - Language: English
-    Text: 'Merge sitizens:
-
-      If you have two of the same sitizens, you can click
-      on the merge card to create a stronger sitizen.'
+    Text: "Merge \u0441itizens:\nIf you have two of the same \u0441itizens, you can
+      click on the merge card to create a stronger \u0441itizen."
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "Sakinleri birle\u015Ftirin:\r\nE\u011Fer ayn\u0131 k\xF6yl\xFCden iki
-      tane varsa, daha g\xFC\xE7l\xFC bir k\xF6yl\xFC olu\u015Fturmak i\xE7in birle\u015Ftirme
-      kart\u0131na t\u0131klayabilirsiniz."
+    Text: "\rVatanda\u015Flar\u0131 birle\u015Ftir:\r\nAyn\u0131 vatanda\u015Flardan
+      ikisine sahipseniz daha g\xFC\xE7l\xFC bir vatanda\u015F olu\u015Fturmak i\xE7in
+      birle\u015Ftirme kart\u0131na t\u0131klayabilirsiniz."
     Object: {fileID: 0}
 --- !u!1 &9070120342016059575
 GameObject:
