@@ -13,26 +13,33 @@ namespace Scripts.UI.Cards
 
         public override event Action<int> CardBought;
 
+        public override void Close()
+        {
+            base.Close();
+
+            _spawnerService = AllServices.Container.Single<ISpawnerService>();
+            _citizenSpawner = _spawnerService.CitizenSpawner;
+        }
+
         public override void Open()
         {
             base.Open();
 
-            _spawnerService = AllServices.Container.Single<ISpawnerService>();
-            _citizenSpawner = _spawnerService.CitizenSpawner;
-            _priceText.text = _saveLoadService.CardsPricesProgress.AddSpeedCardPrice.ToString();
+            Price = _cardsPricesDataService.CardsPricesProgress.AddSpeedCardPrice;
+            _priceText.text = Price.ToString();
         }
 
         private protected override void OnButtonClicked()
         {
-            if (_playerMoneyService.Money >= _saveLoadService.CardsPricesProgress.AddSpeedCardPrice && _citizenSpawner.Citizens != null)
+            if (_playerMoneyService.Money >= Price && _citizenSpawner.Citizens != null)
             {
-                CardBought?.Invoke(_saveLoadService.CardsPricesProgress.AddSpeedCardPrice);
+                CardBought?.Invoke(Price);
 
                 foreach (var sitizen in _citizenSpawner.Citizens)
                     sitizen.AddSpeed();
 
-                _saveLoadService.CardsPricesProgress.AddSpeedCardPrice *= _coefficientOfInceasing;
-                _priceText.text = _saveLoadService.CardsPricesProgress.AddSpeedCardPrice.ToString();
+                Price *= _coefficientOfInceasing;
+                _priceText.text = Price.ToString();
 
                 base.OnButtonClicked();
             }
@@ -40,7 +47,7 @@ namespace Scripts.UI.Cards
 
         private protected override void ChangeColor()
         {
-            if (_playerMoneyService.Money >= _saveLoadService.CardsPricesProgress.AddSpeedCardPrice)
+            if (_playerMoneyService.Money >= Price)
                 _image.DOColor(Color.green, _timeOfChangingColor);
 
             else

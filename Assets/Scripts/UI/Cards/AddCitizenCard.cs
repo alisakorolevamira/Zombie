@@ -28,7 +28,8 @@ namespace Scripts.UI.Cards
         {
             base.Open();
 
-            _priceText.text = _saveLoadService.CardsPricesProgress.AddSitizenCardPrice.ToString();
+            Price = _cardsPricesDataService.CardsPricesProgress.AddCitizenCardPrice;
+            _priceText.text = Price.ToString();
 
             _citizenSpawner.NumberOfCitizensChanged += ChangeColor;
 
@@ -36,13 +37,13 @@ namespace Scripts.UI.Cards
 
         private protected override void OnButtonClicked()
         {
-            if (_playerMoneyService.Money >= _saveLoadService.CardsPricesProgress.AddSitizenCardPrice && _citizenSpawner.CheckAmountOfCitizens())
+            if (_playerMoneyService.Money >= Price && _citizenSpawner.CheckAmountOfCitizens())
             {
                 OnClicked?.Invoke();
-                CardBought?.Invoke(_saveLoadService.CardsPricesProgress.AddSitizenCardPrice);
+                CardBought?.Invoke(Price);
 
-                _saveLoadService.CardsPricesProgress.AddSitizenCardPrice *= _coefficientOfInceasing;
-                _priceText.text = _saveLoadService.CardsPricesProgress.AddSitizenCardPrice.ToString();
+                Price *= _coefficientOfInceasing;
+                _priceText.text = Price.ToString();
 
                 base.OnButtonClicked();
             }
@@ -51,7 +52,7 @@ namespace Scripts.UI.Cards
         private protected override void ChangeColor()
         {
 
-            if (_playerMoneyService.Money >= _saveLoadService.CardsPricesProgress.AddSitizenCardPrice && _citizenSpawner.CheckAmountOfCitizens())
+            if (_playerMoneyService.Money >= Price && _citizenSpawner.CheckAmountOfCitizens())
                 _image.DOColor(Color.green, _timeOfChangingColor);
 
             else

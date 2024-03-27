@@ -538,7 +538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 2216236990428351767}
-  _scene: {fileID: 11400000, guid: 6e4d62aaae4fdb64abf383ddc7f65f8e, type: 2}
+  _levelName: TwelthLevel
   _audioSource: {fileID: 5114960006010603836}
   _menuPanel: {fileID: 3414526854131787720}
   _starsView: {fileID: 8132530015454416719}
@@ -2083,7 +2083,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 5484964899923456731}
-  _scene: {fileID: 11400000, guid: 4ed45130291d23e41a6b92e533af82ba, type: 2}
+  _levelName: NinthLevel
   _audioSource: {fileID: 5114960006010603836}
   _menuPanel: {fileID: 3414526854131787720}
   _starsView: {fileID: 948756312880244994}
@@ -4433,7 +4433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 2266090140417780193}
-  _scene: {fileID: 11400000, guid: b9c1c893b28f9c44f9b4f3ef2f757cf9, type: 2}
+  _levelName: SecondLevel
   _audioSource: {fileID: 5114960006010603836}
   _menuPanel: {fileID: 3414526854131787720}
   _starsView: {fileID: 2318681947299687415}
@@ -4724,7 +4724,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 4220636715555317031}
-  _scene: {fileID: 11400000, guid: 224e34cbab03ac246a9f6ce678a916fc, type: 2}
+  _levelName: SeventhLevel
   _audioSource: {fileID: 5114960006010603836}
   _menuPanel: {fileID: 3414526854131787720}
   _starsView: {fileID: 3615941678937252083}
@@ -6314,7 +6314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 6158878973519750171}
-  _scene: {fileID: 11400000, guid: 1439502a48673b048962073e93e747ab, type: 2}
+  _levelName: EleventhLevel
   _audioSource: {fileID: 5114960006010603836}
   _menuPanel: {fileID: 3414526854131787720}
   _starsView: {fileID: 465147426465141111}
@@ -7765,7 +7765,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 7165405758987442678}
-  _scene: {fileID: 11400000, guid: d8bd308e38653ec4d95e2d18ac3499cd, type: 2}
+  _levelName: SixthLevel
   _audioSource: {fileID: 5114960006010603836}
   _menuPanel: {fileID: 3414526854131787720}
   _starsView: {fileID: 5205062075550305081}
@@ -8190,7 +8190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 7533775068419767799}
-  _scene: {fileID: 11400000, guid: 54de5a9e5cc75174fb4786f378a5fffa, type: 2}
+  _levelName: FirstLevel
   _audioSource: {fileID: 5114960006010603836}
   _menuPanel: {fileID: 3414526854131787720}
   _starsView: {fileID: 1189753177431406804}
@@ -8799,8 +8799,9 @@ GameObject:
   - component: {fileID: 2165811800849569086}
   - component: {fileID: 1611290903696636458}
   - component: {fileID: 5931728066358137198}
+  - component: {fileID: 1523667532178042073}
   m_Layer: 5
-  m_Name: StartGameButton
+  m_Name: NewGameButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8907,19 +8908,21 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1611290903696636458}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3414526854131787720}
-        m_TargetAssemblyTypeName: Scripts.UI.Panels.MenuPanel, Assembly-CSharp
-        m_MethodName: OpenAnyLevel
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: FirstLevel
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &1523667532178042073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4672157905310134035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4480a5b95799a0a4181e8a39f8c34164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 5931728066358137198}
+  _menuPanel: {fileID: 3414526854131787720}
 --- !u!1 &4720758837846331004
 GameObject:
   m_ObjectHideFlags: 0
@@ -9720,7 +9723,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 1786728468101532096}
-  _scene: {fileID: 11400000, guid: 9192bdeb071c09646add7112ff130010, type: 2}
+  _levelName: FourthLevel
   _audioSource: {fileID: 5114960006010603836}
   _menuPanel: {fileID: 3414526854131787720}
   _starsView: {fileID: 2838322322723813688}
@@ -10024,7 +10027,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 720367950032282506}
-  _scene: {fileID: 11400000, guid: 666f671289ec5cd4c80b6fefd0ffb386, type: 2}
+  _levelName: ThirdLevel
   _audioSource: {fileID: 5114960006010603836}
   _menuPanel: {fileID: 3414526854131787720}
   _starsView: {fileID: 6430083358593129057}
@@ -12142,7 +12145,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: START GAME
+  m_text: NEW GAME
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7a3056a6d76b7ca4e9aecd6eb3416eb6, type: 2}
   m_sharedMaterial: {fileID: 8099190487727745581, guid: 7a3056a6d76b7ca4e9aecd6eb3416eb6, type: 2}
@@ -12223,8 +12226,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  translationName: Start Game
-  FallbackText: START GAME
+  translationName: New Game
+  FallbackText: NEW GAME
 --- !u!1 &6951162865265111552
 GameObject:
   m_ObjectHideFlags: 0
@@ -12696,7 +12699,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 5602570659643195311}
-  _scene: {fileID: 11400000, guid: 0bb365a2b71f81043af890f2dd412745, type: 2}
+  _levelName: FifthLevel
   _audioSource: {fileID: 5114960006010603836}
   _menuPanel: {fileID: 3414526854131787720}
   _starsView: {fileID: 6960914873233656585}
@@ -13010,7 +13013,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 7047094430386018956}
-  _scene: {fileID: 11400000, guid: 679fd6992692d134faa89822ab94f1cd, type: 2}
+  _levelName: EighthLevel
   _audioSource: {fileID: 5114960006010603836}
   _menuPanel: {fileID: 3414526854131787720}
   _starsView: {fileID: 7711401106614636325}
@@ -14270,7 +14273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 3428915757986120397}
-  _scene: {fileID: 11400000, guid: 7530f90be06544f408542077a76aff16, type: 2}
+  _levelName: TenthLevel
   _audioSource: {fileID: 5114960006010603836}
   _menuPanel: {fileID: 3414526854131787720}
   _starsView: {fileID: 8621354992269284963}

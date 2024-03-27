@@ -18,11 +18,11 @@ namespace Scripts.Spawner
         private AddCitizenCard _addCitizenCard;
         private MergeCard _mergeCard;
         private IGameFactory _factory;
-        private IPlayerScoreService _playerScoreService;
         private IUIPanelService _panelService;
 
         public event Action NumberOfCitizensChanged;
-        public event Action AlLCitizensDied;
+        public event Action<Citizen> CitizenAdded;
+        public event Action<Citizen> CitizenRemoved;
 
         private void OnEnable()
         {
@@ -36,7 +36,6 @@ namespace Scripts.Spawner
 
         private void Start()
         {
-            _playerScoreService = AllServices.Container.Single<IPlayerScoreService>();
             _panelService = AllServices.Container.Single<IUIPanelService>();
             _factory = AllServices.Container.Single<IGameFactory>();
         }
@@ -61,20 +60,12 @@ namespace Scripts.Spawner
             return Citizens.Count < Constants.MaximumNumberOfCitizens;
         }
 
-        public void AllCitizensDie()
-        {
-            AlLCitizensDied?.Invoke();
-            _playerScoreService.RemoveScore();
-        }
-
         private void ClearSubscriptions()
         {
             if (Citizens.Count != 0)
             {
                 foreach (var sitizen in Citizens)
-                {
                     sitizen.Died -= RemoveDeadCitizen;
-                }
             }
 
             if (_addCitizenCard != null && _mergeCard != null)
@@ -100,6 +91,7 @@ namespace Scripts.Spawner
             deadCitizen.Died -= RemoveDeadCitizen;
 
             NumberOfCitizensChanged?.Invoke();
+            CitizenRemoved?.Invoke(deadCitizen);
         }
 
         private void MergeCitizens()
@@ -128,6 +120,7 @@ namespace Scripts.Spawner
             newCitizen.Died += RemoveDeadCitizen;
 
             NumberOfCitizensChanged?.Invoke();
+            CitizenAdded?.Invoke(newCitizen);
         }
 
         private void GetSpawnPoints()

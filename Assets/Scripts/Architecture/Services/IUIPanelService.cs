@@ -9,8 +9,8 @@ namespace Scripts.Architecture.Services
         GameStateMachine StateMachine { get; }
         LoadingPanel LoadingPanel { get; }
 
-        void CreateCanvas(string sceneName);
         void Initialize();
+        void CreateCanvas(string sceneName);
         T GetCard<T>() where T : Panel;
     }
 }

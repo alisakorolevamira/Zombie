@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625e5946acbee5641bf02dd792e691af, type: 3}
   m_Name: SecondLevel
   m_EditorClassIdentifier: 
-  _sceneName: SecondLevel
-  _zombie: {fileID: 5947350947120550178, guid: e0b1f06545eebcb4bbcb5f34a092ed3f, type: 3}
-  _id: 2
-  _isAvailable: 0
-  _meduimScore: 5000
-  _highScore: 7000
+  <Name>k__BackingField: SecondLevel
+  <Id>k__BackingField: 2
+  <MeduimScore>k__BackingField: 3000
+  <HighScore>k__BackingField: 5000
+  <IsAvailable>k__BackingField: 0
+  <Zombie>k__BackingField: {fileID: 5947350947120550178, guid: e0b1f06545eebcb4bbcb5f34a092ed3f, type: 3}

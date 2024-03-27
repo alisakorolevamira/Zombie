@@ -10,7 +10,7 @@ namespace Scripts.UI.Panels
     {
         private readonly bool _isGameStopped = false;
 
-        [SerializeField] private Button _levelButton;
+        [SerializeField] private Button _restartButton;
         [SerializeField] private Button _menuButton;
         [SerializeField] private AudioSource _audioSource;
         [SerializeField] private LevelPanel _levelPanel;
@@ -18,25 +18,25 @@ namespace Scripts.UI.Panels
         [SerializeField] private Button[] _otherButtons;
 
         private bool _isOpened;
-        private ISpawnerService _spawnerService;
+        private ICombatService _combatService;
         private IFocusService _focusService;
         private IAudioService _audioService;
 
         private void OnDisable()
         {
-            _spawnerService.CitizenSpawner.AlLCitizensDied -= Open;
-            _levelButton.onClick.RemoveListener(OnNextLevelButtonClick);
+            _combatService.AllCitizensDied -= Open;
+            _restartButton.onClick.RemoveListener(OnRestartLevelButtonClick);
             _menuButton.onClick.RemoveListener(OnMenuButtonClick);
         }
 
         private void Start()
         {
-            _spawnerService = AllServices.Container.Single<ISpawnerService>();
+            _combatService = AllServices.Container.Single<ICombatService>();
             _focusService = AllServices.Container.Single<IFocusService>();
             _audioService = AllServices.Container.Single<IAudioService>();
 
-            _spawnerService.CitizenSpawner.AlLCitizensDied += Open;
-            _levelButton.onClick.AddListener(OnNextLevelButtonClick);
+            _combatService.AllCitizensDied += Open;
+            _restartButton.onClick.AddListener(OnRestartLevelButtonClick);
             _menuButton.onClick.AddListener(OnMenuButtonClick);
 
             Close();
@@ -68,12 +68,12 @@ namespace Scripts.UI.Panels
             _isOpened = false;
         }
 
-        private void OnNextLevelButtonClick()
+        private void OnRestartLevelButtonClick()
         {
             Close();
 
             InterstitialAd.Show(OnOpenCallBack, OnCloseCallBack);
-            _levelPanel.OpenSceneWithResetingProgress(SceneManager.GetActiveScene().name);
+            _levelPanel.OpenNextSceneWithResetingProgress(SceneManager.GetActiveScene().name);
         }
 
         private void OnMenuButtonClick()

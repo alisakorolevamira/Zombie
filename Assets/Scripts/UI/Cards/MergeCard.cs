@@ -32,20 +32,21 @@ namespace Scripts.UI.Cards
         {
             base.Open();
 
-            _priceText.text = _saveLoadService.CardsPricesProgress.MergeCardPrice.ToString();
+            Price = _cardsPricesDataService.CardsPricesProgress.MergeCardPrice;
+            _priceText.text = Price.ToString();
 
             _citizenSpawner.NumberOfCitizensChanged += ChangeColor;
         }
 
         private protected override void OnButtonClicked()
         {
-            if (_playerMoneyService.Money >= _saveLoadService.CardsPricesProgress.MergeCardPrice && _citizenSpawner.Citizens.Count >= _requiredNumberOfCitizens)
+            if (_playerMoneyService.Money >= Price && _citizenSpawner.Citizens.Count >= _requiredNumberOfCitizens)
             {
                 OnClicked?.Invoke();
-                CardBought?.Invoke(_saveLoadService.CardsPricesProgress.MergeCardPrice);
+                CardBought?.Invoke(Price);
 
-                _saveLoadService.CardsPricesProgress.MergeCardPrice *= _coefficientOfInceasing;
-                _priceText.text = _saveLoadService.CardsPricesProgress.MergeCardPrice.ToString();
+                Price *= _coefficientOfInceasing;
+                _priceText.text = Price.ToString();
 
                 base.OnButtonClicked();
             }
@@ -55,7 +56,7 @@ namespace Scripts.UI.Cards
         {
             List<Citizen> firstLevelCitizens = _citizenSpawner.Citizens.FindAll(p => p.GetComponent<Citizen>().TypeId == CitizenTypeId.FirstCitizen);
 
-            if (_playerMoneyService.Money >= _saveLoadService.CardsPricesProgress.MergeCardPrice && firstLevelCitizens.Count >= _requiredNumberOfCitizens)
+            if (_playerMoneyService.Money >= Price && firstLevelCitizens.Count >= _requiredNumberOfCitizens)
                 _image.DOColor(Color.green, _timeOfChangingColor);
 
             else

@@ -1,5 +1,4 @@
 using Scripts.Architecture.Services;
-using Scripts.Spawner;
 using System.Collections;
 using UnityEngine;
 
@@ -16,20 +15,29 @@ namespace Scripts.Characters
 
         public bool IsDead = false;
 
-        private CitizenSpawner _spawner;
-        private IZombieHealthService _health;
+        private IZombieHealthService _healthService;
+        private ICombatService _combatService;
         private Animator _animator;
 
         private void Start()
         {
             _animator = GetComponent<Animator>();
-            _spawner = AllServices.Container.Single<ISpawnerService>().CitizenSpawner;
-            _health = AllServices.Container.Single<IZombieHealthService>();
+            _healthService = AllServices.Container.Single<IZombieHealthService>();
+            _combatService = AllServices.Container.Single<ICombatService>();
 
-            _health.DamageApplied += OnDamageApplied;
-            _health.Died += OnDied;
+            _healthService.DamageApplied += OnDamageApplied;
+            _healthService.Died += OnDied;
 
             StartCoroutine(ApplyDamage());
+        }
+
+        private void OnDestroy()
+        {
+            if (_healthService != null)
+            {
+                _healthService.DamageApplied -= OnDamageApplied;
+                _healthService.Died -= OnDied;
+            }
         }
 
         private IEnumerator ApplyDamage()
@@ -38,20 +46,17 @@ namespace Scripts.Characters
 
             while (!IsDead)
             {
-                if (_spawner.Citizens.Count != Constants.MinimumNumberOfCitizens)
+                if (_combatService.CitizenCount != Constants.MinimumNumberOfCitizens)
                 {
-                    foreach (var sitizen in _spawner.Citizens.ToArray())
-                    {
-                        sitizen.TakeDamage(_damage);
-                        _animator.SetTrigger(Constants.Hit);
-                    }
+                    _animator.SetTrigger(Constants.Hit);
+                    _combatService.ApplyDamage(_damage);
 
                     yield return new WaitForSeconds(_waitingTime);
                 }
 
                 else
                 {
-                    _spawner.AllCitizensDie();
+                    _combatService.AllCitizensDie();
                     OnDied();
                     break;
                 }
@@ -68,17 +73,15 @@ namespace Scripts.Characters
         {
             IsDead = true;
 
-            if (_deathEffect != null)
-                _deathEffect.Play();
+            _deathEffect.Play();
 
-            if (_health != null)
+            if (_healthService != null)
             {
-                _health.DamageApplied -= OnDamageApplied;
-                _health.Died -= OnDied;
+                _healthService.DamageApplied -= OnDamageApplied;
+                _healthService.Died -= OnDied;
             }
-
-            gameObject.SetActive(false);
-            //Destroy(gameObject);
+            
+            Destroy(gameObject);
         }
     }
 }

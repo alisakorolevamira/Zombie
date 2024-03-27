@@ -1,3 +1,5 @@
+using Scripts.Progress;
+
 namespace Scripts.Architecture.Services
 {
     public class ZombieRewardService : IZombieRewardService
@@ -5,26 +7,32 @@ namespace Scripts.Architecture.Services
         private readonly int _coefficientOfChangingReward = 2;
         private readonly IPlayerMoneyService _playerMoneyService;
         private readonly IPlayerScoreService _playerScoreService;
-        private readonly ISaveLoadService _saveLoadService;
 
-        public ZombieRewardService(IPlayerMoneyService playerMoneyService, IPlayerScoreService playerScoreService,
-            ISaveLoadService saveLoadService)
+        public ZombieRewardService(IPlayerMoneyService playerMoneyService, IPlayerScoreService playerScoreService)
         {
             _playerMoneyService = playerMoneyService;
-            _saveLoadService = saveLoadService;
             _playerScoreService = playerScoreService;
+        }
+
+        public int MoneyReward { get; private set; }
+        public int ScoreReward { get; private set; }
+
+        public void Initialize(ZombieProgress zombieProgress)
+        {
+            MoneyReward = zombieProgress.MoneyReward;
+            ScoreReward = zombieProgress.ScoreReward;
         }
 
         public void DoubleReward()
         {
-            _saveLoadService.ZombieProgress.MoneyReward *= _coefficientOfChangingReward;
-            _saveLoadService.ZombieProgress.ScoreReward *= _coefficientOfChangingReward;
+            MoneyReward *= _coefficientOfChangingReward;
+            ScoreReward *= _coefficientOfChangingReward;
         }
 
         public void GiveRewardToPlayer()
         {
-            _playerMoneyService.AddMoney(_saveLoadService.ZombieProgress.MoneyReward);
-            _playerScoreService.AddScore(_saveLoadService.ZombieProgress.ScoreReward);
+            _playerMoneyService.AddMoney(MoneyReward);
+            _playerScoreService.AddScore(ScoreReward);
         }
     }
 }

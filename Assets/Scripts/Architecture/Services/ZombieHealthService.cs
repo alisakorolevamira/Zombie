@@ -1,3 +1,4 @@
+using Scripts.Progress;
 using System;
 
 namespace Scripts.Architecture.Services
@@ -5,27 +6,31 @@ namespace Scripts.Architecture.Services
     public class ZombieHealthService : IZombieHealthService
     {
         private readonly IZombieRewardService _rewardService;
-        private readonly ISaveLoadService _saveLoadService;
 
-        public ZombieHealthService(IZombieRewardService rewardService, ISaveLoadService saveLoadService)
+        public ZombieHealthService(IZombieRewardService rewardService)
         {
             _rewardService = rewardService;
-            _saveLoadService = saveLoadService;
         }
 
         public event Action<int, int> HealthChanged;
         public event Action DamageApplied;
         public event Action Died;
 
-        public int Health => _saveLoadService.ZombieProgress.Health;
+        public int Health { get; private set; }
+
+        public void Initialize(ZombieProgress zombieProgress) => Health = zombieProgress.Health;
 
         public void ChangeHealth(int damage)
         {
-            _saveLoadService.ZombieProgress.Health -= damage;
+            if (Health >= damage)
+                Health -= damage;
+
+            else
+                Health = Constants.ZombieMinimumHealth;
 
             _rewardService.GiveRewardToPlayer();
 
-            HealthChanged?.Invoke(_saveLoadService.ZombieProgress.Health, Constants.ZombieMaximumHealth);
+            HealthChanged?.Invoke(Health, Constants.ZombieMaximumHealth);
             DamageApplied?.Invoke();
 
             CheckDeath();
@@ -33,7 +38,7 @@ namespace Scripts.Architecture.Services
 
         private void CheckDeath()
         {
-            if (Health <= Constants.ZombieMinimumHealth)
+            if (Health == Constants.ZombieMinimumHealth)
                 Died?.Invoke();
         }
     }

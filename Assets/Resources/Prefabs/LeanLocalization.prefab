@@ -988,7 +988,7 @@ GameObject:
   - component: {fileID: 5647855681571330544}
   - component: {fileID: 8096463726364849235}
   m_Layer: 0
-  m_Name: Start Game
+  m_Name: New Game
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1024,13 +1024,13 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: English
-    Text: START GAME
+    Text: NEW GAME
     Object: {fileID: 0}
   - Language: Russian
-    Text: "\u0421\u0422\u0410\u0420\u0422"
+    Text: "\u041D\u041E\u0412\u0410\u042F \u0418\u0413\u0420\u0410"
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "BA\u015ELANGI\xC7"
+    Text: "YEN\u0130 OYUN"
     Object: {fileID: 0}
 --- !u!1 &5175367504833042663
 GameObject:

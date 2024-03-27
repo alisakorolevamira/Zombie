@@ -23,14 +23,14 @@ namespace Scripts.UI.Panels
         private IZombieHealthService _zombieHealthService;
         private IFocusService _focusService;
         private IAudioService _audioService;
-        private ISceneService _sceneService;
+        private ILevelService _sceneService;
 
         private void Start()
         {
             _zombieHealthService = AllServices.Container.Single<IZombieHealthService>();
             _focusService = AllServices.Container.Single<IFocusService>();
             _audioService = AllServices.Container.Single<IAudioService>();
-            _sceneService = AllServices.Container.Single<ISceneService>();
+            _sceneService = AllServices.Container.Single<ILevelService>();
 
             _zombieHealthService.Died += Open;
             _levelButton.onClick.AddListener(OnNextLevelButtonClick);
@@ -53,9 +53,9 @@ namespace Scripts.UI.Panels
                 base.Open();
 
                 string activeSceneName = SceneManager.GetActiveScene().name;
-                SceneSO activeScene = _sceneService.FindSceneByName(activeSceneName);
+                Level activeScene = _sceneService.FindLevelByName(activeSceneName);
 
-                _sceneService.LevelComplited(activeScene);
+                _sceneService.LevelComplite(activeScene);
                 _starsView.AddStars(activeScene.AmountOfStars);
 
                 _audioSource.PlayOneShot(_audioSource.clip);
@@ -86,11 +86,11 @@ namespace Scripts.UI.Panels
             Close();
 
             string activeScene = SceneManager.GetActiveScene().name;
-            string nextScene = _sceneService.FindNextScene(activeScene);
+            string nextScene = _sceneService.FindNextLevel(activeScene);
 
             InterstitialAd.Show(OnOpenCallBack, OnCloseCallBack);
 
-            _levelPanel.OpenNextScene(nextScene);
+            _levelPanel.OpenNextSceneWithResetingProgress(nextScene);
         }
 
         private void OnMenuButtonClick()

@@ -13,9 +13,9 @@ namespace Scripts.Architecture.States
             _saveLoadService = saveLoadService;
         }
 
-        public async void Enter(string sceneName)
+        public void Enter(string sceneName)
         {
-            await _saveLoadService.LoadProgress();
+            _saveLoadService.LoadProgress();
 
             _gameStateMachine.Enter<LoadLevelState, string>(sceneName);
         }

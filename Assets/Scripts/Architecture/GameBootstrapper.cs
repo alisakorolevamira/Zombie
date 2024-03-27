@@ -19,8 +19,10 @@ namespace Scripts.Architecture
         private void OnDestroy()
         {
             var focusService = AllServices.Container.Single<IFocusService>();
+            var combatService = AllServices.Container.Single<ICombatService>();
 
             focusService.Dispose();
+            combatService.Dispose();
         }
     }
 }

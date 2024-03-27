@@ -3859,7 +3859,7 @@ MonoBehaviour:
   _buttons:
   - {fileID: 8532450244858114530}
   - {fileID: 8284341875937332404}
-  _levelButton: {fileID: 8284341875937332404}
+  _restartButton: {fileID: 8284341875937332404}
   _menuButton: {fileID: 8532450244858114530}
   _audioSource: {fileID: 3010070241615067593}
   _levelPanel: {fileID: 3340125276519147758}

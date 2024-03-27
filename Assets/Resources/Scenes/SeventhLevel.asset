@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625e5946acbee5641bf02dd792e691af, type: 3}
   m_Name: SeventhLevel
   m_EditorClassIdentifier: 
-  _sceneName: SeventhLevel
-  _zombie: {fileID: 8699953967403579960, guid: 1c9fcc0dad52306499985e66582f9749, type: 3}
-  _id: 7
-  _isAvailable: 0
-  _meduimScore: 8000
-  _highScore: 10000
+  <Name>k__BackingField: SeventhLevel
+  <Id>k__BackingField: 7
+  <MeduimScore>k__BackingField: 7000
+  <HighScore>k__BackingField: 9000
+  <IsAvailable>k__BackingField: 0
+  <Zombie>k__BackingField: {fileID: 8699953967403579960, guid: 1c9fcc0dad52306499985e66582f9749, type: 3}

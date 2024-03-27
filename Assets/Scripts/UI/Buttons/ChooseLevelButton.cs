@@ -1,4 +1,5 @@
 using Scripts.Architecture;
+using Scripts.Architecture.Services;
 using Scripts.UI.Panels;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,10 +9,13 @@ namespace Scripts.UI.Buttons
     public class ChooseLevelButton : MonoBehaviour
     {
         [SerializeField] private Button _button;
-        [SerializeField] private SceneSO _scene;
+        [SerializeField] private string _levelName;
         [SerializeField] private AudioSource _audioSource;
         [SerializeField] private MenuPanel _menuPanel;
         [SerializeField] private StarsView _starsView;
+
+        private ILevelService _levelService;
+        private Level _level;
 
         private void OnEnable()
         {
@@ -25,12 +29,15 @@ namespace Scripts.UI.Buttons
 
         private void Start()
         {
+            _levelService = AllServices.Container.Single<ILevelService>();
+            _level = _levelService.FindLevelByName(_levelName);
+
             Enable();
         }
 
         private void Enable()
         {
-            if (_scene.IsAvailable == true)
+            if (_level.IsAvailable == true)
             {
                 SetStars();
                 _button.interactable = true;
@@ -42,16 +49,14 @@ namespace Scripts.UI.Buttons
 
         private void LoadLevel()
         {
-            _starsView.RemoveAllStars();
-            _scene.ResetProgress();
             _audioSource.Stop();
-            _menuPanel.OpenAnyLevel(_scene.Name);
+            _menuPanel.OpenAnyLevel(_levelName);
         }
 
         private void SetStars()
         {
-            if (_scene.IsComplited)
-                _starsView.AddStars(_scene.AmountOfStars);
+            if (_level.IsComplited)
+                _starsView.AddStars(_level.AmountOfStars);
         }
     }
 }

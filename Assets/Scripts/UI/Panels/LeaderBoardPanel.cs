@@ -23,7 +23,7 @@ namespace Scripts.UI.Panels
         [SerializeField] private LeaderBoard _leaderBoard;
         [SerializeField] private Panel _errorPanel;
 
-        private ISaveLoadService _saveLoadService;
+        private IPlayerDataService _playerDataService;
 
         public Panel ErrorPanel => _errorPanel;
 
@@ -41,7 +41,7 @@ namespace Scripts.UI.Panels
 
         private void Start()
         {
-            _saveLoadService = AllServices.Container.Single<ISaveLoadService>();
+            _playerDataService = AllServices.Container.Single<IPlayerDataService>();
         }
 
         public void ConstractLeaderBoard(List<LeaderBoardPlayer> leaderBoardPlayers)
@@ -69,7 +69,7 @@ namespace Scripts.UI.Panels
             if (PlayerAccount.IsAuthorized)
             {
                 PlayerAccount.RequestPersonalProfileDataPermission();
-                await _leaderBoard.SetPlayer(_saveLoadService.PlayerProgress.Score);
+                await _leaderBoard.SetPlayer(_playerDataService.PlayerProgress.Score);
             }
             
             else

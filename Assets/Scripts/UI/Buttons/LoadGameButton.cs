@@ -12,7 +12,7 @@ namespace Scripts.UI.Buttons
         [SerializeField] private Button _button;
         [SerializeField] private MenuPanel _menuPanel;
 
-        private ISaveLoadService _saveLoadService;
+        private IPlayerDataService _playerDataService;
 
         private void OnEnable()
         {
@@ -26,13 +26,13 @@ namespace Scripts.UI.Buttons
 
         private void Start()
         {
-            _saveLoadService = AllServices.Container.Single<ISaveLoadService>();
+            _playerDataService = AllServices.Container.Single<IPlayerDataService>();
             ChangeAviability();
         }
 
         private void ChangeAviability()
         {
-            if (_saveLoadService.PlayerProgress.Level == Constants.Menu)
+            if (_playerDataService.PlayerProgress.Level == Constants.Menu || _playerDataService.PlayerProgress.Level == string.Empty)
                 _button.interactable = false;
 
             else

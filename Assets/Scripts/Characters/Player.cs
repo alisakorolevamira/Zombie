@@ -14,9 +14,7 @@ namespace Scripts.Characters
         private void OnDisable()
         {
             foreach (Card card in _cards)
-            {
                 card.CardBought -= OnCardBought;
-            }
         }
 
         private void Start()
@@ -33,9 +31,7 @@ namespace Scripts.Characters
             };
 
             foreach (Card card in _cards)
-            {
                 card.CardBought += OnCardBought;
-            }
         }
 
         private void OnCardBought(int price)

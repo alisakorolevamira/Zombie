@@ -4,7 +4,6 @@ using Scripts.Architecture.Services;
 
 namespace Scripts.UI
 {
-
     public class Title : MonoBehaviour
     {
         [SerializeField] private Image _image;

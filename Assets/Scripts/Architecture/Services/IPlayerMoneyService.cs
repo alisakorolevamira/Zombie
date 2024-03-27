@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Scripts.Progress;
+using System;
 
 namespace Scripts.Architecture.Services
 {
@@ -8,6 +9,7 @@ namespace Scripts.Architecture.Services
 
         int Money { get; }
 
+        void Initialize(PlayerProgress playerProgress);
         bool IsEnoughMoney(int value);
         void AddMoney(int value);
         void SpendMoney(int value);

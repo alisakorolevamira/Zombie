@@ -11,7 +11,6 @@ namespace Scripts.Characters.Citizens
         private readonly int _coefficientOfChangingSpeed = 2;
         private readonly int _minimumHealth = 0;
 
-        [SerializeField] private int _health;
         [SerializeField] private int _damage;
         [SerializeField] private AudioSource _audioSource;
 
@@ -25,6 +24,7 @@ namespace Scripts.Characters.Citizens
 
         public event Action<int> HealthChanged;
         public event Action<Citizen> Died;
+        [field: SerializeField] public float Health { get; private set; }
 
         private void Start()
         {
@@ -42,7 +42,7 @@ namespace Scripts.Characters.Citizens
 
         public void TakeDamage(int damage)
         {
-            _health -= damage;
+            Health -= damage;
 
             CheckDeath();
 
@@ -51,7 +51,7 @@ namespace Scripts.Characters.Citizens
 
         private IEnumerator ApplyDamage()
         {
-            while (!_isDead && _zombieHealthService.Health >= Constants.ZombieMinimumHealth)
+            while (!_isDead && _zombieHealthService.Health > Constants.ZombieMinimumHealth)
             {
                 _audioSource.PlayOneShot(_audioSource.clip);
                 _animator.SetTrigger(Constants.Hit);
@@ -63,7 +63,7 @@ namespace Scripts.Characters.Citizens
 
         private void CheckDeath()
         {
-            if (_health <= _minimumHealth)
+            if (Health <= _minimumHealth)
             {
                 Died?.Invoke(this);
 

@@ -25,12 +25,14 @@ namespace Scripts.Architecture.States
             var spawnerService = _services.Single<ISpawnerService>();
             var localizationService = _services.Single<ILocalizationService>();
             var focusService = _services.Single<IFocusService>();
-            var sceneService = _services.Single<ISceneService>();
+            var levelService = _services.Single<ILevelService>();
+            var combatService = _services.Single<ICombatService>();
 
             spawnerService.Initialize();
             panelService.Initialize();
             focusService.Initialize();
-            sceneService.Initialize();
+            levelService.Initialize();
+            combatService.Initialize();
 
             await sdkInitializeService.StartCoroutineAsUniTask();
             localizationService.Initialize();
@@ -44,21 +46,28 @@ namespace Scripts.Architecture.States
         private void RegisterService()
         {
             _services.RegisterSingle<ISDKInitializeService>(new SDKInitializeService());
-            _services.RegisterSingle<ISaveLoadService>(new SaveLoadService());
             _services.RegisterSingle<IGameFactory>(new GameFactory());
             _services.RegisterSingle<IAudioService>(new AudioService());
-            _services.RegisterSingle<ISceneService>(new SceneService());
-            _services.RegisterSingle<ILocalizationService>(new LocalizationService(_services.Single<IGameFactory>()));
+            _services.RegisterSingle<ILevelService>(new LevelService());
+            _services.RegisterSingle<IPlayerMoneyService>(new PlayerMoneyService());
+            _services.RegisterSingle<IPlayerScoreService>(new PlayerScoreService());
+            _services.RegisterSingle<ILevelDataService>(new LevelDataService(_services.Single<ILevelService>()));
             _services.RegisterSingle<IUIPanelService>(new UIPanelService(_gameStateMachine, _services.Single<IGameFactory>()));
+            _services.RegisterSingle<IPlayerDataService>(new PlayerDataService(_services.Single<IPlayerMoneyService>(),
+                _services.Single<IPlayerScoreService>()));
+            _services.RegisterSingle<IZombieRewardService>(new ZombieRewardService(_services.Single<IPlayerMoneyService>(),
+                _services.Single<IPlayerScoreService>()));
+            _services.RegisterSingle<IZombieHealthService>(new ZombieHealthService(_services.Single<IZombieRewardService>()));
+            _services.RegisterSingle<IZombieDataService>(new ZombieDataService(_services.Single<IZombieHealthService>(),
+                _services.Single<IZombieRewardService>()));
+            _services.RegisterSingle<ICardsPricesDataService>(new CardsPricesDataService(_services.Single<IUIPanelService>()));
+            _services.RegisterSingle<ISaveLoadService>(new SaveLoadService(_services.Single<IPlayerDataService>(),
+                _services.Single<IZombieDataService>(), _services.Single<ILevelDataService>(), _services.Single<ICardsPricesDataService>()));
+            _services.RegisterSingle<ILocalizationService>(new LocalizationService(_services.Single<IGameFactory>()));
             _services.RegisterSingle<ISpawnerService>(new SpawnerService(_services.Single<IGameFactory>()));
             _services.RegisterSingle<IFocusService>(new FocusService(_services.Single<IAudioService>()));
-            _services.RegisterSingle<IPlayerMoneyService>(new PlayerMoneyService(_services.Single<ISaveLoadService>()));
-            _services.RegisterSingle<IPlayerScoreService>(new PlayerScoreService(_services.Single<ISaveLoadService>()));
             _services.RegisterSingle<IStarCountService>(new StarCountService(_services.Single<IPlayerScoreService>()));
-            _services.RegisterSingle<IZombieRewardService>(new ZombieRewardService(_services.Single<IPlayerMoneyService>(),
-                _services.Single<IPlayerScoreService>(), _services.Single<ISaveLoadService>()));
-            _services.RegisterSingle<IZombieHealthService>(new ZombieHealthService(_services.Single<IZombieRewardService>(),
-                _services.Single<ISaveLoadService>()));
+            _services.RegisterSingle<ICombatService>(new CombatService(_services.Single<ISpawnerService>()));
         }
 
         private void EnterLoadLevel()

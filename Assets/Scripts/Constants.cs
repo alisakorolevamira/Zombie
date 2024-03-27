@@ -18,16 +18,20 @@ namespace Scripts
         public const string EnglishCode = "English";
         public const string RussianCode = "Russian";
         public const string TurkishCode = "Turkish";
+        public const string DefaultAvailability = "false";
+        public const int DefaultAmountOfStars = 0;
         public const int MaximumNumberOfScenes = 12;
         public const int MaximumNumberOfCitizens = 5;
         public const int MinimumNumberOfCitizens = 0;
         public const int MinimumVolumeValue = 0;
         public const int MaximumVolumeValue = 1;
         public const int AddMoneyReward = 100;
-        public const int LoseScoreFine = 1000;
         public const int ZombieMaximumHealth = 500;
         public const int ZombieMinimumHealth = 0;
+        public const int ZombieDefaultScoreReward = 100;
+        public const int ZombieDefaultMoneyReward = 10;
         public const int MinimumScore = 0;
+        public const int MinimumMoney = 0;
         public const int StopGameIndex = 0;
         public const int StartGameIndex = 1;
     }

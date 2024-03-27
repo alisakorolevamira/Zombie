@@ -21,9 +21,11 @@ namespace Scripts.UI.Cards
         [SerializeField] private protected AudioSource _audioSource;
 
         private protected IPlayerMoneyService _playerMoneyService;
-        private protected ISaveLoadService _saveLoadService;
+        private protected ICardsPricesDataService _cardsPricesDataService;
 
         public abstract event Action<int> CardBought;
+
+        public int Price { get; protected set; }
 
         public override void Open()
         {
@@ -34,7 +36,7 @@ namespace Scripts.UI.Cards
         public override void Close()
         {
             _playerMoneyService = AllServices.Container.Single<IPlayerMoneyService>();
-            _saveLoadService = AllServices.Container.Single<ISaveLoadService>();
+            _cardsPricesDataService = AllServices.Container.Single<ICardsPricesDataService>();
 
             _button.onClick.RemoveListener(OnButtonClicked);
             _playerMoneyService.MoneyChanged -= ChangeColor;

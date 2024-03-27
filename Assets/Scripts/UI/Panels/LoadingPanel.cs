@@ -31,9 +31,7 @@ namespace Scripts.UI.Panels
             _canvasGroup.blocksRaycasts = false;
 
             if (_image != null)
-            {
                 _image.raycastTarget = false;
-            }
         }
     }
 }

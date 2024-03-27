@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Scripts.Progress;
+using System;
 
 namespace Scripts.Architecture.Services
 {
@@ -8,7 +9,7 @@ namespace Scripts.Architecture.Services
 
         int Score { get; }
 
+        void Initialize(PlayerProgress playerProgress);
         void AddScore(int value);
-        void RemoveScore();
     }
 }

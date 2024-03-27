@@ -11,23 +11,30 @@ namespace Scripts.UI.Cards
 
         public override event Action<int> CardBought;
 
+        public override void Close()
+        {
+            base.Close();
+
+            _zombieRewardService = AllServices.Container.Single<IZombieRewardService>();
+        }
+
         public override void Open()
         {
             base.Open();
 
-            _priceText.text = _saveLoadService.CardsPricesProgress.DoubleRewardCardPrice.ToString();
-            _zombieRewardService = AllServices.Container.Single<IZombieRewardService>();
+            Price = _cardsPricesDataService.CardsPricesProgress.DoubleRewardCardPrice;
+            _priceText.text = Price.ToString();
         }
 
         private protected override void OnButtonClicked()
         {
-            if (_playerMoneyService.Money >= _saveLoadService.CardsPricesProgress.DoubleRewardCardPrice)
+            if (_playerMoneyService.Money >= Price)
             {
-                CardBought?.Invoke(_saveLoadService.CardsPricesProgress.DoubleRewardCardPrice);
+                CardBought?.Invoke(Price);
 
                 _zombieRewardService.DoubleReward();
-                _saveLoadService.CardsPricesProgress.DoubleRewardCardPrice *= _coefficientOfInceasing;
-                _priceText.text = _saveLoadService.CardsPricesProgress.DoubleRewardCardPrice.ToString();
+                Price *= _coefficientOfInceasing;
+                _priceText.text = Price.ToString();
 
                 base.OnButtonClicked();
             }
@@ -35,7 +42,7 @@ namespace Scripts.UI.Cards
 
         private protected override void ChangeColor()
         {
-            if (_playerMoneyService.Money >= _saveLoadService.CardsPricesProgress.DoubleRewardCardPrice)
+            if (_playerMoneyService.Money >= Price)
                 _image.DOColor(Color.green, _timeOfChangingColor);
 
             else

@@ -6,9 +6,6 @@ namespace Scripts.Characters.Citizens
     {
         public bool IsAvailable;
 
-        private void Start()
-        {
-            IsAvailable = true;
-        }
+        private void Start() => IsAvailable = true;
     }
 }

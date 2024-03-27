@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Scripts.Progress;
+using System;
 
 namespace Scripts.Architecture.Services
 {
@@ -10,6 +11,7 @@ namespace Scripts.Architecture.Services
 
         int Health { get; }
 
+        void Initialize(ZombieProgress zombieProgress);
         void ChangeHealth(int damage);
     }
 }

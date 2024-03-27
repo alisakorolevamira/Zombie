@@ -38,10 +38,7 @@ namespace Scripts.Architecture.States
             _sceneLoader.Load(sceneName, _sceneLoaded);
         }
 
-        public void Exit()
-        {
-            _panelService.LoadingPanel.Close();
-        }
+        public void Exit() => _panelService.LoadingPanel.Close();
 
         private void OnLoaded()
         {
