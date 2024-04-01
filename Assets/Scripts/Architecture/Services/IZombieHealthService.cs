@@ -7,7 +7,7 @@ namespace Scripts.Architecture.Services
     {
         event Action DamageApplied;
         event Action Died;
-        event Action<int, int> HealthChanged;
+        event Action<int> HealthChanged;
 
         int Health { get; }
 

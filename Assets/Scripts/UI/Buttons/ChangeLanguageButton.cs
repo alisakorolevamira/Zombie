@@ -26,9 +26,6 @@ namespace Scripts.UI.Buttons
             _localizationService = AllServices.Container.Single<ILocalizationService>();
         }
 
-        private void SetLanguage()
-        {
-            _localizationService.Localization.ChangeLanguage(_languageCode);
-        }
+        private void SetLanguage() => _localizationService.Localization.ChangeLanguage(_languageCode);
     }
 }

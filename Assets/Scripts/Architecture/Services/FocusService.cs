@@ -1,4 +1,5 @@
 using Agava.WebUtility;
+using Scripts.Constants;
 using UnityEngine;
 
 namespace Scripts.Architecture.Services
@@ -31,10 +32,10 @@ namespace Scripts.Architecture.Services
         public void PauseGame(bool value)
         {
             if (value && !IsGameStopped)
-                Time.timeScale = Constants.StartGameIndex;
+                Time.timeScale = GameFocusAndAudioConstants.StartGameIndex;
 
             else
-                Time.timeScale = Constants.StopGameIndex;
+                Time.timeScale = GameFocusAndAudioConstants.StopGameIndex;
         }
 
         private void OnInBackgroundChangeApp(bool inApp)

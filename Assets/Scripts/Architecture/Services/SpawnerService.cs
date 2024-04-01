@@ -1,4 +1,5 @@
 using Scripts.Architecture.Factory;
+using Scripts.Constants;
 using Scripts.Spawner;
 
 namespace Scripts.Architecture.Services
@@ -17,7 +18,7 @@ namespace Scripts.Architecture.Services
 
         public void Initialize()
         {
-            var spawner = _gameFactory.SpawnObject(Constants.SpawnersPath);
+            var spawner = _gameFactory.SpawnObject(SpawnerConstants.SpawnersPath);
 
             CitizenSpawner = spawner.GetComponent<CitizenSpawner>();
             ZombieSpawner = spawner.GetComponent<ZombieSpawner>();

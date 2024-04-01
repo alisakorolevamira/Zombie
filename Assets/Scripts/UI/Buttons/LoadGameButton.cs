@@ -1,4 +1,5 @@
 using Scripts.Architecture.Services;
+using Scripts.Constants;
 using Scripts.UI.Panels;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,27 +17,30 @@ namespace Scripts.UI.Buttons
 
         private void OnEnable()
         {
-            _button.onClick.AddListener(_menuPanel.OpenProgressLevel);
+            _button.onClick.AddListener(OpenProgressLevel);
+            _menuPanel.Opened += ChangeAvailability;
         }
 
         private void OnDisable()
         {
-            _button.onClick.RemoveListener(_menuPanel.OpenProgressLevel);
+            _button.onClick.RemoveListener(OpenProgressLevel);
+            _menuPanel.Opened -= ChangeAvailability;
         }
 
         private void Start()
         {
             _playerDataService = AllServices.Container.Single<IPlayerDataService>();
-            ChangeAviability();
         }
 
-        private void ChangeAviability()
+        private void ChangeAvailability()
         {
-            if (_playerDataService.PlayerProgress.Level == Constants.Menu || _playerDataService.PlayerProgress.Level == string.Empty)
+            if (_playerDataService.PlayerProgress.Level == LevelConstants.Menu || _playerDataService.PlayerProgress.Level == string.Empty)
                 _button.interactable = false;
 
             else
                 _button.interactable = true;
         }
+
+        private void OpenProgressLevel() => _menuPanel.OpenLevel(_playerDataService.PlayerProgress.Level);
     }
 }

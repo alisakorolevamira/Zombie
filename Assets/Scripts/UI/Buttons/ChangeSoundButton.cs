@@ -1,4 +1,5 @@
 using Scripts.Architecture.Services;
+using Scripts.Constants;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,12 +9,12 @@ namespace Scripts.UI.Buttons
 
     public class ChangeSoundButton : MonoBehaviour
     {
-        private IAudioService _audioService;
-
         [SerializeField] private Button _button;
         [SerializeField] private Image _image;
         [SerializeField] private Sprite _soundOnSprite;
         [SerializeField] private Sprite _soundOffSprite;
+
+        private IAudioService _audioService;
 
         private void OnEnable()
         {
@@ -23,7 +24,9 @@ namespace Scripts.UI.Buttons
         private void OnDisable()
         {
             _button.onClick.RemoveListener(ChangeVolume);
-            _audioService.VolumeChanged -= OnVolumeChanged;
+
+            if (_audioService != null)
+                _audioService.VolumeChanged -= OnVolumeChanged;
         }
 
         private void Start()
@@ -35,16 +38,16 @@ namespace Scripts.UI.Buttons
 
         private void ChangeVolume()
         {
-            if (_audioService.IsMuted)
-                _audioService.ChangeVolume(true);
+            if (_audioService.AudioSource.mute)
+                _audioService.ChangeVolume(GameFocusAndAudioConstants.VolumeOn);
 
             else
-                _audioService.ChangeVolume(false);
+                _audioService.ChangeVolume(GameFocusAndAudioConstants.VolumeOff);
         }
 
         private void OnVolumeChanged()
         {
-            if (_audioService.IsMuted)
+            if (_audioService.AudioSource.mute)
                 _image.sprite = _soundOffSprite;
 
             else

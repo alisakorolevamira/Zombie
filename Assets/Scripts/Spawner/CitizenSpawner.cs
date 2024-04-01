@@ -1,6 +1,7 @@
 using Scripts.Architecture.Factory;
 using Scripts.Architecture.Services;
 using Scripts.Characters.Citizens;
+using Scripts.Constants;
 using Scripts.UI.Cards;
 using System;
 using System.Collections.Generic;
@@ -57,12 +58,12 @@ namespace Scripts.Spawner
 
         public bool CheckAmountOfCitizens()
         {
-            return Citizens.Count < Constants.MaximumNumberOfCitizens;
+            return Citizens.Count < CitizenConstants.MaximumNumberOfCitizens;
         }
 
         private void ClearSubscriptions()
         {
-            if (Citizens.Count != 0)
+            if (Citizens.Count != CitizenConstants.MinimumNumberOfCitizens)
             {
                 foreach (var sitizen in Citizens)
                     sitizen.Died -= RemoveDeadCitizen;
@@ -80,7 +81,7 @@ namespace Scripts.Spawner
             SpawnPoint freeSpawnPoint = _spawnPoints.FirstOrDefault(p => p.IsAvailable == true);
 
             if (CheckAmountOfCitizens() && freeSpawnPoint != null)
-                InstantiateCitizen(freeSpawnPoint, Constants.FirstLevelCitizenPath);
+                InstantiateCitizen(freeSpawnPoint, CitizenConstants.FirstLevelCitizenPath);
         }
 
         private void RemoveDeadCitizen(Citizen deadCitizen)
@@ -102,7 +103,7 @@ namespace Scripts.Spawner
             Citizen secondCitizen = Citizens.FirstOrDefault(p => p.TypeId == CitizenTypeId.FirstCitizen);
             RemoveDeadCitizen(secondCitizen);
 
-            InstantiateCitizen(firstCitizen.SpawnPoint, Constants.SecondLevelCitizenPath);
+            InstantiateCitizen(firstCitizen.SpawnPoint, CitizenConstants.SecondLevelCitizenPath);
 
             Destroy(firstCitizen.gameObject);
             Destroy(secondCitizen.gameObject);

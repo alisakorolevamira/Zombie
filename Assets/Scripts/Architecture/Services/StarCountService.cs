@@ -1,11 +1,9 @@
+using Scripts.Constants;
+
 namespace Scripts.Architecture.Services
 {
     public class StarCountService : IStarCountService
     {
-        private const int MinimumRateAmountOfStars = 1;
-        private const int MediumRateAmountOfStars = 2;
-        private const int MaximumRateAmountOfStars = 3;
-
         private readonly IPlayerScoreService _playerScoreService;
 
         private int _stars;
@@ -18,13 +16,13 @@ namespace Scripts.Architecture.Services
         public int CountStars(int meduimScore, int highScore)
         {
             if (_playerScoreService.Score >= highScore)
-                _stars = MaximumRateAmountOfStars;
+                _stars = StarsConstants.MaximumRateAmountOfStars;
 
             else if (_playerScoreService.Score >= meduimScore && _playerScoreService.Score < highScore)
-                _stars = MediumRateAmountOfStars;
+                _stars = StarsConstants.MediumRateAmountOfStars;
 
             else
-                _stars = MinimumRateAmountOfStars;
+                _stars = StarsConstants.MinimumRateAmountOfStars;
 
             return _stars;
         }

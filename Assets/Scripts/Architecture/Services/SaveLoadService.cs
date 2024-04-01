@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Scripts.Constants;
+using UnityEngine;
 
 namespace Scripts.Architecture.Services
 {
@@ -28,7 +29,7 @@ namespace Scripts.Architecture.Services
 
         public void SaveProgress()
         {
-            UpdateData();
+            UpdateProgress();
 
             _playerDataService.SaveData();
             _zombieDataService.SaveData();
@@ -38,9 +39,9 @@ namespace Scripts.Architecture.Services
             PlayerPrefs.Save();
         }
 
-        public void ResetProgress()
+        public void ResetAllProgress()
         {
-            _playerDataService.ResetData(Constants.Menu);
+            _playerDataService.ResetData(LevelConstants.Menu);
             _zombieDataService.ResetData();
             _cardsPricesDataService.ResetData();
             _levelDataService.ResetData();
@@ -48,7 +49,17 @@ namespace Scripts.Architecture.Services
             PlayerPrefs.Save();
         }
 
-        private void UpdateData()
+        public void ResetProgressForNextLevel(string sceneName)
+        {
+            _playerDataService.ResetData(sceneName);
+            _zombieDataService.ResetData();
+            _cardsPricesDataService.ResetData();
+            _levelDataService.UpdateData();
+
+            PlayerPrefs.Save();
+        }
+
+        private void UpdateProgress()
         {
             _playerDataService.UpdateData();
             _zombieDataService.UpdateData();

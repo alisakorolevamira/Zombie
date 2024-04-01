@@ -1,3 +1,4 @@
+using Scripts.Constants;
 using Scripts.Progress;
 using System;
 
@@ -12,7 +13,7 @@ namespace Scripts.Architecture.Services
             _rewardService = rewardService;
         }
 
-        public event Action<int, int> HealthChanged;
+        public event Action<int> HealthChanged;
         public event Action DamageApplied;
         public event Action Died;
 
@@ -26,11 +27,11 @@ namespace Scripts.Architecture.Services
                 Health -= damage;
 
             else
-                Health = Constants.ZombieMinimumHealth;
+                Health = ZombieConstants.ZombieMinimumHealth;
 
             _rewardService.GiveRewardToPlayer();
 
-            HealthChanged?.Invoke(Health, Constants.ZombieMaximumHealth);
+            HealthChanged?.Invoke(Health);
             DamageApplied?.Invoke();
 
             CheckDeath();
@@ -38,7 +39,7 @@ namespace Scripts.Architecture.Services
 
         private void CheckDeath()
         {
-            if (Health == Constants.ZombieMinimumHealth)
+            if (Health == ZombieConstants.ZombieMinimumHealth)
                 Died?.Invoke();
         }
     }

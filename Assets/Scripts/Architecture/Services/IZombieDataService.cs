@@ -1,10 +1,7 @@
 ﻿namespace Scripts.Architecture.Services
 {
-    public interface IZombieDataService : IService
+    public interface IZombieDataService : IService, IDataService
     {
-        void LoadData();
         void ResetData();
-        void SaveData();
-        void UpdateData();
     }
 }

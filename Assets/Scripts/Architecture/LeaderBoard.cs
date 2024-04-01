@@ -1,6 +1,7 @@
 using Agava.YandexGames;
 using Cysharp.Threading.Tasks;
 using Scripts.Characters;
+using Scripts.Constants;
 using Scripts.UI.Panels;
 using System;
 using System.Collections.Generic;
@@ -18,11 +19,11 @@ namespace Scripts.Architecture
         {
             var task = new UniTaskCompletionSource();
 
-            Leaderboard.GetPlayerEntry(Constants.LeaderBoardName, (result) =>
+            Leaderboard.GetPlayerEntry(LeaderBoardConstants.LeaderBoardName, (result) =>
             {
                 if (result.score < score)
                 {
-                    Leaderboard.SetScore(Constants.LeaderBoardName, score);
+                    Leaderboard.SetScore(LeaderBoardConstants.LeaderBoardName, score);
                 }
 
                 task.TrySetResult();
@@ -55,7 +56,7 @@ namespace Scripts.Architecture
 
             var task = new UniTaskCompletionSource();
 
-            Leaderboard.GetEntries(Constants.LeaderBoardName, (result) =>
+            Leaderboard.GetEntries(LeaderBoardConstants.LeaderBoardName, (result) =>
             {
                 foreach (var entry in result.entries)
                 {
@@ -64,7 +65,7 @@ namespace Scripts.Architecture
                     var name = entry.player.publicName;
             
                     if (string.IsNullOrEmpty(name))
-                        name = Constants.AnonymousName;
+                        name = LeaderBoardConstants.AnonymousName;
             
                     _leaderBoardPlayers.Add(new LeaderBoardPlayer(rank, name, score));
                 }

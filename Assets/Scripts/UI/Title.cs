@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using Scripts.Architecture.Services;
+using Scripts.Constants;
 
 namespace Scripts.UI
 {
@@ -13,20 +14,17 @@ namespace Scripts.UI
 
         private ILocalizationService _localizationService;
 
-        private void OnEnable()
-        {
-            _localizationService = AllServices.Container.Single<ILocalizationService>();
-
-            _localizationService.Localization.LanguageChanged += OnLanguageChanged;
-        }
-
         private void OnDisable()
         {
-            _localizationService.Localization.LanguageChanged -= OnLanguageChanged;
+            if (_localizationService != null)
+                _localizationService.Localization.LanguageChanged -= OnLanguageChanged;
         }
 
         private void Start()
         {
+            _localizationService = AllServices.Container.Single<ILocalizationService>();
+
+            _localizationService.Localization.LanguageChanged += OnLanguageChanged;
             OnLanguageChanged();
         }
 
@@ -34,9 +32,9 @@ namespace Scripts.UI
         {
             _image.sprite = _localizationService.Localization.CurrentLanguage switch
             {
-                Constants.EnglishCode => _english,
-                Constants.RussianCode => _russian,
-                Constants.TurkishCode => _turkish,
+                LocalizationConstants.English => _english,
+                LocalizationConstants.Russian => _russian,
+                LocalizationConstants.Turkish => _turkish,
                 _ => _english,
             };
         }

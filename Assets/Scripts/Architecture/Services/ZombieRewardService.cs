@@ -1,10 +1,10 @@
+using Scripts.Constants;
 using Scripts.Progress;
 
 namespace Scripts.Architecture.Services
 {
     public class ZombieRewardService : IZombieRewardService
     {
-        private readonly int _coefficientOfChangingReward = 2;
         private readonly IPlayerMoneyService _playerMoneyService;
         private readonly IPlayerScoreService _playerScoreService;
 
@@ -25,8 +25,8 @@ namespace Scripts.Architecture.Services
 
         public void DoubleReward()
         {
-            MoneyReward *= _coefficientOfChangingReward;
-            ScoreReward *= _coefficientOfChangingReward;
+            MoneyReward *= ZombieConstants.CoefficientOfChangingReward;
+            ScoreReward *= ZombieConstants.CoefficientOfChangingReward;
         }
 
         public void GiveRewardToPlayer()

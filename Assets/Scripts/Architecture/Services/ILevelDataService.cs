@@ -1,10 +1,7 @@
 ﻿namespace Scripts.Architecture.Services
 {
-    public interface ILevelDataService : IService
+    public interface ILevelDataService : IService, IDataService
     {
-        void LoadData();
         void ResetData();
-        void SaveData();
-        void UpdateData();
     }
 }

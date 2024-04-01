@@ -1,19 +1,21 @@
 using Scripts.Architecture.Services;
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Scripts.Architecture.States
 {
     public class GameStateMachine
     {
         private readonly Dictionary<Type, IExitableState> _states;
+
         private IExitableState _activeState;
 
-        public GameStateMachine(SceneLoader sceneLoader, AllServices services)
+        public GameStateMachine(SceneLoader sceneLoader, AllServices services, AudioSource audioSource)
         {
             _states = new Dictionary<Type, IExitableState>
             {
-                [typeof(BootstrapState)] = new BootstrapState(this, sceneLoader, services),
+                [typeof(BootstrapState)] = new BootstrapState(this, sceneLoader, services, audioSource),
                 [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader, services.Single<IUIPanelService>(), 
                 services.Single<ISpawnerService>()),
                 [typeof(LoadProgressState)] = new LoadProgressState(this, services.Single<ISaveLoadService>()),

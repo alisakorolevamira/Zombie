@@ -6,13 +6,15 @@ namespace Scripts.Architecture
 {
     public class GameBootstrapper : MonoBehaviour, ICoroutineRunner
     {
+        [SerializeField] private AudioSource _audioSource;
+
         private Game _game;
 
         private void Awake()
         {
             DontDestroyOnLoad(gameObject);
 
-            _game = new Game(this);
+            _game = new Game(this, _audioSource);
             _game.StateMachine.Enter<BootstrapState>();
         }
 

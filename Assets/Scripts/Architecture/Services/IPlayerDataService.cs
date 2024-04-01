@@ -2,13 +2,10 @@
 
 namespace Scripts.Architecture.Services
 {
-    public interface IPlayerDataService : IService
+    public interface IPlayerDataService : IService, IDataService
     {
         PlayerProgress PlayerProgress { get; }
 
         void ResetData(string sceneName);
-        void LoadData();
-        void SaveData();
-        void UpdateData();
     }
 }

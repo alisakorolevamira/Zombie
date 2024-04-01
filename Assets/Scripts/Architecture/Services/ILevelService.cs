@@ -14,6 +14,6 @@ namespace Scripts.Architecture.Services
         string FindNextLevel(string activeScene);
 
         void Initialize();
-        void LevelComplite(Level level);
+        void LevelComplete(Level level);
     }
 }

@@ -1,4 +1,6 @@
 using Scripts.Architecture.Factory;
+using Scripts.Constants;
+using Scripts.UI;
 
 namespace Scripts.Architecture.Services
 {
@@ -15,7 +17,7 @@ namespace Scripts.Architecture.Services
 
         public void Initialize()
         {
-            Localization = _gameFactory.SpawnObject(Constants.LocalizationPath).GetComponent<Localization>();
+            Localization = _gameFactory.SpawnObject(LocalizationConstants.LocalizationPath).GetComponent<Localization>();
             Localization.ChangeLanguage();
         }
     }

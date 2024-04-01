@@ -1,3 +1,4 @@
+using Scripts.Constants;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +8,6 @@ namespace Scripts.Architecture.Services
 {
     public class LevelService : ILevelService
     {
-        private readonly int _indexCoefficient = 1;
-
         private List<LevelSO> _levelsSO;
 
         public event Action<Level> LevelAvailable;
@@ -18,7 +17,7 @@ namespace Scripts.Architecture.Services
 
         public void Initialize()
         {
-            _levelsSO = Resources.LoadAll<LevelSO>(Constants.ScenesPath).ToList();
+            _levelsSO = Resources.LoadAll<LevelSO>(LevelConstants.LevelsPath).ToList();
 
             foreach (LevelSO levelSO in _levelsSO)
             {
@@ -39,21 +38,27 @@ namespace Scripts.Architecture.Services
         public string FindNextLevel(string activeLevelName)
         {
             Level activeLevel = FindLevelByName(activeLevelName);
-            Level lastLevel = Levels.Find(x => x.Id == Constants.MaximumNumberOfScenes);
 
-            if (activeLevel != null && activeLevel != lastLevel)
+            if (activeLevel != null && activeLevel.Id != LevelConstants.MaximumNumberOfLevels)
             {
-                Level nextLevel = FindLevelById(activeLevel.Id + _indexCoefficient);
-                LevelAvailable?.Invoke(nextLevel);
-
+                Level nextLevel = FindLevelById(activeLevel.Id + LevelConstants.IndexCoefficient);
                 return nextLevel.Name;
             }
 
             else
-                return Constants.Menu;
+                return LevelConstants.Menu;
         }
 
-        public void LevelComplite(Level scene) => LevelComplited?.Invoke(scene);
+        public void LevelComplete(Level level)
+        {
+            string nextLevelName = FindNextLevel(level.Name);
+            Level nextLevel = FindLevelByName(nextLevelName);
+
+            LevelComplited?.Invoke(level);
+
+            if(nextLevel != null)
+                LevelAvailable?.Invoke(nextLevel);
+        }
 
         private Level FindLevelById(int id)
         {

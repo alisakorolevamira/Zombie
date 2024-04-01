@@ -8,10 +8,12 @@ namespace Scripts.Architecture.Services
     {
         private readonly List<Citizen> _citizens = new();
         private readonly ISpawnerService _spawnerService;
+        private readonly IZombieHealthService _zombieHealthService;
 
-        public CombatService(ISpawnerService spawner)
+        public CombatService(ISpawnerService spawner, IZombieHealthService zombieHealthService)
         {
             _spawnerService = spawner;
+            _zombieHealthService = zombieHealthService;
         }
 
         public event Action AllCitizensDied;
@@ -22,12 +24,14 @@ namespace Scripts.Architecture.Services
         {
             _spawnerService.CitizenSpawner.CitizenAdded += AddCitizen;
             _spawnerService.CitizenSpawner.CitizenRemoved += RemoveCitizen;
+            _zombieHealthService.Died += OnZombieDied;
         }
 
         public void Dispose()
         {
             _spawnerService.CitizenSpawner.CitizenAdded -= AddCitizen;
             _spawnerService.CitizenSpawner.CitizenRemoved -= RemoveCitizen;
+            _zombieHealthService.Died -= OnZombieDied;
         }
 
         public void AllCitizensDie() => AllCitizensDied?.Invoke();
@@ -44,5 +48,7 @@ namespace Scripts.Architecture.Services
         private void AddCitizen(Citizen citizen) => _citizens.Add(citizen);
 
         private void RemoveCitizen(Citizen citizen) => _citizens.Remove(citizen);
+
+        private void OnZombieDied() => _citizens.Clear();
     }
 }

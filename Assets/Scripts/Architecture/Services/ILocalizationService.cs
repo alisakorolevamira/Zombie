@@ -1,4 +1,6 @@
-﻿namespace Scripts.Architecture.Services
+﻿using Scripts.UI;
+
+namespace Scripts.Architecture.Services
 {
     public interface ILocalizationService : IService
     {

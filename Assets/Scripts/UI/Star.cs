@@ -1,5 +1,6 @@
 using UnityEngine;
 using DG.Tweening;
+using Scripts.Constants;
 
 namespace Scripts.UI
 {
@@ -7,7 +8,7 @@ namespace Scripts.UI
     {
         private void Start()
         {
-            transform.DOScale(0, 2).SetLoops(-1, LoopType.Yoyo);
+            transform.DOScale(StarsConstants.MinimumStarSize, StarsConstants.MaximumStarSize).SetLoops(-1, LoopType.Yoyo);
         }
 
         private void OnDestroy()

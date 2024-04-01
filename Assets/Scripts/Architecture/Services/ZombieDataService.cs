@@ -1,3 +1,4 @@
+using Scripts.Constants;
 using Scripts.Progress;
 using UnityEngine;
 
@@ -7,7 +8,6 @@ namespace Scripts.Architecture.Services
     {
         private readonly IZombieHealthService _zombieHealthService;
         private readonly IZombieRewardService _zombieRewardService;
-        private readonly string _key = "ZombieProgress";
 
         private string _file;
         private ZombieProgress _zombieProgress = new();
@@ -20,7 +20,7 @@ namespace Scripts.Architecture.Services
 
         public void LoadData()
         {
-            _file = PlayerPrefs.GetString(_key, string.Empty);
+            _file = PlayerPrefs.GetString(ZombieConstants.Key, string.Empty);
 
             if (_file == string.Empty)
                 SetNewData();
@@ -34,15 +34,14 @@ namespace Scripts.Architecture.Services
 
         public void ResetData()
         {
-            PlayerPrefs.DeleteKey(_key);
-
+            PlayerPrefs.DeleteKey(ZombieConstants.Key);
             SetNewData();
         }
 
         public void SaveData()
         {
             _file = JsonUtility.ToJson(_zombieProgress);
-            PlayerPrefs.SetString(_key, _file);
+            PlayerPrefs.SetString(ZombieConstants.Key, _file);
         }
 
         public void UpdateData()
@@ -54,9 +53,9 @@ namespace Scripts.Architecture.Services
 
         private void SetNewData()
         {
-            _zombieProgress.Health = Constants.ZombieMaximumHealth;
-            _zombieProgress.ScoreReward = Constants.ZombieDefaultScoreReward;
-            _zombieProgress.MoneyReward = Constants.ZombieDefaultMoneyReward;
+            _zombieProgress.Health = ZombieConstants.ZombieMaximumHealth;
+            _zombieProgress.ScoreReward = ZombieConstants.ZombieDefaultScoreReward;
+            _zombieProgress.MoneyReward = ZombieConstants.ZombieDefaultMoneyReward;
 
             SaveData();
         }

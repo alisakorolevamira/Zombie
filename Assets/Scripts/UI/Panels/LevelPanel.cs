@@ -1,5 +1,6 @@
 using Scripts.Architecture.Services;
 using Scripts.Architecture.States;
+using Scripts.Audio;
 using Scripts.UI.Cards;
 using UnityEngine;
 
@@ -8,13 +9,11 @@ namespace Scripts.UI.Panels
     public class LevelPanel : Panel
     {
         [SerializeField] private Card[] _cards;
+        [SerializeField] private BackgroundAudio _backgroundAudio;
 
         private GameStateMachine _gameStateMachine;
-        private IPlayerDataService _playerDataService;
-        private IZombieDataService _zombieDataService;
-        private ICardsPricesDataService _cardsPricesDataService;
-        private ILevelDataService _levelDataService;
         private IUIPanelService _panelService;
+        private ISaveLoadService _saveLoadService;
 
         private void Awake()
         {
@@ -23,16 +22,16 @@ namespace Scripts.UI.Panels
 
         private void Start()
         {
-            _playerDataService = AllServices.Container.Single<IPlayerDataService>();
-            _zombieDataService = AllServices.Container.Single<IZombieDataService>();
-            _cardsPricesDataService = AllServices.Container.Single<ICardsPricesDataService>();
-            _levelDataService = AllServices.Container.Single<ILevelDataService>();
+            _saveLoadService = AllServices.Container.Single<ISaveLoadService>();
             _panelService = AllServices.Container.Single<IUIPanelService>();
+            _gameStateMachine = _panelService.StateMachine;
         }
 
         public override void Open()
         {
             base.Open();
+
+            _backgroundAudio.PlayAudio();
 
             foreach (var card in _cards)
                 card.Open();
@@ -42,6 +41,8 @@ namespace Scripts.UI.Panels
         {
             base.Close();
 
+            _backgroundAudio.StopAudio();
+
             foreach (var card in _cards)
                 card.Close();
         }
@@ -50,18 +51,12 @@ namespace Scripts.UI.Panels
         {
             Close();
 
-            _gameStateMachine = _panelService.StateMachine;
-
             _gameStateMachine.Enter<LoadProgressState, string>(sceneName);
         }
 
         public void OpenNextSceneWithResetingProgress(string sceneName)
         {
-            _playerDataService.ResetData(sceneName);
-            _zombieDataService.ResetData();
-            _cardsPricesDataService.ResetData();
-            _levelDataService.UpdateData();
-
+            _saveLoadService.ResetProgressForNextLevel(sceneName);
             OpenNextScene(sceneName);
         }
     }

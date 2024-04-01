@@ -2,13 +2,10 @@
 
 namespace Scripts.Architecture.Services
 {
-    public interface ICardsPricesDataService : IService
+    public interface ICardsPricesDataService : IService, IDataService
     {
         CardsPricesProgress CardsPricesProgress { get; }
 
-        void LoadData();
         void ResetData();
-        void SaveData();
-        void UpdateData();
     }
 }

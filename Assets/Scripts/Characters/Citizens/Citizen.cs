@@ -1,4 +1,6 @@
 using Scripts.Architecture.Services;
+using Scripts.Audio;
+using Scripts.Constants;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -8,11 +10,8 @@ namespace Scripts.Characters.Citizens
     [RequireComponent(typeof(Animator))]
     public class Citizen : MonoBehaviour
     {
-        private readonly int _coefficientOfChangingSpeed = 2;
-        private readonly int _minimumHealth = 0;
-
         [SerializeField] private int _damage;
-        [SerializeField] private AudioSource _audioSource;
+        [SerializeField] private ShortEffectAudio _shortEffectAudio;
 
         public SpawnPoint SpawnPoint;
         public CitizenTypeId TypeId;
@@ -24,6 +23,7 @@ namespace Scripts.Characters.Citizens
 
         public event Action<int> HealthChanged;
         public event Action<Citizen> Died;
+
         [field: SerializeField] public float Health { get; private set; }
 
         private void Start()
@@ -36,8 +36,8 @@ namespace Scripts.Characters.Citizens
 
         public void AddSpeed()
         {
-            _speed /= _coefficientOfChangingSpeed;
-            _animator.speed *= _coefficientOfChangingSpeed;
+            _speed /= CitizenConstants.CoefficientOfChangingSpeed;
+            _animator.speed *= CitizenConstants.CoefficientOfChangingSpeed;
         }
 
         public void TakeDamage(int damage)
@@ -51,10 +51,10 @@ namespace Scripts.Characters.Citizens
 
         private IEnumerator ApplyDamage()
         {
-            while (!_isDead && _zombieHealthService.Health > Constants.ZombieMinimumHealth)
+            while (!_isDead && _zombieHealthService.Health > ZombieConstants.ZombieMinimumHealth)
             {
-                _audioSource.PlayOneShot(_audioSource.clip);
-                _animator.SetTrigger(Constants.Hit);
+                _shortEffectAudio.PlayOneShot();
+                _animator.SetTrigger(CitizenConstants.Hit);
                 _zombieHealthService.ChangeHealth(_damage);
 
                 yield return new WaitForSeconds(_speed);
@@ -63,7 +63,7 @@ namespace Scripts.Characters.Citizens
 
         private void CheckDeath()
         {
-            if (Health <= _minimumHealth)
+            if (Health <= CitizenConstants.MinimumHealth)
             {
                 Died?.Invoke(this);
 
@@ -73,9 +73,9 @@ namespace Scripts.Characters.Citizens
 
         private IEnumerator Die()
         {
-            _animator.Play(Constants.Die);
+            _animator.Play(CitizenConstants.Die);
 
-            yield return new WaitForSeconds(1.9f);
+            yield return new WaitForSeconds(CitizenConstants.DieAnimationTime);
 
             _isDead = true;
             Destroy(gameObject);

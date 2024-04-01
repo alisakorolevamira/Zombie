@@ -1,3 +1,4 @@
+using Scripts.Constants;
 using Scripts.Progress;
 using System;
 
@@ -13,7 +14,7 @@ namespace Scripts.Architecture.Services
 
         public void AddScore(int value)
         {
-            if (value < Constants.MinimumScore)
+            if (value < PlayerConstants.MinimumScore)
                 return;
 
             Score += value;

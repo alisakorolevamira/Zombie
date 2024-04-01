@@ -1,21 +1,14 @@
 using Scripts.Characters.Citizens;
+using Scripts.Constants;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Scripts.UI
 {
     public class CitizenDamageCanvas : MonoBehaviour
     {
-        private readonly float _textFadeDuration = 3f;
-        private readonly int _visibleAlfaIndex = 1;
-        private readonly int _invisibleAlfaIndex = 0;
-        private readonly float _lerpStep = 0.15f;
-        private readonly float _coefficientForHealth = 100f;
-
         [SerializeField] private Citizen _citizen;
         [SerializeField] private TMP_Text _text;
-        [SerializeField] private Image _image;
         [SerializeField] private Color _greenColor;
 
         private float _lerpIndex = 0;
@@ -34,18 +27,16 @@ namespace Scripts.UI
         {
             ChangeTextColor();
 
-            _text.canvasRenderer.SetAlpha(_visibleAlfaIndex);
+            _text.canvasRenderer.SetAlpha(UIConstants.VisibleAlfaIndex);
             _text.text = damage.ToString();
-            _text.CrossFadeAlpha(_invisibleAlfaIndex, _textFadeDuration, false);
-            _image.fillAmount = _citizen.Health / _coefficientForHealth;
+            _text.CrossFadeAlpha(UIConstants.InvisibleAlfaIndex, UIConstants.TextFadeDuration, false);
         }
 
         private void ChangeTextColor()
         {
-            _lerpIndex += _lerpStep;
+            _lerpIndex += UIConstants.LerpStep;
 
             _text.color = Color.Lerp(_greenColor, Color.red, _lerpIndex);
-            _image.color = Color.Lerp(_greenColor, Color.red, _lerpIndex);
         }
     }
 }

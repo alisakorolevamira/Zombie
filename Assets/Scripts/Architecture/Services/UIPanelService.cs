@@ -1,5 +1,6 @@
 using Scripts.Architecture.Factory;
 using Scripts.Architecture.States;
+using Scripts.Constants;
 using Scripts.UI.Panels;
 
 namespace Scripts.Architecture.Services
@@ -9,6 +10,7 @@ namespace Scripts.Architecture.Services
         private readonly IGameFactory _gameFactory;
 
         private LevelPanel _levelPanel;
+        private MenuPanel _menuPanel;
 
         public UIPanelService(GameStateMachine stateMachine, IGameFactory gameFactory)
         {
@@ -28,17 +30,24 @@ namespace Scripts.Architecture.Services
 
         public void CreateCanvas(string sceneName)
         {
-            if (sceneName == Constants.Menu)
+            if (sceneName == LevelConstants.Menu)
+            {
                 _levelPanel.Close();
+                _menuPanel.Open();
+            }
 
             else
+            {
+                _menuPanel.Close();
                 _levelPanel.Open();
+            }
         }
 
         public void Initialize()
         {
-            LoadingPanel = _gameFactory.SpawnObject(Constants.LoadingPanelPath).GetComponent<LoadingPanel>();
-            _levelPanel = _gameFactory.SpawnObject(Constants.LevelCanvasPath).GetComponent<LevelPanel>();
+            LoadingPanel = _gameFactory.SpawnObject(UIConstants.LoadingPanelPath).GetComponent<LoadingPanel>();
+            _levelPanel = _gameFactory.SpawnObject(UIConstants.LevelCanvasPath).GetComponent<LevelPanel>();
+            _menuPanel = _gameFactory.SpawnObject(UIConstants.MenuCanvasPath).GetComponent<MenuPanel>();
 
             LoadingPanel.Open();
             _levelPanel.Close();

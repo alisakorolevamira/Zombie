@@ -1,4 +1,5 @@
 ﻿using Scripts.Architecture.Services;
+using Scripts.Constants;
 using System;
 
 namespace Scripts.Architecture.States
@@ -28,7 +29,7 @@ namespace Scripts.Architecture.States
         {
             _panelService.LoadingPanel.Open();
 
-            if (sceneName != Constants.Menu && sceneName != Constants.Initial)
+            if (sceneName != LevelConstants.Menu && sceneName != LevelConstants.Initial)
                 _sceneLoaded += SpawnersOnLoaded;
 
             _sceneLoaded += OnLoaded;

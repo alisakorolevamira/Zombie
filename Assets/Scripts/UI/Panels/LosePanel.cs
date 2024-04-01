@@ -1,5 +1,6 @@
-using Agava.YandexGames;
 using Scripts.Architecture.Services;
+using Scripts.Audio;
+using Scripts.Constants;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -8,19 +9,15 @@ namespace Scripts.UI.Panels
 {
     public class LosePanel : Panel
     {
-        private readonly bool _isGameStopped = false;
-
         [SerializeField] private Button _restartButton;
         [SerializeField] private Button _menuButton;
-        [SerializeField] private AudioSource _audioSource;
         [SerializeField] private LevelPanel _levelPanel;
         [SerializeField] private WinPanel _winPanel;
         [SerializeField] private Button[] _otherButtons;
+        [SerializeField] private ShortEffectAudio _shortEffectAudio;
 
         private bool _isOpened;
         private ICombatService _combatService;
-        private IFocusService _focusService;
-        private IAudioService _audioService;
 
         private void OnDisable()
         {
@@ -32,8 +29,6 @@ namespace Scripts.UI.Panels
         private void Start()
         {
             _combatService = AllServices.Container.Single<ICombatService>();
-            _focusService = AllServices.Container.Single<IFocusService>();
-            _audioService = AllServices.Container.Single<IAudioService>();
 
             _combatService.AllCitizensDied += Open;
             _restartButton.onClick.AddListener(OnRestartLevelButtonClick);
@@ -48,7 +43,7 @@ namespace Scripts.UI.Panels
             {
                 base.Open();
 
-                _audioSource.PlayOneShot(_audioSource.clip);
+                _shortEffectAudio.PlayOneShot();
                 _winPanel.Close();
 
                 foreach (var button in _otherButtons)
@@ -71,34 +66,13 @@ namespace Scripts.UI.Panels
         private void OnRestartLevelButtonClick()
         {
             Close();
-
-            InterstitialAd.Show(OnOpenCallBack, OnCloseCallBack);
             _levelPanel.OpenNextSceneWithResetingProgress(SceneManager.GetActiveScene().name);
         }
 
         private void OnMenuButtonClick()
         {
             Close();
-
-            InterstitialAd.Show(OnOpenCallBack, OnCloseCallBack);
-            _levelPanel.OpenNextScene(Constants.Menu);
-        }
-
-        private void OnOpenCallBack()
-        {
-            _focusService.IsGameStopped = true;
-            _focusService.PauseGame(_isGameStopped);
-            _audioService.MuteAudio(_isGameStopped);
-        }
-
-        private void OnCloseCallBack(bool closed)
-        {
-            if (closed)
-            {
-                _focusService.IsGameStopped = false;
-                _focusService.PauseGame(!_isGameStopped);
-                _audioService.MuteAudio(!_isGameStopped);
-            }
+            _levelPanel.OpenNextScene(LevelConstants.Menu);
         }
     }
 }

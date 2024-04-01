@@ -1,4 +1,3 @@
-using Scripts.Architecture.Services;
 namespace Scripts.Progress
 {
     public class ZombieProgress

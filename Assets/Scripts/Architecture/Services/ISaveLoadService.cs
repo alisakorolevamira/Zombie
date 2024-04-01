@@ -4,6 +4,7 @@ namespace Scripts.Architecture.Services
     {
         void LoadProgress();
         void SaveProgress();
-        void ResetProgress();
+        void ResetAllProgress();
+        void ResetProgressForNextLevel(string sceneName);
     }
 }

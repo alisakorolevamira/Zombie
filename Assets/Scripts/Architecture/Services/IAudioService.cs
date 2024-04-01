@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 namespace Scripts.Architecture.Services
 {
@@ -6,7 +7,7 @@ namespace Scripts.Architecture.Services
     {
         event Action VolumeChanged;
 
-        bool IsMuted { get; }
+        AudioSource AudioSource { get; }
 
         void ChangeVolume(bool value);
         void MuteAudio(bool value);

@@ -1,3 +1,4 @@
+using Scripts.Constants;
 using System;
 using UnityEngine;
 
@@ -6,28 +7,30 @@ namespace Scripts.Architecture.Services
     public class AudioService : IAudioService
     {
         public event Action VolumeChanged;
-        public bool IsMuted { get; private set; }
 
-        public AudioService()
+        public AudioService(AudioSource audioSource)
         {
-            IsMuted = false;
+            AudioSource = audioSource;
+            AudioSource.mute = false;
         }
+
+        public AudioSource AudioSource { get; private set; }
 
         public void ChangeVolume(bool value)
         {
-            AudioListener.volume = value ? Constants.MaximumVolumeValue : Constants.MinimumVolumeValue;
-            IsMuted = !value;
+            AudioSource.volume = value ? GameFocusAndAudioConstants.MaximumVolumeValue : GameFocusAndAudioConstants.MinimumVolumeValue;
+            AudioSource.mute = !value;
 
             VolumeChanged?.Invoke();
         }
 
         public void MuteAudio(bool value)
         {
-            if (IsMuted)
+            if (AudioSource.mute)
                 return;
 
             else
-                AudioListener.volume = value ? Constants.MaximumVolumeValue : Constants.MinimumVolumeValue;
+                AudioSource.volume = value ? GameFocusAndAudioConstants.MaximumVolumeValue : GameFocusAndAudioConstants.MinimumVolumeValue;
         }
     }
 }

@@ -1,4 +1,5 @@
 using Scripts.Architecture.Services;
+using Scripts.Constants;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,8 +9,6 @@ namespace Scripts.UI
 
     public class ZombieHealthBar : MonoBehaviour
     {
-        private readonly int _maximumSliderValue = 1;
-
         [SerializeField] private Slider _slider;
 
         private IZombieHealthService _zombieHealthService;
@@ -22,14 +21,14 @@ namespace Scripts.UI
         private void Start()
         {
             _zombieHealthService = AllServices.Container.Single<IZombieHealthService>();
-            _slider.value = _maximumSliderValue;
+            _slider.value = UIConstants.MaximumSliderValue;
 
             _zombieHealthService.HealthChanged += OnHealthChanged;
         }
 
-        private void OnHealthChanged(int value, int maximumValue)
+        private void OnHealthChanged(int value)
         {
-            _slider.value = (float)value / maximumValue;
+            _slider.value = (float)value / ZombieConstants.ZombieMaximumHealth;
         }
     }
 }

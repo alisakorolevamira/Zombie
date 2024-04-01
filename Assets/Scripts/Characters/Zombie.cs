@@ -1,4 +1,5 @@
 using Scripts.Architecture.Services;
+using Scripts.Constants;
 using System.Collections;
 using UnityEngine;
 
@@ -7,8 +8,6 @@ namespace Scripts.Characters
     [RequireComponent(typeof(Animator))]
     public class Zombie : MonoBehaviour
     {
-        private readonly int _waitingTime = 4;
-
         [SerializeField] private int _damage;
         [SerializeField] private ParticleSystem _deathEffect;
         [SerializeField] private ParticleSystem _bloodEffect;
@@ -42,16 +41,17 @@ namespace Scripts.Characters
 
         private IEnumerator ApplyDamage()
         {
-            yield return new WaitForSeconds(_waitingTime);
-
             while (!IsDead)
             {
-                if (_combatService.CitizenCount != Constants.MinimumNumberOfCitizens)
+                if (_combatService.CitizenCount != CitizenConstants.MinimumNumberOfCitizens)
                 {
-                    _animator.SetTrigger(Constants.Hit);
+                    _animator.SetTrigger(ZombieConstants.Hit);
+
+                    yield return new WaitForSeconds(ZombieConstants.AnimationTime);
+
                     _combatService.ApplyDamage(_damage);
 
-                    yield return new WaitForSeconds(_waitingTime);
+                    yield return new WaitForSeconds(ZombieConstants.DamageWaitingTime);
                 }
 
                 else

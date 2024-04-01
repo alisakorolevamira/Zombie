@@ -1,4 +1,5 @@
 using Scripts.Architecture.Services;
+using Scripts.Constants;
 using Scripts.Progress;
 using UnityEngine;
 
@@ -6,9 +7,6 @@ namespace Scripts.Architecture
 {
     public class Level
     {
-        private const int ZeroStarAmount = 0;
-        private const string False = "false";
-
         private readonly int _mediumScore;
         private readonly int _highScore;
         private readonly ILevelService _levelService;
@@ -37,23 +35,23 @@ namespace Scripts.Architecture
         {
             AmountOfStars = levelProgress.Stars;
             
-            if(levelProgress.IsAvailable.ToLower() == False)
+            if(levelProgress.IsAvailable.ToLower() == LevelConstants.DefaultAvailability)
                 IsAvailable = false;
 
             else
                 IsAvailable = true;
 
-            if (Id == 1)
+            if (Id == LevelConstants.FirstLevelId)
                 IsAvailable = true;
 
-            if (AmountOfStars > ZeroStarAmount)
+            if (AmountOfStars > StarsConstants.DefaultAmountOfStars)
                 IsComplited = true;
         }
 
         public void ResetProgress()
         {
             IsComplited = false;
-            AmountOfStars = ZeroStarAmount;
+            AmountOfStars = StarsConstants.DefaultAmountOfStars;
 
             AddListener();
         }

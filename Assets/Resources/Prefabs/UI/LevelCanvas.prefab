@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 2691702378398926170}
   - component: {fileID: 330330658094082083}
   - component: {fileID: 5620312413715886252}
+  - component: {fileID: 6725691377473085132}
   m_Layer: 5
   m_Name: NextLevelButton
   m_TagString: Untagged
@@ -196,6 +197,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6725691377473085132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 213495523906843848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aa863d146fac99448ed48da9ca71915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 5620312413715886252}
 --- !u!1 &343862870598847017
 GameObject:
   m_ObjectHideFlags: 0
@@ -654,6 +668,7 @@ GameObject:
   - component: {fileID: 2758752867991920938}
   - component: {fileID: 5609848703753480482}
   - component: {fileID: 1204343485924308424}
+  - component: {fileID: 7566785279047822789}
   m_Layer: 5
   m_Name: BackToMenuButton
   m_TagString: Untagged
@@ -763,6 +778,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7566785279047822789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957162729688583531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aa863d146fac99448ed48da9ca71915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 1204343485924308424}
 --- !u!1 &1081959704468641833
 GameObject:
   m_ObjectHideFlags: 0
@@ -1046,6 +1074,7 @@ GameObject:
   - component: {fileID: 4442437168575930947}
   - component: {fileID: 165462512722730405}
   - component: {fileID: 6844737261170090528}
+  - component: {fileID: 6387171759634157436}
   m_Layer: 5
   m_Name: MenuButton
   m_TagString: Untagged
@@ -1155,6 +1184,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6387171759634157436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596861275593211665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aa863d146fac99448ed48da9ca71915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 6844737261170090528}
 --- !u!1 &1837957519857287325
 GameObject:
   m_ObjectHideFlags: 0
@@ -2855,6 +2897,7 @@ GameObject:
   - component: {fileID: 7757002575696012988}
   - component: {fileID: 8323478925302723746}
   - component: {fileID: 5054477252180656505}
+  - component: {fileID: 8793790689213908116}
   m_Layer: 5
   m_Name: DoubleRewardCard
   m_TagString: Untagged
@@ -2997,7 +3040,20 @@ MonoBehaviour:
   - {fileID: 8323478925302723746}
   _priceText: {fileID: 5846646390875005567}
   _button: {fileID: 8323478925302723746}
-  _audioSource: {fileID: 3609901176805702567}
+  _shortEffectAudio: {fileID: 8793790689213908116}
+--- !u!114 &8793790689213908116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3577686385618612460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e5ed88d0e552d74bbd1a8a4deae3bd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: ef7e6115c48aac946ac15c952f99feff, type: 3}
 --- !u!1 &3591397665441550729
 GameObject:
   m_ObjectHideFlags: 0
@@ -3012,6 +3068,7 @@ GameObject:
   - component: {fileID: 4750786205168506366}
   - component: {fileID: 5019534998822401580}
   - component: {fileID: 3340125276519147758}
+  - component: {fileID: 5367785229170461959}
   m_Layer: 5
   m_Name: LevelCanvas
   m_TagString: Untagged
@@ -3144,6 +3201,20 @@ MonoBehaviour:
   - {fileID: 4441712440531061957}
   - {fileID: 5054477252180656505}
   - {fileID: 6406247230592415628}
+  _backgroundAudio: {fileID: 5367785229170461959}
+--- !u!114 &5367785229170461959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3591397665441550729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6116a06fcb771084b8b068dda7448c2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: ef832215e8927e54aa536eb1889e6437, type: 3}
 --- !u!1 &3917517087175780960
 GameObject:
   m_ObjectHideFlags: 0
@@ -3762,7 +3833,7 @@ GameObject:
   - component: {fileID: 6946133204490835070}
   - component: {fileID: 1153776380323092104}
   - component: {fileID: 1096378997304111199}
-  - component: {fileID: 3010070241615067593}
+  - component: {fileID: 3100678081202695292}
   m_Layer: 5
   m_Name: LosePanel
   m_TagString: Untagged
@@ -3861,7 +3932,6 @@ MonoBehaviour:
   - {fileID: 8284341875937332404}
   _restartButton: {fileID: 8284341875937332404}
   _menuButton: {fileID: 8532450244858114530}
-  _audioSource: {fileID: 3010070241615067593}
   _levelPanel: {fileID: 3340125276519147758}
   _winPanel: {fileID: 2318214057921002281}
   _otherButtons:
@@ -3871,102 +3941,20 @@ MonoBehaviour:
   - {fileID: 5256386755519565023}
   - {fileID: 6920209928992096873}
   - {fileID: 8323478925302723746}
---- !u!82 &3010070241615067593
-AudioSource:
+  _shortEffectAudio: {fileID: 3100678081202695292}
+--- !u!114 &3100678081202695292
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5273618867192931356}
   m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d2f75c52f87f7b44b8de613a5a50137a, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e5ed88d0e552d74bbd1a8a4deae3bd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: d2f75c52f87f7b44b8de613a5a50137a, type: 3}
 --- !u!1 &5351285434268707412
 GameObject:
   m_ObjectHideFlags: 0
@@ -4130,6 +4118,7 @@ GameObject:
   - component: {fileID: 8784857204916524545}
   - component: {fileID: 5256386755519565023}
   - component: {fileID: 4441712440531061957}
+  - component: {fileID: 396288188891143644}
   m_Layer: 5
   m_Name: AddSpeedCard
   m_TagString: Untagged
@@ -4272,7 +4261,20 @@ MonoBehaviour:
   - {fileID: 5256386755519565023}
   _priceText: {fileID: 2395073424674547535}
   _button: {fileID: 5256386755519565023}
-  _audioSource: {fileID: 3609901176805702567}
+  _shortEffectAudio: {fileID: 396288188891143644}
+--- !u!114 &396288188891143644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5536263279409645921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e5ed88d0e552d74bbd1a8a4deae3bd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: ef7e6115c48aac946ac15c952f99feff, type: 3}
 --- !u!1 &5564245949652221840
 GameObject:
   m_ObjectHideFlags: 0
@@ -5330,6 +5332,7 @@ GameObject:
   - component: {fileID: 5475334694501212233}
   - component: {fileID: 8272045443127262946}
   - component: {fileID: 8284341875937332404}
+  - component: {fileID: 1091875945259428112}
   m_Layer: 5
   m_Name: RestartButton
   m_TagString: Untagged
@@ -5439,6 +5442,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1091875945259428112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6964092217668256879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aa863d146fac99448ed48da9ca71915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 8284341875937332404}
 --- !u!1 &6966284632711217893
 GameObject:
   m_ObjectHideFlags: 0
@@ -5453,6 +5469,7 @@ GameObject:
   - component: {fileID: 3064097398636535695}
   - component: {fileID: 7471133614004080822}
   - component: {fileID: 2941666932449297743}
+  - component: {fileID: 6525738448147694924}
   m_Layer: 5
   m_Name: AddCitizenCard
   m_TagString: Untagged
@@ -5595,7 +5612,20 @@ MonoBehaviour:
   - {fileID: 7471133614004080822}
   _priceText: {fileID: 6254065423942446306}
   _button: {fileID: 7471133614004080822}
-  _audioSource: {fileID: 3609901176805702567}
+  _shortEffectAudio: {fileID: 6525738448147694924}
+--- !u!114 &6525738448147694924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6966284632711217893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e5ed88d0e552d74bbd1a8a4deae3bd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: ef7e6115c48aac946ac15c952f99feff, type: 3}
 --- !u!1 &7170114824753773695
 GameObject:
   m_ObjectHideFlags: 0
@@ -5685,6 +5715,7 @@ GameObject:
   - component: {fileID: 4854006770400279670}
   - component: {fileID: 6920209928992096873}
   - component: {fileID: 6406247230592415628}
+  - component: {fileID: 8802552788358333769}
   m_Layer: 5
   m_Name: MergdeCard
   m_TagString: Untagged
@@ -5827,7 +5858,20 @@ MonoBehaviour:
   - {fileID: 6920209928992096873}
   _priceText: {fileID: 7385172904712191841}
   _button: {fileID: 6920209928992096873}
-  _audioSource: {fileID: 3609901176805702567}
+  _shortEffectAudio: {fileID: 8802552788358333769}
+--- !u!114 &8802552788358333769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7227401227610715570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e5ed88d0e552d74bbd1a8a4deae3bd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: ef7e6115c48aac946ac15c952f99feff, type: 3}
 --- !u!1 &7499448076533385119
 GameObject:
   m_ObjectHideFlags: 0
@@ -5840,9 +5884,9 @@ GameObject:
   - component: {fileID: 1508370866431790322}
   - component: {fileID: 984330096988059157}
   - component: {fileID: 7945709269030999517}
-  - component: {fileID: 8294881921992824171}
   - component: {fileID: 2318214057921002281}
   - component: {fileID: 1260571397059242484}
+  - component: {fileID: 190947912489413684}
   m_Layer: 5
   m_Name: WinPanel
   m_TagString: Untagged
@@ -5923,102 +5967,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!82 &8294881921992824171
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7499448076533385119}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 599030bbb6e02c446a030748473f2c53, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!114 &2318214057921002281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6039,7 +5987,6 @@ MonoBehaviour:
   _levelButton: {fileID: 5620312413715886252}
   _menuButton: {fileID: 6844737261170090528}
   _levelPanel: {fileID: 3340125276519147758}
-  _audioSource: {fileID: 8294881921992824171}
   _losePanel: {fileID: 1096378997304111199}
   _otherButtons:
   - {fileID: 7801246189042524563}
@@ -6049,6 +5996,7 @@ MonoBehaviour:
   - {fileID: 8323478925302723746}
   - {fileID: 6920209928992096873}
   _starsView: {fileID: 1260571397059242484}
+  _shortEffectAudio: {fileID: 190947912489413684}
 --- !u!114 &1260571397059242484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6063,6 +6011,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _container: {fileID: 5588630400229187554}
   _starPrefab: {fileID: 7010886721533956937, guid: 4e33fb2860c4b1c43ac18dd51bc3c104, type: 3}
+--- !u!114 &190947912489413684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7499448076533385119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e5ed88d0e552d74bbd1a8a4deae3bd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: 599030bbb6e02c446a030748473f2c53, type: 3}
 --- !u!1 &7631607721410743425
 GameObject:
   m_ObjectHideFlags: 0
@@ -6075,6 +6036,7 @@ GameObject:
   - component: {fileID: 4128313912109809869}
   - component: {fileID: 6387151069410099466}
   - component: {fileID: 8532450244858114530}
+  - component: {fileID: 4856041911305687804}
   m_Layer: 5
   m_Name: MenuButton
   m_TagString: Untagged
@@ -6184,6 +6146,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4856041911305687804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7631607721410743425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aa863d146fac99448ed48da9ca71915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 8532450244858114530}
 --- !u!1 &7789944452773096757
 GameObject:
   m_ObjectHideFlags: 0

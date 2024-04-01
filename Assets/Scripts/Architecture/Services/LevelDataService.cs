@@ -1,3 +1,4 @@
+using Scripts.Constants;
 using Scripts.Progress;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,9 +7,8 @@ namespace Scripts.Architecture.Services
 {
     public class LevelDataService : ILevelDataService
     {
-        private readonly ILevelService _levelService;
-        private readonly string _key = "LevelProgress";
         private readonly List<LevelProgress> _levelProgresses = new();
+        private readonly ILevelService _levelService;
 
         private string _file;
 
@@ -23,7 +23,7 @@ namespace Scripts.Architecture.Services
 
             foreach (Level level in _levelService.Levels)
             {
-                string key = _key + level.Id;
+                string key = LevelConstants.Key + level.Id;
                 _file = PlayerPrefs.GetString(key, string.Empty);
 
                 LevelProgress progress = new();
@@ -46,7 +46,7 @@ namespace Scripts.Architecture.Services
         {
             foreach (LevelProgress progress in _levelProgresses)
             {
-                string key = _key + progress.Id;
+                string key = LevelConstants.Key + progress.Id;
                 PlayerPrefs.DeleteKey(key);
 
                 SetNewData(progress);
@@ -59,7 +59,7 @@ namespace Scripts.Architecture.Services
         {
             foreach (LevelProgress progress in _levelProgresses)
             {
-                string key = _key + progress.Id;
+                string key = LevelConstants.Key + progress.Id;
                 _file = JsonUtility.ToJson(progress);
                 PlayerPrefs.SetString(key, _file);
             }
@@ -79,8 +79,8 @@ namespace Scripts.Architecture.Services
 
         private void SetNewData(LevelProgress progress)
         {
-            progress.Stars = Constants.DefaultAmountOfStars;
-            progress.IsAvailable = Constants.DefaultAvailability;
+            progress.Stars = StarsConstants.DefaultAmountOfStars;
+            progress.IsAvailable = LevelConstants.DefaultAvailability;
         }
     }
 }

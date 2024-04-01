@@ -1,5 +1,6 @@
 using DG.Tweening;
 using Scripts.Architecture.Services;
+using Scripts.Constants;
 using Scripts.Spawner;
 using System;
 using UnityEngine;
@@ -38,7 +39,7 @@ namespace Scripts.UI.Cards
                 foreach (var sitizen in _citizenSpawner.Citizens)
                     sitizen.AddSpeed();
 
-                Price *= _coefficientOfInceasing;
+                Price *= CardsConstants.CoefficientOfInceasingPrice;
                 _priceText.text = Price.ToString();
 
                 base.OnButtonClicked();
@@ -48,7 +49,7 @@ namespace Scripts.UI.Cards
         private protected override void ChangeColor()
         {
             if (_playerMoneyService.Money >= Price)
-                _image.DOColor(Color.green, _timeOfChangingColor);
+                _image.DOColor(Color.green, CardsConstants.TimeOfChangingColor);
 
             else
                 base.ChangeColor();

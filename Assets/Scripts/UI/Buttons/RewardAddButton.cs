@@ -1,5 +1,6 @@
 using Agava.YandexGames;
 using Scripts.Architecture.Services;
+using Scripts.Constants;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,8 +8,6 @@ namespace Scripts.UI.Buttons
 {
     public class RewardAddButton : MonoBehaviour
     {
-        private readonly bool _isGameStopped = false;
-
         [SerializeField] private Button _rewardButton;
 
         private IPlayerMoneyService _playerMoneyService;
@@ -32,30 +31,24 @@ namespace Scripts.UI.Buttons
             _audioService = AllServices.Container.Single<IAudioService>();
         }
 
-        private void OnRewardButtonClick()
-        {
-            VideoAd.Show(OnOpenCallBack, OnRewardCallBack, OnCloseCallBack);
-        }
+        private void OnRewardButtonClick() => VideoAd.Show(OnOpenCallBack, OnRewardCallBack, OnCloseCallBack);
+
+        private void OnRewardCallBack() => _playerMoneyService.AddMoney(AddConstants.AddMoneyReward);
 
         private void OnOpenCallBack()
         {
             _focusService.IsGameStopped = true;
 
-            _focusService.PauseGame(_isGameStopped);
-            _audioService.MuteAudio(_isGameStopped);
+            _focusService.PauseGame(AddConstants.GameStopped);
+            _audioService.MuteAudio(AddConstants.GameStopped);
         }
 
         private void OnCloseCallBack()
         {
             _focusService.IsGameStopped = false;
 
-            _focusService.PauseGame(!_isGameStopped);
-            _audioService.MuteAudio(!_isGameStopped);
-        }
-
-        private void OnRewardCallBack()
-        {
-            _playerMoneyService.AddMoney(Constants.AddMoneyReward);
+            _focusService.PauseGame(AddConstants.GameOn);
+            _audioService.MuteAudio(AddConstants.GameOn);
         }
     }
 }

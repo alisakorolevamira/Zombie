@@ -1,6 +1,7 @@
 using DG.Tweening;
 using Scripts.Architecture.Services;
 using Scripts.Characters.Citizens;
+using Scripts.Constants;
 using Scripts.Spawner;
 using System;
 using System.Collections.Generic;
@@ -10,8 +11,6 @@ namespace Scripts.UI.Cards
 {
     public class MergeCard : Card
     {
-        private readonly int _requiredNumberOfCitizens = 2;
-
         private ISpawnerService _spawnerService;
         private CitizenSpawner _citizenSpawner;
 
@@ -40,12 +39,12 @@ namespace Scripts.UI.Cards
 
         private protected override void OnButtonClicked()
         {
-            if (_playerMoneyService.Money >= Price && _citizenSpawner.Citizens.Count >= _requiredNumberOfCitizens)
+            if (_playerMoneyService.Money >= Price && _citizenSpawner.Citizens.Count >= CardsConstants.RequiredNumberOfCitizensForMerge)
             {
                 OnClicked?.Invoke();
                 CardBought?.Invoke(Price);
 
-                Price *= _coefficientOfInceasing;
+                Price *= CardsConstants.CoefficientOfInceasingPrice;
                 _priceText.text = Price.ToString();
 
                 base.OnButtonClicked();
@@ -56,8 +55,8 @@ namespace Scripts.UI.Cards
         {
             List<Citizen> firstLevelCitizens = _citizenSpawner.Citizens.FindAll(p => p.GetComponent<Citizen>().TypeId == CitizenTypeId.FirstCitizen);
 
-            if (_playerMoneyService.Money >= Price && firstLevelCitizens.Count >= _requiredNumberOfCitizens)
-                _image.DOColor(Color.green, _timeOfChangingColor);
+            if (_playerMoneyService.Money >= Price && firstLevelCitizens.Count >= CardsConstants.RequiredNumberOfCitizensForMerge)
+                _image.DOColor(Color.green, CardsConstants.TimeOfChangingColor);
 
             else
                 base.ChangeColor();

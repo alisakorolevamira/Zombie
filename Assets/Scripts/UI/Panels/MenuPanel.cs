@@ -1,33 +1,42 @@
 using Scripts.Architecture.Services;
 using Scripts.Architecture.States;
+using Scripts.Audio;
+using System;
+using UnityEngine;
 
 namespace Scripts.UI.Panels
 {
     public class MenuPanel : Panel
-    {       
+    {
+        [SerializeField] private BackgroundAudio _backgroundAudio;
+
         private GameStateMachine _gameStateMachine;
-        private IPlayerDataService _playerDataService;
         private IUIPanelService _panelService;
-        private ISaveLoadService _saveLoadService;
 
-        private void Start()
+        public event Action Opened;
+
+        private void Awake()
         {
-            _playerDataService = AllServices.Container.Single<IPlayerDataService>();
+            DontDestroyOnLoad(gameObject);
+        }
+
+        public override void Open()
+        {
+            base.Open();
+
             _panelService = AllServices.Container.Single<IUIPanelService>();
-            _saveLoadService = AllServices.Container.Single<ISaveLoadService>();
+
             _gameStateMachine = _panelService.StateMachine;
+            _backgroundAudio.PlayAudio();
+            Opened?.Invoke();
         }
 
-        public void OpenAnyLevel(string sceneName)
+        public override void Close()
         {
-            _saveLoadService.ResetProgress();
-
-            _gameStateMachine.Enter<LoadProgressState, string>(sceneName);
+            base.Close();
+            _backgroundAudio.StopAudio();
         }
 
-        public void OpenProgressLevel()
-        {
-            _gameStateMachine.Enter<LoadProgressState, string>(_playerDataService.PlayerProgress.Level);
-        }
+        public void OpenLevel(string levelName) => _gameStateMachine.Enter<LoadProgressState, string>(levelName);
     }
 }

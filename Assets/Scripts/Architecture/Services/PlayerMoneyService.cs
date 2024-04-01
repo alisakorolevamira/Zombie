@@ -1,3 +1,4 @@
+using Scripts.Constants;
 using Scripts.Progress;
 using System;
 
@@ -18,7 +19,7 @@ namespace Scripts.Architecture.Services
 
         public void AddMoney(int value)
         {
-            if (value < Constants.MinimumMoney)
+            if (value < PlayerConstants.MinimumMoney)
                 return;
 
             Money += value;

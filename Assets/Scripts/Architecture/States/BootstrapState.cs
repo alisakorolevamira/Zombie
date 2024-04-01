@@ -1,5 +1,7 @@
 using Scripts.Architecture.Services;
 using Scripts.Architecture.Factory;
+using UnityEngine;
+using Scripts.Constants;
 
 namespace Scripts.Architecture.States
 {
@@ -8,12 +10,14 @@ namespace Scripts.Architecture.States
         private readonly GameStateMachine _gameStateMachine;
         private readonly SceneLoader _sceneLoader;
         private readonly AllServices _services;
+        private readonly AudioSource _audioSource;
 
-        public BootstrapState(GameStateMachine gameStateMachine, SceneLoader sceneLoader, AllServices services)
+        public BootstrapState(GameStateMachine gameStateMachine, SceneLoader sceneLoader, AllServices services, AudioSource audioSource)
         {
             _gameStateMachine = gameStateMachine;
             _sceneLoader = sceneLoader;
             _services = services;
+            _audioSource = audioSource;
 
             RegisterService();
         }
@@ -37,7 +41,7 @@ namespace Scripts.Architecture.States
             await sdkInitializeService.StartCoroutineAsUniTask();
             localizationService.Initialize();
 
-            _sceneLoader.Load(Constants.Initial, EnterLoadLevel);
+            _sceneLoader.Load(LevelConstants.Initial, EnterLoadLevel);
         }
 
 
@@ -47,7 +51,7 @@ namespace Scripts.Architecture.States
         {
             _services.RegisterSingle<ISDKInitializeService>(new SDKInitializeService());
             _services.RegisterSingle<IGameFactory>(new GameFactory());
-            _services.RegisterSingle<IAudioService>(new AudioService());
+            _services.RegisterSingle<IAudioService>(new AudioService(_audioSource));
             _services.RegisterSingle<ILevelService>(new LevelService());
             _services.RegisterSingle<IPlayerMoneyService>(new PlayerMoneyService());
             _services.RegisterSingle<IPlayerScoreService>(new PlayerScoreService());
@@ -67,12 +71,12 @@ namespace Scripts.Architecture.States
             _services.RegisterSingle<ISpawnerService>(new SpawnerService(_services.Single<IGameFactory>()));
             _services.RegisterSingle<IFocusService>(new FocusService(_services.Single<IAudioService>()));
             _services.RegisterSingle<IStarCountService>(new StarCountService(_services.Single<IPlayerScoreService>()));
-            _services.RegisterSingle<ICombatService>(new CombatService(_services.Single<ISpawnerService>()));
+            _services.RegisterSingle<ICombatService>(new CombatService(_services.Single<ISpawnerService>(), _services.Single<IZombieHealthService>()));
         }
 
         private void EnterLoadLevel()
         {
-            _gameStateMachine.Enter<LoadProgressState, string>(Constants.Menu);
+            _gameStateMachine.Enter<LoadProgressState, string>(LevelConstants.Menu);
         }
     }
 }

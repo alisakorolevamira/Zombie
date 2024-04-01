@@ -1,3 +1,4 @@
+using Scripts.Constants;
 using Scripts.Progress;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,7 +9,6 @@ namespace Scripts.Architecture.Services
     {
         private readonly IPlayerMoneyService _playerMoneyService;
         private readonly IPlayerScoreService _playerScoreService;
-        private readonly string _key = "PlayerProgress";
 
         private string _file;
 
@@ -22,10 +22,10 @@ namespace Scripts.Architecture.Services
 
         public void LoadData()
         {
-            _file = PlayerPrefs.GetString(_key, string.Empty);
+            _file = PlayerPrefs.GetString(PlayerConstants.Key, string.Empty);
 
             if (_file == string.Empty)
-                SetNewData(Constants.Menu);
+                SetNewData(LevelConstants.Menu);
 
             else
                 PlayerProgress = JsonUtility.FromJson<PlayerProgress>(_file);
@@ -36,20 +36,15 @@ namespace Scripts.Architecture.Services
 
         public void ResetData(string levelName)
         {
-            PlayerPrefs.DeleteKey(_key);
+            PlayerPrefs.DeleteKey(PlayerConstants.Key);
 
             SetNewData(levelName);
-        }
-
-        public void ResetData()
-        {
-
         }
 
         public void SaveData()
         {
             _file = JsonUtility.ToJson(PlayerProgress);
-            PlayerPrefs.SetString(_key, _file);
+            PlayerPrefs.SetString(PlayerConstants.Key, _file);
         }
 
         public void UpdateData()
@@ -61,8 +56,8 @@ namespace Scripts.Architecture.Services
 
         private void SetNewData(string levelName)
         {
-            PlayerProgress.Money = Constants.MinimumMoney;
-            PlayerProgress.Score = Constants.MinimumScore;
+            PlayerProgress.Money = PlayerConstants.MinimumMoney;
+            PlayerProgress.Score = PlayerConstants.MinimumScore;
             PlayerProgress.Level = levelName;
 
             SaveData();
