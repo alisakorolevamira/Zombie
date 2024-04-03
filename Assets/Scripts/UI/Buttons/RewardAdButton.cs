@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace Scripts.UI.Buttons
 {
-    public class RewardAddButton : MonoBehaviour
+    public class RewardAdButton : MonoBehaviour
     {
         [SerializeField] private Button _rewardButton;
 
@@ -16,12 +16,12 @@ namespace Scripts.UI.Buttons
 
         private void OnEnable()
         {
-            _rewardButton.onClick.AddListener(OnRewardButtonClick);
+            _rewardButton.onClick.AddListener(OnButtonClick);
         }
 
         private void OnDisable()
         {
-            _rewardButton.onClick.RemoveListener(OnRewardButtonClick);
+            _rewardButton.onClick.RemoveListener(OnButtonClick);
         }
 
         private void Start()
@@ -31,24 +31,26 @@ namespace Scripts.UI.Buttons
             _audioService = AllServices.Container.Single<IAudioService>();
         }
 
-        private void OnRewardButtonClick() => VideoAd.Show(OnOpenCallBack, OnRewardCallBack, OnCloseCallBack);
+        private void OnButtonClick() => VideoAd.Show(OnOpenCallBack, OnRewardCallBack, OnCloseCallBack);
 
-        private void OnRewardCallBack() => _playerMoneyService.AddMoney(AddConstants.AddMoneyReward);
+        private void OnRewardCallBack() => _playerMoneyService.AddMoney(AdConstants.AdMoneyReward);
 
         private void OnOpenCallBack()
         {
             _focusService.IsGameStopped = true;
+            _audioService.IsAdChangedAudio = true;
 
-            _focusService.PauseGame(AddConstants.GameStopped);
-            _audioService.MuteAudio(AddConstants.GameStopped);
+            _focusService.PauseGame(AdConstants.GameStopped);
+            _audioService.MuteAudio(AdConstants.GameStopped);
         }
 
         private void OnCloseCallBack()
         {
             _focusService.IsGameStopped = false;
+            _audioService.IsAdChangedAudio = false;
 
-            _focusService.PauseGame(AddConstants.GameOn);
-            _audioService.MuteAudio(AddConstants.GameOn);
+            _focusService.PauseGame(AdConstants.GameOn);
+            _audioService.MuteAudio(AdConstants.GameOn);
         }
     }
 }

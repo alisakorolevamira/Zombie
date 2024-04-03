@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace Scripts.UI.Buttons
 {
-    public class InterstitialAddButton : MonoBehaviour
+    public class InterstitialAdButton : MonoBehaviour
     {
         [SerializeField] private Button _button;
 
@@ -37,20 +37,19 @@ namespace Scripts.UI.Buttons
         private void OnOpenCallBack()
         {
             _focusService.IsGameStopped = true;
+            _audioService.IsAdChangedAudio = true;
 
-            _focusService.PauseGame(AddConstants.GameStopped);
-            _audioService.MuteAudio(AddConstants.GameStopped);
+            _focusService.PauseGame(AdConstants.GameStopped);
+            _audioService.MuteAudio(AdConstants.GameStopped);
         }
 
         private void OnCloseCallBack(bool closed)
         {
-            if (closed)
-            {
-                _focusService.IsGameStopped = false;
+            _focusService.IsGameStopped = false;
+            _audioService.IsAdChangedAudio = false;
 
-                _focusService.PauseGame(AddConstants.GameOn);
-                _audioService.MuteAudio(AddConstants.GameOn);
-            }
+            _focusService.PauseGame(AdConstants.GameOn);
+            _audioService.MuteAudio(AdConstants.GameOn);
         }
     }
 }

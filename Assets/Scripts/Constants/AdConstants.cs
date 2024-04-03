@@ -1,8 +1,8 @@
 namespace Scripts.Constants
 {
-    public static class AddConstants
+    public static class AdConstants
     {
-        public const int AddMoneyReward = 100;
+        public const int AdMoneyReward = 100;
         public const bool GameStopped = false;
         public const bool GameOn = true;
     }

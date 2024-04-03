@@ -6,6 +6,8 @@ namespace Scripts.Architecture.Services
 {
     public class AudioService : IAudioService
     {
+        public bool IsAdChangedAudio { get; set; } = false;
+
         public event Action VolumeChanged;
 
         public AudioService(AudioSource audioSource)
@@ -28,7 +30,7 @@ namespace Scripts.Architecture.Services
         {
             if (AudioSource.mute)
                 return;
-
+        
             else
                 AudioSource.volume = value ? GameFocusAndAudioConstants.MaximumVolumeValue : GameFocusAndAudioConstants.MinimumVolumeValue;
         }

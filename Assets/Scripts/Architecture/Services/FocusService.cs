@@ -40,15 +40,18 @@ namespace Scripts.Architecture.Services
 
         private void OnInBackgroundChangeApp(bool inApp)
         {
-            
-            _audioService.MuteAudio(inApp);
             PauseGame(inApp);
+
+            if (!_audioService.IsAdChangedAudio)
+                _audioService.MuteAudio(inApp);
         }
 
         private void OnInBackgroundChangeWeb(bool isBackground)
         {
-            _audioService.MuteAudio(!isBackground);
             PauseGame(!isBackground);
+
+            if (!_audioService.IsAdChangedAudio)
+                _audioService.MuteAudio(!isBackground);
         }
     }
 }
