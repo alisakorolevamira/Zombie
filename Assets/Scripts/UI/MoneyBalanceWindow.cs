@@ -1,8 +1,9 @@
-using Scripts.Architecture.Services;
+using Architecture.Services;
+using Architecture.ServicesInterfaces.Player;
 using TMPro;
 using UnityEngine;
 
-namespace Scripts.UI
+namespace UI
 {
     public class MoneyBalanceWindow : MonoBehaviour
     {

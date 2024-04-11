@@ -1,7 +1,7 @@
-using Scripts.Characters.Citizens;
+using Characters.GameLevel.Citizens;
 using UnityEngine;
 
-namespace Scripts.Architecture.Factory
+namespace Architecture.Factory
 {
     public class GameFactory : IGameFactory
     {

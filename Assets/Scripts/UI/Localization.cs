@@ -1,10 +1,10 @@
-using Agava.YandexGames;
-using Lean.Localization;
-using Scripts.Constants;
 using System;
+using Agava.YandexGames;
+using Constants.UI;
+using Lean.Localization;
 using UnityEngine;
 
-namespace Scripts.UI
+namespace UI
 {
     public class Localization : MonoBehaviour
     {

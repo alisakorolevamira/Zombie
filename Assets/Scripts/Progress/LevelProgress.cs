@@ -1,4 +1,4 @@
-namespace Scripts.Progress
+namespace Progress
 {
     public class LevelProgress
     {

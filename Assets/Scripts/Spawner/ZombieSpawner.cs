@@ -1,8 +1,9 @@
-using Scripts.Architecture.Factory;
-using Scripts.Architecture.Services;
+using Architecture.Factory;
+using Architecture.Services;
+using Architecture.ServicesInterfaces.GameLevel;
 using UnityEngine;
 
-namespace Scripts.Spawner
+namespace Spawner
 {
     public class ZombieSpawner : MonoBehaviour
     {

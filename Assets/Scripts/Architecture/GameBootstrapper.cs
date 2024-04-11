@@ -1,8 +1,10 @@
-using Scripts.Architecture.Services;
-using Scripts.Architecture.States;
+using Architecture.Services;
+using Architecture.ServicesInterfaces.TimeScaleAndAudio;
+using Architecture.ServicesInterfaces.Zombie;
+using Architecture.States;
 using UnityEngine;
 
-namespace Scripts.Architecture
+namespace Architecture
 {
     public class GameBootstrapper : MonoBehaviour, ICoroutineRunner
     {

@@ -1,4 +1,6 @@
-namespace Scripts.Architecture.Services
+using Architecture.ServicesInterfaces;
+
+namespace Architecture.Services
 {
     public class AllServices
     {

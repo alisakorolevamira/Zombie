@@ -1,4 +1,4 @@
-namespace Scripts.Constants
+namespace Constants
 {
     public static class SpawnerConstants
     {

@@ -1,8 +1,8 @@
-﻿using Scripts.Architecture.Services;
-using Scripts.Characters.Citizens;
+﻿using Architecture.ServicesInterfaces;
+using Characters.GameLevel.Citizens;
 using UnityEngine;
 
-namespace Scripts.Architecture.Factory
+namespace Architecture.Factory
 {
     public interface IGameFactory : IService
     {

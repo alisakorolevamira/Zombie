@@ -1,8 +1,9 @@
-using Scripts.Architecture.Factory;
-using Scripts.Constants;
-using Scripts.Spawner;
+using Architecture.Factory;
+using Architecture.ServicesInterfaces;
+using Constants;
+using Spawner;
 
-namespace Scripts.Architecture.Services
+namespace Architecture.Services
 {
     public class SpawnerService : ISpawnerService
     {

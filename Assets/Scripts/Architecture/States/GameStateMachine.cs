@@ -1,9 +1,12 @@
-using Scripts.Architecture.Services;
 using System;
 using System.Collections.Generic;
+using Architecture.Services;
+using Architecture.ServicesInterfaces;
+using Architecture.ServicesInterfaces.Data;
+using Architecture.ServicesInterfaces.UI;
 using UnityEngine;
 
-namespace Scripts.Architecture.States
+namespace Architecture.States
 {
     public class GameStateMachine
     {

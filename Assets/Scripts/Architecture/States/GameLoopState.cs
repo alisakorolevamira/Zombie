@@ -1,6 +1,6 @@
 ﻿using Agava.YandexGames;
 
-namespace Scripts.Architecture.States
+namespace Architecture.States
 {
     public class GameLoopState : IState
     {

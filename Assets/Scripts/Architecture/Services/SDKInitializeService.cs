@@ -1,8 +1,9 @@
-using Agava.YandexGames;
-using Cysharp.Threading.Tasks;
 using System.Collections;
+using Agava.YandexGames;
+using Architecture.ServicesInterfaces;
+using Cysharp.Threading.Tasks;
 
-namespace Scripts.Architecture.Services
+namespace Architecture.Services
 {
     public class SDKInitializeService : ISDKInitializeService
     {

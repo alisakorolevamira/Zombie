@@ -1,6 +1,6 @@
-﻿using Scripts.Architecture.Services;
+﻿using Architecture.ServicesInterfaces.Data;
 
-namespace Scripts.Architecture.States
+namespace Architecture.States
 {
     public class LoadProgressState : IPayLoadedState<string>
     {

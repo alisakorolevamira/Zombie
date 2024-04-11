@@ -1,14 +1,15 @@
-using Scripts.Architecture.Factory;
-using Scripts.Architecture.Services;
-using Scripts.Characters.Citizens;
-using Scripts.Constants;
-using Scripts.UI.Cards;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Architecture.Factory;
+using Architecture.Services;
+using Architecture.ServicesInterfaces.UI;
+using Characters.GameLevel.Citizens;
+using Constants.Characters;
+using UI.Buttons.GameLevel.Cards;
 using UnityEngine;
 
-namespace Scripts.Spawner
+namespace Spawner
 {
     public class CitizenSpawner : MonoBehaviour
     {

@@ -1,7 +1,8 @@
-using Scripts.Architecture.Services;
+using Architecture.Services;
+using Architecture.ServicesInterfaces.TimeScaleAndAudio;
 using UnityEngine;
 
-namespace Scripts.Audio
+namespace Audio
 {
     public class BackgroundAudio : MonoBehaviour
     {
@@ -14,12 +15,8 @@ namespace Scripts.Audio
             _audioService = AllServices.Container.Single<IAudioService>();
         }
 
-        public void PlayAudio()
-        {
-            _audioService.AudioSource.clip = _audioClip;
-            _audioService.AudioSource.Play();
-        }
+        public void PlayAudio() => _audioService?.PlayBackgroundAudio(_audioClip);
 
-        public void StopAudio() => _audioService?.AudioSource.Stop();
+        public void StopAudio() => _audioService?.StopBackgroundAudio();
     }
 }

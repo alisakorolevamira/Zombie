@@ -1,9 +1,10 @@
+using Architecture.Services;
+using Architecture.ServicesInterfaces.UI;
+using Constants.UI;
 using UnityEngine;
 using UnityEngine.UI;
-using Scripts.Architecture.Services;
-using Scripts.Constants;
 
-namespace Scripts.UI
+namespace UI
 {
     public class Title : MonoBehaviour
     {

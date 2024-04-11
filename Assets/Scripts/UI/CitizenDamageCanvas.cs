@@ -1,9 +1,9 @@
-using Scripts.Characters.Citizens;
-using Scripts.Constants;
+using Characters.GameLevel.Citizens;
+using Constants.UI;
 using TMPro;
 using UnityEngine;
 
-namespace Scripts.UI
+namespace UI
 {
     public class CitizenDamageCanvas : MonoBehaviour
     {

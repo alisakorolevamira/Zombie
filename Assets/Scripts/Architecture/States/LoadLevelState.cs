@@ -1,8 +1,9 @@
-﻿using Scripts.Architecture.Services;
-using Scripts.Constants;
-using System;
+﻿using System;
+using Architecture.ServicesInterfaces;
+using Architecture.ServicesInterfaces.UI;
+using Constants;
 
-namespace Scripts.Architecture.States
+namespace Architecture.States
 {
     public class LoadLevelState : IPayLoadedState<string>
     {

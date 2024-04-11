@@ -1,8 +1,8 @@
-using Scripts.Architecture.Services;
-using Scripts.Architecture.States;
+using Architecture.Services;
+using Architecture.States;
 using UnityEngine;
 
-namespace Scripts.Architecture
+namespace Architecture
 {
     public class Game
     {

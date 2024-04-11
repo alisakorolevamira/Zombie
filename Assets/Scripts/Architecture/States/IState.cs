@@ -1,4 +1,4 @@
-﻿namespace Scripts.Architecture.States
+﻿namespace Architecture.States
 {
     public interface IState : IExitableState
     {

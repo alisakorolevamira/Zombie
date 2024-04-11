@@ -1,9 +1,22 @@
-using Scripts.Architecture.Services;
-using Scripts.Architecture.Factory;
+using Architecture.Factory;
+using Architecture.Services;
+using Architecture.Services.Data;
+using Architecture.Services.GameLevel;
+using Architecture.Services.Player;
+using Architecture.Services.TimeScaleAndAudio;
+using Architecture.Services.UI;
+using Architecture.Services.Zombie;
+using Architecture.ServicesInterfaces;
+using Architecture.ServicesInterfaces.Data;
+using Architecture.ServicesInterfaces.GameLevel;
+using Architecture.ServicesInterfaces.Player;
+using Architecture.ServicesInterfaces.TimeScaleAndAudio;
+using Architecture.ServicesInterfaces.UI;
+using Architecture.ServicesInterfaces.Zombie;
+using Constants;
 using UnityEngine;
-using Scripts.Constants;
 
-namespace Scripts.Architecture.States
+namespace Architecture.States
 {
     public class BootstrapState : IState
     {
@@ -51,6 +64,7 @@ namespace Scripts.Architecture.States
         {
             _services.RegisterSingle<ISDKInitializeService>(new SDKInitializeService());
             _services.RegisterSingle<IGameFactory>(new GameFactory());
+            _services.RegisterSingle<ITimeScaleService>(new TimeScaleService());
             _services.RegisterSingle<IAudioService>(new AudioService(_audioSource));
             _services.RegisterSingle<ILevelService>(new LevelService());
             _services.RegisterSingle<IPlayerMoneyService>(new PlayerMoneyService());
@@ -69,7 +83,8 @@ namespace Scripts.Architecture.States
                 _services.Single<IZombieDataService>(), _services.Single<ILevelDataService>(), _services.Single<ICardsPricesDataService>()));
             _services.RegisterSingle<ILocalizationService>(new LocalizationService(_services.Single<IGameFactory>()));
             _services.RegisterSingle<ISpawnerService>(new SpawnerService(_services.Single<IGameFactory>()));
-            _services.RegisterSingle<IFocusService>(new FocusService(_services.Single<IAudioService>()));
+            _services.RegisterSingle<IFocusService>(new FocusService(_services.Single<IAudioService>(),
+                _services.Single<ITimeScaleService>()));
             _services.RegisterSingle<IStarCountService>(new StarCountService(_services.Single<IPlayerScoreService>()));
             _services.RegisterSingle<ICombatService>(new CombatService(_services.Single<ISpawnerService>(), _services.Single<IZombieHealthService>()));
         }

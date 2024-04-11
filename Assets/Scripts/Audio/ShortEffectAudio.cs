@@ -1,7 +1,8 @@
-using Scripts.Architecture.Services;
+using Architecture.Services;
+using Architecture.ServicesInterfaces.TimeScaleAndAudio;
 using UnityEngine;
 
-namespace Scripts.Audio
+namespace Audio
 {
     public class ShortEffectAudio : MonoBehaviour
     {
@@ -14,6 +15,6 @@ namespace Scripts.Audio
             _audioService = AllServices.Container.Single<IAudioService>();
         }
 
-        public void PlayOneShot() => _audioService?.AudioSource.PlayOneShot(_audioClip);
+        public void PlayOneShot() => _audioService?.PlayShortEffectAudio(_audioClip);
     }
 }

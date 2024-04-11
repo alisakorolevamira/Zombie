@@ -533,9 +533,9 @@ MonoBehaviour:
       \u0432\u0430\u043C \u0432 \u0431\u043E\u0440\u044C\u0431\u0435 \u0441 \u0437\u043E\u043C\u0431\u0438."
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "\rBir sakin ekleyin:\r\nBir k\xF6yl\xFCn\xFCn resminin bulundu\u011Fu
-      karta t\u0131klay\u0131n ve onu k\xF6ye yerle\u015Ftirin. Her yeni sakin, zombilere
-      kar\u015F\u0131 m\xFCcadelede size yard\u0131mc\u0131 olur."
+    Text: "Bir vatanda\u015F ekleyin:\r\nBir vatanda\u015F\u0131n resminin bulundu\u011Fu
+      karta t\u0131klay\u0131n ve onu k\xF6ye yerle\u015Ftirin. Her yeni vatanda\u015F
+      zombilere kar\u015F\u0131 m\xFCcadelede size yard\u0131mc\u0131 oluyor."
     Object: {fileID: 0}
   - Language: English
     Text: "\rAdd a citizen:\r\nClick on the card with the picture of a citizen and
