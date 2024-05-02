@@ -2,6 +2,7 @@
 using Architecture.ServicesInterfaces;
 using Architecture.ServicesInterfaces.UI;
 using Constants;
+using UnityEngine;
 
 namespace Architecture.States
 {
@@ -45,10 +46,8 @@ namespace Architecture.States
         private void OnLoaded()
         {
             _panelService.CreateCanvas(_sceneName);
-
-            _gameStateMachine.Enter<GameLoopState>();
-
             _sceneLoaded -= OnLoaded;
+            _gameStateMachine.Enter<GameLoopState>();
         }
 
         private void SpawnersOnLoaded()
