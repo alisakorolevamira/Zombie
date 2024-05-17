@@ -24,7 +24,7 @@ namespace UI.Panels.Common
             StartCoroutine(FadeIn());
         }
 
-        public IEnumerator FadeIn()
+        private IEnumerator FadeIn()
         {
             while (_canvasGroup.alpha > UIConstants.InvisibleAlfaIndex)
             {
