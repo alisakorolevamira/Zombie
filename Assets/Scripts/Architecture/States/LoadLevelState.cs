@@ -2,7 +2,6 @@
 using Architecture.ServicesInterfaces;
 using Architecture.ServicesInterfaces.UI;
 using Constants;
-using UnityEngine;
 
 namespace Architecture.States
 {
@@ -35,18 +34,21 @@ namespace Architecture.States
                 _sceneLoaded += SpawnersOnLoaded;
 
             _sceneLoaded += OnLoaded;
-
             _sceneName = sceneName;
 
             _sceneLoader.Load(sceneName, _sceneLoaded);
         }
 
-        public void Exit() => _panelService.LoadingPanel.Close();
+        public void Exit()
+        {
+            _panelService.LoadingPanel.Close();
+        }
 
         private void OnLoaded()
         {
             _panelService.CreateCanvas(_sceneName);
             _sceneLoaded -= OnLoaded;
+            
             _gameStateMachine.Enter<GameLoopState>();
         }
 

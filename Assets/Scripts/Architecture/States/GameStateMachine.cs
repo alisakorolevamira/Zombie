@@ -14,7 +14,11 @@ namespace Architecture.States
 
         private IExitableState _activeState;
 
-        public GameStateMachine(SceneLoader sceneLoader, AllServices services, AudioSource audioSource)
+        public GameStateMachine(
+            SceneLoader sceneLoader,
+            AllServices services,
+            AudioSource audioSource,
+            ICoroutineRunner coroutineRunner)
         {
             _states = new Dictionary<Type, IExitableState>
             {
@@ -22,7 +26,7 @@ namespace Architecture.States
                 [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader, services.Single<IUIPanelService>(), 
                 services.Single<ISpawnerService>()),
                 [typeof(LoadProgressState)] = new LoadProgressState(this, services.Single<ISaveLoadService>()),
-                [typeof(GameLoopState)] = new GameLoopState()
+                [typeof(GameLoopState)] = new GameLoopState(coroutineRunner, services.Single<IUIPanelService>())
             };
         }
         public void Enter<TState>() where TState : class, IState
