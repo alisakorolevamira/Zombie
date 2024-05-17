@@ -8,7 +8,11 @@ namespace Architecture
     {
         public Game(ICoroutineRunner coroutineRunner, AudioSource audioSource)
         {
-            StateMachine = new GameStateMachine(new SceneLoader(coroutineRunner), AllServices.Container, audioSource);
+            StateMachine = new GameStateMachine(
+                new SceneLoader(coroutineRunner),
+                AllServices.Container,
+                audioSource,
+                coroutineRunner);
         }
 
         public GameStateMachine StateMachine { get; private set; }

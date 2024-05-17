@@ -31,7 +31,7 @@ namespace Architecture
 
             while (!waitNextScene.isDone)
                 yield return null;
-
+            
             onLoaded?.Invoke();
         }
     }
