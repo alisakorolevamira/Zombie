@@ -7,13 +7,13 @@ namespace Architecture.ServicesInterfaces.TimeScaleAndAudio
     {
         event Action<bool> VolumeChanged;
         
-        bool IsPlayerMutedAudio { get; set; }
-        bool IsAdMutedAudio { get; set; }
-        bool IsMuted { get; }
+        bool IsPaused { get; }
         
         void ChangeVolume(bool value);
         void PlayBackgroundAudio(AudioClip audioClip);
         void StopBackgroundAudio();
         void PlayShortEffectAudio(AudioClip audioClip);
+        void Pause();
+        void Continue();
     }
 }

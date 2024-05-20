@@ -45,9 +45,9 @@ namespace Architecture.States
             var levelService = _services.Single<ILevelService>();
             var combatService = _services.Single<ICombatService>();
 
+            focusService.Initialize();
             spawnerService.Initialize();
             panelService.Initialize();
-            focusService.Initialize();
             levelService.Initialize();
             combatService.Initialize();
 
@@ -62,10 +62,12 @@ namespace Architecture.States
 
         private void RegisterService()
         {
+            _services.RegisterSingle<IAudioService>(new AudioService(_audioSource));
+            _services.RegisterSingle<ITimeScaleService>(new TimeScaleService());
+            _services.RegisterSingle<IFocusService>(new FocusService(_services.Single<IAudioService>(),
+                _services.Single<ITimeScaleService>()));
             _services.RegisterSingle<ISDKInitializeService>(new SDKInitializeService());
             _services.RegisterSingle<IGameFactory>(new GameFactory());
-            _services.RegisterSingle<ITimeScaleService>(new TimeScaleService());
-            _services.RegisterSingle<IAudioService>(new AudioService(_audioSource));
             _services.RegisterSingle<ILevelService>(new LevelService());
             _services.RegisterSingle<IPlayerMoneyService>(new PlayerMoneyService());
             _services.RegisterSingle<IPlayerScoreService>(new PlayerScoreService());
@@ -83,8 +85,6 @@ namespace Architecture.States
                 _services.Single<IZombieDataService>(), _services.Single<ILevelDataService>(), _services.Single<ICardsPricesDataService>()));
             _services.RegisterSingle<ILocalizationService>(new LocalizationService(_services.Single<IGameFactory>()));
             _services.RegisterSingle<ISpawnerService>(new SpawnerService(_services.Single<IGameFactory>()));
-            _services.RegisterSingle<IFocusService>(new FocusService(_services.Single<IAudioService>(),
-                _services.Single<ITimeScaleService>()));
             _services.RegisterSingle<IStarCountService>(new StarCountService(_services.Single<IPlayerScoreService>()));
             _services.RegisterSingle<ICombatService>(new CombatService(_services.Single<ISpawnerService>(), _services.Single<IZombieHealthService>()));
         }

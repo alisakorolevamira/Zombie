@@ -37,26 +37,14 @@ namespace UI.Buttons.GameLevel
 
         private void OnOpenCallBack()
         {
-            _timeScaleService.IsGameStopped = true;
-            _timeScaleService.ChangeTimeScale(AdConstants.GameStopped);
-            
-            if(_audioService.IsPlayerMutedAudio)
-                return;
-            
-            _audioService.IsAdMutedAudio = true;
-            _audioService.ChangeVolume(!AdConstants.GameStopped);
+            _timeScaleService.Pause();
+            _audioService.Pause();
         }
 
         private void OnCloseCallBack(bool closed)
         {
-            _timeScaleService.IsGameStopped = false;
-            _timeScaleService.ChangeTimeScale(AdConstants.GameOn);
-
-            if (_audioService.IsPlayerMutedAudio)
-                return;
-            
-            _audioService.IsAdMutedAudio = false;
-            _audioService.ChangeVolume(!AdConstants.GameOn);
+            _timeScaleService.Continue();
+            _audioService.Continue();
         }
     }
 }

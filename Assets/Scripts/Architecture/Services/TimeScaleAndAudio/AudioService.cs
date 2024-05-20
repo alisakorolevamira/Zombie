@@ -15,16 +15,14 @@ namespace Architecture.Services.TimeScaleAndAudio
             _audioSource = audioSource;
             _audioSource.mute = false;
         }
-
-        public bool IsPlayerMutedAudio { get; set; } = false;
-        public bool IsAdMutedAudio { get; set; } = false;
-        public bool IsMuted => _audioSource.mute;
+        
+        public bool IsPaused { get; private set; }
 
         public void ChangeVolume(bool value)
         {
             _audioSource.mute = value;
 
-            VolumeChanged?.Invoke(value);
+            //VolumeChanged?.Invoke(value);
         }
 
         public void PlayBackgroundAudio(AudioClip audioClip)
@@ -36,5 +34,21 @@ namespace Architecture.Services.TimeScaleAndAudio
         public void StopBackgroundAudio() => _audioSource.Stop();
 
         public void PlayShortEffectAudio(AudioClip audioClip) => _audioSource.PlayOneShot(audioClip);
+
+        public void Pause()
+        {
+            _audioSource.Pause();
+            IsPaused = true;
+            
+            VolumeChanged?.Invoke(IsPaused);
+        }
+
+        public void Continue()
+        {
+            _audioSource.UnPause();
+            IsPaused = false;
+            
+            VolumeChanged?.Invoke(IsPaused);
+        }
     }
 }

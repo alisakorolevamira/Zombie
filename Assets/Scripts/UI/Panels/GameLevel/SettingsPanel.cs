@@ -40,17 +40,15 @@ namespace UI.Panels.GameLevel
         public override void Open()
         {
             base.Open();
-
-            _timeScaleService.IsGameStopped = true;
-            _timeScaleService.ChangeTimeScale(!_timeScaleService.IsGameStopped);
+            
+            _timeScaleService.Pause();
         }
 
         public override void Close()
         {
             base.Close();
 
-            _timeScaleService.IsGameStopped = false;
-            _timeScaleService.ChangeTimeScale(!_timeScaleService.IsGameStopped);
+            _timeScaleService.Continue();
         }
 
         private void OnMenuButtonClick()

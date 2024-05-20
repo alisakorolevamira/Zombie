@@ -37,14 +37,19 @@ namespace UI.Buttons.Common
 
         private void OnButtonClick()
         {
-            _audioService.ChangeVolume(!_audioService.IsPlayerMutedAudio);
+            if (_audioService.IsPaused)
+            {
+                _audioService.Continue();
+                
+                return;
+            }
             
-            _audioService.IsPlayerMutedAudio = !_audioService.IsPlayerMutedAudio;
+            _audioService.Pause();
         }
 
         private void OnVolumeChanged(bool value)
         {
-            _image.sprite = _audioService.IsMuted ? _soundOffSprite : _soundOnSprite;
+            _image.sprite = _audioService.IsPaused ? _soundOffSprite : _soundOnSprite;
         }
     }
 }

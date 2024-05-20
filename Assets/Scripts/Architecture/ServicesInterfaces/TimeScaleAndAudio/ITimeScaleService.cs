@@ -2,7 +2,9 @@
 {
     public interface ITimeScaleService : IService
     {
-        bool IsGameStopped { get; set; }
+        bool IsGameStopped { get; }
         void ChangeTimeScale(bool value);
+        void Pause();
+        void Continue();
     }
 }

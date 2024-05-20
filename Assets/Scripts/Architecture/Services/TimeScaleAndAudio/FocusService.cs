@@ -17,34 +17,51 @@ namespace Architecture.Services.TimeScaleAndAudio
 
         public void Initialize()
         {
+            if (WebApplication.IsRunningOnWebGL == false)
+                return;
+
+            OnInBackgroundChangeWeb(WebApplication.InBackground);
+            OnInBackgroundChangeApp(Application.isFocused);
+            
             Application.focusChanged += OnInBackgroundChangeApp;
             WebApplication.InBackgroundChangeEvent += OnInBackgroundChangeWeb;
         }
 
         public void Dispose()
         {
+            if (WebApplication.IsRunningOnWebGL == false)
+                return;
+            
             Application.focusChanged -= OnInBackgroundChangeApp;
             WebApplication.InBackgroundChangeEvent -= OnInBackgroundChangeWeb;
         }
-
+        
         private void OnInBackgroundChangeApp(bool inApp)
         {
-            _timeScaleService.ChangeTimeScale(inApp);
-            
-            if (_audioService.IsAdMutedAudio || _audioService.IsPlayerMutedAudio)
-                return;
+            if (inApp == false)
+            {
+                _audioService.Pause();
+                _timeScaleService.Pause();
 
-            _audioService.ChangeVolume(!inApp);
+                return;
+            }
+            
+            _audioService.Continue();
+            _timeScaleService.Continue();
         }
 
         private void OnInBackgroundChangeWeb(bool isBackground)
         {
-            _timeScaleService.ChangeTimeScale(!isBackground);
-            
-            if (_audioService.IsAdMutedAudio || _audioService.IsPlayerMutedAudio)
-                return;
+            if (isBackground)
+            {
+                _audioService.Pause();
+                _timeScaleService.Pause();
 
-            _audioService.ChangeVolume(isBackground);
+                return;
+            }
+            
+            _audioService.Continue();
+            _timeScaleService.Continue();
         }
     }
 }
