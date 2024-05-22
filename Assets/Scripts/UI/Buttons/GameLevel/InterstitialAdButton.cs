@@ -30,21 +30,18 @@ namespace UI.Buttons.GameLevel
             _audioService = AllServices.Container.Single<IAudioService>();
         }
 
-        private void OnButtonClick()
-        {
-            InterstitialAd.Show(OnOpenCallBack, OnCloseCallBack);
-        }
+        private void OnButtonClick() => InterstitialAd.Show(OnOpenCallBack, OnCloseCallBack);
 
         private void OnOpenCallBack()
         {
             _timeScaleService.Pause();
-            _audioService.Pause();
+            _audioService.ChangeAudioByAd(true);
         }
 
         private void OnCloseCallBack(bool closed)
         {
             _timeScaleService.Continue();
-            _audioService.Continue();
+            _audioService.ChangeAudioByAd(false);
         }
     }
 }

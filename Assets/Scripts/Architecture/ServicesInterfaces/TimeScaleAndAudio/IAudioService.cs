@@ -8,12 +8,12 @@ namespace Architecture.ServicesInterfaces.TimeScaleAndAudio
         event Action<bool> VolumeChanged;
         
         bool IsPaused { get; }
-        
-        void ChangeVolume(bool value);
+
+        void ChangeAudioByPlayer();
+        void ChangeAudioByAd(bool isAdOn);
+        void ChangeAudioByFocus(bool inApp);
         void PlayBackgroundAudio(AudioClip audioClip);
-        void StopBackgroundAudio();
         void PlayShortEffectAudio(AudioClip audioClip);
-        void Pause();
-        void Continue();
+        void StopBackgroundAudio();
     }
 }

@@ -35,17 +35,7 @@ namespace UI.Buttons.Common
             _audioService.VolumeChanged += OnVolumeChanged;
         }
 
-        private void OnButtonClick()
-        {
-            if (_audioService.IsPaused)
-            {
-                _audioService.Continue();
-                
-                return;
-            }
-            
-            _audioService.Pause();
-        }
+        private void OnButtonClick() => _audioService.ChangeAudioByPlayer();
 
         private void OnVolumeChanged(bool value)
         {

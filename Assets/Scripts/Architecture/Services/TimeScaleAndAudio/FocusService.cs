@@ -39,29 +39,23 @@ namespace Architecture.Services.TimeScaleAndAudio
         private void OnInBackgroundChangeApp(bool inApp)
         {
             if (inApp == false)
-            {
-                _audioService.Pause();
                 _timeScaleService.Pause();
 
-                return;
-            }
+            else
+                _timeScaleService.Continue();
             
-            _audioService.Continue();
-            _timeScaleService.Continue();
+            _audioService.ChangeAudioByFocus(inApp);
         }
 
         private void OnInBackgroundChangeWeb(bool isBackground)
         {
             if (isBackground)
-            {
-                _audioService.Pause();
                 _timeScaleService.Pause();
 
-                return;
-            }
+            else
+                _timeScaleService.Continue();
             
-            _audioService.Continue();
-            _timeScaleService.Continue();
+            _audioService.ChangeAudioByFocus(!isBackground);
         }
     }
 }

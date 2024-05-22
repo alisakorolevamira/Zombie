@@ -3,6 +3,7 @@ using Architecture.ServicesInterfaces.Data;
 using Architecture.ServicesInterfaces.UI;
 using Architecture.States;
 using Audio;
+using UI.Buttons.GameLevel;
 using UI.Buttons.GameLevel.Cards;
 using UI.Panels.Common;
 using UnityEngine;
@@ -12,6 +13,7 @@ namespace UI.Panels.GameLevel
     public class LevelPanel : Panel
     {
         [SerializeField] private Card[] _cards;
+        [SerializeField] private RewardedAdButtonPanel _rewardAdButtonPanel;
         [SerializeField] private BackgroundAudio _backgroundAudio;
 
         private GameStateMachine _gameStateMachine;
@@ -35,6 +37,7 @@ namespace UI.Panels.GameLevel
             base.Open();
 
             _backgroundAudio.PlayAudio();
+            _rewardAdButtonPanel.Open();
 
             foreach (var card in _cards)
                 card.Open();
@@ -45,6 +48,7 @@ namespace UI.Panels.GameLevel
             base.Close();
 
             _backgroundAudio.StopAudio();
+            _rewardAdButtonPanel.Close();
 
             foreach (var card in _cards)
                 card.Close();
