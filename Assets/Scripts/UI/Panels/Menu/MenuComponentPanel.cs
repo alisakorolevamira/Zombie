@@ -11,19 +11,19 @@ namespace UI.Panels.Menu
 
         private void OnEnable()
         {
-            foreach (var button in _openButtons)
+            foreach (Button button in _openButtons)
                 button.onClick.AddListener(Open);
 
-            foreach (var button in _closeButtons)
+            foreach (Button button in _closeButtons)
                 button.onClick.AddListener(Close);
         }
 
         private void OnDisable()
         {
-            foreach (var button in _openButtons)
+            foreach (Button button in _openButtons)
                 button.onClick.RemoveListener(Open);
 
-            foreach (var button in _closeButtons)
+            foreach (Button button in _closeButtons)
                 button.onClick.RemoveListener(Close);
         }
     }

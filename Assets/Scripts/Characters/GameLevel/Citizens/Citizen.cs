@@ -51,19 +51,19 @@ namespace Characters.GameLevel.Citizens
         public void TakeDamage(int damage)
         {
             Health -= damage;
-
+            
             CheckDeath();
-
             HealthChanged?.Invoke(-damage);
         }
 
         private IEnumerator ApplyDamage()
         {
-            while (!_isDead && _zombieHealthService.Health > ZombieConstants.ZombieMinimumHealth)
+            while (_isDead == false && _zombieHealthService.Health > ZombieConstants.ZombieMinimumHealth)
             { 
                 _animator.SetTrigger(CitizenConstants.Attack);
-
-                yield return new WaitForSeconds(_speed);
+                WaitForSeconds speed = new WaitForSeconds(_speed);
+                
+                yield return speed;
             }
         }
 
@@ -76,19 +76,19 @@ namespace Characters.GameLevel.Citizens
 
         private void CheckDeath()
         {
-            if (!(Health <= CitizenConstants.MinimumHealth))
+            if (Health > CitizenConstants.MinimumHealth)
                 return;
             
             Died?.Invoke(this);
-
             StartCoroutine(Die());
         }
 
         private IEnumerator Die()
         {
             _animator.Play(CitizenConstants.Die);
+            WaitForSeconds dieAnimationTime = new WaitForSeconds(CitizenConstants.DieAnimationTime);
 
-            yield return new WaitForSeconds(CitizenConstants.DieAnimationTime);
+            yield return dieAnimationTime;
 
             _isDead = true;
             Destroy(gameObject);

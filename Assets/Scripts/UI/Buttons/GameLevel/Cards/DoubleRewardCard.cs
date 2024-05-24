@@ -33,8 +33,8 @@ namespace UI.Buttons.GameLevel.Cards
             if (_playerMoneyService.Money >= Price)
             {
                 CardBought?.Invoke(Price);
-
                 _zombieRewardService.DoubleReward();
+                
                 Price *= CardsConstants.CoefficientOfIncreasingPrice;
                 _priceText.text = Price.ToString();
 

@@ -29,7 +29,7 @@ namespace Architecture
 
             AsyncOperation waitNextScene = SceneManager.LoadSceneAsync(nextSceneName);
 
-            while (!waitNextScene.isDone)
+            while (waitNextScene.isDone == false)
                 yield return null;
             
             onLoaded?.Invoke();

@@ -40,7 +40,6 @@ namespace Architecture.Services.Data
         public void ResetData(string levelName)
         {
             PlayerPrefs.DeleteKey(PlayerConstants.Key);
-
             SetNewData(levelName);
         }
 

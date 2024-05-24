@@ -1,6 +1,7 @@
 using System;
 using Architecture.Services;
 using Architecture.ServicesInterfaces;
+using Characters.GameLevel.Citizens;
 using Constants.UI;
 using DG.Tweening;
 using Spawner;
@@ -37,7 +38,7 @@ namespace UI.Buttons.GameLevel.Cards
             {
                 CardBought?.Invoke(Price);
 
-                foreach (var citizen in _citizenSpawner.Citizens)
+                foreach (Citizen citizen in _citizenSpawner.Citizens)
                     citizen.AddSpeed();
 
                 Price *= CardsConstants.CoefficientOfIncreasingPrice;

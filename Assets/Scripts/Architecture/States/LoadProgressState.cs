@@ -16,7 +16,6 @@ namespace Architecture.States
         public void Enter(string sceneName)
         {
             _saveLoadService.LoadProgress();
-
             _gameStateMachine.Enter<LoadLevelState, string>(sceneName);
         }
 

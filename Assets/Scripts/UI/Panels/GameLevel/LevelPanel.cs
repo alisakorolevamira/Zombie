@@ -38,7 +38,7 @@ namespace UI.Panels.GameLevel
             _backgroundAudio.PlayAudio();
             _rewardAdButtonPanel.Open();
 
-            foreach (var card in _cards)
+            foreach (Card card in _cards)
                 card.Open();
         }
 
@@ -49,14 +49,13 @@ namespace UI.Panels.GameLevel
             _backgroundAudio.StopAudio();
             _rewardAdButtonPanel.Close();
 
-            foreach (var card in _cards)
+            foreach (Card card in _cards)
                 card.Close();
         }
 
         public void OpenNextScene(string sceneName)
         {
             Close();
-
             _gameStateMachine.Enter<LoadProgressState, string>(sceneName);
         }
 

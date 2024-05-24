@@ -2,6 +2,7 @@ using Architecture.Factory;
 using Architecture.ServicesInterfaces;
 using Constants;
 using Spawner;
+using UnityEngine;
 
 namespace Architecture.Services
 {
@@ -19,7 +20,7 @@ namespace Architecture.Services
 
         public void Initialize()
         {
-            var spawner = _gameFactory.SpawnObject(SpawnerConstants.SpawnersPath);
+            GameObject spawner = _gameFactory.SpawnObject(SpawnerConstants.SpawnersPath);
 
             CitizenSpawner = spawner.GetComponent<CitizenSpawner>();
             ZombieSpawner = spawner.GetComponent<ZombieSpawner>();

@@ -35,7 +35,7 @@ namespace Architecture.States
 
             _sceneLoaded += OnLoaded;
             _sceneName = sceneName;
-
+            
             _sceneLoader.Load(sceneName, _sceneLoaded);
         }
 

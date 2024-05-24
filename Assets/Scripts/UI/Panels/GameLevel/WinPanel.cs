@@ -56,11 +56,10 @@ namespace UI.Panels.GameLevel
 
                 _levelService.LevelComplete(activeScene);
                 _starsView.AddStars(activeScene.AmountOfStars);
-
                 _losePanel.Close();
                 _shortEffectAudio.PlayOneShot();
 
-                foreach (var button in _otherButtons)
+                foreach (Button button in _otherButtons)
                     button.interactable = false;
 
                 _isOpened = true;
@@ -73,7 +72,7 @@ namespace UI.Panels.GameLevel
 
             _starsView.RemoveAllStars();
 
-            foreach (var button in _otherButtons)
+            foreach (Button button in _otherButtons)
                 button.interactable = true;
 
             _isOpened = false;

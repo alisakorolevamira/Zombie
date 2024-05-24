@@ -48,7 +48,7 @@ namespace UI.Panels.GameLevel
                 _shortEffectAudio.PlayOneShot();
                 _winPanel.Close();
 
-                foreach (var button in _otherButtons)
+                foreach (Button button in _otherButtons)
                     button.interactable = false;
 
                 _isOpened = true;
@@ -59,7 +59,7 @@ namespace UI.Panels.GameLevel
         {
             base.Close();
 
-            foreach (var button in _otherButtons)
+            foreach (Button button in _otherButtons)
                 button.interactable = true;
 
             _isOpened = false;

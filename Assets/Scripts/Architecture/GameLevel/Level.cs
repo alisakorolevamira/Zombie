@@ -14,7 +14,8 @@ namespace Architecture.GameLevel
         private readonly int _highScore;
         private readonly ILevelService _levelService;
 
-        public Level(int mediumScore, int highScore, string name, int id, bool isAvailable, GameObject zombie, ILevelService levelService)
+        public Level(int mediumScore, int highScore, string name, int id, bool isAvailable, GameObject zombie,
+            ILevelService levelService)
         {
             _mediumScore = mediumScore;
             _highScore = highScore;
@@ -27,8 +28,8 @@ namespace Architecture.GameLevel
             AddListener();
         }
 
-        public string Name { get; private set; }
         public int Id { get; }
+        public string Name { get; private set; }
         public int AmountOfStars { get; private set; }
         public GameObject Zombie { get; private set; }
         public bool IsAvailable { get; private set; }
@@ -37,8 +38,8 @@ namespace Architecture.GameLevel
         public void Initialize(LevelProgress levelProgress)
         {
             AmountOfStars = levelProgress.Stars;
-            
-            if(levelProgress.IsAvailable.ToLower() == LevelConstants.DefaultAvailability)
+
+            if (levelProgress.IsAvailable.ToLower() == LevelConstants.DefaultAvailability)
                 IsAvailable = false;
 
             else

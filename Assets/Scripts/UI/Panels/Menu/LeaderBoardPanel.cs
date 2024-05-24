@@ -23,12 +23,10 @@ namespace UI.Panels.Menu
         [SerializeField] private Button _closeButton;
         [SerializeField] private Panel _unsuccessfulAuthorizationPanel;
         [SerializeField] private LeaderBoard _leaderBoard;
-        [SerializeField] private Panel _errorPanel;
 
         private IPlayerDataService _playerDataService;
-
-        public Panel ErrorPanel => _errorPanel;
-
+        [field: SerializeField] public Panel ErrorPanel { get; private set; }
+        
         private void OnEnable()
         {
             _leaderBoardButton.onClick.AddListener(Open);
@@ -50,7 +48,7 @@ namespace UI.Panels.Menu
         {
             Clear();
             
-            foreach (var player in leaderBoardPlayers)
+            foreach (LeaderBoardPlayer player in leaderBoardPlayers)
             {
                 LeaderBoardElement leaderBoardElement = Instantiate(_leaderBoardElementPrefab, _container);
                 leaderBoardElement.Initialize(player.Name, player.Rank, player.Score);
@@ -71,6 +69,7 @@ namespace UI.Panels.Menu
             if (PlayerAccount.IsAuthorized)
             {
                 PlayerAccount.RequestPersonalProfileDataPermission();
+                
                 await _leaderBoard.SetPlayer(_playerDataService.PlayerProgress.Score);
             }
             
@@ -83,7 +82,7 @@ namespace UI.Panels.Menu
 
         private void Clear()
         {
-            foreach (var element in _leaderBoardElements)
+            foreach (LeaderBoardElement element in _leaderBoardElements)
                 Destroy(element.gameObject);
 
             _leaderBoardElements.Clear();

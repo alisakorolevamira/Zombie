@@ -19,8 +19,8 @@ namespace UI
         private void Start()
         {
             _playerMoneyService = AllServices.Container.Single<IPlayerMoneyService>();
+            
             OnMoneyChanged();
-
             _playerMoneyService.MoneyChanged += OnMoneyChanged;
         }
 

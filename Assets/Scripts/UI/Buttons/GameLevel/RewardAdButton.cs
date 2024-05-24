@@ -38,6 +38,7 @@ namespace UI.Buttons.GameLevel
         private void OnButtonClick()
         {
             _rewardButton.interactable = false;
+            
             VideoAd.Show(OnOpenCallBack, OnRewardCallBack, OnCloseCallBack);
         }
 
@@ -52,6 +53,7 @@ namespace UI.Buttons.GameLevel
         private void OnCloseCallBack()
         {
             _rewardButton.interactable = true;
+            
             _timeScaleService.Continue();
             _audioService.ChangeAudioByAd(false);
         }

@@ -8,6 +8,6 @@ namespace Architecture.Factory
     {
         GameObject SpawnCitizen(SpawnPoint spawnPoint, string path);
         GameObject SpawnObject(string path);
-        GameObject SpawnZombie(GameObject prefab);
+        void SpawnZombie(GameObject prefab);
     }
 }

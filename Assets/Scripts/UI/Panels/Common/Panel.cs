@@ -19,7 +19,7 @@ namespace UI.Panels.Common
 
             if (_buttons != null)
             {
-                foreach (var button in _buttons)
+                foreach (Button button in _buttons)
                     button.interactable = true;
             }
 
@@ -34,7 +34,7 @@ namespace UI.Panels.Common
 
             if (_buttons != null)
             {
-                foreach (var button in _buttons)
+                foreach (Button button in _buttons)
                     button.interactable = false;
             }
 

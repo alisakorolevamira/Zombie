@@ -1,7 +1,6 @@
 using Agava.YandexGames;
 using Architecture.Services;
 using Architecture.ServicesInterfaces.TimeScaleAndAudio;
-using Constants.UI;
 using UnityEngine;
 using UnityEngine.UI;
 

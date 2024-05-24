@@ -19,8 +19,8 @@ namespace UI
         private void Start()
         {
             _playerScoreService = AllServices.Container.Single<IPlayerScoreService>();
+            
             OnScoreChanged();
-
             _playerScoreService.ScoreChanged += OnScoreChanged;
         }
 

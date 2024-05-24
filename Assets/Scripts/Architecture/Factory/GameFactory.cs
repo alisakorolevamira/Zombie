@@ -19,9 +19,9 @@ namespace Architecture.Factory
             return Object.Instantiate(objectPrefab, objectPrefab.transform.position, objectPrefab.transform.rotation);
         }
 
-        public GameObject SpawnZombie(GameObject prefab)
+        public void SpawnZombie(GameObject prefab)
         {
-            return Object.Instantiate(prefab, prefab.transform.position, prefab.transform.rotation);
+            Object.Instantiate(prefab, prefab.transform.position, prefab.transform.rotation);
         }
     }
 }

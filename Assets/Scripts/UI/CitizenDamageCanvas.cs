@@ -35,7 +35,6 @@ namespace UI
         private void ChangeTextColor()
         {
             _lerpIndex += UIConstants.LerpStep;
-
             _text.color = Color.Lerp(_greenColor, Color.red, _lerpIndex);
         }
     }

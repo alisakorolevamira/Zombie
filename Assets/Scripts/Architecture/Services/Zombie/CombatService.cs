@@ -40,7 +40,7 @@ namespace Architecture.Services.Zombie
 
         public void ApplyDamage(int damage)
         {
-            foreach (var citizen in _citizens.ToArray())
+            foreach (Citizen citizen in _citizens.ToArray())
             {
                 if (citizen != null)
                     citizen.TakeDamage(damage);

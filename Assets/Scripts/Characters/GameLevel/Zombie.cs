@@ -42,17 +42,19 @@ namespace Characters.GameLevel
 
         private IEnumerator ApplyDamage()
         {
-            while (!IsDead)
+            while (IsDead == false)
             {
                 if (_combatService.CitizenCount != CitizenConstants.MinimumNumberOfCitizens)
                 {
                     _animator.SetTrigger(ZombieConstants.Hit);
+                    WaitForSeconds animationTime = new WaitForSeconds(ZombieConstants.AnimationTime);
 
-                    yield return new WaitForSeconds(ZombieConstants.AnimationTime);
+                    yield return animationTime;
 
                     _combatService.ApplyDamage(_damage);
+                    WaitForSeconds damageTime = new WaitForSeconds(ZombieConstants.DamageWaitingTime);
 
-                    yield return new WaitForSeconds(ZombieConstants.DamageWaitingTime);
+                    yield return damageTime;
                 }
 
                 else
@@ -73,7 +75,6 @@ namespace Characters.GameLevel
         private void OnDied()
         {
             IsDead = true;
-
             _deathEffect.Play();
 
             if (_healthService != null)

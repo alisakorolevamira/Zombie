@@ -66,7 +66,7 @@ namespace Spawner
         {
             if (Citizens.Count != CitizenConstants.MinimumNumberOfCitizens)
             {
-                foreach (var citizen in Citizens)
+                foreach (Citizen citizen in Citizens)
                     citizen.Died -= RemoveDeadCitizen;
             }
 

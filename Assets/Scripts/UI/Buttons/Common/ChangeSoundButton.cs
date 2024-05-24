@@ -32,6 +32,7 @@ namespace UI.Buttons.Common
         private void Start()
         {
             _audioService = AllServices.Container.Single<IAudioService>();
+            
             _audioService.VolumeChanged += OnVolumeChanged;
         }
 

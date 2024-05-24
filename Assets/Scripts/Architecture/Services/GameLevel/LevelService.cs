@@ -23,7 +23,7 @@ namespace Architecture.Services.GameLevel
 
             foreach (LevelSO levelSO in _levelsSO)
             {
-                Architecture.GameLevel.Level level = new(levelSO.MediumScore, levelSO.HighScore, levelSO.Name,
+                Level level = new(levelSO.MediumScore, levelSO.HighScore, levelSO.Name,
                     levelSO.Id, levelSO.IsAvailable, levelSO.Zombie, this);
 
                 Levels.Add(level);
@@ -44,6 +44,7 @@ namespace Architecture.Services.GameLevel
             if (activeLevel != null && activeLevel.Id != LevelConstants.MaximumNumberOfLevels)
             {
                 Level nextLevel = FindLevelById(activeLevel.Id + LevelConstants.IndexCoefficient);
+                
                 return nextLevel.Name;
             }
 

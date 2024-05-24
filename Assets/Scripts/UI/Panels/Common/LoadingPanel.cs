@@ -16,6 +16,7 @@ namespace UI.Panels.Common
         public override void Open()
         {
             base.Open();
+            
             IsClosed = false;
         }
 
@@ -29,8 +30,9 @@ namespace UI.Panels.Common
             while (_canvasGroup.alpha > UIConstants.InvisibleAlfaIndex)
             {
                 _canvasGroup.alpha -= UIConstants.FadeCoefficient;
+                WaitForSeconds fadeTime = new WaitForSeconds(UIConstants.FadeTime);
 
-                yield return new WaitForSeconds(UIConstants.FadeTime);
+                yield return fadeTime;
             }
 
             _canvasGroup.blocksRaycasts = false;

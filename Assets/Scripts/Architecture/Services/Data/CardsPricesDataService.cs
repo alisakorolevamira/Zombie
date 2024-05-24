@@ -34,13 +34,13 @@ namespace Architecture.Services.Data
         public void ResetData()
         {
             PlayerPrefs.DeleteKey(CardsConstants.Key);
-
             SetNewData();
         }
 
         public void SaveData()
         {
             _file = JsonUtility.ToJson(CardsPricesProgress);
+            
             PlayerPrefs.SetString(CardsConstants.Key, _file);
         }
 

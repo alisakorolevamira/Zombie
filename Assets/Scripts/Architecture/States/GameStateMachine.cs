@@ -23,9 +23,14 @@ namespace Architecture.States
             _states = new Dictionary<Type, IExitableState>
             {
                 [typeof(BootstrapState)] = new BootstrapState(this, sceneLoader, services, audioSource),
-                [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader, services.Single<IUIPanelService>(), 
-                services.Single<ISpawnerService>()),
-                [typeof(LoadProgressState)] = new LoadProgressState(this, services.Single<ISaveLoadService>()),
+                [typeof(LoadLevelState)] = new LoadLevelState(
+                    this,
+                    sceneLoader,
+                    services.Single<IUIPanelService>(),
+                    services.Single<ISpawnerService>()),
+                [typeof(LoadProgressState)] = new LoadProgressState(
+                    this,
+                    services.Single<ISaveLoadService>()),
                 [typeof(GameLoopState)] = new GameLoopState(coroutineRunner, services.Single<IUIPanelService>())
             };
         }

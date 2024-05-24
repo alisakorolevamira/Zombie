@@ -45,12 +45,13 @@ namespace UI.Buttons.Menu
         {
             _starsView.RemoveAllStars();
 
-            if (_level.IsAvailable == true)
+            if (_level.IsAvailable)
             {
                 SetStars();
 
                 _text.gameObject.SetActive(true);
                 _lock.gameObject.SetActive(false);
+                
                 _button.interactable = true;
             }
 
@@ -58,6 +59,7 @@ namespace UI.Buttons.Menu
             {
                 _text.gameObject.SetActive(false);
                 _lock.gameObject.SetActive(true);
+                
                 _button.interactable = false;
             }
         }

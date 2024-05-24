@@ -33,7 +33,7 @@ namespace Architecture.LeaderBoard
                 _leaderBoardPanel.ErrorPanel.Open();
                 _leaderBoardPanel.Close();
 
-                task.TrySetException(new System.Exception(error));
+                task.TrySetException(new Exception(error));
             });
 
             try
@@ -41,6 +41,7 @@ namespace Architecture.LeaderBoard
                 await task.Task;
                 await Fill();
             }
+            
             catch(OperationCanceledException exception)
             {
                 Debug.LogWarning($"{nameof(exception)}");
@@ -58,11 +59,11 @@ namespace Architecture.LeaderBoard
 
             Leaderboard.GetEntries(LeaderBoardConstants.LeaderBoardName, (result) =>
             {
-                foreach (var entry in result.entries)
+                foreach (LeaderboardEntryResponse entry in result.entries)
                 {
-                    var rank = entry.rank;
-                    var score = entry.score;
-                    var name = entry.player.publicName;
+                    int rank = entry.rank;
+                    int score = entry.score;
+                    string name = entry.player.publicName;
             
                     if (string.IsNullOrEmpty(name))
                         name = LeaderBoardConstants.AnonymousName;
@@ -77,8 +78,6 @@ namespace Architecture.LeaderBoard
             {
                 _leaderBoardPanel.ErrorPanel.Open();
                 _leaderBoardPanel.Close();
-
-                return;
             });
 
             await task.Task;

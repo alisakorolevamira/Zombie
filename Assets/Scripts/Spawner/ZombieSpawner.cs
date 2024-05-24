@@ -1,4 +1,5 @@
 using Architecture.Factory;
+using Architecture.GameLevel;
 using Architecture.Services;
 using Architecture.ServicesInterfaces.GameLevel;
 using UnityEngine;
@@ -16,10 +17,10 @@ namespace Spawner
             _sceneService = AllServices.Container.Single<ILevelService>();
         }
 
-        public void CreateZombie(string sceneName)
+        public void CreateZombie(string levelName)
         {
-            var scene = _sceneService.FindLevelByName(sceneName);
-            _factory.SpawnZombie(scene.Zombie);
+            Level level = _sceneService.FindLevelByName(levelName);
+            _factory.SpawnZombie(level.Zombie);
         }
     }
 }

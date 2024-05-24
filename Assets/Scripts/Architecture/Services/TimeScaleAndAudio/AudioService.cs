@@ -52,14 +52,14 @@ namespace Architecture.Services.TimeScaleAndAudio
 
             if (isAdOn)
             {
-                Pause();
                 _isAdChangedAudio = true;
+                Pause();
             }
 
             else
             {
-                Continue();
                 _isAdChangedAudio = false;
+                Continue();
             }
         }
 
@@ -92,15 +92,17 @@ namespace Architecture.Services.TimeScaleAndAudio
 
         private void Pause()
         {
-            _audioSource.Pause();
             IsPaused = true;
+            
+            _audioSource.Pause();
             VolumeChanged?.Invoke(IsPaused);
         }
 
         private void Continue()
         {
-            _audioSource.Play();
             IsPaused = false;
+            
+            _audioSource.Play();
             VolumeChanged?.Invoke(IsPaused);
         }
         
