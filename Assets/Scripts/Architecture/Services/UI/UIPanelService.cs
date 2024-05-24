@@ -22,7 +22,7 @@ namespace Architecture.Services.UI
             _gameFactory = gameFactory;
         }
 
-        public GameStateMachine StateMachine { get; private set; }
+        public GameStateMachine StateMachine { get; }
         public LoadingPanel LoadingPanel { get; private set; }
 
         public T GetCard<T>() where T : Panel

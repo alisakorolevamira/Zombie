@@ -7,7 +7,7 @@ namespace Architecture.ServicesInterfaces.GameLevel
     public interface ILevelService : IService
     {
         event Action<Level> LevelAvailable;
-        event Action<Level> LevelComplited;
+        event Action<Level> LevelCompleted;
 
         List<Level> Levels { get; }
 

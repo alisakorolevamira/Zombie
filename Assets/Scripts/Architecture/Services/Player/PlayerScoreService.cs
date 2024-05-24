@@ -19,7 +19,6 @@ namespace Architecture.Services.Player
                 return;
 
             Score += value;
-
             ScoreChanged?.Invoke();
         }
     }

@@ -28,11 +28,11 @@ namespace Architecture.GameLevel
         }
 
         public string Name { get; private set; }
-        public int Id { get; private set; }
+        public int Id { get; }
         public int AmountOfStars { get; private set; }
         public GameObject Zombie { get; private set; }
         public bool IsAvailable { get; private set; }
-        public bool IsComplited { get; private set; }
+        public bool IsCompleted { get; private set; }
 
         public void Initialize(LevelProgress levelProgress)
         {
@@ -48,20 +48,12 @@ namespace Architecture.GameLevel
                 IsAvailable = true;
 
             if (AmountOfStars > StarsConstants.DefaultAmountOfStars)
-                IsComplited = true;
-        }
-
-        public void ResetProgress()
-        {
-            IsComplited = false;
-            AmountOfStars = StarsConstants.DefaultAmountOfStars;
-
-            AddListener();
+                IsCompleted = true;
         }
 
         private void AddListener()
         {
-            _levelService.LevelComplited += OnSceneComplited;
+            _levelService.LevelCompleted += OnSceneCompleted;
             _levelService.LevelAvailable += OnSceneAvailable;
         }
 
@@ -85,12 +77,12 @@ namespace Architecture.GameLevel
             }
         }
 
-        private void OnSceneComplited(Level level)
+        private void OnSceneCompleted(Level level)
         {
             if (level == this)
             {
-                IsComplited = true;
-                _levelService.LevelComplited -= OnSceneComplited;
+                IsCompleted = true;
+                _levelService.LevelCompleted -= OnSceneCompleted;
 
                 SetRate();
             }

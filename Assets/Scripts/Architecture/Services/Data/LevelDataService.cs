@@ -30,8 +30,10 @@ namespace Architecture.Services.Data
                 string key = LevelConstants.Key + level.Id;
                 _file = PlayerPrefs.GetString(key, string.Empty);
 
-                LevelProgress progress = new();
-                progress.Id = level.Id;
+                LevelProgress progress = new()
+                {
+                    Id = level.Id
+                };
 
                 if (_file == string.Empty)
                     SetNewData(progress);

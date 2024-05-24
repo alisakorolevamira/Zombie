@@ -64,7 +64,7 @@ namespace UI.Buttons.Menu
 
         private void SetStars()
         {
-            if (_level.IsComplited)
+            if (_level.IsCompleted)
                 _starsView.AddStars(_level.AmountOfStars);
         }
     }

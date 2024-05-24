@@ -12,10 +12,10 @@ namespace Architecture.Services.GameLevel
     {
         private List<LevelSO> _levelsSO;
 
-        public event Action<Architecture.GameLevel.Level> LevelAvailable;
-        public event Action<Architecture.GameLevel.Level> LevelComplited;
+        public event Action<Level> LevelAvailable;
+        public event Action<Level> LevelCompleted;
 
-        public List<Architecture.GameLevel.Level> Levels { get; private set; } = new();
+        public List<Level> Levels { get; } = new();
 
         public void Initialize()
         {
@@ -23,48 +23,47 @@ namespace Architecture.Services.GameLevel
 
             foreach (LevelSO levelSO in _levelsSO)
             {
-                Architecture.GameLevel.Level level = new(levelSO.MeduimScore, levelSO.HighScore, levelSO.Name,
+                Architecture.GameLevel.Level level = new(levelSO.MediumScore, levelSO.HighScore, levelSO.Name,
                     levelSO.Id, levelSO.IsAvailable, levelSO.Zombie, this);
 
                 Levels.Add(level);
             }
         }
 
-        public Architecture.GameLevel.Level FindLevelByName(string levelName)
+        public Level FindLevelByName(string levelName)
         {
-            Architecture.GameLevel.Level level = Levels.Find(x => x.Name == levelName);
+            Level level = Levels.Find(x => x.Name == levelName);
 
             return level;
         }
 
         public string FindNextLevel(string activeLevelName)
         {
-            Architecture.GameLevel.Level activeLevel = FindLevelByName(activeLevelName);
+            Level activeLevel = FindLevelByName(activeLevelName);
 
             if (activeLevel != null && activeLevel.Id != LevelConstants.MaximumNumberOfLevels)
             {
-                Architecture.GameLevel.Level nextLevel = FindLevelById(activeLevel.Id + LevelConstants.IndexCoefficient);
+                Level nextLevel = FindLevelById(activeLevel.Id + LevelConstants.IndexCoefficient);
                 return nextLevel.Name;
             }
 
-            else
-                return LevelConstants.Menu;
+            return LevelConstants.Menu;
         }
 
-        public void LevelComplete(Architecture.GameLevel.Level level)
+        public void LevelComplete(Level level)
         {
             string nextLevelName = FindNextLevel(level.Name);
-            Architecture.GameLevel.Level nextLevel = FindLevelByName(nextLevelName);
+            Level nextLevel = FindLevelByName(nextLevelName);
 
-            LevelComplited?.Invoke(level);
+            LevelCompleted?.Invoke(level);
 
             if(nextLevel != null)
                 LevelAvailable?.Invoke(nextLevel);
         }
 
-        private Architecture.GameLevel.Level FindLevelById(int id)
+        private Level FindLevelById(int id)
         {
-            Architecture.GameLevel.Level level = Levels.Find(x => x.Id == id);
+            Level level = Levels.Find(x => x.Id == id);
 
             return level;
         }

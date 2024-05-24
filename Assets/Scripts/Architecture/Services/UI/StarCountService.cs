@@ -15,12 +15,12 @@ namespace Architecture.Services.UI
             _playerScoreService = playerScoreService;
         }
 
-        public int CountStars(int meduimScore, int highScore)
+        public int CountStars(int mediumScore, int highScore)
         {
             if (_playerScoreService.Score >= highScore)
                 _stars = StarsConstants.MaximumRateAmountOfStars;
 
-            else if (_playerScoreService.Score >= meduimScore && _playerScoreService.Score < highScore)
+            else if (_playerScoreService.Score >= mediumScore && _playerScoreService.Score < highScore)
                 _stars = StarsConstants.MediumRateAmountOfStars;
 
             else

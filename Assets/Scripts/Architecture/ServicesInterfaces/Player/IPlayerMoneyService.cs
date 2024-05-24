@@ -10,7 +10,6 @@ namespace Architecture.ServicesInterfaces.Player
         int Money { get; }
 
         void Initialize(PlayerProgress playerProgress);
-        bool IsEnoughMoney(int value);
         void AddMoney(int value);
         void SpendMoney(int value);
     }

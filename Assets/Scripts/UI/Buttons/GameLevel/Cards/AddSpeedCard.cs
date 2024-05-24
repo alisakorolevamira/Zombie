@@ -37,8 +37,8 @@ namespace UI.Buttons.GameLevel.Cards
             {
                 CardBought?.Invoke(Price);
 
-                foreach (var sitizen in _citizenSpawner.Citizens)
-                    sitizen.AddSpeed();
+                foreach (var citizen in _citizenSpawner.Citizens)
+                    citizen.AddSpeed();
 
                 Price *= CardsConstants.CoefficientOfIncreasingPrice;
                 _priceText.text = Price.ToString();

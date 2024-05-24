@@ -6,33 +6,24 @@ namespace Architecture.Services.TimeScaleAndAudio
 {
     public class TimeScaleService : ITimeScaleService
     {
-        public bool IsGameStopped { get; private set; }
-        
-        public void ChangeTimeScale(bool value)
-        {
-            if (value && !IsGameStopped)
-                Time.timeScale = GameTimeScaleConstants.StartGameIndex;
-
-            else
-                Time.timeScale = GameTimeScaleConstants.StopGameIndex;
-        }
+        private bool _isGameStopped;
 
         public void Pause()
         {
-            if (IsGameStopped)
+            if (_isGameStopped)
                 return;
             
             Time.timeScale = GameTimeScaleConstants.StopGameIndex;
-            IsGameStopped = true;
+            _isGameStopped = true;
         }
 
         public void Continue()
         {
-            if (IsGameStopped == false)
+            if (_isGameStopped == false)
                 return;
             
             Time.timeScale = GameTimeScaleConstants.StartGameIndex;
-            IsGameStopped = false;
+            _isGameStopped = false;
         }
     }
 }

@@ -59,7 +59,7 @@ namespace UI.Panels.Menu
             }
         }
 
-        public async override void Open()
+        public override async void Open()
         {
             base.Open();
 

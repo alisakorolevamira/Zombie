@@ -66,8 +66,8 @@ namespace Spawner
         {
             if (Citizens.Count != CitizenConstants.MinimumNumberOfCitizens)
             {
-                foreach (var sitizen in Citizens)
-                    sitizen.Died -= RemoveDeadCitizen;
+                foreach (var citizen in Citizens)
+                    citizen.Died -= RemoveDeadCitizen;
             }
 
             if (_addCitizenCard != null && _mergeCard != null)

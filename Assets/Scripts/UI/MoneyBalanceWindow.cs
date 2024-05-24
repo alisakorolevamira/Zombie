@@ -24,9 +24,6 @@ namespace UI
             _playerMoneyService.MoneyChanged += OnMoneyChanged;
         }
 
-        private void OnMoneyChanged()
-        {
-            _money.text = _playerMoneyService.Money.ToString();
-        }
+        private void OnMoneyChanged() => _money.text = _playerMoneyService.Money.ToString();
     }
 }

@@ -24,9 +24,6 @@ namespace UI
             _playerScoreService.ScoreChanged += OnScoreChanged;
         }
 
-        private void OnScoreChanged()
-        {
-            _score.text = _playerScoreService.Score.ToString();
-        }
+        private void OnScoreChanged() => _score.text = _playerScoreService.Score.ToString();
     }
 }

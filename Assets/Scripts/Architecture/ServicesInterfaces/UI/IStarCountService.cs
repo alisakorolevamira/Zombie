@@ -2,6 +2,6 @@
 {
     public interface IStarCountService : IService
     {
-        int CountStars(int meduimScore, int highScore);
+        int CountStars(int mediumScore, int highScore);
     }
 }
