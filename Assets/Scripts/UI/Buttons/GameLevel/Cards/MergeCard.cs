@@ -58,7 +58,6 @@ namespace UI.Buttons.GameLevel.Cards
 
             if (_playerMoneyService.Money >= Price && firstLevelCitizens.Count >= CardsConstants.RequiredNumberOfCitizensForMerge)
                 _image.DOColor(Color.green, CardsConstants.TimeOfChangingColor);
-
             else
                 base.ChangeColor();
         }

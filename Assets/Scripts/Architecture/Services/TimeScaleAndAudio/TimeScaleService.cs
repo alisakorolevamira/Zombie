@@ -12,7 +12,7 @@ namespace Architecture.Services.TimeScaleAndAudio
         {
             if (_isGameStopped)
                 return;
-            
+
             Time.timeScale = GameTimeScaleConstants.StopGameIndex;
             _isGameStopped = true;
         }
@@ -21,7 +21,7 @@ namespace Architecture.Services.TimeScaleAndAudio
         {
             if (_isGameStopped == false)
                 return;
-            
+
             Time.timeScale = GameTimeScaleConstants.StartGameIndex;
             _isGameStopped = false;
         }

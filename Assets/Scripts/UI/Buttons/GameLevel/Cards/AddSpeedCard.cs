@@ -52,7 +52,6 @@ namespace UI.Buttons.GameLevel.Cards
         {
             if (_playerMoneyService.Money >= Price)
                 _image.DOColor(Color.green, CardsConstants.TimeOfChangingColor);
-
             else
                 base.ChangeColor();
         }

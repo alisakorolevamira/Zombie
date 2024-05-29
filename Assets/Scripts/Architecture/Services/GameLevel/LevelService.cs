@@ -15,7 +15,7 @@ namespace Architecture.Services.GameLevel
         public event Action<Level> LevelAvailable;
         public event Action<Level> LevelCompleted;
 
-        public List<Level> Levels { get; } = new();
+        public List<Level> Levels { get; } = new ();
 
         public void Initialize()
         {
@@ -23,7 +23,7 @@ namespace Architecture.Services.GameLevel
 
             foreach (LevelSO levelSO in _levelsSO)
             {
-                Level level = new(levelSO.MediumScore, levelSO.HighScore, levelSO.Name,
+                Level level = new (levelSO.MediumScore, levelSO.HighScore, levelSO.Name,
                     levelSO.Id, levelSO.IsAvailable, levelSO.Zombie, this);
 
                 Levels.Add(level);
@@ -44,7 +44,6 @@ namespace Architecture.Services.GameLevel
             if (activeLevel != null && activeLevel.Id != LevelConstants.MaximumNumberOfLevels)
             {
                 Level nextLevel = FindLevelById(activeLevel.Id + LevelConstants.IndexCoefficient);
-                
                 return nextLevel.Name;
             }
 
@@ -58,7 +57,7 @@ namespace Architecture.Services.GameLevel
 
             LevelCompleted?.Invoke(level);
 
-            if(nextLevel != null)
+            if (nextLevel != null)
                 LevelAvailable?.Invoke(nextLevel);
         }
 

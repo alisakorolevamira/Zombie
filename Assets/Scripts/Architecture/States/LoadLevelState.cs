@@ -15,9 +15,11 @@ namespace Architecture.States
         private string _sceneName;
 
         private Action _sceneLoaded;
-        
 
-        public LoadLevelState(GameStateMachine gameStateMachine, SceneLoader sceneLoader, IUIPanelService panelService,
+        public LoadLevelState(
+            GameStateMachine gameStateMachine,
+            SceneLoader sceneLoader,
+            IUIPanelService panelService,
             ISpawnerService spawnerService)
         {
             _gameStateMachine = gameStateMachine;
@@ -35,7 +37,7 @@ namespace Architecture.States
 
             _sceneLoaded += OnLoaded;
             _sceneName = sceneName;
-            
+
             _sceneLoader.Load(sceneName, _sceneLoaded);
         }
 
@@ -48,7 +50,7 @@ namespace Architecture.States
         {
             _panelService.CreateCanvas(_sceneName);
             _sceneLoaded -= OnLoaded;
-            
+
             _gameStateMachine.Enter<GameLoopState>();
         }
 

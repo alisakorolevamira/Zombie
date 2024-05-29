@@ -34,7 +34,7 @@ namespace UI.Buttons.GameLevel.Cards
             {
                 CardBought?.Invoke(Price);
                 _zombieRewardService.DoubleReward();
-                
+
                 Price *= CardsConstants.CoefficientOfIncreasingPrice;
                 _priceText.text = Price.ToString();
 
@@ -46,7 +46,6 @@ namespace UI.Buttons.GameLevel.Cards
         {
             if (_playerMoneyService.Money >= Price)
                 _image.DOColor(Color.green, CardsConstants.TimeOfChangingColor);
-
             else
                 base.ChangeColor();
         }

@@ -24,7 +24,6 @@ namespace UI.Buttons.Menu
         {
             if (PlayerAccount.IsAuthorized)
                 _alreadyAuthorizedPanel.Open();
-
             else
                 PlayerAccount.Authorize();
         }

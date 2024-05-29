@@ -34,7 +34,6 @@ namespace UI.Buttons.GameLevel.Cards
             _priceText.text = Price.ToString();
 
             _citizenSpawner.NumberOfCitizensChanged += ChangeColor;
-
         }
 
         private protected override void OnButtonClicked()
@@ -53,10 +52,8 @@ namespace UI.Buttons.GameLevel.Cards
 
         private protected override void ChangeColor()
         {
-
             if (_playerMoneyService.Money >= Price && _citizenSpawner.CheckAmountOfCitizens())
                 _image.DOColor(Color.green, CardsConstants.TimeOfChangingColor);
-
             else
                 base.ChangeColor();
         }

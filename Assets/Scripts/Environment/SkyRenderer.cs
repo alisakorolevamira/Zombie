@@ -5,7 +5,7 @@ namespace Environment
     public class SkyRenderer : MonoBehaviour
     {
         private readonly int yOffset = 0;
-        
+
         [SerializeField] private Renderer _renderer;
         [SerializeField] private float _offset;
 

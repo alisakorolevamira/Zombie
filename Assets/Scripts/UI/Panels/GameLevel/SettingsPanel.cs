@@ -40,7 +40,7 @@ namespace UI.Panels.GameLevel
         public override void Open()
         {
             base.Open();
-            
+
             _timeScaleService.Pause();
         }
 

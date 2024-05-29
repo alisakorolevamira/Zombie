@@ -13,7 +13,7 @@ namespace Spawner
 {
     public class CitizenSpawner : MonoBehaviour
     {
-        public readonly List<Citizen> Citizens = new();
+        public readonly List<Citizen> Citizens = new ();
 
         [SerializeField] private SpawnPoint[] _spawnPoints;
 

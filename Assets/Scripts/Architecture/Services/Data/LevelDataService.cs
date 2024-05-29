@@ -1,17 +1,17 @@
-using System.Collections.Generic;
 using Architecture.ServicesInterfaces.Data;
 using Architecture.ServicesInterfaces.GameLevel;
 using Architecture.GameLevel;
 using Constants;
 using Constants.UI;
 using Progress;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Architecture.Services.Data
 {
     public class LevelDataService : ILevelDataService
     {
-        private readonly List<LevelProgress> _levelProgresses = new();
+        private readonly List<LevelProgress> _levelProgresses = new ();
         private readonly ILevelService _levelService;
 
         private string _file;
@@ -30,14 +30,13 @@ namespace Architecture.Services.Data
                 string key = LevelConstants.Key + level.Id;
                 _file = PlayerPrefs.GetString(key, string.Empty);
 
-                LevelProgress progress = new()
+                LevelProgress progress = new ()
                 {
                     Id = level.Id
                 };
 
                 if (_file == string.Empty)
                     SetNewData(progress);
-
                 else
                     progress = JsonUtility.FromJson<LevelProgress>(_file);
 

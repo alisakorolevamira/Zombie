@@ -22,7 +22,7 @@ namespace Architecture.Services.TimeScaleAndAudio
 
             OnInBackgroundChangeWeb(WebApplication.InBackground);
             OnInBackgroundChangeApp(Application.isFocused);
-            
+
             Application.focusChanged += OnInBackgroundChangeApp;
             WebApplication.InBackgroundChangeEvent += OnInBackgroundChangeWeb;
         }
@@ -31,19 +31,18 @@ namespace Architecture.Services.TimeScaleAndAudio
         {
             if (WebApplication.IsRunningOnWebGL == false)
                 return;
-            
+
             Application.focusChanged -= OnInBackgroundChangeApp;
             WebApplication.InBackgroundChangeEvent -= OnInBackgroundChangeWeb;
         }
-        
+
         private void OnInBackgroundChangeApp(bool inApp)
         {
             if (inApp == false)
                 _timeScaleService.Pause();
-
             else
                 _timeScaleService.Continue();
-            
+
             _audioService.ChangeAudioByFocus(inApp);
         }
 
@@ -51,10 +50,9 @@ namespace Architecture.Services.TimeScaleAndAudio
         {
             if (isBackground)
                 _timeScaleService.Pause();
-
             else
                 _timeScaleService.Continue();
-            
+
             _audioService.ChangeAudioByFocus(!isBackground);
         }
     }

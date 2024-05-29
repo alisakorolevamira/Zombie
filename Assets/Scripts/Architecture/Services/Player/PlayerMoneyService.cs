@@ -26,7 +26,7 @@ namespace Architecture.Services.Player
         {
             if (Money < value)
                 return;
-            
+
             Money -= value;
             MoneyChanged?.Invoke();
         }

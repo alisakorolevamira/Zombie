@@ -15,7 +15,7 @@ namespace UI.Panels.Menu
 
     public class LeaderBoardPanel : Panel
     {
-        private readonly List<LeaderBoardElement> _leaderBoardElements = new();
+        private readonly List<LeaderBoardElement> _leaderBoardElements = new ();
 
         [SerializeField] private LeaderBoardElement _leaderBoardElementPrefab;
         [SerializeField] private Transform _container;
@@ -26,7 +26,7 @@ namespace UI.Panels.Menu
 
         private IPlayerDataService _playerDataService;
         [field: SerializeField] public Panel ErrorPanel { get; private set; }
-        
+
         private void OnEnable()
         {
             _leaderBoardButton.onClick.AddListener(Open);
@@ -47,7 +47,7 @@ namespace UI.Panels.Menu
         public void ConstractLeaderBoard(List<LeaderBoardPlayer> leaderBoardPlayers)
         {
             Clear();
-            
+
             foreach (LeaderBoardPlayer player in leaderBoardPlayers)
             {
                 LeaderBoardElement leaderBoardElement = Instantiate(_leaderBoardElementPrefab, _container);
@@ -69,10 +69,10 @@ namespace UI.Panels.Menu
             if (PlayerAccount.IsAuthorized)
             {
                 PlayerAccount.RequestPersonalProfileDataPermission();
-                
+
                 await _leaderBoard.SetPlayer(_playerDataService.PlayerProgress.Score);
             }
-            
+
             else
             {
                 _unsuccessfulAuthorizationPanel.Open();

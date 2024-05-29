@@ -21,7 +21,7 @@ namespace Architecture.Services.Data
             _playerScoreService = playerScoreService;
         }
 
-        public PlayerProgress PlayerProgress { get; private set; } = new();
+        public PlayerProgress PlayerProgress { get; private set; } = new ();
 
         public void LoadData()
         {
@@ -29,7 +29,6 @@ namespace Architecture.Services.Data
 
             if (_file == string.Empty)
                 SetNewData(LevelConstants.Menu);
-
             else
                 PlayerProgress = JsonUtility.FromJson<PlayerProgress>(_file);
 

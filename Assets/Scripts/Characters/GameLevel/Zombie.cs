@@ -56,7 +56,6 @@ namespace Characters.GameLevel
 
                     yield return damageTime;
                 }
-
                 else
                 {
                     _combatService.AllCitizensDie();
@@ -82,7 +81,7 @@ namespace Characters.GameLevel
                 _healthService.DamageApplied -= OnDamageApplied;
                 _healthService.Died -= OnDied;
             }
-            
+
             Destroy(gameObject);
         }
     }

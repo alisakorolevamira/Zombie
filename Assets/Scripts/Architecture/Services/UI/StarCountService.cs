@@ -19,10 +19,8 @@ namespace Architecture.Services.UI
         {
             if (_playerScoreService.Score >= highScore)
                 _stars = StarsConstants.MaximumRateAmountOfStars;
-
             else if (_playerScoreService.Score >= mediumScore && _playerScoreService.Score < highScore)
                 _stars = StarsConstants.MediumRateAmountOfStars;
-
             else
                 _stars = StarsConstants.MinimumRateAmountOfStars;
 

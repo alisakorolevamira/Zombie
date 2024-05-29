@@ -6,7 +6,7 @@ namespace Architecture.ServicesInterfaces.TimeScaleAndAudio
     public interface IAudioService : IService
     {
         event Action<bool> VolumeChanged;
-        
+
         bool IsPaused { get; }
 
         void ChangeAudioByPlayer();

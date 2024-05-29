@@ -35,9 +35,10 @@ namespace UI.Buttons.Menu
 
         private void ChangeAvailability()
         {
-            if (_playerDataService.PlayerProgress.Level is LevelConstants.Menu or "")
+            if (
+                _playerDataService.PlayerProgress.Level == LevelConstants.Menu ||
+                string.IsNullOrEmpty(_playerDataService.PlayerProgress.Level))
                 _button.interactable = false;
-
             else
                 _button.interactable = true;
         }

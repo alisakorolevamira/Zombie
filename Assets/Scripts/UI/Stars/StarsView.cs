@@ -5,7 +5,7 @@ namespace UI.Stars
 {
     public class StarsView : MonoBehaviour
     {
-        private readonly List<Star> _stars = new();
+        private readonly List<Star> _stars = new ();
 
         [SerializeField] private Transform _container;
         [SerializeField] private GameObject _starPrefab;

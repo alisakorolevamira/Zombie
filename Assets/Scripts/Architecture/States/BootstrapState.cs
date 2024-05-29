@@ -52,12 +52,11 @@ namespace Architecture.States
             combatService.Initialize();
 
             await sdkInitializeService.StartCoroutineAsUniTask();
-            
+
             localizationService.Initialize();
 
             _sceneLoader.Load(LevelConstants.Initial, EnterLoadLevel);
         }
-
 
         public void Exit() { }
 
@@ -65,48 +64,48 @@ namespace Architecture.States
         {
             _services.RegisterSingle<IAudioService>(new AudioService(_audioSource));
             _services.RegisterSingle<ITimeScaleService>(new TimeScaleService());
-            
+
             _services.RegisterSingle<IFocusService>(new FocusService(
                 _services.Single<IAudioService>(),
                 _services.Single<ITimeScaleService>()));
-            
+
             _services.RegisterSingle<ISDKInitializeService>(new SDKInitializeService());
             _services.RegisterSingle<IGameFactory>(new GameFactory());
             _services.RegisterSingle<ILevelService>(new LevelService());
             _services.RegisterSingle<IPlayerMoneyService>(new PlayerMoneyService());
             _services.RegisterSingle<IPlayerScoreService>(new PlayerScoreService());
             _services.RegisterSingle<ILevelDataService>(new LevelDataService(_services.Single<ILevelService>()));
-            
+
             _services.RegisterSingle<IUIPanelService>(new UIPanelService(
                 _gameStateMachine,
                 _services.Single<IGameFactory>()));
-            
+
             _services.RegisterSingle<IPlayerDataService>(new PlayerDataService(
                 _services.Single<IPlayerMoneyService>(),
                 _services.Single<IPlayerScoreService>()));
-            
+
             _services.RegisterSingle<IZombieRewardService>(new ZombieRewardService(
                 _services.Single<IPlayerMoneyService>(),
                 _services.Single<IPlayerScoreService>()));
-            
+
             _services.RegisterSingle<IZombieHealthService>(new ZombieHealthService(_services.Single<IZombieRewardService>()));
-            
+
             _services.RegisterSingle<IZombieDataService>(new ZombieDataService(
                 _services.Single<IZombieHealthService>(),
                 _services.Single<IZombieRewardService>()));
-            
+
             _services.RegisterSingle<ICardsPricesDataService>(new CardsPricesDataService(_services.Single<IUIPanelService>()));
-            
+
             _services.RegisterSingle<ISaveLoadService>(new SaveLoadService(
                 _services.Single<IPlayerDataService>(),
                 _services.Single<IZombieDataService>(),
                 _services.Single<ILevelDataService>(),
                 _services.Single<ICardsPricesDataService>()));
-            
+
             _services.RegisterSingle<ILocalizationService>(new LocalizationService(_services.Single<IGameFactory>()));
             _services.RegisterSingle<ISpawnerService>(new SpawnerService(_services.Single<IGameFactory>()));
             _services.RegisterSingle<IStarCountService>(new StarCountService(_services.Single<IPlayerScoreService>()));
-            
+
             _services.RegisterSingle<ICombatService>(new CombatService(
                 _services.Single<ISpawnerService>(),
                 _services.Single<IZombieHealthService>()));

@@ -11,7 +11,10 @@ namespace Architecture.Services.Data
         private readonly ILevelDataService _levelDataService;
         private readonly ICardsPricesDataService _cardsPricesDataService;
 
-        public SaveLoadService(IPlayerDataService playerDataService, IZombieDataService zombieDataService, ILevelDataService levelDataService,
+        public SaveLoadService(
+            IPlayerDataService playerDataService,
+            IZombieDataService zombieDataService,
+            ILevelDataService levelDataService,
             ICardsPricesDataService cardsPricesDataService)
         {
             _playerDataService = playerDataService;

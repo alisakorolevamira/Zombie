@@ -10,6 +10,7 @@ namespace Architecture.ServicesInterfaces.UI
 
         void Initialize();
         void CreateCanvas(string sceneName);
-        T GetCard<T>() where T : Panel;
+        T GetCard<T>()
+            where T : Panel;
     }
 }

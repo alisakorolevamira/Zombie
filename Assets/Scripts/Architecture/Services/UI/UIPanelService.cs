@@ -25,7 +25,8 @@ namespace Architecture.Services.UI
         public GameStateMachine StateMachine { get; }
         public LoadingPanel LoadingPanel { get; private set; }
 
-        public T GetCard<T>() where T : Panel
+        public T GetCard<T>()
+            where T : Panel
         {
             T panel = _levelPanel.GetComponentInChildren<T>();
 
@@ -39,7 +40,6 @@ namespace Architecture.Services.UI
                 _levelPanel.Close();
                 _menuPanel.Open();
             }
-
             else
             {
                 _menuPanel.Close();

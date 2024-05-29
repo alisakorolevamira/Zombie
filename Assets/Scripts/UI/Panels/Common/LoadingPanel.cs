@@ -7,7 +7,7 @@ namespace UI.Panels.Common
     public class LoadingPanel : Panel
     {
         public bool IsClosed { get; private set; }
-        
+
         private void Awake()
         {
             DontDestroyOnLoad(gameObject);
@@ -16,7 +16,7 @@ namespace UI.Panels.Common
         public override void Open()
         {
             base.Open();
-            
+ 
             IsClosed = false;
         }
 
@@ -39,7 +39,7 @@ namespace UI.Panels.Common
 
             if (_image != null)
                 _image.raycastTarget = false;
-            
+
             IsClosed = true;
         }
     }

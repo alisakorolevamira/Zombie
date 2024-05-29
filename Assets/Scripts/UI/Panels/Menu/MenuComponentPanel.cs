@@ -6,8 +6,8 @@ namespace UI.Panels.Menu
 {
     public class MenuComponentPanel : Panel
     {
-        [SerializeField] private Button [] _openButtons;
-        [SerializeField] private Button [] _closeButtons;
+        [SerializeField] private Button[] _openButtons;
+        [SerializeField] private Button[] _closeButtons;
 
         private void OnEnable()
         {

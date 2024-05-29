@@ -8,7 +8,7 @@ namespace Architecture.States
     {
         private readonly ICoroutineRunner _coroutineRunner;
         private readonly IUIPanelService _panelService;
-        
+
         private bool _isLoaded = false;
 
         public GameLoopState(ICoroutineRunner coroutineRunner, IUIPanelService panelService)
@@ -16,8 +16,8 @@ namespace Architecture.States
             _panelService = panelService;
             _coroutineRunner = coroutineRunner;
         }
-        
-        public void Enter() 
+
+        public void Enter()
         {
             if (_isLoaded)
                 return;
@@ -32,7 +32,7 @@ namespace Architecture.States
         {
             while (!_panelService.LoadingPanel.IsClosed)
                 yield return null;
-            
+
             YandexGamesSdk.GameReady();
         }
     }

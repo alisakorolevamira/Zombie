@@ -28,7 +28,7 @@ namespace UI.Panels.Menu
 
             _panelService = AllServices.Container.Single<IUIPanelService>();
             _gameStateMachine = _panelService.StateMachine;
-            
+
             _backgroundAudio.PlayAudio();
             Opened?.Invoke();
         }
@@ -36,7 +36,7 @@ namespace UI.Panels.Menu
         public override void Close()
         {
             base.Close();
-            
+
             _backgroundAudio.StopAudio();
         }
 

@@ -6,7 +6,7 @@ using UnityEngine;
 namespace UI.Panels.GameLevel
 {
     public class RewardedAdButtonPanel : Panel
-    { 
+    {
         public override void Open()
         {
             StartCoroutine(Fade());
@@ -27,7 +27,7 @@ namespace UI.Panels.GameLevel
 
                 yield return fadeTime;
             }
-            
+
             _canvasGroup.blocksRaycasts = true;
         }
     }

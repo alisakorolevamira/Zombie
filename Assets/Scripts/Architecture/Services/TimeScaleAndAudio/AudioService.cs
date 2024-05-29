@@ -11,8 +11,6 @@ namespace Architecture.Services.TimeScaleAndAudio
         private bool _isAdChangedAudio;
         private bool _isPlayerChangedAudio;
         private bool _isFocusChangedAudio;
-        
-        public event Action<bool> VolumeChanged;
 
         public AudioService(AudioSource audioSource)
         {
@@ -22,6 +20,8 @@ namespace Architecture.Services.TimeScaleAndAudio
             _isPlayerChangedAudio = false;
         }
 
+        public event Action<bool> VolumeChanged;
+
         public bool IsPaused { get; private set; }
 
         public void PlayBackgroundAudio(AudioClip audioClip)
@@ -30,9 +30,8 @@ namespace Architecture.Services.TimeScaleAndAudio
 
             if (_isPlayerChangedAudio || _isAdChangedAudio)
                 return;
-            
-            _audioSource.Play();
 
+            _audioSource.Play();
         }
 
         public void StopBackgroundAudio() => _audioSource.Stop();
@@ -41,7 +40,7 @@ namespace Architecture.Services.TimeScaleAndAudio
         {
             if (_isPlayerChangedAudio || _isAdChangedAudio)
                 return;
-            
+
             _audioSource.PlayOneShot(audioClip);
         }
 
@@ -55,7 +54,6 @@ namespace Architecture.Services.TimeScaleAndAudio
                 _isAdChangedAudio = true;
                 Pause();
             }
-
             else
             {
                 _isAdChangedAudio = false;
@@ -70,7 +68,6 @@ namespace Architecture.Services.TimeScaleAndAudio
                 _isPlayerChangedAudio = true;
                 Pause();
             }
-
             else
             {
                 _isPlayerChangedAudio = false;
@@ -85,7 +82,6 @@ namespace Architecture.Services.TimeScaleAndAudio
 
             if (inApp)
                 Continue();
-
             else
                 Pause();
         }
@@ -93,7 +89,7 @@ namespace Architecture.Services.TimeScaleAndAudio
         private void Pause()
         {
             IsPaused = true;
-            
+
             _audioSource.Pause();
             VolumeChanged?.Invoke(IsPaused);
         }
@@ -101,11 +97,9 @@ namespace Architecture.Services.TimeScaleAndAudio
         private void Continue()
         {
             IsPaused = false;
-            
+
             _audioSource.Play();
             VolumeChanged?.Invoke(IsPaused);
         }
-        
-        
     }
 }

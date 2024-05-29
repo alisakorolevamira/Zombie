@@ -19,7 +19,9 @@ namespace Architecture.LeaderBoard
         {
             var task = new UniTaskCompletionSource();
 
-            Leaderboard.GetPlayerEntry(LeaderBoardConstants.LeaderBoardName, (result) =>
+            Leaderboard.GetPlayerEntry(
+                LeaderBoardConstants.LeaderBoardName,
+                (result) =>
             {
                 if (result.score < score)
                 {
@@ -27,8 +29,8 @@ namespace Architecture.LeaderBoard
                 }
 
                 task.TrySetResult();
-            }, 
-            (error) =>
+            },
+                (error) =>
             {
                 _leaderBoardPanel.ErrorPanel.Open();
                 _leaderBoardPanel.Close();
@@ -41,8 +43,7 @@ namespace Architecture.LeaderBoard
                 await task.Task;
                 await Fill();
             }
-            
-            catch(OperationCanceledException exception)
+            catch (OperationCanceledException exception)
             {
                 Debug.LogWarning($"{nameof(exception)}");
             }
@@ -57,24 +58,25 @@ namespace Architecture.LeaderBoard
 
             var task = new UniTaskCompletionSource();
 
-            Leaderboard.GetEntries(LeaderBoardConstants.LeaderBoardName, (result) =>
+            Leaderboard.GetEntries(
+                LeaderBoardConstants.LeaderBoardName,
+                (result) =>
             {
                 foreach (LeaderboardEntryResponse entry in result.entries)
                 {
                     int rank = entry.rank;
                     int score = entry.score;
                     string name = entry.player.publicName;
-            
+
                     if (string.IsNullOrEmpty(name))
                         name = LeaderBoardConstants.AnonymousName;
-            
+
                     _leaderBoardPlayers.Add(new LeaderBoardPlayer(rank, name, score));
                 }
 
                 task.TrySetResult();
-            
             },
-            (error) =>
+                (error) =>
             {
                 _leaderBoardPanel.ErrorPanel.Open();
                 _leaderBoardPanel.Close();

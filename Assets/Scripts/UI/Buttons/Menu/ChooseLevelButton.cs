@@ -51,15 +51,14 @@ namespace UI.Buttons.Menu
 
                 _text.gameObject.SetActive(true);
                 _lock.gameObject.SetActive(false);
-                
+
                 _button.interactable = true;
             }
-
             else
             {
                 _text.gameObject.SetActive(false);
                 _lock.gameObject.SetActive(true);
-                
+
                 _button.interactable = false;
             }
         }

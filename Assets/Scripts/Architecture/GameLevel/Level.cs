@@ -14,7 +14,13 @@ namespace Architecture.GameLevel
         private readonly int _highScore;
         private readonly ILevelService _levelService;
 
-        public Level(int mediumScore, int highScore, string name, int id, bool isAvailable, GameObject zombie,
+        public Level(
+            int mediumScore,
+            int highScore,
+            string name,
+            int id,
+            bool isAvailable,
+            GameObject zombie,
             ILevelService levelService)
         {
             _mediumScore = mediumScore;
@@ -41,7 +47,6 @@ namespace Architecture.GameLevel
 
             if (levelProgress.IsAvailable.ToLower() == LevelConstants.DefaultAvailability)
                 IsAvailable = false;
-
             else
                 IsAvailable = true;
 

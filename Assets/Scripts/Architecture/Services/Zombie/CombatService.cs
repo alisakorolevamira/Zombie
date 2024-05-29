@@ -8,7 +8,7 @@ namespace Architecture.Services.Zombie
 {
     public class CombatService : ICombatService
     {
-        private readonly List<Citizen> _citizens = new();
+        private readonly List<Citizen> _citizens = new ();
         private readonly ISpawnerService _spawnerService;
         private readonly IZombieHealthService _zombieHealthService;
 

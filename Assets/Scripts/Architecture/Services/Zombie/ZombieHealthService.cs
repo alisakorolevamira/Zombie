@@ -26,7 +26,6 @@ namespace Architecture.Services.Zombie
         {
             if (Health >= damage)
                 Health -= damage;
-
             else
                 Health = ZombieConstants.ZombieMinimumHealth;
 

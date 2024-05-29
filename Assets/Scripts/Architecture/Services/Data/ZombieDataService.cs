@@ -12,7 +12,7 @@ namespace Architecture.Services.Data
         private readonly IZombieRewardService _zombieRewardService;
 
         private string _file;
-        private ZombieProgress _zombieProgress = new();
+        private ZombieProgress _zombieProgress = new ();
 
         public ZombieDataService(IZombieHealthService zombieHealthService, IZombieRewardService zombieRewardService)
         {
@@ -26,7 +26,6 @@ namespace Architecture.Services.Data
 
             if (_file == string.Empty)
                 SetNewData();
-
             else
                 _zombieProgress = JsonUtility.FromJson<ZombieProgress>(_file);
 

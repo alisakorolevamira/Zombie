@@ -18,7 +18,7 @@ namespace Architecture.Services.Data
             _panelService = panelService;
         }
 
-        public CardsPricesProgress CardsPricesProgress { get; private set; } = new();
+        public CardsPricesProgress CardsPricesProgress { get; private set; } = new ();
 
         public void LoadData()
         {
@@ -26,7 +26,6 @@ namespace Architecture.Services.Data
 
             if (_file == string.Empty)
                 SetNewData();
-
             else
                 CardsPricesProgress = JsonUtility.FromJson<CardsPricesProgress>(_file);
         }
@@ -40,7 +39,7 @@ namespace Architecture.Services.Data
         public void SaveData()
         {
             _file = JsonUtility.ToJson(CardsPricesProgress);
-            
+
             PlayerPrefs.SetString(CardsConstants.Key, _file);
         }
 
